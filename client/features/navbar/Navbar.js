@@ -31,6 +31,7 @@ const Navbar = () => {
             <Link to="/signup">Sign Up</Link>
             <Link to="/events">Events</Link>
             <Link to="/events/add">Add Event</Link>
+            <Link to="/resources"> Resources</Link>
             <Link to="/admin">Admin</Link>
           </div>
         )}

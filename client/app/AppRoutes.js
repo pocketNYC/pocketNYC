@@ -8,6 +8,8 @@ import Events from "../features/events/Events";
 import AddEvent from "../features/events/AddEvent";
 import Admin from "../features/admin/Admin";
 import Error from "../features/error/Error";
+import AllResources from "../features/resources/AllResources";
+import SingleResource from "../features/resources/SingleResource";
 
 /**
  * COMPONENT
