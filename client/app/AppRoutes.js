@@ -8,6 +8,8 @@ import Events from "../features/events/Events";
 import AddEvent from "../features/events/AddEvent";
 import Admin from "../features/admin/Admin";
 import Error from "../features/error/Error";
+import AllResources from "../features/resources/AllResources";
+import SingleResource from "../features/resources/SingleResource";
 
 /**
  * COMPONENT
@@ -35,6 +37,8 @@ const AppRoutes = () => {
               <Route path="/adminpage" element={<AdminPage />} />
             </>
           )} */}
+          <Route path="/resources" element={<AllResources />} />
+          <Route path="/resources/:id" element={<SingleResource />} />
         </Routes>
       ) : (
         <Routes>
@@ -54,6 +58,8 @@ const AppRoutes = () => {
           <Route path="/events/add" element={<AddEvent />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<Error />} />
+          <Route path="/resources" element={<AllResources />} />
+          <Route path="/resources/:id" element={<SingleResource />} />
         </Routes>
       )}
     </div>

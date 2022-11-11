@@ -1,6 +1,6 @@
 const resources = [
   {
-    name: "St.Mary's Hospital for Children",
+    name: "St. Mary's Hospital for Children",
     description: "Traumatic brain injury and coma recovery",
     address: "2601 216th Street, Bayside, NY",
     boro: "Queens",
@@ -41,7 +41,7 @@ const resources = [
     longitude: "-74.136274509",
   },
   {
-    name: "SPANISH SPEAKING ELDERLY COUNCIL RAICES INC.",
+    name: "Spanish Speaking Elderly Council RAICES Inc.",
     description:
       "RAICES was founded in 1978 by retired Hispanic older adults who saw the need for an organization which would provide services, educate and organize the Latino, minority and low-income aging community in the borough of Brooklyn.",
     address: "420 Baltic St, Brooklyn, NY 11217",
@@ -59,6 +59,28 @@ const resources = [
     boro: "Manhattan",
     tag: ["employment", "education", "finance", "disability services"],
     hyperlink: "https://www.icdnyc.org/about",
+  },
+  {
+    name: "Bottomless Closet",
+    description:
+      "The mission of Bottomless Closet is to promote economic self sufficiency by providing interview skills, business clothing, and ongoing career development and support programs to economically disadvantaged New York City women. By enhancing their self-confidence and self-esteem, we enable them to enter and succeed in the workforce and transform the vision for their lives.",
+    address: "15 Penn Plaza, Level B, Suite 40, New York, NY 10001",
+    boro: "Manhattan",
+    tag: ["clothes", "employment"],
+    hyperlink: "http://www.bottomlessclosetnyc.org",
+    latitude: "40.750009",
+    longitude: "-73.991327",
+  },
+  {
+    name: "VHA New York Harbor Healthcare-Brooklyn Campus",
+    description:
+      "Veterans hospital providing inpatient/outpatient care including mental health and social services.",
+    address: "800 Poly Place, Brooklyn, NY 11209",
+    boro: "Brooklyn",
+    tag: ["city services", "health"],
+    hyperlink: "http://va.gov",
+    latitude: "40.609263",
+    longitude: "-74.02399",
   },
 ];
 
