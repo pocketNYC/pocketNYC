@@ -4,12 +4,12 @@ import {
   selectSingleResource,
 } from "./singleResourceSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+
 import { Link } from "react-router-dom";
 
-const SingleResource = () => {
+const SingleResource = (props) => {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id } = props;
   const resource = useSelector(selectSingleResource);
   const { name, description, address, tag, boro, hyperlink, imageUrl } =
     resource;
