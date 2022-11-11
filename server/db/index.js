@@ -1,5 +1,6 @@
 const db = require("./db");
 const User = require("./models/User");
+const Resources = require("./models/Resources");
 const Event = require("./models/Event");
 
 User.hasMany(Event);
@@ -10,5 +11,6 @@ module.exports = {
   models: {
     User,
     Event,
+    Resources,
   },
 };

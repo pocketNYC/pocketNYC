@@ -2,33 +2,23 @@
 
 const {
   db,
-  models: { User, Event },
+  models: { User, Resources, Event },
 } = require("../server/db");
 
+const { userInfo } = require("./userSeed");
+const { resources } = require("./resourcesSeed");
 const events = require("./eventsSeed");
 
 async function seed() {
-  await db.sync({ force: true });
+  await db.sync({ force: true }); // clears db and matches models to tables
   console.log("db synced!");
 
-  const users = await Promise.all([
-    User.create({ username: "cody", password: "123" }),
-    User.create({ username: "murphy", password: "123" }),
-  ]);
+  const users = await Promise.all(userInfo.map((user) => User.create(user)));
+  const resource = await Promise.all(resources.map((resource) => Resources.create(resource)));
+  const event = await Promise.all(events.map((event) => Event.create(event)));
 
-  const event = await Promise.all(
-    events.map((event) => {
-      return Event.create(event);
-    })
-  );
-
-  console.log(`seeded ${users.length} users and ${event.length} events`);
-  return {
-    users: {
-      cody: users[0],
-      murphy: users[1],
-    },
-  };
+  console.log(`seeded ${users.length} users, ${event.length} events, and ${resource.length} resources`);
+  console.log(`seeded successfully`);
 }
 
 async function runSeed() {
@@ -39,6 +29,7 @@ async function runSeed() {
     console.error(err);
     process.exitCode = 1;
   } finally {
+
     await db.close();
     console.log("db connection closed");
   }

@@ -1,4 +1,4 @@
-const Sequelize = require("sequelize");
+const DataTypes = require("sequelize");
 const db = require("../db");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -6,13 +6,42 @@ const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 5;
 
 const User = db.define("user", {
-  username: {
-    type: Sequelize.STRING,
-    unique: true,
+  firstName: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
+  lastName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      isEmail: true,
+    },
+  },
   password: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  interests: {
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    allowNull: true,
+  },
+  borough: {
+    type: DataTypes.ENUM(
+      "Bronx",
+      "Brooklyn",
+      "Queens",
+      "Manhattan",
+      "Staten Island"
+    ),
+    allowNull: false,
+  },
+  isAdmin: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
   },
 });
 
