@@ -26,18 +26,22 @@ const Navbar = () => {
             <button type="button" onClick={logoutAndRedirectHome}>
               Logout
             </button>
-            {isAdmin && (
+            {isAdmin && (<>
             <Link to="/users">Users</Link>
              <Link to="/admin">Admin</Link>
-            )}
+             </>)}
+             <Link to="/events/add">Add Event</Link>
+             <Link to="/events">Events</Link>
+            <Link to="/resources"> Resources</Link>
+
+          
           </div>
         ) : (
           <div>
             {/* The navbar will show these links before you log in */}
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
-            <Link to="/events">Events</Link>
-            <Link to="/events/add">Add Event</Link>
+             <Link to="/events">Events</Link>
             <Link to="/resources"> Resources</Link>
 
           </div>

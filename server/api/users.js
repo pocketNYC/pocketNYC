@@ -10,6 +10,7 @@ module.exports = router;
 router.get("/", async (req, res, next) => {
   try {
     const user = await User.findByToken(req.headers.authorization);
+    console.log(user, '<-user')
     if (user.isAdmin === true) {
       const users = await User.findAll({
         attributes: [

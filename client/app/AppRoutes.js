@@ -34,13 +34,13 @@ const AppRoutes = () => {
           <Route path="/*" element={<Home />} />
           <Route to="/home" element={<Home />} />
 
-          {/* {isAdmin && (
+           {isAdmin && (
             <>
               <Route path="/events/add" element={<AddEvent />} />
               <Route path="/users" element={<Users />} /> 
-              <Route path="/adminpage" element={<AdminPage />} />
+              <Route path="/adminpage" element={<Admin />} />
             </>
-          )} */}
+          )} 
           <Route path="/resources" element={<AllResources />} />
           <Route path="/resources/:id" element={<SingleResource />} />
 

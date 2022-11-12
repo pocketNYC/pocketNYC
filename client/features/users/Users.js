@@ -6,7 +6,7 @@ function Users() {
   const users = useSelector((state) => state.user.allUsers);
   const dispatch = useDispatch();
 
-  console.log(users, "<- users")
+  console.log(users, "<- users*****")
   useEffect(() => {
     dispatch(fetchAllUsers());
   }, [dispatch]);
