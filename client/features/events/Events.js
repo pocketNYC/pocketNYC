@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
@@ -36,9 +35,9 @@ export default function Events() {
             <img src={image} style={{ width: "800px", height: "500px" }} />
             <h2 className="underline">{title}</h2>
             <h3>
-              Address: {address}
-              <br />
               {description}
+              <br />
+              Address: {address}
               <br />
               Date: {date}
               <br />
