@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import AuthForm from "../features/auth/AuthForm";
 import Home from "../features/home/Home";
 import { me } from "./store";
+import Users from "../features/users/Users";
 import Events from "../features/events/Events";
 import AddEvent from "../features/events/AddEvent";
 import Admin from "../features/admin/Admin";
@@ -11,13 +12,15 @@ import Error from "../features/error/Error";
 import AllResources from "../features/resources/AllResources";
 import SingleResource from "../features/resources/SingleResource";
 
+
 /**
  * COMPONENT
  */
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  // const isAdmin = useSelector((state) => state.auth.me.isAdmin);
+  const isAdmin = useSelector((state) => state.auth.me.isAdmin)
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,12 +36,14 @@ const AppRoutes = () => {
 
           {/* {isAdmin && (
             <>
-              <Route to="/events/add" element={<AddEvent />} />
+              <Route path="/events/add" element={<AddEvent />} />
+              <Route path="/users" element={<Users />} /> 
               <Route path="/adminpage" element={<AdminPage />} />
             </>
           )} */}
           <Route path="/resources" element={<AllResources />} />
           <Route path="/resources/:id" element={<SingleResource />} />
+
         </Routes>
       ) : (
         <Routes>
