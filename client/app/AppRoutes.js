@@ -14,13 +14,9 @@ import Signup from "../features/auth/Signup";
 import AllResources from "../features/resources/AllResources";
 import SingleResource from "../features/resources/SingleResource";
 
-/**
- * COMPONENT
- */
-
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  const isAdmin = useSelector((state) => state.auth.me.isAdmin)
+  const isAdmin = useSelector((state) => state.auth.me.isAdmin);
 
   const dispatch = useDispatch();
 
@@ -43,8 +39,7 @@ const AppRoutes = () => {
             </>
           )} */}
           <Route path="/resources" element={<AllResources />} />
-          <Route path="/resources/:id" element={<SingleResource />} />
-
+          <Route path="/resources/:category" element={<SingleResource />} />
         </Routes>
       ) : (
         <Routes>
@@ -68,7 +63,7 @@ const AppRoutes = () => {
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<Error />} />
           <Route path="/resources" element={<AllResources />} />
-          <Route path="/resources/:id" element={<SingleResource />} />
+          <Route path="/resources/:category" element={<SingleResource />} />
         </Routes>
       )}
     </div>
