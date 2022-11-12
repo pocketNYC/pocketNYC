@@ -4,12 +4,14 @@ import { useSelector } from "react-redux";
 /**
  * COMPONENT
  */
+ 
 const Home = (props) => {
-  const username = useSelector((state) => state.auth.me.username);
+  const firstName = useSelector((state) => state.auth.me.firstName);
 
   return (
     <div>
-      <h2>Welcome, {username}</h2>
+
+      <h3>Welcome, {firstName}</h3>
       <h2>Featured Events</h2>
       <h2>Feed</h2>
     </div>

@@ -83,7 +83,7 @@ const userInfo = [
   {
     firstName: "Gabriel",
     lastName: "Stone",
-    email: "gstone@manefest.org",
+    email: "gstone@manifest.org",
     password: "Fl!ght828",
     interests: ["clothes", "outdoors", "sports"],
     borough: "Manhattan",
