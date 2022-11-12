@@ -27,7 +27,7 @@ const Event = db.define("event", {
     allowNull: false,
   },
   tag: {
-    type: Sequelize.ARRAY(Sequelize.STRING)
+    type: Sequelize.ARRAY(Sequelize.STRING),
   },
   eventLink: {
     type: Sequelize.STRING,

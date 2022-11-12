@@ -9,9 +9,10 @@ import Events from "../features/events/Events";
 import AddEvent from "../features/events/AddEvent";
 import Admin from "../features/admin/Admin";
 import Error from "../features/error/Error";
+import Login from "../features/auth/Login";
+import Signup from "../features/auth/Signup";
 import AllResources from "../features/resources/AllResources";
 import SingleResource from "../features/resources/SingleResource";
-
 
 /**
  * COMPONENT
@@ -48,7 +49,7 @@ const AppRoutes = () => {
       ) : (
         <Routes>
           <Route
-            path="/"
+            path="/*"
             element={<AuthForm name="login" displayName="Login" />}
           />
           <Route
@@ -59,6 +60,9 @@ const AppRoutes = () => {
             path="/signup"
             element={<AuthForm name="signup" displayName="Sign Up" />}
           />
+          {/* <Route path="/" element={<Login />} /> */}
+          {/* <Route path="/login" element={<Login />} /> */}
+          {/* <Route path="/signup" element={<Signup />} /> */}
           <Route path="/events" element={<Events />} />
           <Route path="/events/add" element={<AddEvent />} />
           <Route path="/admin" element={<Admin />} />
