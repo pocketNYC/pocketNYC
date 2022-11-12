@@ -3,11 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
 import { me } from "../auth/authSlice"; // delete if not needed*
- 
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  const isAdmin = useSelector((state) => state.auth.me.isAdmin)
+  const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
@@ -27,8 +26,10 @@ const Navbar = () => {
               Logout
             </button>
             {isAdmin && (
-            <Link to="/users">Users</Link>
-             <Link to="/admin">Admin</Link>
+              <>
+                <Link to="/users">Users</Link>
+                <Link to="/admin">Admin</Link>
+              </>
             )}
           </div>
         ) : (
@@ -39,7 +40,6 @@ const Navbar = () => {
             <Link to="/events">Events</Link>
             <Link to="/events/add">Add Event</Link>
             <Link to="/resources"> Resources</Link>
-
           </div>
         )}
       </nav>
