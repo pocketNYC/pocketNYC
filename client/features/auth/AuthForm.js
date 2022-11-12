@@ -15,19 +15,19 @@ const AuthForm = ({ name, displayName }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const formName = evt.target.name;
-    const username = evt.target.username.value;
+    const email = evt.target.email.value;
     const password = evt.target.password.value;
-    dispatch(authenticate({ username, password, method: formName }));
+    dispatch(authenticate({ email, password, method: formName }));
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <label htmlFor="username">
-            <small>Username</small>
+          <label htmlFor="email">
+            <small>email</small>
           </label>
-          <input name="username" type="text" />
+          <input name="email" type="email" />
         </div>
         <div>
           <label htmlFor="password">
