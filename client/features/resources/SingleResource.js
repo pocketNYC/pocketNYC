@@ -24,7 +24,7 @@ const SingleResource = () => {
                   <h3>{resource.name}</h3>
                   <img
                     src={resource.imageUrl}
-                    style={{ width: "200px", height: "200px" }}
+                    style={{ width: "600px", height: "300px" }}
                   />
                   <p>About: {resource.description}</p>
                   <p>Address: {resource.address}</p>
