@@ -26,20 +26,20 @@ const AppRoutes = () => {
   return (
     <div>
       {isLoggedIn ? (
-          <Routes>
-            <Route path="/*" element={<Home />} />
-            <Route to="/home" element={<Home />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/events/add" element={<AddEvent />} />
-            <Route path="/resources" element={<AllResources />} />
-            <Route path="/resources/:id" element={<SingleResource />} />
+        <Routes>
+          <Route path="/*" element={<Home />} />
+          <Route to="/home" element={<Home />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/events/add" element={<AddEvent />} />
+          <Route path="/resources" element={<AllResources />} />
+          <Route path="/resources/:category" element={<SingleResource />} />
 
-            {isAdmin && (
-              <>
-                <Route path="/users" element={<Users />} />
-              </>
-            )}
-          </Routes>
+          {isAdmin && (
+            <>
+              <Route path="/users" element={<Users />} />
+            </>
+          )}
+        </Routes>
       ) : (
         <Routes>
           <Route
@@ -56,7 +56,6 @@ const AppRoutes = () => {
           />
           <Route path="/events" element={<Events />} />
           <Route path="/resources" element={<AllResources />} />
-          <Route path="/resources/:id" element={<SingleResource />} />
           <Route path="/resources/:category" element={<SingleResource />} />
           <Route path="*" element={<Error />} />
         </Routes>

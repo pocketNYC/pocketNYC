@@ -11,34 +11,42 @@ function Signup() {
   const [validated, setValidated] = useState(false);
 
   const formInterest = [
-    { value: "1", label: "Holidays" },
-    { value: "2", label: "Multicultural" },
-    { value: "3", label: "Family-Friendly" },
-    { value: "4", label: "Music/Arts" },
-    { value: "5", label: "Outdoors" },
-    { value: "6", label: "Sports" },
-    { value: "7", label: "Clothes" },
-    { value: "8", label: "Health" },
-    { value: "9", label: "Food" },
-    { value: "10", label: "Education" },
-    { value: "11", label: "Employment" },
-    { value: "12", label: "Seniors" },
-    { value: "13", label: "Finance" },
-    { value: "14", label: "City Services" },
-    { value: "15", label: "Disability Services" },
+    { value: "holidays", label: "Holidays" },
+    { value: "multicultural", label: "Multicultural" },
+    { value: "family friendly", label: "Family-Friendly" },
+    { value: "music/arts", label: "Music/Arts" },
+    { value: "outdoors", label: "Outdoors" },
+    { value: "sports", label: "Sports" },
+    { value: "clothes", label: "Clothes" },
+    { value: "health", label: "Health" },
+    { value: "food", label: "Food" },
+    { value: "education", label: "Education" },
+    { value: "employment", label: "Employment" },
+    { value: "seniors", label: "Seniors" },
+    { value: "finance", label: "Finance" },
+    { value: "city services", label: "City Services" },
+    { value: "disability services", label: "Disability Services" },
   ];
 
   const animatedComponents = makeAnimated();
 
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const handleChange = (formInterest) => {
+    let selections = [];
+    formInterest.map((interest) => selections.push(interest.value));
+    setSelectedOptions(selections);
+  };
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const formName = evt.target.name;
+    // const formName = evt.target.name;
     const firstName = evt.target.firstName.value;
     const lastName = evt.target.lastName.value;
     const email = evt.target.email.value;
     const password = evt.target.password.value;
-    // const interest = evt.target.interest.value;
-    // const borough = evt.target.borough.value;
+    const interests = selectedOptions;
+    const borough = evt.target.borough.value;
 
     dispatch(
       authenticate({
@@ -46,13 +54,14 @@ function Signup() {
         lastName,
         email,
         password,
-        // interest,
-        // borough,
-        method: formName,
+        interests,
+        borough,
+        method: "signup",
       })
     );
     setValidated(true);
   };
+
   return (
     <>
       <Form
@@ -79,7 +88,6 @@ function Signup() {
             Please provide your last name.
           </Form.Control.Feedback>
         </Form.Group>
-
         <Form.Group className="mb-6" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control required type="text" placeholder="Enter Email" />
@@ -87,7 +95,6 @@ function Signup() {
             Please provide an email.
           </Form.Control.Feedback>
         </Form.Group>
-
         <Form.Group className="mb-6" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control required type="password" placeholder="Enter Password" />
@@ -95,19 +102,17 @@ function Signup() {
             Please provide a password.
           </Form.Control.Feedback>
         </Form.Group>
-
         <Form.Group className="mb-6" controlId="borough">
           <Form.Label>Borough</Form.Label>
           <Form.Select>
             <option defaultValue>Select</option>
-            <option value="1">Bronx</option>
-            <option value="2">Brooklyn</option>
-            <option value="3">Queens</option>
-            <option value="4">Manhattan</option>
-            <option value="5">Staten Island</option>
+            <option value="Bronx">Bronx</option>
+            <option value="Brooklyn">Brooklyn</option>
+            <option value="Queens">Queens</option>
+            <option value="Manhattan">Manhattan</option>
+            <option value="Staten Island">Staten Island</option>
           </Form.Select>
         </Form.Group>
-
         <br />
         <label htmlFor="interest" style={{ padding: "10px" }}>
           Choose your categories of interest:
@@ -117,9 +122,10 @@ function Signup() {
           options={formInterest}
           components={animatedComponents}
           closeMenuOnSelect={false}
+          onChange={handleChange}
         />
         <Button variant="primary" type="submit">
-          {displayName}
+          {/* {displayName} */} Submit
         </Button>
       </Form>
     </>
