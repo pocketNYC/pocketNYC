@@ -38,6 +38,8 @@ const AppRoutes = () => {
               <Route path="/adminpage" element={<AdminPage />} />
             </>
           )} */}
+          <Route path="/events" element={<Events />} />
+          <Route path="/events/add" element={<AddEvent />} />
           <Route path="/resources" element={<AllResources />} />
           <Route path="/resources/:category" element={<SingleResource />} />
         </Routes>
