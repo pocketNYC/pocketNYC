@@ -1,40 +1,43 @@
 import React, { useEffect } from "react";
-import {
-  fetchSingleResource,
-  selectSingleResource,
-} from "./singleResourceSlice";
+import { fetchResources, selectResources } from "./resourcesSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
-import { Link } from "react-router-dom";
-
-const SingleResource = (props) => {
+const SingleResource = () => {
   const dispatch = useDispatch();
-  const { id } = props;
-  const resource = useSelector(selectSingleResource);
-  const { name, description, address, tag, boro, hyperlink, imageUrl } =
-    resource;
-
-  const modifyCasing = name
-    ?.split(" ")
-    .map((word) => {
-      return word[0].toUpperCase() + word.substring(1).toLowerCase();
-    })
-    .join(" ");
+  const resources = useSelector(selectResources);
+  const { category } = useParams();
 
   useEffect(() => {
-    dispatch(fetchSingleResource(id));
-  }, [dispatch]);
+    dispatch(fetchResources());
+  }, [dispatch, category]);
 
   return (
     <div>
-      <h1>{modifyCasing}</h1>
-      <img src={imageUrl} />
-      <p>About: {description}</p>
-      <p>Address: {address}</p>
-      <p>
-        More Info: <a href={hyperlink}>{hyperlink}</a>
-      </p>
-      <p>Tags: {tag ? tag.join(", ") : null}</p>
+      <ul>
+        {resources
+          .filter((resource) => resource.tag.includes(category))
+          .map((resource) => {
+            return (
+              <li key={resource.id}>
+                <div>
+                  <h3>{resource.name}</h3>
+                  <img
+                    src={resource.imageUrl}
+                    style={{ width: "600px", height: "300px" }}
+                  />
+                  <p>About: {resource.description}</p>
+                  <p>Address: {resource.address}</p>
+                  <p>
+                    More Info:{" "}
+                    <a href={resource.hyperlink}>{resource.hyperlink}</a>
+                  </p>
+                  <p>Tags: {resource.tag ? resource.tag.join(", ") : null}</p>
+                </div>
+              </li>
+            );
+          })}
+      </ul>
     </div>
   );
 };

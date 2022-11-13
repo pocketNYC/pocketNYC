@@ -13,10 +13,6 @@ import Signup from "../features/auth/Signup";
 import AllResources from "../features/resources/AllResources";
 import SingleResource from "../features/resources/SingleResource";
 
-/**
- * COMPONENT
- */
-
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
@@ -30,22 +26,20 @@ const AppRoutes = () => {
   return (
     <div>
       {isLoggedIn ? (
-        <Routes>
-          <Route path="/*" element={<Home />} />
-          <Route to="/home" element={<Home />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/events/add" element={<AddEvent />} />
-          <Route path="/resources" element={<AllResources />} />
-          <Route path="/resources/:id" element={<SingleResource />} />
+          <Routes>
+            <Route path="/*" element={<Home />} />
+            <Route to="/home" element={<Home />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/events/add" element={<AddEvent />} />
+            <Route path="/resources" element={<AllResources />} />
+            <Route path="/resources/:id" element={<SingleResource />} />
 
-          {isAdmin && (
-            <>
-              <Route path="/events/add" element={<AddEvent />} />
-              <Route path="/users" element={<Users />} />
-              <Route path="/admin" element={<Admin />} />
-            </>
-          )}
-        </Routes>
+            {isAdmin && (
+              <>
+                <Route path="/users" element={<Users />} />
+              </>
+            )}
+          </Routes>
       ) : (
         <Routes>
           <Route
@@ -63,6 +57,7 @@ const AppRoutes = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/resources" element={<AllResources />} />
           <Route path="/resources/:id" element={<SingleResource />} />
+          <Route path="/resources/:category" element={<SingleResource />} />
           <Route path="*" element={<Error />} />
         </Routes>
       )}
