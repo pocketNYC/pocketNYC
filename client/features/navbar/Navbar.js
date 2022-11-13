@@ -1,8 +1,8 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
-import { me } from "../auth/authSlice"; // delete if not needed*
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -22,18 +22,21 @@ const Navbar = () => {
           <div>
             {/* The navbar will show these links after you log in */}
             <Link to="/home">Home</Link>
-            <button type="button" onClick={logoutAndRedirectHome}>
-              Logout
-            </button>
-            {isAdmin && (
-              <>
-                <Link to="/users">Users</Link>
-                <Link to="/admin">Admin</Link>
-              </>
-            )}
             <Link to="/events">Events</Link>
             <Link to="/events/add">Add Event</Link>
             <Link to="/resources"> Resources</Link>
+            {isAdmin && (
+              <>
+                <Link to="/users">Users</Link>
+              </>
+            )}
+            <Button
+              variant="primary"
+              type="submit"
+              onClick={logoutAndRedirectHome}
+            >
+              Log out
+            </Button>
           </div>
         ) : (
           <div>

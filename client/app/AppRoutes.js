@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import AuthForm from "../features/auth/AuthForm";
-import Home from "../features/home/Home";
 import { me } from "./store";
+import Home from "../features/home/Home";
 import Users from "../features/users/Users";
 import Events from "../features/events/Events";
 import AddEvent from "../features/events/AddEvent";
@@ -27,45 +26,39 @@ const AppRoutes = () => {
   return (
     <div>
       {isLoggedIn ? (
-        <Routes>
-          <Route path="/*" element={<Home />} />
-          <Route to="/home" element={<Home />} />
+          <Routes>
+            <Route path="/*" element={<Home />} />
+            <Route to="/home" element={<Home />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/events/add" element={<AddEvent />} />
+            <Route path="/resources" element={<AllResources />} />
+            <Route path="/resources/:id" element={<SingleResource />} />
 
-          {/* {isAdmin && (
-            <>
-              <Route path="/events/add" element={<AddEvent />} />
-              <Route path="/users" element={<Users />} /> 
-              <Route path="/adminpage" element={<AdminPage />} />
-            </>
-          )} */}
-          <Route path="/events" element={<Events />} />
-          <Route path="/events/add" element={<AddEvent />} />
-          <Route path="/resources" element={<AllResources />} />
-          <Route path="/resources/:category" element={<SingleResource />} />
-        </Routes>
+            {isAdmin && (
+              <>
+                <Route path="/users" element={<Users />} />
+              </>
+            )}
+          </Routes>
       ) : (
         <Routes>
           <Route
             path="/*"
-            element={<AuthForm name="login" displayName="Login" />}
+            element={<Login name="login" displayName="Login" />}
           />
           <Route
             path="/login"
-            element={<AuthForm name="login" displayName="Login" />}
+            element={<Login name="login" displayName="Login" />}
           />
           <Route
             path="/signup"
-            element={<AuthForm name="signup" displayName="Sign Up" />}
+            element={<Signup name="signup" displayName="Sign Up" />}
           />
-          {/* <Route path="/" element={<Login />} /> */}
-          {/* <Route path="/login" element={<Login />} /> */}
-          {/* <Route path="/signup" element={<Signup />} /> */}
           <Route path="/events" element={<Events />} />
-          <Route path="/events/add" element={<AddEvent />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="*" element={<Error />} />
           <Route path="/resources" element={<AllResources />} />
+          <Route path="/resources/:id" element={<SingleResource />} />
           <Route path="/resources/:category" element={<SingleResource />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       )}
     </div>
