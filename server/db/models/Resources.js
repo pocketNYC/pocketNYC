@@ -19,7 +19,7 @@ const Resources = db.define("resources", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  boro: {
+  borough: {
     type: DataTypes.STRING,
     allowNull: false,
   },

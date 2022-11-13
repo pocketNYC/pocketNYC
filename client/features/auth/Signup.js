@@ -6,7 +6,7 @@ import { authenticate } from "../../app/store";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 
-function Signup() {
+function Signup({ displayName, name}) {
   const dispatch = useDispatch();
   const [validated, setValidated] = useState(false);
 
@@ -125,7 +125,7 @@ function Signup() {
           onChange={handleChange}
         />
         <Button variant="primary" type="submit">
-          {/* {displayName} */} Submit
+          {displayName}
         </Button>
       </Form>
     </>
