@@ -7,8 +7,9 @@ function Admin() {
   return (
     <div>
       <h1>
-        Hi, {firstName} {lastName}!
+        Welcome, {firstName} {lastName}!
       </h1>
+      <br />
       <h2>
         Pending Events Here
         <hr />

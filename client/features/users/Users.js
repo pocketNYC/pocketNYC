@@ -4,9 +4,9 @@ import { fetchAllUsers } from "./userSlice";
 
 function Users() {
   const users = useSelector((state) => state.user.allUsers);
+  console.log(users);
   const dispatch = useDispatch();
 
-  console.log(users, "<- users")
   useEffect(() => {
     dispatch(fetchAllUsers());
   }, [dispatch]);

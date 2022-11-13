@@ -43,7 +43,7 @@ export default function Events() {
               <br />
               Time: {time}
               <br />
-              <a href={eventLink}>Link to more info...</a>
+              <a href={eventLink}>{eventLink}</a>
             </h3>
           </div>
         )

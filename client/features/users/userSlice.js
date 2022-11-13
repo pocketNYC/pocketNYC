@@ -1,9 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const token = window.localStorage.getItem("token");
-
 export const fetchAllUsers = createAsyncThunk("fetchAllUsers", async () => {
+  const token = window.localStorage.getItem("token");
   const { data } = await axios.get("/api/users", {
     headers: { authorization: token },
   });
@@ -18,7 +17,7 @@ const userSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAllUsers.fulfilled, (state, action) => {
-        state.allUsers = action.payload
+      state.allUsers = action.payload;
     });
   },
 });
