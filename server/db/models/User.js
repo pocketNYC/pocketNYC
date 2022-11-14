@@ -37,8 +37,7 @@ const User = db.define("user", {
       "Manhattan",
       "Staten Island"
     ),
-    //COMMENTED SO USER CAN SIGN UP WITHOUT BOROUGH
-    // allowNull: false,
+    allowNull: false,
   },
   isAdmin: {
     type: DataTypes.BOOLEAN,
