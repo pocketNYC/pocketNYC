@@ -20,7 +20,7 @@ const Resources = db.define("resources", {
     allowNull: false,
   },
   borough: {
-    type: DataTypes.STRING,
+    type: DataTypes.ARRAY(DataTypes.STRING),
     allowNull: false,
   },
   tag: {
