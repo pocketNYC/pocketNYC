@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const {
-  models: { Favorite_Resource },
+  models: { Favorite_Resource, Resources },
 } = require("../db");
 
 const { getToken } = require("./adminAuth");
@@ -14,6 +14,7 @@ router.get("/", getToken, async (req, res, next) => {
   try {
     const favorite = await Favorite_Resource.findAll({
       where: [{ userId: userId }],
+      include: [Resources],
     });
     res.json(favorite);
   } catch (err) {

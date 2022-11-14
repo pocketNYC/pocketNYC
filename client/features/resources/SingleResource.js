@@ -1,53 +1,32 @@
 import React, { useEffect } from "react";
-import { fetchResources, selectResources } from "./resourcesSlice";
+import {
+  fetchSingleResource,
+  selectSingleResource,
+} from "./singleResourceSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addToFavorites } from "../favorites/favoriteResourceSlice";
 
 const SingleResource = () => {
   const dispatch = useDispatch();
-  const resources = useSelector(selectResources);
-  const { category } = useParams();
+  const { id } = useParams();
+  console.log("IDDDD", id);
+  const resource = useSelector(selectSingleResource);
+  const { name, description, address, tag, hyperlink, imageUrl } = resource;
 
   useEffect(() => {
-    dispatch(fetchResources());
+    dispatch(fetchSingleResource(id));
   }, [dispatch]);
-
-  const addButton = (ev, id) => {
-    console.log("clicked", id);
-    dispatch(addToFavorites(id));
-  };
 
   return (
     <div>
-      <ul>
-        {resources
-          .filter((resource) => resource.tag.includes(category))
-          .map(
-            ({ id, name, imageUrl, description, address, hyperlink, tag }) => {
-              return (
-                <li key={id}>
-                  <div>
-                    <h3>{name}</h3>
-                    <img
-                      src={imageUrl}
-                      style={{ width: "600px", height: "300px" }}
-                    />
-                    <p>About: {description}</p>
-                    <p>Address: {address}</p>
-                    <p>
-                      More Info: <a href={hyperlink}>{hyperlink}</a>
-                    </p>
-                    <p>Tags: {tag ? tag.join(", ") : null}</p>
-                    <button onClick={(ev) => addButton(ev, id)}>
-                      Add to Favorites
-                    </button>
-                  </div>
-                </li>
-              );
-            }
-          )}
-      </ul>
+      <h1>{name}</h1>
+      <img src={imageUrl} style={{ height: "200px", width: "300px" }} />
+      <p>About: {description}</p>
+      <p>Address: {address}</p>
+      <p>
+        More Info: <a href={hyperlink}>{hyperlink}</a>
+      </p>
+      <p>Tags: {tag ? tag.join(", ") : null}</p>
     </div>
   );
 };

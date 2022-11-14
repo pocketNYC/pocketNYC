@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const TOKEN = "token";
 
+const initialState = [];
+
 export const fetchFavoriteResource = createAsyncThunk(
   "fetchFavorite_Resource",
 
@@ -41,16 +43,14 @@ export const addToFavorites = createAsyncThunk(
 
 const favoriteResourceSlice = createSlice({
   name: "favoriteResource",
-  initialState: {
-    favorites: [],
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchFavoriteResource.fulfilled, (state, action) => {
-      state.favorites = action.payload;
+      return action.payload;
     });
     builder.addCase(addToFavorites.fulfilled, (state, action) => {
-      state.favorites.push(action.payload);
+      state.push(action.payload);
     });
   },
 });
