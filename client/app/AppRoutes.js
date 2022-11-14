@@ -13,6 +13,7 @@ import Signup from "../features/auth/Signup";
 import AllResources from "../features/resources/AllResources";
 import SingleResource from "../features/resources/SingleResource";
 import SingleUserProfile from "../features/users/SingleUserProfile";
+import SingleEvent from "../features/events/SingleEvent";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -40,6 +41,8 @@ const AppRoutes = () => {
           {isAdmin && (
             <>
               <Route path="/users" element={<UserDashboardForAdmin />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/admin" element={<Admin />} />
             </>
           )}
         </Routes>
@@ -58,7 +61,9 @@ const AppRoutes = () => {
             element={<Signup name="signup" displayName="Sign Up" />}
           />
           <Route path="/events" element={<Events />} />
+          <Route path="/events/:id" element={<SingleEvent />} />
           <Route path="/resources" element={<AllResources />} />
+          <Route path="/resources/:id" element={<SingleResource />} />
           <Route path="/resources/:category" element={<SingleResource />} />
           <Route path="*" element={<Error />} />
         </Routes>
