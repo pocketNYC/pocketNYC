@@ -9,6 +9,7 @@ module.exports = router;
 
 router.get("/", getToken, async (req, res, next) => {
   const userId = req.user.id;
+  console.log(userId);
 
   try {
     const favorite = await Favorite_Resource.findAll({
@@ -22,7 +23,7 @@ router.get("/", getToken, async (req, res, next) => {
 
 router.post("/", getToken, async (req, res, next) => {
   const userId = req.user.id;
-  const resourceId = req.body;
+  const resourceId = req.body.id;
   console.log(userId);
   console.log(resourceId);
 

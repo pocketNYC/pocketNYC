@@ -4,9 +4,15 @@ const TOKEN = "token";
 
 export const fetchFavoriteResource = createAsyncThunk(
   "fetchFavorite_Resource",
+
   async () => {
+    const token = window.localStorage.getItem(TOKEN);
     try {
-      const { data } = await axios.get("/api/favoriteResource");
+      const { data } = await axios.get("/api/favoriteResource", {
+        headers: {
+          authorization: token,
+        },
+      });
       return data;
     } catch (err) {
       console.log(err);
@@ -16,7 +22,7 @@ export const fetchFavoriteResource = createAsyncThunk(
 
 export const addToFavorites = createAsyncThunk(
   "addFavorite_Resource",
-  async ({ id }) => {
+  async (id) => {
     const token = window.localStorage.getItem(TOKEN);
     try {
       const { data } = await axios.post(
@@ -50,7 +56,7 @@ const favoriteResourceSlice = createSlice({
 });
 
 export const selectFavoriteResource = (state) => {
-  return state.favorites;
+  return state.favoriteResource;
 };
 
 export default favoriteResourceSlice.reducer;
