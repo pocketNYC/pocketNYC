@@ -19,7 +19,7 @@ import SingleUserProfile from "../features/users/SingleUserProfile";
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
-  const userId = useSelector((state) => state.auth.me.id)
+  const userId = useSelector((state) => state.auth.me.id);
 
   const dispatch = useDispatch();
 
@@ -36,10 +36,16 @@ const AppRoutes = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/events/add" element={<AddEvent />} />
           <Route path="/resources" element={<AllResources />} />
-          <Route path={`/users/${userId}`} element={<SingleUserProfile />} />
           <Route path="/resources/:category/" element={<ResourceCategory />} />
-          <Route path="/user/favorites/" element={<FavoriteResource />} />
-          <Route path="/user/favorites/:id" element={<SingleResource />} />
+          <Route path={`/users/${userId}`} element={<SingleUserProfile />} />
+          <Route
+            path={`/users/${userId}/favorites`}
+            element={<FavoriteResource />}
+          />
+          <Route
+            path={`/users/${userId}/favorites/:id`}
+            element={<SingleResource />}
+          />
 
           {isAdmin && (
             <>

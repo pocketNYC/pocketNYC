@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 const SingleResource = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  console.log("IDDDD", id);
+
   const resource = useSelector(selectSingleResource);
   const { name, description, address, tag, hyperlink, imageUrl } = resource;
 

@@ -15,7 +15,7 @@ const FavoriteResource = () => {
   }, [dispatch]);
   const favResources = useSelector(selectFavoriteResource);
   const favEvents = useSelector(selectFavoriteEvent);
-  console.log("FAV EVENTS", favEvents);
+  const userId = useSelector((state) => state.auth.me.id);
 
   return (
     <div>
@@ -25,7 +25,7 @@ const FavoriteResource = () => {
           ? favResources?.map(({ resource }) => {
               return (
                 <li key={resource.id}>
-                  <Link to={`/user/favorites/r/${resource.id}`}>
+                  <Link to={`/users/${userId}/favorites/${resource.id}`}>
                     {resource.name}
                   </Link>
                 </li>

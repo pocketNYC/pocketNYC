@@ -16,7 +16,6 @@ const ResourceCategory = () => {
   }, [dispatch]);
 
   const addButton = (ev, id) => {
-    console.log("clicked", id);
     dispatch(addToFavResource(id));
   };
 

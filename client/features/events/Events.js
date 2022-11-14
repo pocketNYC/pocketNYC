@@ -15,7 +15,6 @@ export default function Events() {
   }, []);
 
   const addButton = (ev, id) => {
-    console.log("clicked", id);
     dispatch(addToFavEvent(id));
   };
 
