@@ -38,6 +38,7 @@ const AppRoutes = () => {
           <Route path="/events/add" element={<AddEvent />} />
           <Route path="/resources" element={<AllResources />} />
           <Route path="/resources/:category/" element={<ResourceCategory />} />
+          <Route path="/events/:id" element={<SingleEvent />} />
           <Route path={`/users/${userId}`} element={<SingleUserProfile />} />
           <Route
             path={`/users/${userId}/favorites`}

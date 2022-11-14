@@ -42,8 +42,8 @@ router.get("/:userId", async (req, res, next) => {
       ],
     });
 
-    if (users) {
-      res.json(users);
+    if (user) {
+      res.json(user);
     } else {
       res.sendStatus(400);
     }
@@ -60,7 +60,7 @@ router.put("/:userId", async (req, res, next) => {
       const user = await User.findByPk(req.body.userId);
       res.json(await user.update(req.body.isAdmin));
     } else {
-      res.sendStatus(400)
+      res.sendStatus(400);
     }
   } catch (error) {
     next(error);
