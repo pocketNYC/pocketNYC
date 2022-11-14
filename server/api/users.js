@@ -31,7 +31,7 @@ router.get("/", async (req, res, next) => {
 //GET api/users/:userId
 router.get("/:userId", async (req, res, next) => {
   try {
-    const users = await User.findByPk(req.params.userId, {
+    const user = await User.findByPk(req.params.userId, {
       attributes: [
         "id",
         "email",
@@ -41,6 +41,7 @@ router.get("/:userId", async (req, res, next) => {
         "borough",
       ],
     });
+
     if (users) {
       res.json(users);
     } else {
@@ -54,28 +55,13 @@ router.get("/:userId", async (req, res, next) => {
 // PUT /api/users/:userId
 router.put("/:userId", async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.userId);
-    if (user) {
-      res.json(await user.update(req.body));
+    const userAuth = await User.findByToken(req.headers.authorization);
+    if (userAuth.isAdmin) {
+      const user = await User.findByPk(req.body.userId);
+      res.json(await user.update(req.body.isAdmin));
     } else {
-      res.sendStatus(400);
+      res.sendStatus(400)
     }
-  } catch (error) {
-    next(error);
-  }
-});
-
-// DELETE /api/users/:userId
-router.delete("/:userId", async (req, res, next) => {
-  try {
-    const user = await User.findByPk(req.params.userId);
-    if (user) {
-      await user.destroy();
-      res.send(user);
-    } else {
-      res.sendStatus(400);
-    }
-    res.sendStatus(204);
   } catch (error) {
     next(error);
   }

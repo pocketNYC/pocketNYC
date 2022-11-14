@@ -7,12 +7,14 @@ import { logout } from "../../app/store";
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
+  const userId = useSelector((state) => state.auth.me.id)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
     dispatch(logout());
     navigate("/login");
   };
+
 
   return (
     <div>
@@ -25,6 +27,8 @@ const Navbar = () => {
             <Link to="/events">Events</Link>
             <Link to="/resources"> Resources</Link>
             <Link to="/events/add">Add Event</Link>
+            <Link to={`/users/${userId}`} >My Profile</Link>
+
             {isAdmin && (
               <>
                 <Link to="/users">Users</Link>
