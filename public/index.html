@@ -2,9 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
-   <meta name = "theme-color" content = "#000000"/>
+    <meta name="theme-color" content="#000000" />
     <title>PocketNYC</title>
     <link rel="stylesheet" href="/style.css" />
     <link
@@ -13,24 +12,33 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <link rel="manifest" href="/public/manifest.json">
+    
+    <base href="/" />
+    <link rel="apple-touch-icon" href="logo192.png" />
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="favicon.ico" />
     <script defer src="/bundle.js"></script>
   </head>
   <body>
-    
     <div id="app"></div>
     <script>
       if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function() {
-      navigator.serviceWorker.register("serviceWorker.js").then(function(registration) {
-      // Registration was successful
-      console.log("ServiceWorker registration successful with scope: ", registration.scope);
-      }, function(err) {
-      // registration failed :(
-      console.log("ServiceWorker registration failed: ", err);
-      });
-      });
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("serviceWorker.js").then(
+            function (registration) {
+              // Registration was successful
+              console.log(
+                "ServiceWorker registration successful with scope: ",
+                registration.scope
+              );
+            },
+            function (err) {
+              // registration failed :(
+              console.log("ServiceWorker registration failed: ", err);
+            }
+          );
+        });
       }
-      </script>
+    </script>
   </body>
 </html>

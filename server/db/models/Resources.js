@@ -13,8 +13,7 @@ const Resources = db.define("resources", {
   },
   imageUrl: {
     type: DataTypes.STRING,
-    defaultValue:
-      "https://png.pngtree.com/png-vector/20190308/ourlarge/pngtree-simple-creative-new-york-city-skyine-png-image_771188.jpg",
+    defaultValue: "https://i.imgur.com/B21NIzo.png",
   },
   address: {
     type: DataTypes.STRING,

@@ -29,6 +29,7 @@
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
     "react-bootstrap": "^2.6.0",
+    "react-select": "^5.6.0",
     "sequelize": "^6.25.3"
   },
   "devDependencies": {
