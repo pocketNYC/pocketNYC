@@ -3,7 +3,7 @@ const userInfo = [
     firstName: "Cody",
     lastName: "Pug",
     email: "codythepug@mail.com",
-    password: "cre8HashedPW1",
+    password: "123",
     interests: ["sports", "food", "music/arts"],
     borough: "Manhattan",
     isAdmin: "false",

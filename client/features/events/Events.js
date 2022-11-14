@@ -7,6 +7,7 @@ import { addToFavEvent } from "../favorites/favoriteEventSlice";
 export default function Events() {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events.events);
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
 
   useEffect(() => {
     dispatch(fetchAllEvents());
@@ -40,9 +41,11 @@ export default function Events() {
           <div key={id}>
             <img src={image} style={{ width: "800px", height: "500px" }} />
             <h2 className="underline">{title}</h2>
-            <button onClick={(ev) => addButton(ev, id)}>
-              Add to Favorites
-            </button>
+            {isLoggedIn ? (
+              <button onClick={(ev) => addButton(ev, id)}>
+                Add to Favorites
+              </button>
+            ) : null}
             <h3>
               {description}
               <br />

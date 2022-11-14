@@ -35,17 +35,18 @@ const ResourceCategory = () => {
                       src={imageUrl}
                       style={{ width: "600px", height: "300px" }}
                     />
+                    <br />
+                    {isLoggedIn ? (
+                      <button onClick={(ev) => addButton(ev, id)}>
+                        Add to Favorites
+                      </button>
+                    ) : null}
                     <p>About: {description}</p>
                     <p>Address: {address}</p>
                     <p>
                       More Info: <a href={hyperlink}>{hyperlink}</a>
                     </p>
                     <p>Tags: {tag ? tag.join(", ") : null}</p>
-                    {isLoggedIn ? (
-                      <button onClick={(ev) => addButton(ev, id)}>
-                        Add to Favorites
-                      </button>
-                    ) : null}
                   </div>
                 </li>
               );
