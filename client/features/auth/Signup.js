@@ -5,30 +5,12 @@ import Button from "react-bootstrap/Button";
 import { authenticate } from "../../app/store";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
+import formInterest from "./formInterest";
 
-function Signup({ displayName, name}) {
+function Signup({ displayName, name }) {
   const dispatch = useDispatch();
+  const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
-
-  const formInterest = [
-    { value: "holidays", label: "Holidays" },
-    { value: "multicultural", label: "Multicultural" },
-    { value: "family friendly", label: "Family-Friendly" },
-    { value: "music/arts", label: "Music/Arts" },
-    { value: "outdoors", label: "Outdoors" },
-    { value: "sports", label: "Sports" },
-    { value: "clothes", label: "Clothes" },
-    { value: "health", label: "Health" },
-    { value: "food", label: "Food" },
-    { value: "education", label: "Education" },
-    { value: "employment", label: "Employment" },
-    { value: "seniors", label: "Seniors" },
-    { value: "finance", label: "Finance" },
-    { value: "city services", label: "City Services" },
-    { value: "disability services", label: "Disability Services" },
-  ];
-
-  const animatedComponents = makeAnimated();
 
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -40,7 +22,6 @@ function Signup({ displayName, name}) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    // const formName = evt.target.name;
     const firstName = evt.target.firstName.value;
     const lastName = evt.target.lastName.value;
     const email = evt.target.email.value;
@@ -120,7 +101,7 @@ function Signup({ displayName, name}) {
         <Select
           isMulti
           options={formInterest}
-          components={animatedComponents}
+          components={animated}
           closeMenuOnSelect={false}
           onChange={handleChange}
         />

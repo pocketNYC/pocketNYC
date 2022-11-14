@@ -23,8 +23,8 @@ const Navbar = () => {
             {/* The navbar will show these links after you log in */}
             <Link to="/home">Home</Link>
             <Link to="/events">Events</Link>
-            <Link to="/events/add">Add Event</Link>
             <Link to="/resources"> Resources</Link>
+            <Link to="/events/add">Add Event</Link>
             {isAdmin && (
               <>
                 <Link to="/users">Users</Link>
@@ -44,7 +44,7 @@ const Navbar = () => {
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
             <Link to="/events">Events</Link>
-            <Link to="/resources"> Resources</Link>
+            <Link to="/resources">Resources</Link>
           </div>
         )}
       </nav>

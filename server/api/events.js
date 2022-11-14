@@ -30,17 +30,17 @@ router.get("/:id", async (req, res, next) => {
 // POST /api/events
 router.post("/", async (req, res, next) => {
   try {
-    // const loggedInUser = await User.findByToken(req.headers.authorization);
-    // if (loggedInUser.isAdmin) {
-    const event = await Event.create(req.body);
-    if (event) {
-      res.json(event);
+    const loggedInUser = await User.findByToken(req.headers.authorization);
+    if (loggedInUser.isAdmin) {
+      const event = await Event.create(req.body);
+      if (event) {
+        res.json(event);
+      } else {
+        res.sendStatus(404);
+      }
     } else {
-      res.sendStatus(404);
+      res.sendStatus(401);
     }
-    // } else {
-    //   res.sendStatus(401);
-    // }
   } catch (error) {
     next(error);
   }
@@ -63,4 +63,3 @@ router.delete("/:id", async (req, res, next) => {
 });
 
 module.exports = router;
-

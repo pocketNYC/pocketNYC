@@ -2,15 +2,12 @@ const router = require("express").Router();
 const {
   models: { User },
 } = require("../db");
-const checkForAdmin = require("./adminAuth");
-
-module.exports = router;
 
 // GET api/users
 router.get("/", async (req, res, next) => {
   try {
     const user = await User.findByToken(req.headers.authorization);
-    if (user.isAdmin === true) {
+    if (user.isAdmin) {
       const users = await User.findAll({
         attributes: [
           "id",
@@ -18,10 +15,13 @@ router.get("/", async (req, res, next) => {
           "firstName",
           "lastName",
           "borough",
+          "interests",
           "isAdmin",
         ],
       });
       res.json(users);
+    } else {
+      res.sendStatus(401);
     }
   } catch (err) {
     next(err);
@@ -41,29 +41,25 @@ router.get("/:userId", async (req, res, next) => {
         "borough",
       ],
     });
-    res.json(users);
+    if (users) {
+      res.json(users);
+    } else {
+      res.sendStatus(400);
+    }
   } catch (err) {
     next(err);
   }
 });
 
-// POST / api / users;
-// router.post("/", async (req, res, next) => {
-//   try {
-//     const user = await User.create(req.body);
-//     res.status(201).json(user);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
-
 // PUT /api/users/:userId
 router.put("/:userId", async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.userId, {
-      attributes: ["id", "email", "firstName", "lastName", "isAdmin"],
-    });
-    res.json(await user.update(req.body));
+    const user = await User.findByPk(req.params.userId);
+    if (user) {
+      res.json(await user.update(req.body));
+    } else {
+      res.sendStatus(400);
+    }
   } catch (error) {
     next(error);
   }
@@ -73,9 +69,16 @@ router.put("/:userId", async (req, res, next) => {
 router.delete("/:userId", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId);
-    await user.destroy();
+    if (user) {
+      await user.destroy();
+      res.send(user);
+    } else {
+      res.sendStatus(400);
+    }
     res.sendStatus(204);
   } catch (error) {
     next(error);
   }
 });
+
+module.exports = router;

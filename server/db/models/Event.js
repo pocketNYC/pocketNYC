@@ -29,6 +29,10 @@ const Event = db.define("event", {
   tag: {
     type: Sequelize.ARRAY(Sequelize.STRING),
   },
+  borough: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   eventLink: {
     type: Sequelize.STRING,
   },
