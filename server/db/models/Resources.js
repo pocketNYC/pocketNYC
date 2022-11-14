@@ -21,7 +21,7 @@ const Resources = db.define("resources", {
     allowNull: false,
   },
   boro: {
-    type: DataTypes.STRING,
+    type: DataTypes.ARRAY(DataTypes.STRING),
     allowNull: false,
   },
   tag: {
