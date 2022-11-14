@@ -31,7 +31,7 @@ router.get("/", async (req, res, next) => {
 //GET api/users/:userId
 router.get("/:userId", async (req, res, next) => {
   try {
-    const users = await User.findByPk(req.params.userId, {
+    const user = await User.findByPk(req.params.userId, {
       attributes: [
         "id",
         "email",
@@ -41,40 +41,20 @@ router.get("/:userId", async (req, res, next) => {
         "borough",
       ],
     });
-    res.json(users);
+    res.json(user);
   } catch (err) {
     next(err);
   }
 });
 
-// POST / api / users;
-// router.post("/", async (req, res, next) => {
-//   try {
-//     const user = await User.create(req.body);
-//     res.status(201).json(user);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
-
 // PUT /api/users/:userId
 router.put("/:userId", async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.userId, {
-      attributes: ["id", "email", "firstName", "lastName", "isAdmin"],
-    });
-    res.json(await user.update(req.body));
-  } catch (error) {
-    next(error);
-  }
-});
-
-// DELETE /api/users/:userId
-router.delete("/:userId", async (req, res, next) => {
-  try {
-    const user = await User.findByPk(req.params.userId);
-    await user.destroy();
-    res.sendStatus(204);
+    const userAuth = await User.findByToken(req.headers.authorization);
+    if (userAuth.isAdmin === true) {
+      const user = await User.findByPk(req.body.userId);
+      res.json(await user.update(req.body.isAdmin));
+    }
   } catch (error) {
     next(error);
   }

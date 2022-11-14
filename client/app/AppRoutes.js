@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { me } from "./store";
 import Home from "../features/home/Home";
-import Users from "../features/users/Users";
+import UserDashboardForAdmin from "../features/users/UserDashboardForAdmin";
 import Events from "../features/events/Events";
 import AddEvent from "../features/events/AddEvent";
 import Admin from "../features/admin/Admin";
@@ -14,10 +14,12 @@ import AllResources from "../features/resources/AllResources";
 import ResourceCategory from "../features/resources/ResourceCategory";
 import FavoriteResource from "../features/favorites/FavoriteResource";
 import SingleResource from "../features/resources/SingleResource";
+import SingleUserProfile from "../features/users/SingleUserProfile";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
+  const userId = useSelector((state) => state.auth.me.id)
 
   const dispatch = useDispatch();
 
@@ -34,13 +36,14 @@ const AppRoutes = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/events/add" element={<AddEvent />} />
           <Route path="/resources" element={<AllResources />} />
+          <Route path={`/users/${userId}`} element={<SingleUserProfile />} />
           <Route path="/resources/:category/" element={<ResourceCategory />} />
           <Route path="/user/favorites/" element={<FavoriteResource />} />
           <Route path="/user/favorites/:id" element={<SingleResource />} />
 
           {isAdmin && (
             <>
-              <Route path="/users" element={<Users />} />
+              <Route path="/users" element={<UserDashboardForAdmin />} />
             </>
           )}
         </Routes>
