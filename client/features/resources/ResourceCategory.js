@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { fetchResources, selectResources } from "./resourcesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addToFavorites } from "../favorites/favoriteResourceSlice";
+import { addToFavResource } from "../favorites/favoriteResourceSlice";
 import { Link } from "react-router-dom";
 
 const ResourceCategory = () => {
@@ -17,7 +17,7 @@ const ResourceCategory = () => {
 
   const addButton = (ev, id) => {
     console.log("clicked", id);
-    dispatch(addToFavorites(id));
+    dispatch(addToFavResource(id));
   };
 
   return (
@@ -30,9 +30,7 @@ const ResourceCategory = () => {
               return (
                 <li key={id}>
                   <div>
-                    <h3>
-                      <Link to={`/resources/${id}`}>{name}</Link>
-                    </h3>
+                    <h3>{name}</h3>
                     <img
                       src={imageUrl}
                       style={{ width: "600px", height: "300px" }}

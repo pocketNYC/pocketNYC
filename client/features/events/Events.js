@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
+import { addToFavEvent } from "../favorites/favoriteEventSlice";
 
 export default function Events() {
   const dispatch = useDispatch();
@@ -11,6 +12,11 @@ export default function Events() {
     dispatch(fetchAllEvents());
     dispatch(me());
   }, []);
+
+  const addButton = (ev, id) => {
+    console.log("clicked", id);
+    dispatch(addToFavEvent(id));
+  };
 
   return (
     <div align="center">
@@ -34,6 +40,9 @@ export default function Events() {
           <div key={id}>
             <img src={image} style={{ width: "800px", height: "500px" }} />
             <h2 className="underline">{title}</h2>
+            <button onClick={(ev) => addButton(ev, id)}>
+              Add to Favorites
+            </button>
             <h3>
               {description}
               <br />
@@ -44,6 +53,7 @@ export default function Events() {
               Time: {time}
               <br />
               <a href={eventLink}>{eventLink}</a>
+              <br />
             </h3>
           </div>
         )

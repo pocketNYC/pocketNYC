@@ -35,8 +35,8 @@ const AppRoutes = () => {
           <Route path="/events/add" element={<AddEvent />} />
           <Route path="/resources" element={<AllResources />} />
           <Route path="/resources/:category/" element={<ResourceCategory />} />
-          {/* <Route path="/resources/:id/" element={<SingleResource />} /> */}
-          <Route path="/user/favorites" element={<FavoriteResource />} />
+          <Route path="/user/favorites/" element={<FavoriteResource />} />
+          <Route path="/user/favorites/:id" element={<SingleResource />} />
 
           {isAdmin && (
             <>
@@ -60,7 +60,6 @@ const AppRoutes = () => {
           />
           <Route path="/events" element={<Events />} />
           <Route path="/resources" element={<AllResources />} />
-          {/* <Route path="/resources/:id" element={<SingleResource />} /> */}
           <Route path="/resources/:category" element={<ResourceCategory />} />
           <Route path="*" element={<Error />} />
         </Routes>

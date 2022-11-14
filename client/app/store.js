@@ -6,6 +6,7 @@ import singleResourceReducer from "../features/resources/singleResourceSlice";
 import eventsSliceReducer from "../features/events/eventsSlice";
 import userReducer from "../features/users/userSlice";
 import favoriteResourceReducer from "../features/favorites/favoriteResourceSlice";
+import favoriteEventReducer from "../features/favorites/favoriteEventSlice";
 
 const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ const store = configureStore({
     events: eventsSliceReducer,
     user: userReducer,
     favoriteResource: favoriteResourceReducer,
+    favoriteEvent: favoriteEventReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

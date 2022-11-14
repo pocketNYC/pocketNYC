@@ -5,25 +5,42 @@ import {
   selectFavoriteResource,
 } from "./favoriteResourceSlice";
 import { Link } from "react-router-dom";
+import { fetchFavoriteEvent, selectFavoriteEvent } from "./favoriteEventSlice";
 
 const FavoriteResource = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFavoriteResource());
+    dispatch(fetchFavoriteEvent());
   }, [dispatch]);
-  const favorites = useSelector(selectFavoriteResource);
-
-  console.log("FAVORITES", favorites);
+  const favResources = useSelector(selectFavoriteResource);
+  const favEvents = useSelector(selectFavoriteEvent);
+  console.log("FAV EVENTS", favEvents);
 
   return (
     <div>
       <h1>My Favorite Resources</h1>
       <ul>
-        {favorites
-          ? favorites?.map(({ resource }) => {
+        {favResources.length
+          ? favResources?.map(({ resource }) => {
               return (
                 <li key={resource.id}>
-                  <Link to={`/resources/${resource.id}`}>{resource.name} </Link>
+                  <Link to={`/user/favorites/r/${resource.id}`}>
+                    {resource.name}
+                  </Link>
+                </li>
+              );
+            })
+          : "No favorites to display yet"}
+      </ul>
+      <h1>My Favorite Events</h1>
+      <ul>
+        {favEvents.length
+          ? favEvents?.map(({ event }) => {
+              return (
+                <li key={event.id}>
+                  {event.title}
+                  {/* add link once single event page is set up*/}
                 </li>
               );
             })

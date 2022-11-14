@@ -4,13 +4,13 @@ const TOKEN = "token";
 
 const initialState = [];
 
-export const fetchFavoriteResource = createAsyncThunk(
-  "fetchFavorite_Resource",
+export const fetchFavoriteEvent = createAsyncThunk(
+  "fetchFavorite_Event",
 
   async () => {
     const token = window.localStorage.getItem(TOKEN);
     try {
-      const { data } = await axios.get("/api/favoriteResource", {
+      const { data } = await axios.get("/api/favoriteEvent", {
         headers: {
           authorization: token,
         },
@@ -22,13 +22,13 @@ export const fetchFavoriteResource = createAsyncThunk(
   }
 );
 
-export const addToFavResource = createAsyncThunk(
-  "addFavorite_Resource",
+export const addToFavEvent = createAsyncThunk(
+  "addFavorite_Event",
   async (id) => {
     const token = window.localStorage.getItem(TOKEN);
     try {
       const { data } = await axios.post(
-        "/api/favoriteResource",
+        "/api/favoriteEvent",
         {
           id,
         },
@@ -41,22 +41,22 @@ export const addToFavResource = createAsyncThunk(
   }
 );
 
-const favoriteResourceSlice = createSlice({
-  name: "favoriteResource",
+const favoriteEventSlice = createSlice({
+  name: "favoriteEvent",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchFavoriteResource.fulfilled, (state, action) => {
+    builder.addCase(fetchFavoriteEvent.fulfilled, (state, action) => {
       return action.payload;
     });
-    builder.addCase(addToFavResource.fulfilled, (state, action) => {
+    builder.addCase(addToFavEvent.fulfilled, (state, action) => {
       state.push(action.payload);
     });
   },
 });
 
-export const selectFavoriteResource = (state) => {
-  return state.favoriteResource;
+export const selectFavoriteEvent = (state) => {
+  return state.favoriteEvent;
 };
 
-export default favoriteResourceSlice.reducer;
+export default favoriteEventSlice.reducer;
