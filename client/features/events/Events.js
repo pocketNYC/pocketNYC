@@ -9,7 +9,7 @@ import { Button } from "react-bootstrap";
 export default function Events() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.me);
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const events = useSelector((state) => state.events.events);
 
   useEffect(() => {
@@ -36,11 +36,17 @@ export default function Events() {
           <h4>
             Date: {date}
             <br />
-            {isLoggedIn && (
-              <Button variant="primary" type="submit">
-                Save Event
-              </Button>
-            )}
+            {isLoggedIn ? (
+              <>
+                <Button variant="primary" type="submit">
+                  Save Event
+                </Button>
+                <br />
+                <Button variant="primary" onClick={(ev) => addButton(ev, id)}>
+                  Add to Favorites
+                </Button>
+              </>
+            ) : null}
           </h4>
         </div>
       ))}

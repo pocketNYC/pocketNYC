@@ -12,7 +12,7 @@ import Login from "../features/auth/Login";
 import Signup from "../features/auth/Signup";
 import AllResources from "../features/resources/AllResources";
 import ResourceCategory from "../features/resources/ResourceCategory";
-import FavoriteResource from "../features/favorites/FavoriteResource";
+import Favorites from "../features/favorites/Favorites";
 import SingleResource from "../features/resources/SingleResource";
 import SingleUserProfile from "../features/users/SingleUserProfile";
 import SingleEvent from "../features/events/SingleEvent";
@@ -40,10 +40,7 @@ const AppRoutes = () => {
           <Route path="/resources/:category/" element={<ResourceCategory />} />
           <Route path="/events/:id" element={<SingleEvent />} />
           <Route path={`/users/${userId}`} element={<SingleUserProfile />} />
-          <Route
-            path={`/users/${userId}/favorites`}
-            element={<FavoriteResource />}
-          />
+          <Route path={`/users/${userId}/favorites`} element={<Favorites />} />
           <Route
             path={`/users/${userId}/favorites/:id`}
             element={<SingleResource />}

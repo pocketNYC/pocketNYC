@@ -7,7 +7,7 @@ import {
 import { Link } from "react-router-dom";
 import { fetchFavoriteEvent, selectFavoriteEvent } from "./favoriteEventSlice";
 
-const FavoriteResource = () => {
+const Favorites = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFavoriteResource());
@@ -39,8 +39,7 @@ const FavoriteResource = () => {
           ? favEvents?.map(({ event }) => {
               return (
                 <li key={event.id}>
-                  {event.title}
-                  {/* add link once single event page is set up*/}
+                  <Link to={`/events/${event.id}`}> {event.title}</Link>
                 </li>
               );
             })
@@ -50,4 +49,4 @@ const FavoriteResource = () => {
   );
 };
 
-export default FavoriteResource;
+export default Favorites;
