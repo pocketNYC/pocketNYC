@@ -36,28 +36,34 @@ function UserFeed({ interests, borough }) {
   return (
     <div>
       <p>Events matching your interests & borough:</p>
+      <ul>
+        {filteredByInterest
+          ? filteredByInterest?.map(({ id, image, title, date }) => (
+              <li key={id}>
+                <Link to={`/events/${id}`}>
+                  <img
+                    src={image}
+                    style={{ width: "500px", height: "300px" }}
+                    onClick={() => navigate(`/events/${id}`)}
+                  />
+                </Link>
 
-      {filteredByInterest
-        ? filteredByInterest?.map(({ id, image, title, date }) => (
-            <div key={id}>
-              <img
-                src={image}
-                style={{ width: "500px", height: "300px" }}
-                onClick={() => navigate(`/events/${id}`)}
-              />
-              <Link to={`/events/${id}`}>
-                <h3 className="underline">{title}</h3>
-              </Link>
-              <h4>
-                Date: {date}
-                <br />
-                <Button variant="primary" onClick={(ev) => addButton(ev, id)}>
+                <h3>{title}</h3>
+
+                <h4>
+                  Date: {date}
+                  <br />
+                  <Link to={`/events/${id}`}>
+                    <h4>More Details</h4>
+                  </Link>
+                  {/* <Button variant="primary" onClick={(ev) => addButton(ev, id)}>
                   Add to Favorites
-                </Button>
-              </h4>
-            </div>
-          ))
-        : "No events matching your interests/borough."}
+                </Button> */}
+                </h4>
+              </li>
+            ))
+          : "No events matching your interests/borough."}
+      </ul>
     </div>
   );
 }
