@@ -16,11 +16,12 @@ import Favorites from "../features/favorites/Favorites";
 import SingleResource from "../features/resources/SingleResource";
 import SingleUserProfile from "../features/users/SingleUserProfile";
 import SingleEvent from "../features/events/SingleEvent";
+import EditUserProfile from "../features/users/EditUserProfile";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
-  const userId = useSelector((state) => state.auth.me.id);
+  const user = useSelector((state) => state.auth.me);
 
   const dispatch = useDispatch();
 
@@ -39,10 +40,14 @@ const AppRoutes = () => {
           <Route path="/resources" element={<AllResources />} />
           <Route path="/resources/:category/" element={<ResourceCategory />} />
           <Route path="/events/:id" element={<SingleEvent />} />
-          <Route path={`/users/${userId}`} element={<SingleUserProfile />} />
-          <Route path={`/users/${userId}/favorites`} element={<Favorites />} />
+          <Route path={`/users/${user.id}`} element={<SingleUserProfile />} />
           <Route
-            path={`/users/${userId}/favorites/:id`}
+            path={`/users/${user.id}/edit`}
+            element={<EditUserProfile user={user} />}
+          />
+          <Route path={`/users/${user.id}/favorites`} element={<Favorites />} />
+          <Route
+            path={`/users/${user.id}/favorites/:id`}
             element={<SingleResource />}
           />
 

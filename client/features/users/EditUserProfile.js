@@ -5,11 +5,13 @@ import Button from "react-bootstrap/Button";
 import { authenticate } from "../../app/store";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
-import formInterest from "./formInterest";
+import formInterest from "../auth/formInterest";
 
-function Signup({ displayName, name }) {
+function EditUserProfile({ user }) {
+  const { id, firstName, lastName, email, interests, borough } = user;
   const dispatch = useDispatch();
   const animated = makeAnimated();
+
   const [validated, setValidated] = useState(false);
 
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -27,7 +29,7 @@ function Signup({ displayName, name }) {
     const email = evt.target.email.value;
     const password = evt.target.password.value;
     const interests = selectedOptions;
-    const borough = evt.target.borough.value;
+    const borough = updateBorough;
 
     dispatch(
       authenticate({
@@ -45,6 +47,7 @@ function Signup({ displayName, name }) {
 
   return (
     <>
+      <div>EditUserProfile</div>
       <Form
         noValidate
         validated={validated}
@@ -85,7 +88,7 @@ function Signup({ displayName, name }) {
         </Form.Group>
         <Form.Group className="mb-6" controlId="borough">
           <Form.Label>Borough</Form.Label>
-          <Form.Select>
+          <Form.Select className="basic-multi-select">
             <option defaultValue>Select</option>
             <option value="Bronx">Bronx</option>
             <option value="Brooklyn">Brooklyn</option>
@@ -96,7 +99,7 @@ function Signup({ displayName, name }) {
         </Form.Group>
         <br />
         <label htmlFor="interest" style={{ padding: "10px" }}>
-          Choose your categories of interest:
+          Choose your categories of interest: (limit 3*)
         </label>
         <Select
           isMulti
@@ -108,11 +111,11 @@ function Signup({ displayName, name }) {
           className="interest-multi-select"
         />
         <Button variant="primary" type="submit">
-          {displayName}
+          SUBMIT
         </Button>
       </Form>
     </>
   );
 }
 
-export default Signup;
+export default EditUserProfile;
