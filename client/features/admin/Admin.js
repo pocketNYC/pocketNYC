@@ -17,7 +17,9 @@ function Admin() {
   });
 
   const editEventButton = (ev, id) => {
-    dispatch(editEvent(id, ev));
+    dispatch(editEvent(id, ev)).then(() => {
+      dispatch(fetchAllEvents());
+    });
   };
 
   return (
@@ -26,19 +28,21 @@ function Admin() {
       <h2>Pending Events Here</h2>
       <>
         <ul>
-          {pendingEvents.map(({ title, id, date, status }) => {
-            return (
-              <li key={id}>
-                <small>{title}</small>
-                <br />
-                <small>{date}</small>
-                <br />
-                <button onClick={(ev) => editEventButton(ev, id)}>
-                  Approve
-                </button>
-              </li>
-            );
-          })}
+          {pendingEvents.length
+            ? pendingEvents.map(({ title, id, date, status }) => {
+                return (
+                  <li key={id}>
+                    <small>{title}</small>
+                    <br />
+                    <small>{date}</small>
+                    <br />
+                    <button onClick={(ev) => editEventButton(ev, id)}>
+                      Approve
+                    </button>
+                  </li>
+                );
+              })
+            : "No pending events remaining"}
         </ul>
       </>
 
