@@ -16,11 +16,14 @@ function EditUserProfile({ user }) {
 
   const [selectedOptions, setSelectedOptions] = useState([]);
 
+  const [updatedBorough, setUpdatedBorough] = useState([borough])
+
   const handleChange = (formInterest) => {
     let selections = [];
     formInterest.map((interest) => selections.push(interest.value));
     setSelectedOptions(selections);
   };
+
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -29,7 +32,7 @@ function EditUserProfile({ user }) {
     const email = evt.target.email.value;
     const password = evt.target.password.value;
     const interests = selectedOptions;
-    const borough = updateBorough;
+    const borough = evt.target.borough.value;
 
     dispatch(
       authenticate({
@@ -55,17 +58,19 @@ function EditUserProfile({ user }) {
         name={name}
       >
         <Form.Group className="mb-6" controlId="firstName">
-          <Form.Label>First Name</Form.Label>
-          <Form.Control required type="text" placeholder="Enter First Name" />
+          <Form.Label >First Name</Form.Label>
+          <Form.Control required type="text" defaultValue={firstName} placeholder="Enter First Name" />
           <Form.Control.Feedback type="invalid">
             Please provide your first name.
           </Form.Control.Feedback>
         </Form.Group>
+
         <Form.Group className="mb-6" controlId="lastName">
           <Form.Label>Last Name</Form.Label>
           <Form.Control
             required
             type="text"
+            defaultValue={lastName}
             placeholder="Enter Your Last Name"
           />
           <Form.Control.Feedback type="invalid">
@@ -74,7 +79,7 @@ function EditUserProfile({ user }) {
         </Form.Group>
         <Form.Group className="mb-6" controlId="email">
           <Form.Label>Email</Form.Label>
-          <Form.Control required type="text" placeholder="Enter Email" />
+          <Form.Control required type="email" defaultValue={email} placeholder="Enter Email" />
           <Form.Control.Feedback type="invalid">
             Please provide an email.
           </Form.Control.Feedback>
@@ -88,8 +93,8 @@ function EditUserProfile({ user }) {
         </Form.Group>
         <Form.Group className="mb-6" controlId="borough">
           <Form.Label>Borough</Form.Label>
-          <Form.Select className="basic-multi-select">
-            <option defaultValue>Select</option>
+          <Form.Select>
+            <option defaultValue>{borough}</option>
             <option value="Bronx">Bronx</option>
             <option value="Brooklyn">Brooklyn</option>
             <option value="Queens">Queens</option>
@@ -99,12 +104,14 @@ function EditUserProfile({ user }) {
         </Form.Group>
         <br />
         <label htmlFor="interest" style={{ padding: "10px" }}>
-          Choose your categories of interest: (limit 3*)
+          Choose your categories of interest:
+          (limit 3*)
         </label>
         <Select
           isMulti
           options={formInterest}
           components={animated}
+          
           closeMenuOnSelect={false}
           onChange={handleChange}
           isOptionDisabled={() => selectedOptions.length >= 3}
