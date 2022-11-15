@@ -82,7 +82,7 @@ const AddEvent = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button className="primary" type="submit">
           Submit
         </Button>
       </Form>

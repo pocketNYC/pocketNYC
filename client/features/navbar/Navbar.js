@@ -18,10 +18,10 @@ const Navbar = () => {
   return (
     <div>
       <h1>PocketNYC</h1>
-      <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-light">
+      <nav className="navbar navbar-expand-lg sticky-top bg-light">
         <div className="container-fluid">
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNavDropdown"
@@ -29,11 +29,14 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span
+              className="navbar-toggler-icon"
+              style={{ color: "black" }}
+            ></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
+          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul className="navbar-nav">
+              <li className="nav-item">
                 <a
                   className="nav-link active"
                   style={{ color: "black" }}
@@ -43,7 +46,7 @@ const Navbar = () => {
                   Home
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
                   className="nav-link active"
                   style={{ color: "black" }}
@@ -53,7 +56,7 @@ const Navbar = () => {
                   Events
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
                   className="nav-link active"
                   style={{ color: "black" }}
@@ -65,7 +68,7 @@ const Navbar = () => {
               </li>
               {isLoggedIn ? (
                 <>
-                  <li class="nav-item">
+                  <li className="nav-item">
                     <a
                       className="nav-link active"
                       style={{ color: "black" }}
@@ -77,7 +80,7 @@ const Navbar = () => {
                   </li>
                   <li className="nav-item dropdown">
                     <a
-                      class="nav-link dropdown-toggle"
+                      className="nav-link dropdown-toggle"
                       id="navbarDropdownMenuLink"
                       role="button"
                       data-bs-toggle="dropdown"
@@ -87,17 +90,17 @@ const Navbar = () => {
                       My Account
                     </a>
                     <ul
-                      class="dropdown-menu"
+                      className="dropdown-menu"
                       aria-labelledby="navbarDropdownMenuLink"
                     >
                       <li>
-                        <a class="dropdown-item" href={`/users/${userId}`}>
+                        <a className="dropdown-item" href={`/users/${userId}`}>
                           View Profile
                         </a>
                       </li>
                       <li>
                         <a
-                          class="dropdown-item"
+                          className="dropdown-item"
                           href={`/users/${userId}/favorites`}
                         >
                           View Favorites
@@ -108,10 +111,37 @@ const Navbar = () => {
 
                   {isAdmin && (
                     <>
-                      <Link to="/users">Users</Link>
+                      <li className="nav-item dropdown">
+                        <a
+                          className="nav-link dropdown-toggle"
+                          id="navbarDropdownMenuLink"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                          style={{ color: "black" }}
+                        >
+                          Admin
+                        </a>
+                        <ul
+                          className="dropdown-menu"
+                          aria-labelledby="navbarDropdownMenuLink"
+                        >
+                          <li>
+                            <a className="dropdown-item" href="/users">
+                              View Users
+                            </a>
+                          </li>
+
+                          <li>
+                            <a className="dropdown-item" href="/admin">
+                              Events Dashboard
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
                     </>
                   )}
-                  <li class="nav-item">
+                  <li className="nav-item">
                     <Link
                       className="nav-link active"
                       aria-current="page"
@@ -124,7 +154,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <li class="nav-item">
+                  <li className="nav-item">
                     <a
                       className="nav-link active"
                       style={{ color: "black" }}
@@ -134,7 +164,7 @@ const Navbar = () => {
                       Login
                     </a>
                   </li>
-                  <li class="nav-item">
+                  <li className="nav-item">
                     <a
                       className="nav-link active"
                       style={{ color: "black" }}
