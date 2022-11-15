@@ -38,18 +38,18 @@ function UserDashboardForAdmin() {
           className="user-info-dashboard-table"
           style={{ textAlign: "center" }}
         >
-          {users.map((user) => {
+          {users?.map(({id, firstName, lastName, email, isAdmin}) => {
             return (
-              <tr key={user.id}>
+              <tr key={id}>
                 <td>
-                  <div>{user.firstName}</div>
+                  <div>{firstName}</div>
                 </td>
-                <td>{user.lastName}</td>
-                <td>{user.email}</td>
-                <td>{user.isAdmin === false ? "no" : "yes"}</td>
+                <td>{lastName}</td>
+                <td>{email}</td>
+                <td>{isAdmin === false ? "no" : "yes"}</td>
                 <td>
                   <button onClick={toggler}>
-                    {user.isAdmin === false ? "BASIC" : "ADMIN USER"}
+                    {isAdmin === false ? "BASIC" : "ADMIN USER"}
                   </button>
                 </td>
               </tr>

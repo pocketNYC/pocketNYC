@@ -1,43 +1,32 @@
 import React, { useEffect } from "react";
-import { fetchResources, selectResources } from "./resourcesSlice";
+import {
+  fetchSingleResource,
+  selectSingleResource,
+} from "./singleResourceSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const SingleResource = () => {
   const dispatch = useDispatch();
-  const resources = useSelector(selectResources);
-  const { category } = useParams();
+  const { id } = useParams();
+
+  const resource = useSelector(selectSingleResource);
+  const { name, description, address, tag, hyperlink, imageUrl } = resource;
 
   useEffect(() => {
-    dispatch(fetchResources());
-  }, [dispatch, category]);
+    dispatch(fetchSingleResource(id));
+  }, [dispatch]);
 
   return (
     <div>
-      <ul>
-        {resources
-          .filter((resource) => resource.tag.includes(category))
-          .map((resource) => {
-            return (
-              <li key={resource.id}>
-                <div>
-                  <h3>{resource.name}</h3>
-                  <img
-                    src={resource.imageUrl}
-                    style={{ width: "600px", height: "300px" }}
-                  />
-                  <p>About: {resource.description}</p>
-                  <p>Address: {resource.address}</p>
-                  <p>
-                    More Info:{" "}
-                    <a href={resource.hyperlink}>{resource.hyperlink}</a>
-                  </p>
-                  <p>Tags: {resource.tag ? resource.tag.join(", ") : null}</p>
-                </div>
-              </li>
-            );
-          })}
-      </ul>
+      <h1>{name}</h1>
+      <img src={imageUrl} style={{ height: "200px", width: "300px" }} />
+      <p>About: {description}</p>
+      <p>Address: {address}</p>
+      <p>
+        More Info: <a href={hyperlink}>{hyperlink}</a>
+      </p>
+      <p>Tags: {tag ? tag.join(", ") : null}</p>
     </div>
   );
 };

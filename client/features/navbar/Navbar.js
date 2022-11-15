@@ -7,7 +7,7 @@ import { logout } from "../../app/store";
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
-  const userId = useSelector((state) => state.auth.me.id)
+  const userId = useSelector((state) => state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
@@ -15,19 +15,18 @@ const Navbar = () => {
     navigate("/login");
   };
 
-
   return (
     <div>
       <h1>PocketNYC</h1>
-      <nav>
+      <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-light">
         {isLoggedIn ? (
-          <div>
+          <div className="container-fluid">
             {/* The navbar will show these links after you log in */}
             <Link to="/home">Home</Link>
             <Link to="/events">Events</Link>
             <Link to="/resources"> Resources</Link>
             <Link to="/events/add">Add Event</Link>
-            <Link to={`/users/${userId}`} >My Profile</Link>
+            <Link to={`/users/${userId}`}>My Profile</Link>
 
             {isAdmin && (
               <>

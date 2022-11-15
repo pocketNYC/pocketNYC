@@ -2,19 +2,24 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
+import { addToFavEvent } from "../favorites/favoriteEventSlice";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 export default function Events() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.me);
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const events = useSelector((state) => state.events.events);
 
   useEffect(() => {
     dispatch(fetchAllEvents());
     dispatch(me());
   }, []);
+
+  const addButton = (ev, id) => {
+    dispatch(addToFavEvent(id));
+  };
 
   return (
     <div align="center">
@@ -31,11 +36,17 @@ export default function Events() {
           <h4>
             Date: {date}
             <br />
-            {isLoggedIn && (
-              <Button variant="primary" type="submit">
-                Save Event
-              </Button>
-            )}
+            {isLoggedIn ? (
+              <>
+                <Button variant="primary" type="submit">
+                  Save Event
+                </Button>
+                <br />
+                <Button variant="primary" onClick={(ev) => addButton(ev, id)}>
+                  Add to Favorites
+                </Button>
+              </>
+            ) : null}
           </h4>
         </div>
       ))}

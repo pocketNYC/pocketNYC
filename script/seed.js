@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { User, Resources, Event },
+  models: { User, Resource, Event },
 } = require("../server/db");
 
 const { userInfo } = require("./userSeed");
@@ -14,10 +14,14 @@ async function seed() {
   console.log("db synced!");
 
   const users = await Promise.all(userInfo.map((user) => User.create(user)));
-  const resource = await Promise.all(resources.map((resource) => Resources.create(resource)));
+  const resource = await Promise.all(
+    resources.map((resource) => Resource.create(resource))
+  );
   const event = await Promise.all(events.map((event) => Event.create(event)));
 
-  console.log(`seeded ${users.length} users, ${event.length} events, and ${resource.length} resources`);
+  console.log(
+    `seeded ${users.length} users, ${event.length} events, and ${resource.length} resources`
+  );
   console.log(`seeded successfully`);
 }
 
@@ -29,7 +33,6 @@ async function runSeed() {
     console.error(err);
     process.exitCode = 1;
   } finally {
-
     await db.close();
     console.log("db connection closed");
   }

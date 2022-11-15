@@ -11,6 +11,8 @@ import Error from "../features/error/Error";
 import Login from "../features/auth/Login";
 import Signup from "../features/auth/Signup";
 import AllResources from "../features/resources/AllResources";
+import ResourceCategory from "../features/resources/ResourceCategory";
+import Favorites from "../features/favorites/Favorites";
 import SingleResource from "../features/resources/SingleResource";
 import SingleUserProfile from "../features/users/SingleUserProfile";
 import SingleEvent from "../features/events/SingleEvent";
@@ -18,7 +20,7 @@ import SingleEvent from "../features/events/SingleEvent";
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
-  const userId = useSelector((state) => state.auth.me.id)
+  const userId = useSelector((state) => state.auth.me.id);
 
   const dispatch = useDispatch();
 
@@ -35,8 +37,14 @@ const AppRoutes = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/events/add" element={<AddEvent />} />
           <Route path="/resources" element={<AllResources />} />
+          <Route path="/resources/:category/" element={<ResourceCategory />} />
+          <Route path="/events/:id" element={<SingleEvent />} />
           <Route path={`/users/${userId}`} element={<SingleUserProfile />} />
-          <Route path="/resources/:category" element={<SingleResource />} />
+          <Route path={`/users/${userId}/favorites`} element={<Favorites />} />
+          <Route
+            path={`/users/${userId}/favorites/:id`}
+            element={<SingleResource />}
+          />
 
           {isAdmin && (
             <>
@@ -63,8 +71,7 @@ const AppRoutes = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
           <Route path="/resources" element={<AllResources />} />
-          <Route path="/resources/:id" element={<SingleResource />} />
-          <Route path="/resources/:category" element={<SingleResource />} />
+          <Route path="/resources/:category" element={<ResourceCategory />} />
           <Route path="*" element={<Error />} />
         </Routes>
       )}
