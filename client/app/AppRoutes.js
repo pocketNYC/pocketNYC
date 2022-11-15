@@ -49,7 +49,6 @@ const AppRoutes = () => {
           {isAdmin && (
             <>
               <Route path="/users" element={<UserDashboardForAdmin />} />
-              <Route path="/users" element={<Users />} />
               <Route path="/admin" element={<Admin />} />
             </>
           )}

@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleUser } from "./userSlice";
-import { Link } from "react-router-dom";
-import Favorites from "../favorites/Favorites";
 import { fetchFavoriteEvent } from "../favorites/favoriteEventSlice";
 import { fetchFavoriteResource } from "../favorites/favoriteResourceSlice";
 
@@ -34,7 +32,6 @@ function SingleUserProfile() {
         <strong>Borough: </strong>
         {borough}
       </h6>
-      <Link to={`/users/${id}/favorites`}>My Favorites</Link>
     </div>
   );
 }
