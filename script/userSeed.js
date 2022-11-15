@@ -13,7 +13,7 @@ const userInfo = [
     lastName: "Woahza",
     email: "woahzarosa@abc123.com",
     password: "cre8AnotherHashedPW2",
-    interests: ["multicultural", "seniors", "health"],
+    interests: ["family-friendly", "seniors", "health"],
     borough: "Brooklyn",
     isAdmin: "false",
   },
