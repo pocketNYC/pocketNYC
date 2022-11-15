@@ -18,40 +18,168 @@ const Navbar = () => {
   return (
     <div>
       <h1>PocketNYC</h1>
-      <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-light">
-        {isLoggedIn ? (
-          <div className="container-fluid">
-            {/* The navbar will show these links after you log in */}
-            <Link to="/home">Home</Link>
-            <Link to="/events">Events</Link>
-            <Link to="/resources"> Resources</Link>
-            <Link to="/events/add">Add Event</Link>
-            <Link to={`/users/${userId}`}>My Profile</Link>
+      <nav className="navbar navbar-expand-lg sticky-top bg-light">
+        <div className="container-fluid">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span
+              className="navbar-toggler-icon"
+              style={{ color: "black" }}
+            ></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a
+                  className="nav-link active"
+                  style={{ color: "black" }}
+                  aria-current="page"
+                  href="/home"
+                >
+                  Home
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link active"
+                  style={{ color: "black" }}
+                  aria-current="page"
+                  href="/events"
+                >
+                  Events
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link active"
+                  style={{ color: "black" }}
+                  aria-current="page"
+                  href="/resources"
+                >
+                  Resources
+                </a>
+              </li>
+              {isLoggedIn ? (
+                <>
+                  <li className="nav-item">
+                    <a
+                      className="nav-link active"
+                      style={{ color: "black" }}
+                      aria-current="page"
+                      href="/events/add"
+                    >
+                      Add Event
+                    </a>
+                  </li>
+                  <li className="nav-item dropdown">
+                    <a
+                      className="nav-link dropdown-toggle"
+                      id="navbarDropdownMenuLink"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      style={{ color: "black" }}
+                    >
+                      My Account
+                    </a>
+                    <ul
+                      className="dropdown-menu"
+                      aria-labelledby="navbarDropdownMenuLink"
+                    >
+                      <li>
+                        <a className="dropdown-item" href={`/users/${userId}`}>
+                          View Profile
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className="dropdown-item"
+                          href={`/users/${userId}/favorites`}
+                        >
+                          View Favorites
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
 
-            {isAdmin && (
-              <>
-                <Link to="/users">Users</Link>
-              </>
-            )}
-            <Button
-              variant="primary"
-              type="submit"
-              onClick={logoutAndRedirectHome}
-            >
-              Log out
-            </Button>
+                  {isAdmin && (
+                    <>
+                      <li className="nav-item dropdown">
+                        <a
+                          className="nav-link dropdown-toggle"
+                          id="navbarDropdownMenuLink"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                          style={{ color: "black" }}
+                        >
+                          Admin
+                        </a>
+                        <ul
+                          className="dropdown-menu"
+                          aria-labelledby="navbarDropdownMenuLink"
+                        >
+                          <li>
+                            <a className="dropdown-item" href="/users">
+                              View Users
+                            </a>
+                          </li>
+
+                          <li>
+                            <a className="dropdown-item" href="/admin">
+                              Events Dashboard
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </>
+                  )}
+                  <li className="nav-item">
+                    <Link
+                      className="nav-link active"
+                      aria-current="page"
+                      style={{ color: "black" }}
+                      onClick={logoutAndRedirectHome}
+                    >
+                      Log out
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <a
+                      className="nav-link active"
+                      style={{ color: "black" }}
+                      aria-current="page"
+                      href="login"
+                    >
+                      Login
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a
+                      className="nav-link active"
+                      style={{ color: "black" }}
+                      aria-current="page"
+                      href="/signup"
+                    >
+                      Sign Up
+                    </a>
+                  </li>
+                </>
+              )}
+            </ul>
           </div>
-        ) : (
-          <div>
-            {/* The navbar will show these links before you log in */}
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/events">Events</Link>
-            <Link to="/resources">Resources</Link>
-          </div>
-        )}
+        </div>
       </nav>
-      <hr />
     </div>
   );
 };

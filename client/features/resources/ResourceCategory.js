@@ -2,7 +2,10 @@ import React, { useEffect } from "react";
 import { fetchResources, selectResources } from "./resourcesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addToFavResource } from "../favorites/favoriteResourceSlice";
+import {
+  addToFavResource,
+  fetchFavoriteResource,
+} from "../favorites/favoriteResourceSlice";
 import { Link } from "react-router-dom";
 
 const ResourceCategory = () => {

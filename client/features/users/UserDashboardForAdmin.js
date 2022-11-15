@@ -4,9 +4,10 @@ import { fetchAllUsers } from "./userSlice";
 
 function UserDashboardForAdmin() {
   const users = useSelector((state) => state.user.allUsers);
-  const [buttonText, setButtonText] = useState('Click Test');
+  const [buttonText, setButtonText] = useState("Click Test");
 
-  const toggler = () => { //update This function
+  const toggler = () => {
+    //update This function
     if (buttonText === "BASIC") {
       setButtonText("ADMIN USER");
     }
@@ -21,7 +22,7 @@ function UserDashboardForAdmin() {
 
   return (
     <div>
-      <h2>Users Dashboard</h2>
+      <h2>All Registered Users</h2>
       <table>
         <thead>
           <tr
@@ -38,7 +39,7 @@ function UserDashboardForAdmin() {
           className="user-info-dashboard-table"
           style={{ textAlign: "center" }}
         >
-          {users?.map(({id, firstName, lastName, email, isAdmin}) => {
+          {users?.map(({ id, firstName, lastName, email, isAdmin }) => {
             return (
               <tr key={id}>
                 <td>

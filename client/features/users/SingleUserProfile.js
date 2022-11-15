@@ -1,18 +1,21 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleUser } from "./userSlice";
-import { Link } from "react-router-dom";
+import { fetchFavoriteEvent } from "../favorites/favoriteEventSlice";
+import { fetchFavoriteResource } from "../favorites/favoriteResourceSlice";
 
 function SingleUserProfile() {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
 
-  const { firstName, lastName, email, interests, borough } = useSelector(
+  const { firstName, lastName, email, interests, borough, id } = useSelector(
     (state) => state.user.singleUser
   );
 
   useEffect(() => {
     dispatch(fetchSingleUser(userId));
+    dispatch(fetchFavoriteEvent());
+    dispatch(fetchFavoriteResource());
   }, [dispatch]);
 
   return (
