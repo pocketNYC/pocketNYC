@@ -3,6 +3,7 @@ import { fetchAllEvents } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { addToFavEvent } from "../favorites/favoriteEventSlice";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function UserFeed({ interests, borough }) {
   const dispatch = useDispatch();
@@ -31,19 +32,11 @@ function UserFeed({ interests, borough }) {
     }
   });
 
-  console.log("ALL EVENTS", events);
-  console.log("F EVENTS", filteredByBoro);
-  console.log("interests", interests);
-  console.log("F INTEREST", filteredByInterest);
-
   //user feed: APPROVED events, in my BOROUGH, matching my INTERESTS
   return (
     <div>
-      <p>USER FEED HERE:</p>
-      <p>
-        I'm interested in {interests} events happening in {borough}
-      </p>
       <p>Events matching your interests & borough:</p>
+
       {filteredByInterest
         ? filteredByInterest?.map(({ id, image, title, date }) => (
             <div key={id}>
@@ -52,10 +45,11 @@ function UserFeed({ interests, borough }) {
                 style={{ width: "500px", height: "300px" }}
                 onClick={() => navigate(`/events/${id}`)}
               />
-              <h3 className="underline">{title}</h3>
+              <Link to={`/events/${id}`}>
+                <h3 className="underline">{title}</h3>
+              </Link>
               <h4>
                 Date: {date}
-                <br />
                 <br />
                 <Button variant="primary" onClick={(ev) => addButton(ev, id)}>
                   Add to Favorites

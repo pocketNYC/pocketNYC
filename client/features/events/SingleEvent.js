@@ -11,6 +11,7 @@ function SingleEvent() {
     useSelector((state) => state.events.event);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
 
+  console.log(tag);
   useEffect(() => {
     dispatch(fetchSingleEvent(id));
   }, []);
@@ -35,7 +36,7 @@ function SingleEvent() {
         <br />
         Time: {time}
         <br />
-        Tag: {tag}
+        Tags: {tag?.join(", ")}
         <br />
         <a href={eventLink}>{eventLink}</a>
       </h4>
