@@ -17,6 +17,11 @@ export default function Events() {
     dispatch(me());
   }, []);
 
+  const approvedEvents = events?.filter((event) => {
+    if (event.status === "approved") {
+      return event;
+    }
+  });
   const addButton = (ev, id) => {
     dispatch(addToFavEvent(id));
   };
@@ -25,7 +30,7 @@ export default function Events() {
     <div align="center">
       <h1 className="underline">List of Events</h1>
 
-      {events?.map(({ id, image, title, date }) => (
+      {approvedEvents?.map(({ id, image, title, date }) => (
         <div key={id}>
           <img
             src={image}
