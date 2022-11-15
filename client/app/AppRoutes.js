@@ -33,7 +33,7 @@ const AppRoutes = () => {
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
-          <Route to="/home" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/add" element={<AddEvent />} />
           <Route path="/resources" element={<AllResources />} />
@@ -45,6 +45,7 @@ const AppRoutes = () => {
             path={`/users/${userId}/favorites/:id`}
             element={<SingleResource />}
           />
+          <Route path="*" element={<Error />} />
 
           {isAdmin && (
             <>
@@ -55,8 +56,8 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/*" element={<Home />} />
-          <Route to="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route
             path="/login"
             element={<Login name="login" displayName="Login" />}

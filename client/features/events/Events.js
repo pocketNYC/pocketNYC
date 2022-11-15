@@ -12,6 +12,13 @@ export default function Events() {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const events = useSelector((state) => state.events.events);
 
+
+  // let sortedDates = [...events].sort((a, b) => {
+  //   return new Date(a) - new Date(b);
+  // });
+
+  // console.log(sortedDates);
+
   useEffect(() => {
     dispatch(fetchAllEvents());
     dispatch(me());
@@ -38,10 +45,6 @@ export default function Events() {
             <br />
             {isLoggedIn ? (
               <>
-                <Button variant="primary" type="submit">
-                  Save Event
-                </Button>
-                <br />
                 <Button variant="primary" onClick={(ev) => addButton(ev, id)}>
                   Add to Favorites
                 </Button>

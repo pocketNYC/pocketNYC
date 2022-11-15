@@ -14,15 +14,24 @@ export const fetchSingleEvent = createAsyncThunk(
   }
 );
 
-export const addEvent = createAsyncThunk("addEvent", async (newEvent) => {
-  const token = window.localStorage.getItem("token");
-  const { data } = await axios.post("/api/events", newEvent, {
-    headers: {
-      authorization: token,
-    },
-  });
-  return data;
-});
+export const addEvent = createAsyncThunk(
+  "addEvent",
+  async ({ title, description, address, image, date, time, borough, tag }) => {
+    // const token = window.localStorage.getItem("token");
+    const { data } = await axios.post("/api/events", {
+      title,
+      description,
+      address,
+      image,
+      date,
+      time,
+      borough,
+      tag,
+    });
+    console.log("data", data);
+    return data;
+  }
+);
 
 export const deleteEvent = createAsyncThunk("deleteEvent", async (id) => {
   const token = window.localStorage.getItem("token");

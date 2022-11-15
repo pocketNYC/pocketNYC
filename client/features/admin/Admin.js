@@ -1,8 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 function Admin() {
-  const { firstName } = useSelector((state) => state.auth.me);
 
   return (
     <div>

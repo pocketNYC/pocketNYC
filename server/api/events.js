@@ -7,7 +7,7 @@ const {
 router.get("/", async (req, res, next) => {
   try {
     const events = await Event.findAll();
-    res.json(events);
+    events ? res.json(events) : res.sendStatus(404);
   } catch (error) {
     next(error);
   }
@@ -17,11 +17,7 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const event = await Event.findByPk(req.params.id);
-    if (event) {
-      res.json(event);
-    } else {
-      res.sendStatus(404);
-    }
+    event ? res.json(event) : res.sendStatus(404);
   } catch (error) {
     next(error);
   }
@@ -30,23 +26,19 @@ router.get("/:id", async (req, res, next) => {
 // POST /api/events
 router.post("/", async (req, res, next) => {
   try {
-    const loggedInUser = await User.findByToken(req.headers.authorization);
-    if (loggedInUser.isAdmin) {
-      const event = await Event.create(req.body);
-      if (event) {
-        res.json(event);
-      } else {
-        res.sendStatus(404);
-      }
-    } else {
-      res.sendStatus(401);
-    }
+    // const loggedInUser = await User.findByToken(req.headers.authorization);
+    // if (loggedInUser) {
+    const event = await Event.create(req.body);
+    console.log('event', event)
+    event ? res.json(event) : res.sendStatus(404);
+    // } else {
+    //   res.send('Please log in or sign up to submit an events.')
+    // }
   } catch (error) {
     next(error);
   }
 });
 
-// DELETE /api/events/:id
 router.delete("/:id", async (req, res, next) => {
   try {
     const loggedInUser = await User.findByToken(req.headers.authorization);

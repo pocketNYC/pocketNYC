@@ -148,7 +148,7 @@ const Navbar = () => {
                       style={{ color: "black" }}
                       onClick={logoutAndRedirectHome}
                     >
-                      Log out
+                      Log Out
                     </Link>
                   </li>
                 </>
