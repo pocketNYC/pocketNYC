@@ -10,8 +10,8 @@ const SingleResource = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const resource = useSelector(selectSingleResource);
-  const { name, description, address, tag, hyperlink, imageUrl } = resource;
+  const { name, description, address, tag, hyperlink, imageUrl } =
+    useSelector(selectSingleResource);
 
   useEffect(() => {
     dispatch(fetchSingleResource(id));
