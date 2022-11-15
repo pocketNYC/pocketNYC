@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import { fetchAllEvents } from "./eventsSlice";
 
 function FeaturedEvents() {
   const dispatch = useDispatch();
+  const { tag } = useParams();
   const events = useSelector((state) => state.events.events);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ function FeaturedEvents() {
       {events?.map(({ id, image, title, date, tag }) => (
         <div>
           <h1>{title}</h1>
-          <h3>{tag.includes("holidays")}</h3>
+          {/* <h3>{tag.includes("holidays")}</h3> */}
         </div>
       ))}
     </div>
