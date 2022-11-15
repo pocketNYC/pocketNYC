@@ -41,10 +41,10 @@ const Event = db.define("event", {
     defaultValue: "pending",
   },
   longitude: {
-    type: Sequelize.STRING,
+    type: Sequelize.DOUBLE,
   },
   latitude: {
-    type: Sequelize.STRING,
+    type: Sequelize.DOUBLE,
   },
 });
 
