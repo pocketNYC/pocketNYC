@@ -1,3 +1,4 @@
+// o: you can make this file into a json file
 const events = [
   {
     title: "Central Park Tour: Iconic Views of Central Park",

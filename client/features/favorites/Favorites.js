@@ -10,6 +10,7 @@ import { fetchFavoriteEvent, selectFavoriteEvent } from "./favoriteEventSlice";
 const Favorites = () => {
   const dispatch = useDispatch();
   useEffect(() => {
+    // o: shouldn't these be plural?
     dispatch(fetchFavoriteResource());
     dispatch(fetchFavoriteEvent());
   }, [dispatch]);
@@ -21,6 +22,7 @@ const Favorites = () => {
     <div>
       <h1>My Favorite Resources</h1>
       <ul>
+        {/* o: is there an instance where favResources does not have a length? */}
         {favResources.length
           ? favResources?.map(({ resource }) => {
               return (
@@ -35,6 +37,7 @@ const Favorites = () => {
       </ul>
       <h1>My Favorite Events</h1>
       <ul>
+        {/* o: is there an instance where favResources does not have a length? */}
         {favEvents.length
           ? favEvents?.map(({ event }) => {
               return (

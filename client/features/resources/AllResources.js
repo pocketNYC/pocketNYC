@@ -6,6 +6,7 @@ const AllResources = () => {
   const navigate = useNavigate();
 
   const navigateCategory = (ev) => {
+    // o: you can destructure the id from the argument above
     const category = ev.target.id;
     navigate(`/resources/${category}`);
   };
@@ -16,6 +17,7 @@ const AllResources = () => {
       <h3> Select a category below to start:</h3>
       <img
         id="clothes"
+        // o: why not pass in navigateCategory directly
         onClick={(ev) => navigateCategory(ev)}
         style={{ width: "200px", height: "200px", padding: "10px" }}
         src="https://i.imgur.com/a7XnSA4.png"

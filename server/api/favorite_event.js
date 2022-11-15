@@ -11,6 +11,7 @@ router.get("/", getToken, async (req, res, next) => {
   const userId = req.user.id;
 
   try {
+    // o: this should be called favorite events
     const favorite = await Favorite_Event.findAll({
       where: [{ userId: userId }],
       include: [Event],

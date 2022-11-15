@@ -1,3 +1,4 @@
+// o: you can make this file into a json file
 const userInfo = [
   {
     firstName: "Cody",

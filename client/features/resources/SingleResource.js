@@ -11,6 +11,7 @@ const SingleResource = () => {
   const { id } = useParams();
 
   const resource = useSelector(selectSingleResource);
+  // o: you can destructure these in the line above
   const { name, description, address, tag, hyperlink, imageUrl } = resource;
 
   useEffect(() => {

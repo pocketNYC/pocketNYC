@@ -6,6 +6,7 @@ const initialState = [];
 export const fetchResources = createAsyncThunk(
   "resources/allResources",
   async () => {
+    // o: you don't want try catches in your thunks... ill explain
     try {
       const { data } = await axios.get("/api/resources");
       return data;

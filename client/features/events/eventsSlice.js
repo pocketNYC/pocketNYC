@@ -44,13 +44,13 @@ export const eventsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchAllEvents.fulfilled, (state, action) => {
       state.events = action.payload;
-    }),
+    }), // o: 👈 remove this comma
       builder.addCase(fetchSingleEvent.fulfilled, (state, action) => {
         state.event = action.payload;
       });
     builder.addCase(addEvent.fulfilled, (state, action) => {
       state.events.push(action.payload);
-    }),
+    }), // o: 👈 remove this comma
       builder.addCase(deleteEvent.fulfilled, (state, action) => {
         state.events.filter((event) => event.id !== action.payload.id);
       });

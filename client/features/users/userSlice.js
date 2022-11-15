@@ -42,6 +42,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    // o: try to stick to the same coding style as other slices
     builder
       .addCase(fetchAllUsers.pending, (state, action) => {
         state.loading = true;

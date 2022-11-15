@@ -40,6 +40,7 @@ const Event = db.define("event", {
     type: Sequelize.ENUM("approved", "pending", "denied"),
     defaultValue: "pending",
   },
+  // o: these should be stored as doubles
   longitude: {
     type: Sequelize.STRING,
   },

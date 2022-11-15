@@ -30,6 +30,7 @@ const Resource = db.define("resources", {
   hyperlink: {
     type: DataTypes.STRING,
   },
+  // o: these should be stored as doubles
   latitude: {
     type: DataTypes.STRING,
   },

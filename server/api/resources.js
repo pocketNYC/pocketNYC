@@ -15,6 +15,7 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
+    // o: check for when resource not found
     const resource = await Resource.findByPk(req.params.id);
     res.json(resource);
   } catch (err) {
@@ -33,6 +34,7 @@ router.post("/", async (req, res, next) => {
 
 router.put("/:id", async (req, res, next) => {
   try {
+    // o: check for when resource not found
     const resource = await Resource.findByPk(req.params.id);
     res.send(await resource.update(req.body));
   } catch (err) {
@@ -42,6 +44,7 @@ router.put("/:id", async (req, res, next) => {
 
 router.delete("/:id", async (req, res, next) => {
   try {
+    // o: check for when resource not found
     const resource = await Resource.findByPk(req.params.id);
 
     await resource.destroy();

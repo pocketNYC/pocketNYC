@@ -1,3 +1,4 @@
+// o: you can make this file into a json file
 const resources = [
   {
     name: "St. Mary's Hospital for Children",

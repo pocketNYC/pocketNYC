@@ -5,12 +5,15 @@ const {
 } = require("../db");
 
 const { getToken } = require("./adminAuth");
+
+// o: put this line at the bottom for readability
 module.exports = router;
 
 router.get("/", getToken, async (req, res, next) => {
   const userId = req.user.id;
 
   try {
+    // o: this should be called favorite resources
     const favorite = await Favorite_Resource.findAll({
       where: [{ userId: userId }],
       include: [Resource],
