@@ -1,10 +1,14 @@
 import React from "react";
 
-function UserFeed() {
+function UserFeed({ interests, borough }) {
+
+  //user feed: APPROVED events, in my BOROUGH, matching my INTERESTS
   return (
     <div>
-      <h2>Display Users events by their Interest here..</h2>
-      
+      <p>USER FEED HERE:</p>
+      <p>
+        I'm interested in {interests} events happening in {borough}
+      </p>
     </div>
   );
 }
