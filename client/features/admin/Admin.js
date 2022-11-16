@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { editEvent, fetchAllEvents } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
+import Button from "react-bootstrap/Button";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
@@ -38,17 +39,17 @@ function Admin() {
             ? sortedPendingEvents.map(({ title, id, date, status }) => {
                 return (
                   <li key={id}>
-                    <small>
+                    <strong>
                       <Link to={`/events/${id}`}>{title} </Link>
-                    </small>
+                    </strong>
                     <br />
-                    <small>
+                    <strong>
                       Date: {moment(date).format("dddd, MMMM Do, YYYY")}
-                    </small>
+                    </strong>
                     <br />
-                    <button onClick={(ev) => editEventButton(ev, id)}>
+                    <Button onClick={(ev) => editEventButton(ev, id)}>
                       Approve
-                    </button>
+                    </Button>
                   </li>
                 );
               })

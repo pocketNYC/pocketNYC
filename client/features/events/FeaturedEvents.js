@@ -2,15 +2,13 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchAllEvents } from "../events/eventsSlice";
+
 function FeaturedEvents() {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events.events);
   // console.log(events);
   const filteredEvents = events?.filter((event) => {
-    if (
-      event.tag.includes("holidays")
-      // && event.status === "approved"
-    ) {
+    if (event.tag.includes("holidays") && event.status === "approved") {
       return event;
     }
   });
@@ -21,9 +19,11 @@ function FeaturedEvents() {
     }
   });
   console.log(exclude1);
+
   useEffect(() => {
     dispatch(fetchAllEvents());
   }, [dispatch]);
+
   return (
     <div className="container">
       <h1 className="underline">Featured Events</h1>
