@@ -6,7 +6,6 @@ import { fetchAllEvents } from "../events/eventsSlice";
 function FeaturedEvents() {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events.events);
-  // console.log(events);
   const filteredEvents = events?.filter((event) => {
     if (event.tag.includes("holidays") && event.status === "approved") {
       return event;
@@ -26,7 +25,9 @@ function FeaturedEvents() {
 
   return (
     <div className="container">
-      <h1 className="underline">Featured Events</h1>
+      <h1 className="underline" align="center">
+        Featured Events
+      </h1>
       <div
         id="carouselExampleFade"
         className="carousel slide carousel-fade"
@@ -40,11 +41,11 @@ function FeaturedEvents() {
           >
             <img
               class="d-block w-100"
-              style={{ width: "600px", height: "500px" }}
+              style={{ width: "200px", height: "600px", padding: "10px" }}
               src={first?.image}
               alt="..."
             />
-            <div>
+            <div align="center">
               <h3>{first?.title}</h3>
               <h2>{first?.date}</h2>
             </div>
@@ -52,12 +53,12 @@ function FeaturedEvents() {
           {exclude1?.map((event) => (
             <div className="carousel-item" data-bs-interval="2000">
               <img
-                style={{ width: "600px", height: "500px" }}
+                style={{ width: "200px", height: "600px", padding: "10px" }}
                 class="d-block w-100"
                 src={event.image}
                 alt="..."
               />
-              <div>
+              <div align="center">
                 <h3>{event.title}</h3>
                 <h2>{event.date}</h2>
               </div>
