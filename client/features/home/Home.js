@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import UserFeed from "../users/UserFeed";
+import FeaturedEvents from "../events/FeaturedEvents";
 
 const Home = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -14,14 +15,18 @@ const Home = () => {
         <h2>
           <div>Welcome, {firstName}!</div>
           <br />
-          <div>Featured Events Component Here...</div>
+          <div>
+            <FeaturedEvents />
+          </div>
           <br />
           <div>
             {id && <UserFeed interests={interests} borough={borough} />}
           </div>
         </h2>
       ) : (
-        <h2>Featured Events Component Here... </h2>
+        <h2>
+          <FeaturedEvents />
+        </h2>
       )}
     </div>
   );
