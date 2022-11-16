@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { addToFavEvent } from "../favorites/favoriteEventSlice";
@@ -7,6 +8,7 @@ import { Link } from "react-router-dom";
 
 function UserFeed({ interests, borough }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(fetchAllEvents());
   }, [dispatch]);
