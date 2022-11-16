@@ -2,7 +2,8 @@ const router = require("express").Router();
 const {
   models: { User, Event },
 } = require("../db");
-const { getToken } = require("./adminAuth");
+
+const { getToken, checkForAdmin } = require("./adminAuth");
 
 // GET /api/events
 router.get("/", async (req, res, next) => {
@@ -34,13 +35,28 @@ router.post("/", getToken, async (req, res, next) => {
   }
 });
 
+//PUT /api/events ADMIN ONLY
+router.put("/:id", getToken, checkForAdmin, async (req, res, next) => {
+  try {
+    const event = await Event.findByPk(req.params.id);
+    if (event) {
+      const editEvent = await event.update(req.body);
+      res.json(editEvent);
+    } else {
+      res.json({ error: "Event not found" });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+// DELETE /api/events/:id
 router.delete("/:id", async (req, res, next) => {
   try {
     const loggedInUser = await User.findByToken(req.headers.authorization);
     if (loggedInUser.isAdmin) {
       const event = await Event.findByPk(req.params.id);
-      await event.destroy();
-      res.send(event);
+      if(event) {await event.destroy() res.send(event)} else {res.sendStatus(404)}
     } else {
       res.sendStatus(401);
     }

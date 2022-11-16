@@ -12,8 +12,8 @@ const formInterest = [
   { value: "employment", label: "Employment" },
   { value: "seniors", label: "Seniors" },
   { value: "finance", label: "Finance" },
-  { value: "city services", label: "City Services" },
-  { value: "disability services", label: "Disability Services" },
+  { value: "city-services", label: "City Services" },
+  { value: "disability-services", label: "Disability Services" },
 ];
 
 module.exports = formInterest;

@@ -17,9 +17,18 @@ const Navbar = () => {
 
   return (
     <div>
-      <h1>PocketNYC</h1>
       <nav className="navbar navbar-expand-lg sticky-top bg-light">
         <div className="container-fluid">
+          <a className="navbar-brand" href="/home">
+            <img
+              src="
+          https://i.imgur.com/0wLXpHh.png"
+              alt=""
+              width="65"
+              height="70"
+            />{" "}
+            PocketNYC
+          </a>
           <button
             className="navbar-toggler"
             type="button"

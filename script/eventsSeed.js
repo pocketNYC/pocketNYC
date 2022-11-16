@@ -11,10 +11,9 @@ const events = [
     tag: ["outdoors", "family-friendly"],
     borough: "Manhattan",
     eventLink: "https://www.centralpark.com/tours",
-    status: "pending",
-    longitude: "-73.965400695801",
-    latitude: "40.660701751709",
-    userId: 1,
+    status: "approved",
+    latitude: 40.78163154967519,
+    longitude: -73.96667599082012,
   },
   {
     title: "Bryant Park Winter Village Tree Lighting Ceremony",
@@ -28,9 +27,9 @@ const events = [
     tag: ["outdoors", "family-friendly", "music/arts"],
     borough: "Manhattan",
     eventLink: "https://bryantpark.org/",
-    status: "pending",
-    longitude: "40.660701751709",
-    latitude: "-73.965400695801",
+    status: "approved",
+    latitude: 40.75361130200964,
+    longitude: -73.98318113600838,
     userId: 2,
   },
   {
@@ -47,9 +46,9 @@ const events = [
     borough: "Queens",
     eventLink:
       "https://home.nps.gov/gate/learn/historyculture/jamaica-bay-wildlife-refuge.htm",
-    status: "pending",
-    longitude: "40.660701751709",
-    latitude: "-73.965400695801",
+    status: "approved",
+    latitude: 40.61679384055135,
+    longitude: -73.82495690679576,
     userId: 3,
   },
   {
@@ -65,13 +64,13 @@ const events = [
     tag: ["multicultural", "outdoors"],
     borough: "Manhattan",
     status: "pending",
-    longitude: "-73.965400695801",
     latitude: "40.660701751709",
+    longitude: "-73.965400695801",
     userId: 4,
   },
   {
     title: "Stargazing",
-    address: "Gansevoort and West 30 St., New York City, NY 10011",
+    address: "10th Ave and West 23rd St., New York City, NY 10011",
     description:
       "Head to the High Line each Tuesday night for a romantic walk along the park and a chance to take a closer look at the stars.",
     image:
@@ -81,9 +80,9 @@ const events = [
     tag: ["family-friendly"],
     borough: "Manhattan",
     eventLink: "https://www.thehighline.org/",
-    status: "pending",
-    longitude: "-73.965400695801",
-    latitude: "40.660701751709",
+    status: "approved",
+    longitude: -74.0048936460346,
+    latitude: 40.7480534602401,
     userId: 5,
   },
   {
@@ -99,9 +98,9 @@ const events = [
     borough: "Brooklyn",
     eventLink:
       "https://www.nyc.gov/site/dycd/services/after-school/schools-out-new-york-city-sonyc.page",
-    status: "pending",
-    longitude: "-73.87855219841",
-    latitude: "40.876696912441",
+    status: "approved",
+    latitude: 40.69803025985018,
+    longitude: -73.91866967089781,
   },
   {
     title: "Bronx Sports Extravaganza: Flag Football and Softball",
@@ -116,9 +115,9 @@ const events = [
     borough: "Bronx",
     eventLink:
       "https://www.nyc.gov/events/bronx-sports-extravaganza-street-hockey/12059/7",
-    status: "pending",
-    longitude: "-74.19256591796875",
-    latitude: "40.521690368652344",
+    status: "approved",
+    latitude: 40.815130995747595,
+    longitude: -73.8890485869093,
   },
   {
     title: "Latin American Cultural Fiesta",
@@ -132,7 +131,7 @@ const events = [
     tag: ["multicultural", "music/arts", "family-friendly"],
     borough: "Manhattan",
     eventLink: "https://lacw.net/",
-    status: "pending",
+    status: "approved",
     longitude: "-74.19256591796875",
     latitude: "40.521690368652344",
   },
@@ -148,13 +147,13 @@ const events = [
     tag: ["outdoors"],
     borough: "Manhattan",
     eventLink: "https://www.nycpride.org/event/nyc-pride-march",
-    status: "pending",
-    longitude: "-74.19256591796875",
-    latitude: "40.521690368652344",
+    status: "approved",
+    latitude: 40.74228682409983,
+    longitude: -73.98798057341881,
   },
   {
     title: "Dauphinette's Holiday Flea Market in Dumbo",
-    address: "53 Bridge St 53 Bridge Street Brooklyn, NY 11201",
+    address: "53 Bridge Street Brooklyn, NY 11201",
     description:
       "First-ever Holiday Flea Market! We're opening up our Dumbo studio and filling it with samples, vintage, and much, much more.",
     image:
@@ -165,9 +164,9 @@ const events = [
     borough: "Brooklyn",
     eventLink:
       "https://www.eventbrite.com/e/dauphinettes-holiday-flea-market-in-dumbo-tickets-431279497587?aff=ebdssbdestsearch",
-    status: "pending",
-    longitude: "-74.19256591796875",
-    latitude: "40.521690368652344",
+    status: "approved",
+    latitude: 40.70296041662417,
+    longitude: -73.98429778009917,
   },
   {
     title: "Christmas Caroling at Staten Island Mall",
@@ -182,8 +181,57 @@ const events = [
     borough: "Staten-Island",
     eventLink: "https://www.mallscenters.com/malls/new-york/staten-island-mall",
     status: "pending",
-    longitude: "-74.19256591796875",
-    latitude: "40.521690368652344",
+    latitude: 40.582024341911826,
+    longitude: -74.1657740714884,
+  },
+  {
+    title: "Lower East Side Holiday Parade 2022",
+    address: "440 Grand St, New York, NY 10002",
+    description:
+      "Spread holiday cheer throughout the community with Christmas carols, festive crafts, sips and snacks, and more.",
+    image:
+      "https://images.squarespace-cdn.com/content/v1/5b345fbf5ffd20f6d3846596/1543446426669-JTEYBSL8N6K3WIJFIJI8/25396123_234610190412968_6197764132181031678_n.jpg",
+    date: "2022-12-11",
+    time: "1:00pm",
+    tag: ["holidays", "family-friendly", "outdoors"],
+    borough: "Manhattan",
+    eventLink: "https://www.nyc.gov/events/les-holiday-parade-2022/430802/1",
+    status: "pending",
+    latitude: 40.71545118502942,
+    longitude: -73.98455757996675,
+  },
+  {
+    title: "Forest Fitness",
+    address: "Fort Tryon Park, Riverside, Dr To Broadway, New York, NY 10040",
+    description:
+      "A free, year-round fitness class that incorporates climbing multiple staircases, stretches and strengthening exercises, notable tree identification, and forest bathing. ",
+    image:
+      "https://images.seattletimes.com/wp-content/uploads/2022/03/WEB-2016-06-08RHawk400Parks.jpg?d=780x507",
+    date: "2022-12-17",
+    time: "8:30am",
+    tag: ["health", "sports", "outdoors"],
+    borough: "Manhattan",
+    eventLink: "https://www.nyc.gov/events/forest-fitness/331550/47",
+    status: "pending",
+    latitude: 40.86181428562175,
+    longitude: -73.93291955642407,
+  },
+  {
+    title: "Queens Tech Night 2022 - Designing New York",
+    address: "Culture Lab LIC, 5-25 46th Avenue Queens, NY 11101",
+    description:
+      "Queens Tech Night returns for 2022 with a special meetup focused on design in, of, and for New York City.",
+    image:
+      "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F377274049%2F621442366563%2F1%2Foriginal.20221020-143036?h=2000&w=720&auto=format%2Ccompress&q=75&sharp=10&s=411d2172363c10b829808dc6ca53cc6b",
+    date: "2022-12-01",
+    time: "1:00pm",
+    tag: ["holidays", "family-friendly", "outdoors"],
+    borough: "Staten-Island",
+    eventLink:
+      "https://www.eventbrite.com/e/queens-tech-night-2022-designing-new-york-tickets-445165611327?aff=ebdssbdestsearch",
+    status: "pending",
+    latitude: 40.74760623549599,
+    longitude: -73.95513383089151,
   },
 ];
 

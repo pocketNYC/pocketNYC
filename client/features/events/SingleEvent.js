@@ -19,6 +19,7 @@ function SingleEvent() {
     day: "numeric",
   };
 
+  console.log(tag);
   useEffect(() => {
     dispatch(fetchSingleEvent(id));
   }, []);
@@ -43,7 +44,7 @@ function SingleEvent() {
         <br />
         Time: {time}
         <br />
-        Tag: {tag?.join(", ")}
+        Tags: {tag?.join(", ")}
         <br />
         <a href={eventLink}>{eventLink}</a>
       </h4>
