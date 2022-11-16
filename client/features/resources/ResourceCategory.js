@@ -46,7 +46,10 @@ const ResourceCategory = () => {
                     <p>About: {description}</p>
                     <p>Address: {address}</p>
                     <p>
-                      More Info: <a href={hyperlink}>{hyperlink}</a>
+                      More Info:{" "}
+                      <a href={hyperlink} target="_blank">
+                        {hyperlink}
+                      </a>
                     </p>
                     <p>Tags: {tag ? tag.join(", ") : null}</p>
                   </div>

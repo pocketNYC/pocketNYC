@@ -21,7 +21,6 @@ function FeaturedEvents() {
       return event;
     }
   });
-  console.log(exclude1);
 
   useEffect(() => {
     dispatch(fetchAllEvents());
@@ -40,11 +39,11 @@ function FeaturedEvents() {
         <div className="carousel-inner">
           <div
             className="carousel-item active"
-            data-bs-interval="2000"
+            data-bs-interval="4500"
             key={first?.id}
           >
             <img
-              class="d-block w-100"
+              className="d-block w-100"
               style={{ width: "200px", height: "600px", padding: "10px" }}
               src={first?.image}
               alt="..."
@@ -54,38 +53,44 @@ function FeaturedEvents() {
               <h2>{first?.date}</h2>
             </div>
           </div>
-          {exclude1?.map((event) => (
-            <div className="carousel-item" data-bs-interval="2000">
+          {exclude1?.map(({ id, image, title, date }) => (
+            <div key={id} className="carousel-item" data-bs-interval="4500">
               <img
                 style={{ width: "200px", height: "600px", padding: "10px" }}
-                class="d-block w-100"
-                src={event.image}
+                className="d-block w-100"
+                src={image}
                 alt="..."
               />
               <div align="center">
-                <h3>{event.title}</h3>
-                <h2>{event.date}</h2>
+                <h3>{title}</h3>
+                <h2>{date}</h2>
               </div>
             </div>
           ))}
         </div>
         <button
-          class="carousel-control-prev"
+          className="carousel-control-prev"
           type="button"
           data-bs-target="#carouselExampleFade"
           data-bs-slide="prev"
         >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Previous</span>
         </button>
         <button
-          class="carousel-control-next"
+          className="carousel-control-next"
           type="button"
           data-bs-target="#carouselExampleFade"
           data-bs-slide="next"
         >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Next</span>
         </button>
       </div>
     </div>
