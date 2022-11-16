@@ -18,15 +18,15 @@ export default function Events() {
     dispatch(me());
   }, []);
 
-  const sortDates = [...events].sort((a, b) => {
-    return new Date(a.date) - new Date(b.date);
-  });
-
-  const approvedEvents = sortDates?.filter((event) => {
-    if (event.status === "approved") {
-      return event;
-    }
-  });
+  const sortedApprovedEvents = [...events]
+    .sort((a, b) => {
+      return new Date(a.date) - new Date(b.date);
+    })
+    .filter((event) => {
+      if (event.status === "approved") {
+        return event;
+      }
+    });
 
   const addButton = (ev, id) => {
     ev.preventDefault();
@@ -37,7 +37,7 @@ export default function Events() {
     <div align="center">
       <h1 className="underline">List of Events</h1>
 
-      {approvedEvents?.map(({ id, image, title, date }) => (
+      {sortedApprovedEvents?.map(({ id, image, title, date }) => (
         <div key={id}>
           <img
             src={image}
