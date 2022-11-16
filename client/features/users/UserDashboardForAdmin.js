@@ -7,7 +7,6 @@ function UserDashboardForAdmin() {
   const [buttonText, setButtonText] = useState("Click Test");
 
   const toggler = () => {
-    //update This function
     if (buttonText === "BASIC") {
       setButtonText("ADMIN USER");
     }

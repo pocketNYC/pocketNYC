@@ -28,9 +28,16 @@ const Event = db.define("event", {
   },
   tag: {
     type: Sequelize.ARRAY(Sequelize.STRING),
+    allowNull: false,
   },
   borough: {
-    type: Sequelize.STRING,
+    type: Sequelize.ENUM(
+      "Bronx",
+      "Brooklyn",
+      "Queens",
+      "Manhattan",
+      "Staten-Island"
+    ),
     allowNull: false,
   },
   eventLink: {
