@@ -6,6 +6,7 @@ import { fetchAllEvents } from "./eventsSlice";
 function FeaturedEvents() {
   const dispatch = useDispatch();
   const { tag } = useParams();
+  console.log(tag);
   const events = useSelector((state) => state.events.events);
 
   useEffect(() => {
@@ -25,12 +26,18 @@ function FeaturedEvents() {
     // </div>
     <div>
       <h1 className="underline">Featured Events</h1>
-      {events?.map(({ id, image, title, date, tag }) => (
-        <div>
-          <h1>{title}</h1>
-          {/* <h3>{tag.includes("holidays")}</h3> */}
-        </div>
-      ))}
+      {events
+        ?.filter((event) => {
+          if (event.tag.includes("holidays")) {
+            return event;
+          }
+        })
+        ?.map(({ id, image, title, date, tag }) => (
+          <div>
+            <h1>{title}</h1>
+            {/* <h3>{tag.includes("holidays")}</h3> */}
+          </div>
+        ))}
     </div>
   );
 }
