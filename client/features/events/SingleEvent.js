@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { fetchSingleEvent } from "./eventsSlice";
 import { addToFavEvents } from "../favorites/favoriteEventsSlice";
 
 function SingleEvent() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
   const { image, title, description, address, date, time, tag, eventLink } =
     useSelector((state) => state.events.event);
@@ -19,13 +20,13 @@ function SingleEvent() {
     day: "numeric",
   };
 
-  console.log(tag);
   useEffect(() => {
     dispatch(fetchSingleEvent(id));
   }, []);
 
   const addButton = (id) => {
     dispatch(addToFavEvents(id));
+    navigate("/events");
   };
 
   return (
