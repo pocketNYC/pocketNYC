@@ -6,11 +6,15 @@ import { fetchAllEvents } from "../events/eventsSlice";
 function FeaturedEvents() {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events.events);
-  const filteredEvents = events?.filter((event) => {
-    if (event.tag.includes("holidays") && event.status === "approved") {
-      return event;
-    }
-  });
+  const filteredEvents = [...events]
+    .sort((a, b) => {
+      return new Date(a.date) - new Date(b.date);
+    })
+    ?.filter((event) => {
+      if (event.tag.includes("holidays") && event.status === "approved") {
+        return event;
+      }
+    });
   const first = filteredEvents[0];
   const exclude1 = filteredEvents.filter((event) => {
     if (event.id !== filteredEvents[0].id) {
