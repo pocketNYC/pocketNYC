@@ -2,6 +2,7 @@ const router = require("express").Router();
 const {
   models: { User, Event },
 } = require("../db");
+const { getToken, checkForAdmin } = require("./adminAuth");
 
 // GET /api/events
 router.get("/", async (req, res, next) => {
@@ -40,6 +41,22 @@ router.post("/", async (req, res, next) => {
       }
     } else {
       res.sendStatus(401);
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+//PUT /api/events ADMIN ONLY
+router.put("/:id", getToken, checkForAdmin, async (req, res, next) => {
+  try {
+    console.log("PARAMS", req.params.id);
+    const event = await Event.findByPk(req.params.id);
+    if (event) {
+      const editEvent = await event.update(req.body);
+      res.json(editEvent);
+    } else {
+      res.json({ error: "Event not found" });
     }
   } catch (error) {
     next(error);

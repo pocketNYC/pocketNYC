@@ -1,7 +1,7 @@
 const formInterest = [
   { value: "holidays", label: "Holidays" },
   { value: "multicultural", label: "Multicultural" },
-  { value: "family friendly", label: "Family-Friendly" },
+  { value: "family-friendly", label: "Family-Friendly" },
   { value: "music/arts", label: "Music/Arts" },
   { value: "outdoors", label: "Outdoors" },
   { value: "sports", label: "Sports" },
@@ -12,8 +12,8 @@ const formInterest = [
   { value: "employment", label: "Employment" },
   { value: "seniors", label: "Seniors" },
   { value: "finance", label: "Finance" },
-  { value: "city services", label: "City Services" },
-  { value: "disability services", label: "Disability Services" },
+  { value: "city-services", label: "City Services" },
+  { value: "disability-services", label: "Disability Services" },
 ];
 
 module.exports = formInterest;

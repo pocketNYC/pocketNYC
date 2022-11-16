@@ -5,7 +5,9 @@ import FeaturedEvents from "../events/FeaturedEvents";
 
 const Home = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  const { id, firstName } = useSelector((state) => state.auth.me);
+  const { id, firstName, interests, borough } = useSelector(
+    (state) => state.auth.me
+  );
 
   return (
     <div>
@@ -15,7 +17,7 @@ const Home = () => {
           <br />
           Featured Events Component Here...
           <FeaturedEvents />
-          {id && <UserFeed />}
+          {id && <UserFeed interests={interests} borough={borough} />}
         </h2>
       ) : (
         <h2>
