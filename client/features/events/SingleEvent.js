@@ -11,6 +11,13 @@ function SingleEvent() {
   const { image, title, description, address, date, time, tag, eventLink } =
     useSelector((state) => state.events.event);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const newDate = new Date(date);
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
 
   useEffect(() => {
     dispatch(fetchSingleEvent(id));
@@ -32,7 +39,7 @@ function SingleEvent() {
         <br />
         Address: {address}
         <br />
-        Date: {date}
+        Date: {newDate?.toLocaleDateString("en-US", options)}
         <br />
         Time: {time}
         <br />

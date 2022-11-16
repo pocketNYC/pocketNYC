@@ -33,17 +33,6 @@ const AddEvent = () => {
     const tag = selectedOptions;
     const borough = evt.target.borough.value;
 
-    console.log(
-      "title",
-      title,
-      description,
-      address,
-      image,
-      date,
-      time,
-      tag,
-      borough
-    );
     dispatch(
       addEvent({
         title,

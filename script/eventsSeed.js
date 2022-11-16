@@ -18,7 +18,7 @@ const events = [
   },
   {
     title: "Bryant Park Winter Village Tree Lighting Ceremony",
-    address: "Bryant Park, 42nd Street and Sixth Avenue, New York, NY 10018",
+    address: "Bryant Park, 42nd Street and Sixth Avenue, New York, NY, 10018",
     description:
       "This year's tree is a 50-foot Norway spruce that will be lit during a fireworks display. Olympic-medalist Johnny Weir will be among the talented skaters to hit the ice rink for a special performance that will include live music.",
     image:
@@ -36,7 +36,7 @@ const events = [
   {
     title: "Birding Jamaica Bay",
     address:
-      "Jamaica Bay Wildlife Refuge, Cross Bay Boulevard, Broad Channel, NY 11693",
+      "Jamaica Bay Wildlife Refuge, Cross Bay Boulevard, Broad Channel, NY, 11693",
     description:
       "New York City is home to an amazing abundance of wildlife. Our Urban Park Rangers will guide you to the best wildlife viewing spots in the urban jungle.",
     image:
@@ -88,7 +88,7 @@ const events = [
   },
   {
     title: "School's Out Festival",
-    address: "1300 Greene Ave, Brooklyn, NY 11237",
+    address: "1300 Greene Ave, Brooklyn, NY, 11237",
     description:
       "Celebrate the start of summer fun at Parks at our fun-filled School's Out Festival with inflatables, games, face painting, music, popcorn, and more!",
     image:
@@ -105,7 +105,7 @@ const events = [
   },
   {
     title: "Bronx Sports Extravaganza: Flag Football and Softball",
-    address: "765 Manida Street Bronx, New York 10474",
+    address: "765 Manida Street Bronx, New York, NY, 10474",
     description:
       "Kids ages 6-12 are invited for free sports instruction at Hunts Point Recreation Center!",
     image:
@@ -138,7 +138,7 @@ const events = [
   },
   {
     title: "NYC Pride March",
-    address: "East Village, New York, NY 10005",
+    address: "East Village, New York, NY, 10005",
     description:
       "The NYC Pride March is an annual event celebrating the LGBTQ community in New York City.",
     image:
@@ -171,7 +171,7 @@ const events = [
   },
   {
     title: "Christmas Caroling at Staten Island Mall",
-    address: "2655 Richmond Ave, Staten Island, NY 10314",
+    address: "2655 Richmond Ave, Staten Island, NY, 10314",
     description:
       "Spread holiday cheer throughout the community with Christmas carols, festive crafts, sips and snacks, and more.",
     image:
