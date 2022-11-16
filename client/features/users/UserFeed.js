@@ -23,14 +23,16 @@ function UserFeed({ interests, borough }) {
       }
     });
 
-  const filteredByInterest = sortedApprovedEvents.filter((event) => {
-    for (let i = 0; i < event.tag.length; i++) {
-      let tag = event.tag[i];
-      if (interests.includes(tag)) {
-        return event;
+  const filteredByInterest = sortedApprovedEvents
+    .filter((event) => {
+      for (let i = 0; i < event.tag.length; i++) {
+        let tag = event.tag[i];
+        if (interests.includes(tag)) {
+          return event;
+        }
       }
-    }
-  });
+    })
+    .filter((a) => new Date(a.date) - new Date() > 0);
 
   return (
     <div>

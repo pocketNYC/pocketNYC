@@ -14,7 +14,9 @@ function FeaturedEvents() {
       if (event.tag.includes("holidays") && event.status === "approved") {
         return event;
       }
-    });
+    })
+    .filter((a) => new Date(a.date) - new Date() > 0);
+
   const first = filteredEvents[0];
   const exclude1 = filteredEvents.filter((event) => {
     if (event.id !== filteredEvents[0].id) {
