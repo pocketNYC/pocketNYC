@@ -6,12 +6,8 @@ const initialState = [];
 export const fetchResources = createAsyncThunk(
   "resources/allResources",
   async () => {
-    try {
-      const { data } = await axios.get("/api/resources");
-      return data;
-    } catch (err) {
-      console.log(err);
-    }
+    const { data } = await axios.get("/api/resources");
+    return data;
   }
 );
 

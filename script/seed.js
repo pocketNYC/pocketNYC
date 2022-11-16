@@ -10,7 +10,7 @@ const { resources } = require("./resourcesSeed");
 const events = require("./eventsSeed");
 
 async function seed() {
-  await db.sync({ force: true }); // clears db and matches models to tables
+  await db.sync({ force: true });
   console.log("db synced!");
 
   const users = await Promise.all(userInfo.map((user) => User.create(user)));

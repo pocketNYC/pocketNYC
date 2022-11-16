@@ -1,20 +1,23 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchFavoriteResource,
-  selectFavoriteResource,
-} from "./favoriteResourceSlice";
+  fetchFavoriteResources,
+  selectFavoriteResources,
+} from "./favoriteResourcesSlice";
 import { Link } from "react-router-dom";
-import { fetchFavoriteEvent, selectFavoriteEvent } from "./favoriteEventSlice";
+import {
+  fetchFavoriteEvents,
+  selectFavoriteEvents,
+} from "./favoriteEventsSlice";
 
 const Favorites = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchFavoriteResource());
-    dispatch(fetchFavoriteEvent());
+    dispatch(fetchFavoriteResources());
+    dispatch(fetchFavoriteEvents());
   }, [dispatch]);
-  const favResources = useSelector(selectFavoriteResource);
-  const favEvents = useSelector(selectFavoriteEvent);
+  const favResources = useSelector(selectFavoriteResources);
+  const favEvents = useSelector(selectFavoriteEvents);
   const userId = useSelector((state) => state.auth.me.id);
 
   return (

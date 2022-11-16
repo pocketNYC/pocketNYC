@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
-import { addToFavEvent } from "../favorites/favoriteEventSlice";
+import { addToFavEvents } from "../favorites/favoriteEventsSlice";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
@@ -23,7 +23,8 @@ export default function Events() {
     }
   });
   const addButton = (ev, id) => {
-    dispatch(addToFavEvent(id));
+    ev.preventDefault();
+    dispatch(addToFavEvents(id));
   };
 
   return (
@@ -43,11 +44,12 @@ export default function Events() {
             <br />
             {isLoggedIn ? (
               <>
-                <Button variant="primary" type="submit">
-                  Save Event
-                </Button>
-                <br />
-                <Button variant="primary" onClick={(ev) => addButton(ev, id)}>
+                <Button
+                  variant="primary"
+                  onClick={(ev) => {
+                    addButton(ev, id);
+                  }}
+                >
                   Add to Favorites
                 </Button>
               </>

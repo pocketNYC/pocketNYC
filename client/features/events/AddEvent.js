@@ -1,20 +1,37 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { addEvent } from "./eventsSlice";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
+import formInterest from "../auth/formInterest";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
 
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const handleChange = (formInterest) => {
+    let selections = [];
+    formInterest.map((tags) => selections.push(tags.value));
+    setSelectedOptions(selections);
+  };
+
   const handleSubmit = (evt) => {
+    evt.preventDefault();
     const title = evt.target.title.value;
     const description = evt.target.description.value;
     const address = evt.target.address.value;
     const image = evt.target.image.value;
     const date = evt.target.date.value;
     const time = evt.target.time.value;
+    const tag = selectedOptions;
+    const borough = evt.target.borough.value;
 
     dispatch(
       addEvent({
@@ -24,10 +41,13 @@ const AddEvent = () => {
         image,
         date,
         time,
+        borough,
+        tag,
       })
     );
 
     setValidated(true);
+    navigate("/events");
   };
 
   return (
@@ -81,6 +101,30 @@ const AddEvent = () => {
             Please provide a time.
           </Form.Control.Feedback>
         </Form.Group>
+
+        <Form.Group className="mb-3" controlId="borough">
+          <Form.Label>Borough</Form.Label>
+          <Form.Select>
+            <option defaultValue>Select</option>
+            <option value="Bronx">Bronx</option>
+            <option value="Brooklyn">Brooklyn</option>
+            <option value="Queens">Queens</option>
+            <option value="Manhattan">Manhattan</option>
+            <option value="Staten-Island">Staten Island</option>
+          </Form.Select>
+        </Form.Group>
+
+        <br />
+        <label htmlFor="tags" style={{ padding: "10px" }}>
+          Choose your event tags:
+        </label>
+        <Select
+          isMulti
+          options={formInterest}
+          components={animated}
+          closeMenuOnSelect={false}
+          onChange={handleChange}
+        />
 
         <Button className="primary" type="submit">
           Submit
