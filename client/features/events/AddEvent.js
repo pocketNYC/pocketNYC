@@ -116,7 +116,7 @@ const AddEvent = () => {
 
         <br />
         <label htmlFor="tags" style={{ padding: "10px" }}>
-          Choose your event tags:
+          Choose your event tags (select up to 3):
         </label>
         <Select
           isMulti
@@ -124,6 +124,7 @@ const AddEvent = () => {
           components={animated}
           closeMenuOnSelect={false}
           onChange={handleChange}
+          isOptionDisabled={() => selectedOptions.length >= 3}
         />
 
         <Button className="primary" type="submit">
