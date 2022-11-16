@@ -20,6 +20,26 @@ export const fetchSingleUser = createAsyncThunk(
   }
 );
 
+export const updateUserInfo = createAsyncThunk(
+  "updateUserInfo",
+  async ({ firstName, lastName, email, interests, borough }) => {
+    const token = window.localStorage.getItem("token");
+    
+    const { data } = await axios.put(
+      `/api/users/${userId}`,
+      firstName,
+      lastName,
+      email,
+      interests,
+      borough,
+      {
+        headers: { authorization: token },
+      }
+    );
+    return data;
+  }
+);
+
 export const updateAdminStatus = createAsyncThunk(
   "updateAdminStatus",
   async ({ userId, isAdmin }) => {
@@ -42,24 +62,31 @@ const userSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchAllUsers.pending, (state, action) => {
-        state.loading = true;
-      })
-      .addCase(fetchAllUsers.fulfilled, (state, action) => {
-        state.allUsers = action.payload;
-        state.loading = false;
-      })
-      .addCase(fetchSingleUser.pending, (state, action) => {
-        state.loading = true;
-      })
-      .addCase(fetchSingleUser.fulfilled, (state, action) => {
-        state.loading = false
-        state.singleUser = action.payload;
-      })
-      .addCase(updateAdminStatus.fulfilled, (state, action) => {
-        return action.payload;
-      });
+    builder.addCase(fetchAllUsers.pending, (state, action) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchAllUsers.fulfilled, (state, action) => {
+      state.allUsers = action.payload;
+      state.loading = false;
+    });
+    builder.addCase(fetchSingleUser.pending, (state, action) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchSingleUser.fulfilled, (state, action) => {
+      state.loading = false;
+      state.singleUser = action.payload;
+    });
+    builder.addCase(updateAdminStatus.fulfilled, (state, action) => {
+      return action.payload;
+    });
+    builder.addCase(updateUserInfo.pending, (state, action) => {
+      state.loading = true;
+    });
+    builder.addCase(updateUserInfo.fulfilled, (state, action) => {
+      console.log(action.payload, '<-- payload')
+      state.loading = false;
+      return action.payload;
+    });
   },
 });
 

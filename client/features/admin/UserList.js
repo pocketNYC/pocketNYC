@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllUsers } from "../users/userSlice";
+import { fetchAllUsers, updateAdminStatus } from "../users/userSlice";
 
 function UserList() {
   const users = useSelector((state) => state.user.allUsers);
   const [buttonText, setButtonText] = useState('Click Test');
 
-  const toggler = () => { 
-   console.log('toggled')
+  const toggler = (id, isAdmin) => {
+    // TODO: update This function
+    //updateAdminStatus(id, isAdmin)
+ console.log("toggled")
   };
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllUsers());
+    dispatch(fetchAllUsers())
+    //dispatch(updateAdminStatus({id, isAdmin}));
   }, [dispatch]);
 
   return (
     <div>
-      <h2>Users Dashboard</h2>
+      <h2  style={{ textAlign: "center" }}>Users Dashboard</h2>
       <table>
         <thead>
           <tr
@@ -35,7 +37,7 @@ function UserList() {
           className="user-info-dashboard-table"
           style={{ textAlign: "center" }}
         >
-          {users.map((user) => {
+          {users?.map((user) => {
             return (
               <tr key={user.id}>
                 <td>
@@ -45,7 +47,7 @@ function UserList() {
                 <td>{user.email}</td>
                 <td>{user.isAdmin === false ? "no" : "yes"}</td>
                 <td>
-                  <button onClick={toggler}>
+                  <button onClick={() => {console.log('toggled')}}>
                     {user.isAdmin === false ? "BASIC" : "ADMIN USER"}
                   </button>
                 </td>
