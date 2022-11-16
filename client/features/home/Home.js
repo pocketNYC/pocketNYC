@@ -12,10 +12,13 @@ const Home = () => {
     <div>
       {isLoggedIn ? (
         <h2>
-          Welcome, {firstName}!
+          <div>Welcome, {firstName}!</div>
           <br />
-          Featured Events Component Here...
-          {id && <UserFeed interests={interests} borough={borough} />}
+          <div>Featured Events Component Here...</div>
+          <br />
+          <div>
+            {id && <UserFeed interests={interests} borough={borough} />}
+          </div>
         </h2>
       ) : (
         <h2>Featured Events Component Here... </h2>

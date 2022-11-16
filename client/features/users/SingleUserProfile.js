@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleUser } from "./userSlice";
-import { fetchFavoriteEvent } from "../favorites/favoriteEventSlice";
-import { fetchFavoriteResource } from "../favorites/favoriteResourceSlice";
+import { fetchFavoriteEvents } from "../favorites/favoriteEventsSlice";
+import { fetchFavoriteResources } from "../favorites/favoriteResourcesSlice";
 
 function SingleUserProfile() {
   const dispatch = useDispatch();
@@ -14,8 +14,8 @@ function SingleUserProfile() {
 
   useEffect(() => {
     dispatch(fetchSingleUser(userId));
-    dispatch(fetchFavoriteEvent());
-    dispatch(fetchFavoriteResource());
+    dispatch(fetchFavoriteEvents());
+    dispatch(fetchFavoriteResources());
   }, [dispatch]);
 
   return (

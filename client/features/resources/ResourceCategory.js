@@ -3,9 +3,9 @@ import { fetchResources, selectResources } from "./resourcesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
-  addToFavResource,
-  fetchFavoriteResource,
-} from "../favorites/favoriteResourceSlice";
+  addToFavResources,
+  fetchFavoriteResources,
+} from "../favorites/favoriteResourcesSlice";
 import { Link } from "react-router-dom";
 
 const ResourceCategory = () => {
@@ -19,7 +19,7 @@ const ResourceCategory = () => {
   }, [dispatch]);
 
   const addButton = (ev, id) => {
-    dispatch(addToFavResource(id));
+    dispatch(addToFavResources(id));
   };
 
   return (
