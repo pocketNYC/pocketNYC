@@ -6,7 +6,7 @@ import { fetchAllEvents } from "./eventsSlice";
 function FeaturedEvents() {
   const dispatch = useDispatch();
   const { tag } = useParams();
-  console.log(tag);
+  // console.log(tag);
   const events = useSelector((state) => state.events.events);
 
   useEffect(() => {
@@ -14,28 +14,21 @@ function FeaturedEvents() {
   }, [dispatch]);
 
   return (
-    // <div align="center">
-    //   <h1 className="underline">Featured Events</h1>
-
-    //   {events?.map(({ id, image, title, date }) => (
-    //     <div>
-    //       <img src={image} />
-    //       <h3>{title}</h3>
-    //     </div>
-    //   ))}
-    // </div>
     <div>
       <h1 className="underline">Featured Events</h1>
       {events
         ?.filter((event) => {
-          if (event.tag.includes("holiday")) {
+          if (event.tag.includes("holidays")) {
             return event;
           }
         })
-        ?.map(({ id, image, title, date, tag }) => (
-          <div>
-            <h1>{title}</h1>
-            {/* <h3>{tag.includes("holidays")}</h3> */}
+        ?.map(({ id, image, title, date }) => (
+          <div class="carousel-item" key={id}>
+            <img src={image} alt="..." />
+            <div class="carousel-caption d-none d-md-block">
+              <h3>{title}</h3>
+              <h2>{date}</h2>
+            </div>
           </div>
         ))}
     </div>
