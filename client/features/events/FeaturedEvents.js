@@ -28,7 +28,7 @@ function FeaturedEvents() {
       <h1 className="underline">Featured Events</h1>
       {events
         ?.filter((event) => {
-          if (event.tag.includes("holidays")) {
+          if (event.tag.includes("holiday")) {
             return event;
           }
         })
