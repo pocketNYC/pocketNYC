@@ -22,8 +22,6 @@ export const addEvent = createAsyncThunk("addEvent", async (newEvent) => {
     },
   });
 
-  console.log("data", data);
-
   return data;
 });
 

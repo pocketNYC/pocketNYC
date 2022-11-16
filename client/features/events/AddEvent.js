@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { addEvent } from "./eventsSlice";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
+import { useSelector } from "react-redux";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
+  const userId = useSelector((state) => state.auth.me.id);
 
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -45,11 +45,11 @@ const AddEvent = () => {
         borough,
         tag,
         eventLink,
+        userId,
       })
     );
 
     setValidated(true);
-    navigate("/events");
   };
 
   return (
