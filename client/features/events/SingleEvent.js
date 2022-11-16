@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import moment from "moment";
 import { fetchSingleEvent } from "./eventsSlice";
 import { addToFavEvents } from "../favorites/favoriteEventsSlice";
 
@@ -12,13 +13,6 @@ function SingleEvent() {
   const { image, title, description, address, date, time, tag, eventLink } =
     useSelector((state) => state.events.event);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  const newDate = new Date(date);
-  const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
 
   useEffect(() => {
     dispatch(fetchSingleEvent(id));
@@ -41,9 +35,9 @@ function SingleEvent() {
         <br />
         Address: {address}
         <br />
-        Date: {newDate?.toLocaleDateString("en-US", options)}
+        Date: {moment(date).format("dddd, MMMM Do, YYYY")}
         <br />
-        Time: {time}
+        Time: {moment(time, "hhmm").format("h:mm a")}
         <br />
         Tags: {tag?.join(", ")}
         <br />

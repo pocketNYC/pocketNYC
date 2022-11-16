@@ -7,7 +7,7 @@ const events = [
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg-vimbly-com-images.imgix.net%2Ffull_photos%2Fcentral-park-pedicab-tour-4.jpg%3Fauto%3Dcompress%26fit%3Dcrop%26h%3D490%26ixlib%3Dphp-1.2.1%26w%3D730&f=1&nofb=1&ipt=121f8762a9b462ccc9560bc64fa9397b9a8896f113384fb0be15072b8efd100c&ipo=images",
     date: "2022-11-24",
-    time: "3:00pm",
+    time: "15:00",
     tag: ["outdoors", "family-friendly"],
     borough: "Manhattan",
     eventLink: "https://www.centralpark.com/tours",
@@ -23,7 +23,7 @@ const events = [
     image:
       "https://secretnyc.co/wp-content/uploads/2017/11/bryparktree4-1024x710.jpg",
     date: "2022-11-20",
-    time: "6:00pm",
+    time: "18:00",
     tag: ["outdoors", "family-friendly", "music/arts"],
     borough: "Manhattan",
     eventLink: "https://bryantpark.org/",
@@ -41,7 +41,7 @@ const events = [
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.allaboutbirds.org%2Fnews%2Fwp-content%2Fuploads%2F2019%2F05%2FNYC-birds-Riepe.jpg&f=1&nofb=1&ipt=d859b3c5d5e170c8755c97eafe04b8c7aa8bde1d78b85734dc5294935341fe66&ipo=images",
     date: "2022-11-02",
-    time: "3:00pm",
+    time: "15:00",
     tag: ["outdoors", "family-friendly"],
     borough: "Queens",
     eventLink:
@@ -59,7 +59,7 @@ const events = [
     image:
       "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.indianexpress.com%2F2016%2F09%2Fcaribbean-2.jpg&f=1&nofb=1&ipt=d44ae0f34b61fb93b8c96d8fb4b21f6f9b10ec76a89aceda45dd5a4cff8700a5&ipo=images",
     date: "2023-06-05",
-    time: "12:00pm",
+    time: "12:00",
     eventLink: "https://theculturefest.nyc/",
     tag: ["multicultural", "outdoors"],
     borough: "Manhattan",
@@ -75,8 +75,8 @@ const events = [
       "Head to the High Line each Tuesday night for a romantic walk along the park and a chance to take a closer look at the stars.",
     image:
       "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.jharchitecture.ie%2Fwp-content%2Fuploads%2F2011%2F12%2F0011.jpg&f=1&nofb=1&ipt=3dba70fe25fe6f960af803207e27bcee6a699b356393b561c391591c5ff47573&ipo=images",
-    date: "2022-11-24",
-    time: "5:00pm",
+    date: "2022-11-26",
+    time: "17:00",
     tag: ["family-friendly"],
     borough: "Manhattan",
     eventLink: "https://www.thehighline.org/",
@@ -93,7 +93,7 @@ const events = [
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.timeout.com%2Fimages%2F102735335%2F1372%2F772%2Fimage.jpg&f=1&nofb=1&ipt=af220fff75ef2939b3edf0653278a7416bf1e5e4d5dc9d04a12e8d53157318ed&ipo=images",
     date: "2022-12-15",
-    time: "4:00-6:00pm",
+    time: "16:00",
     tag: ["music/arts", "outdoors"],
     borough: "Brooklyn",
     eventLink:
@@ -110,7 +110,7 @@ const events = [
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.bxtimes.com%2Fwp-content%2Fuploads%2F2018%2F08%2F32-a-palsportsday-2018-08-10-bx01_z-768x512.jpg&f=1&nofb=1&ipt=2512493b9c86cf516bf9fcb87401d01bdbbb3dd25f37b2775ee51038833967c5&ipo=images",
     date: "2022-05-15",
-    time: "5:00pm",
+    time: "17:00",
     tag: ["sports", "multicultural", "family-friendly"],
     borough: "Bronx",
     eventLink:
@@ -127,7 +127,7 @@ const events = [
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DhXKTK_C8oiXsee2dYVYlAHaFX%26pid%3DApi&f=1&ipt=47576a1b788c1fdfd2634e4cb6349c3f03f625d18eec39e846f915ad3fe62802&ipo=images",
     date: "2022-11-30",
-    time: "1:00pm",
+    time: "13:00",
     tag: ["multicultural", "music/arts", "family-friendly"],
     borough: "Manhattan",
     eventLink: "https://lacw.net/",
@@ -143,7 +143,7 @@ const events = [
     image:
       "https://cdn.vox-cdn.com/thumbor/WCQORxf3pX3gFvaGNJDY_smqkJ4=/0x0:3600x2025/1200x800/filters:focal(1512x725:2088x1301)/cdn.vox-cdn.com/uploads/chorus_image/image/64081690/983255578.jpg.0.jpg",
     date: "2023-06-26",
-    time: "11:00am",
+    time: "11:00",
     tag: ["outdoors"],
     borough: "Manhattan",
     eventLink: "https://www.nycpride.org/event/nyc-pride-march",
@@ -159,7 +159,7 @@ const events = [
     image:
       "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F373168129%2F311252113458%2F1%2Foriginal.20221013-204056?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=ee276cff241c6d959da7dcfaf0a6cfde",
     date: "2022-11-29",
-    time: "1:00pm",
+    time: "13:00",
     tag: ["holidays", "family-friendly"],
     borough: "Brooklyn",
     eventLink:
@@ -176,7 +176,7 @@ const events = [
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.nydailynews.com%2Fresizer%2Fwo_PpwUJsRuDhBm2uM2umWOmfkw%3D%2F1400x0%2Ftop%2Farc-anglerfish-arc2-prod-tronc.s3.amazonaws.com%2Fpublic%2FGD2U6JJ2G52EVGWI7IIEPRUTT4.jpg&f=1&nofb=1&ipt=de700b91c813bf4091a8f54354da3e6722cb488714bb85985120a12caed79a42&ipo=images",
     date: "2022-12-17",
-    time: "1:00pm",
+    time: "13:00",
     tag: ["holidays", "family-friendly", "outdoors"],
     borough: "Staten-Island",
     eventLink: "https://www.mallscenters.com/malls/new-york/staten-island-mall",
@@ -192,7 +192,7 @@ const events = [
     image:
       "https://images.squarespace-cdn.com/content/v1/5b345fbf5ffd20f6d3846596/1543446426669-JTEYBSL8N6K3WIJFIJI8/25396123_234610190412968_6197764132181031678_n.jpg",
     date: "2022-12-11",
-    time: "1:00pm",
+    time: "14:00",
     tag: ["holidays", "family-friendly", "outdoors"],
     borough: "Manhattan",
     eventLink: "https://www.nyc.gov/events/les-holiday-parade-2022/430802/1",
@@ -208,7 +208,7 @@ const events = [
     image:
       "https://images.seattletimes.com/wp-content/uploads/2022/03/WEB-2016-06-08RHawk400Parks.jpg?d=780x507",
     date: "2022-12-17",
-    time: "8:30am",
+    time: "8:30",
     tag: ["health", "sports", "outdoors"],
     borough: "Manhattan",
     eventLink: "https://www.nyc.gov/events/forest-fitness/331550/47",
@@ -224,7 +224,7 @@ const events = [
     image:
       "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F377274049%2F621442366563%2F1%2Foriginal.20221020-143036?h=2000&w=720&auto=format%2Ccompress&q=75&sharp=10&s=411d2172363c10b829808dc6ca53cc6b",
     date: "2022-12-01",
-    time: "1:00pm",
+    time: "13:00",
     tag: ["holidays", "family-friendly", "outdoors"],
     borough: "Staten-Island",
     eventLink:

@@ -9,6 +9,7 @@ import {
   fetchFavoriteEvents,
   selectFavoriteEvents,
 } from "./favoriteEventsSlice";
+import moment from "moment";
 
 const Favorites = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,10 @@ const Favorites = () => {
     dispatch(fetchFavoriteEvents());
   }, [dispatch]);
   const favResources = useSelector(selectFavoriteResources);
-  const favEvents = useSelector(selectFavoriteEvents);
+  const favEvents = [...useSelector(selectFavoriteEvents)].sort((a, b) => {
+    return new Date(a.date) - new Date(b.date);
+  });
+
   const userId = useSelector((state) => state.auth.me.id);
 
   return (
@@ -43,6 +47,12 @@ const Favorites = () => {
               return (
                 <li key={event.id}>
                   <Link to={`/events/${event.id}`}> {event.title}</Link>
+                  <ul>
+                    <li>
+                      {" "}
+                      Date: {moment(event.date).format("dddd, MMMM Do, YYYY")}
+                    </li>
+                  </ul>
                 </li>
               );
             })
