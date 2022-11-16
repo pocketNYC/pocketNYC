@@ -11,7 +11,8 @@ User.belongsToMany(Resource, { through: Favorite_Resources });
 Favorite_Resources.belongsTo(User);
 Favorite_Resources.belongsTo(Resource);
 
-// User.hasMany(Event);
+User.hasMany(Event);
+Event.belongsTo(User);
 User.belongsToMany(Event, { through: Favorite_Events });
 Event.belongsToMany(User, { through: Favorite_Events });
 Favorite_Events.belongsTo(User);
