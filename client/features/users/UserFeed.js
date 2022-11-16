@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import moment from "moment";
 
 function UserFeed({ interests, borough }) {
   const dispatch = useDispatch();
@@ -12,13 +13,17 @@ function UserFeed({ interests, borough }) {
 
   const events = useSelector((state) => state.events.events);
 
-  const filteredByBoro = events.filter((event) => {
-    if (event.status === "approved" && event.borough === borough) {
-      return event;
-    }
-  });
+  const sortedApprovedEvents = [...events]
+    .sort((a, b) => {
+      return new Date(a.date) - new Date(b.date);
+    })
+    .filter((event) => {
+      if (event.status === "approved" && event.borough === borough) {
+        return event;
+      }
+    });
 
-  const filteredByInterest = filteredByBoro.filter((event) => {
+  const filteredByInterest = sortedApprovedEvents.filter((event) => {
     for (let i = 0; i < event.tag.length; i++) {
       let tag = event.tag[i];
       if (interests.includes(tag)) {
@@ -45,7 +50,7 @@ function UserFeed({ interests, borough }) {
                 <h3>{title}</h3>
 
                 <h4>
-                  Date: {date}
+                  Date: {moment(date).format("dddd, MMMM Do, YYYY")}
                   <br />
                   <Link to={`/events/${id}`}>
                     <h4>More Details</h4>
