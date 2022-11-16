@@ -56,7 +56,12 @@ router.delete("/:id", async (req, res, next) => {
     const loggedInUser = await User.findByToken(req.headers.authorization);
     if (loggedInUser.isAdmin) {
       const event = await Event.findByPk(req.params.id);
-      if(event) {await event.destroy() res.send(event)} else {res.sendStatus(404)}
+      if (event) {
+        await event.destroy();
+        res.send(event);
+      } else {
+        res.sendStatus(404);
+      }
     } else {
       res.sendStatus(401);
     }

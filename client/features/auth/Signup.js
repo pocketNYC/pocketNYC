@@ -96,7 +96,7 @@ function Signup({ displayName, name }) {
         </Form.Group>
         <br />
         <label htmlFor="interest" style={{ padding: "10px" }}>
-          Choose your categories of interest:
+          Choose your categories of interest (select up to 3):
         </label>
         <Select
           isMulti
@@ -104,6 +104,7 @@ function Signup({ displayName, name }) {
           components={animated}
           closeMenuOnSelect={false}
           onChange={handleChange}
+          isOptionDisabled={() => selectedOptions.length >= 3}
         />
         <Button variant="primary" type="submit">
           {displayName}

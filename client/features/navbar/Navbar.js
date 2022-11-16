@@ -1,7 +1,6 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
 
 const Navbar = () => {
@@ -26,15 +25,15 @@ const Navbar = () => {
               alt=""
               width="65"
               height="70"
-            />{" "}
+            />
             PocketNYC
           </a>
           <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
@@ -43,7 +42,7 @@ const Navbar = () => {
               style={{ color: "black" }}
             ></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav">
               <li className="nav-item">
                 <a
