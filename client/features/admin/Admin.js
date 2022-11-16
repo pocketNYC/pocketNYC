@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { editEvent, fetchAllEvents } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
+import Button from "react-bootstrap/Button";
 
 function Admin() {
   const dispatch = useDispatch();
@@ -32,13 +33,13 @@ function Admin() {
             ? pendingEvents.map(({ title, id, date, status }) => {
                 return (
                   <li key={id}>
-                    <small>{title}</small>
+                    <strong>{title}</strong>
                     <br />
-                    <small>{date}</small>
+                    <strong>{date}</strong>
                     <br />
-                    <button onClick={(ev) => editEventButton(ev, id)}>
+                    <Button onClick={(ev) => editEventButton(ev, id)}>
                       Approve
-                    </button>
+                    </Button>
                   </li>
                 );
               })

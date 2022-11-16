@@ -21,7 +21,9 @@ export const addEvent = createAsyncThunk("addEvent", async (newEvent) => {
       authorization: token,
     },
   });
-  
+
+  console.log("data", data);
+
   return data;
 });
 

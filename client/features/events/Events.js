@@ -35,7 +35,7 @@ export default function Events() {
         <div key={id}>
           <img
             src={image}
-            style={{ width: "800px", height: "500px" }}
+            style={{ width: "800px", height: "500px", cursor: "pointer" }}
             onClick={() => navigate(`/events/${id}`)}
           />
           <h3 className="underline">{title}</h3>

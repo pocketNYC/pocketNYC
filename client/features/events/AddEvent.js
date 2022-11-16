@@ -32,6 +32,7 @@ const AddEvent = () => {
     const time = evt.target.time.value;
     const tag = selectedOptions;
     const borough = evt.target.borough.value;
+    const eventLink = evt.target.eventLink.value;
 
     dispatch(
       addEvent({
@@ -43,6 +44,7 @@ const AddEvent = () => {
         time,
         borough,
         tag,
+        eventLink,
       })
     );
 
@@ -84,6 +86,11 @@ const AddEvent = () => {
           <Form.Control.Feedback type="invalid">
             Please provide an image.
           </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="eventLink">
+          <Form.Label>More Information</Form.Label>
+          <Form.Control required type="text" placeholder="Enter Link" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="date">
