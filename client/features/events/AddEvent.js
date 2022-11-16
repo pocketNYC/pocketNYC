@@ -32,6 +32,7 @@ const AddEvent = () => {
     const time = evt.target.time.value;
     const tag = selectedOptions;
     const borough = evt.target.borough.value;
+    const eventLink = evt.target.eventLink.value;
 
     dispatch(
       addEvent({
@@ -43,6 +44,7 @@ const AddEvent = () => {
         time,
         borough,
         tag,
+        eventLink,
         userId,
       })
     );
@@ -86,6 +88,11 @@ const AddEvent = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
+        <Form.Group className="mb-3" controlId="eventLink">
+          <Form.Label>More Information</Form.Label>
+          <Form.Control required type="text" placeholder="Enter Link" />
+        </Form.Group>
+
         <Form.Group className="mb-3" controlId="date">
           <Form.Label>Date</Form.Label>
           <Form.Control required type="date" placeholder="Enter Date" />
@@ -116,7 +123,7 @@ const AddEvent = () => {
 
         <br />
         <label htmlFor="tags" style={{ padding: "10px" }}>
-          Choose your event tags:
+          Choose your event tags (select up to 3):
         </label>
         <Select
           isMulti
@@ -124,6 +131,7 @@ const AddEvent = () => {
           components={animated}
           closeMenuOnSelect={false}
           onChange={handleChange}
+          isOptionDisabled={() => selectedOptions.length >= 3}
         />
 
         <Button className="primary" type="submit">
