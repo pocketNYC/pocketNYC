@@ -55,13 +55,14 @@ router.get("/:userId", async (req, res, next) => {
 // PUT /api/users/:userId
 router.put("/:userId", async (req, res, next) => {
   try {
-    const userAuth = await User.findByToken(req.headers.authorization); // see which user is logged in (if any)
-    const user = await User.findByPk(req.body.userId); //find a user by their primary Key... ?
-    //if (userAuth.isAdmin) {  //  if the logged in user is an Admin,
-     // res.json(await user.update(req.body.isAdmin)); // update the req.body (which should only be req.body.isAdmin)
-    //} else 
-    if (userAuth && !userAuth.isAdmin) { //otherwise, if the user is NOT an Admin (but a regular user)
-      res.json(await user.update(req.body)); // update everything
+    const signedInUser = await User.findByToken(req.headers.authorization); // see which user is logged in (if any)
+    const userToUpdate = await User.findByPk(req.params.userId); //find a user by their primary Key... ?
+
+    if (signedInUser.isAdmin) {  //  if the logged in user is an Admin,
+     res.json(await userToUpdate.update(req.body.isAdmin)); // update the req.body (which should only be req.body.isAdmin)
+    } 
+    else if (userToUpdate && signedInUser) { //otherwise, if the user is NOT an Admin (but a regular user)
+      res.json(await userToUpdate.update(req.body)); // update everything
     } else {
       res.sendStatus(400);
     }

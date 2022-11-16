@@ -38,7 +38,7 @@ function SingleEvent() {
         <br />
         Tags: {tag?.join(", ")}
         <br />
-        <a href={eventLink}>{eventLink}</a>
+        <a href={eventLink} target="_blank" title="open link in a new tab">{eventLink}</a>
       </h4>
     </div>
   );

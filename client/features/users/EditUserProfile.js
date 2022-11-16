@@ -9,7 +9,8 @@ import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
 
 function EditUserProfile({ user }) {
-  const { id, firstName, lastName, email, interests, borough } = user;
+  const { id, firstName, lastName, email, interests, borough } = user
+
 
   const [userFirstName, setUserFirstName] = useState(firstName);
   const [userLastName, setUserLastName] = useState(lastName);
@@ -61,11 +62,11 @@ function EditUserProfile({ user }) {
     //const borough = evt.target.borough.value;
     // const interests = selectedOptions; <-- TODO: double check this***
 
-    // dispatch(
-    //     //console.log(updates),
-    //  // updateUserInfo(updates)
+    dispatch(
+        console.log(updates),
+    // updateUserInfo(updates)
 
-    // );
+    );
     setValidated(true);
     alert("Your changes have been submitted.");
   };

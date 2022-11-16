@@ -22,30 +22,28 @@ export const fetchSingleUser = createAsyncThunk(
 
 export const updateUserInfo = createAsyncThunk(
   "updateUserInfo",
-  async ({ firstName, lastName, email, interests, borough }) => {
+  async ({ id, firstName, lastName, email, interests, borough }) => {
     const token = window.localStorage.getItem("token");
-    
+
     const { data } = await axios.put(
-      `/api/users/${userId}`,
-      firstName,
-      lastName,
-      email,
-      interests,
-      borough,
+       console.log(id, "ID****")
+      `/api/users/${id}`,
+      { firstName, lastName, email, interests, borough },
       {
         headers: { authorization: token },
       }
     );
+    console.log("data", data);
     return data;
   }
 );
 
 export const updateAdminStatus = createAsyncThunk(
   "updateAdminStatus",
-  async ({ userId, isAdmin }) => {
+  async ({ id, isAdmin }) => {
     const token = window.localStorage.getItem("token");
     const { data } = await axios.put(
-      `/api/users/${userId}`,
+      `/api/users/${id}`,
       { isAdmin },
       {
         headers: { authorization: token },
@@ -77,13 +75,14 @@ const userSlice = createSlice({
       state.singleUser = action.payload;
     });
     builder.addCase(updateAdminStatus.fulfilled, (state, action) => {
+      console.log(action.payload, "<-- payload******");
       return action.payload;
     });
     builder.addCase(updateUserInfo.pending, (state, action) => {
       state.loading = true;
     });
     builder.addCase(updateUserInfo.fulfilled, (state, action) => {
-      console.log(action.payload, '<-- payload')
+      console.log(action.payload, "<-- payload******");
       state.loading = false;
       return action.payload;
     });
