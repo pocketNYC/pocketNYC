@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { addEvent } from "./eventsSlice";
@@ -11,7 +10,6 @@ import { useSelector } from "react-redux";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
   const userId = useSelector((state) => state.auth.me.id);
@@ -50,7 +48,6 @@ const AddEvent = () => {
     );
 
     setValidated(true);
-    navigate("/events");
   };
 
   return (
