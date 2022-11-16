@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
-import { editEvent, fetchAllEvents } from "../events/eventsSlice";
+import {
+  approveEvent,
+  rejectEvent,
+  fetchAllEvents,
+} from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "react-bootstrap/Button";
 import moment from "moment";
@@ -23,8 +27,16 @@ function Admin() {
       }
     });
 
-  const editEventButton = (ev, id) => {
-    dispatch(editEvent(id, ev)).then(() => {
+  const approveEventBtn = (ev, id) => {
+    ev.preventDefault();
+    dispatch(approveEvent(id, status)).then(() => {
+      dispatch(fetchAllEvents());
+    });
+  };
+
+  const rejectEventBtn = (ev, id) => {
+    ev.preventDefault();
+    dispatch(rejectEvent(id, status)).then(() => {
       dispatch(fetchAllEvents());
     });
   };
@@ -47,8 +59,15 @@ function Admin() {
                       Date: {moment(date).format("dddd, MMMM Do, YYYY")}
                     </strong>
                     <br />
-                    <Button onClick={(ev) => editEventButton(ev, id)}>
+                    <Button onClick={(ev) => approveEventBtn(ev, id)}>
                       Approve
+                    </Button>
+                    &nbsp;
+                    <Button
+                      variant="danger"
+                      onClick={(ev) => rejectEventBtn(ev, id)}
+                    >
+                      Deny
                     </Button>
                   </li>
                 );

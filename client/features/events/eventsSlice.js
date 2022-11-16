@@ -25,8 +25,8 @@ export const addEvent = createAsyncThunk("addEvent", async (newEvent) => {
   return data;
 });
 
-export const editEvent = createAsyncThunk(
-  "editEvent",
+export const approveEvent = createAsyncThunk(
+  "approveEvent",
   async (id, { status }) => {
     const token = window.localStorage.getItem("token");
     if (token) {
@@ -34,6 +34,24 @@ export const editEvent = createAsyncThunk(
         `/api/events/${id}`,
         {
           status: "approved",
+        },
+
+        { headers: { authorization: token } }
+      );
+      return data;
+    }
+  }
+);
+
+export const rejectEvent = createAsyncThunk(
+  "rejectEvent",
+  async (id, { status }) => {
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      const { data } = await axios.put(
+        `/api/events/${id}`,
+        {
+          status: "denied",
         },
 
         { headers: { authorization: token } }
@@ -70,7 +88,10 @@ export const eventsSlice = createSlice({
     builder.addCase(addEvent.fulfilled, (state, action) => {
       state.events.push(action.payload);
     });
-    builder.addCase(editEvent.fulfilled, (state, action) => {
+    builder.addCase(approveEvent.fulfilled, (state, action) => {
+      state.event = action.payload.status;
+    });
+    builder.addCase(rejectEvent.fulfilled, (state, action) => {
       state.event = action.payload.status;
     });
     builder.addCase(deleteEvent.fulfilled, (state, action) => {
