@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { editEvent, fetchAllEvents } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
+import moment from "moment";
+import { Link } from "react-router-dom";
 
 function Admin() {
   const dispatch = useDispatch();
@@ -10,11 +12,15 @@ function Admin() {
     dispatch(fetchAllEvents());
   }, [dispatch]);
 
-  const pendingEvents = events?.filter((event) => {
-    if (event.status === "pending") {
-      return event;
-    }
-  });
+  const sortedPendingEvents = [...events]
+    .sort((a, b) => {
+      return new Date(a.date) - new Date(b.date);
+    })
+    .filter((event) => {
+      if (event.status === "pending") {
+        return event;
+      }
+    });
 
   const editEventButton = (ev, id) => {
     dispatch(editEvent(id, ev)).then(() => {
@@ -28,13 +34,17 @@ function Admin() {
       <h2>Pending Events Here</h2>
       <>
         <ul>
-          {pendingEvents.length
-            ? pendingEvents.map(({ title, id, date, status }) => {
+          {sortedPendingEvents.length
+            ? sortedPendingEvents.map(({ title, id, date, status }) => {
                 return (
                   <li key={id}>
-                    <small>{title}</small>
+                    <small>
+                      <Link to={`/events/${id}`}>{title} </Link>
+                    </small>
                     <br />
-                    <small>{date}</small>
+                    <small>
+                      Date: {moment(date).format("dddd, MMMM Do, YYYY")}
+                    </small>
                     <br />
                     <button onClick={(ev) => editEventButton(ev, id)}>
                       Approve
