@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import moment from "moment";
 import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
 import { addToFavEvents } from "../favorites/favoriteEventsSlice";
@@ -17,11 +18,16 @@ export default function Events() {
     dispatch(me());
   }, []);
 
-  const approvedEvents = events?.filter((event) => {
+  const sortDates = [...events].sort((a, b) => {
+    return new Date(a.date) - new Date(b.date);
+  });
+
+  const approvedEvents = sortDates?.filter((event) => {
     if (event.status === "approved") {
       return event;
     }
   });
+
   const addButton = (ev, id) => {
     ev.preventDefault();
     dispatch(addToFavEvents(id));
@@ -40,7 +46,7 @@ export default function Events() {
           />
           <h3 className="underline">{title}</h3>
           <h4>
-            Date: {date}
+            Date: {moment(date).format("dddd, MMMM Do, YYYY")}
             <br />
             {isLoggedIn ? (
               <>

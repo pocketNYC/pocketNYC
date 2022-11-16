@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { addEvent } from "./eventsSlice";
@@ -10,7 +9,6 @@ import formInterest from "../auth/formInterest";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
 
@@ -47,7 +45,6 @@ const AddEvent = () => {
     );
 
     setValidated(true);
-    navigate("/events");
   };
 
   return (
