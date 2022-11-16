@@ -31,7 +31,13 @@ const Event = db.define("event", {
     allowNull: false,
   },
   borough: {
-    type: Sequelize.ARRAY(Sequelize.STRING),
+    type: Sequelize.ENUM(
+      "Bronx",
+      "Brooklyn",
+      "Queens",
+      "Manhattan",
+      "Staten-Island"
+    ),
     allowNull: false,
   },
   eventLink: {

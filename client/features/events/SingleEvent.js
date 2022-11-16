@@ -36,7 +36,7 @@ function SingleEvent() {
         <br />
         Time: {time}
         <br />
-        Tag: {tag}
+        Tag: {tag?.join(", ")}
         <br />
         <a href={eventLink}>{eventLink}</a>
       </h4>

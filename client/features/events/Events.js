@@ -12,19 +12,12 @@ export default function Events() {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const events = useSelector((state) => state.events.events);
 
-
-  // let sortedDates = [...events].sort((a, b) => {
-  //   return new Date(a) - new Date(b);
-  // });
-
-  // console.log(sortedDates);
-
   useEffect(() => {
     dispatch(fetchAllEvents());
     dispatch(me());
   }, []);
 
-  const addButton = (ev, id) => {
+  const addButton = (id) => {
     dispatch(addToFavEvent(id));
   };
 

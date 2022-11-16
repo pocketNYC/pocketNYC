@@ -73,7 +73,7 @@ const Navbar = () => {
                       className="nav-link active"
                       style={{ color: "black" }}
                       aria-current="page"
-                      href="/events/add"
+                      href="/add"
                     >
                       Add Event
                     </a>
