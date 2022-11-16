@@ -22,7 +22,8 @@ export default function Events() {
       return event;
     }
   });
-  const addButton = (id) => {
+  const addButton = (ev, id) => {
+    ev.preventDefault();
     dispatch(addToFavEvents(id));
   };
 
@@ -43,7 +44,12 @@ export default function Events() {
             <br />
             {isLoggedIn ? (
               <>
-                <Button variant="primary" onClick={addButton(id)}>
+                <Button
+                  variant="primary"
+                  onClick={(ev) => {
+                    addButton(ev, id);
+                  }}
+                >
                   Add to Favorites
                 </Button>
               </>
