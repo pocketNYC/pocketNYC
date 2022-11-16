@@ -180,7 +180,7 @@ const events = [
     tag: ["holidays", "family-friendly", "outdoors"],
     borough: "Staten-Island",
     eventLink: "https://www.mallscenters.com/malls/new-york/staten-island-mall",
-    status: "pending",
+    status: "approved",
     latitude: 40.582024341911826,
     longitude: -74.1657740714884,
   },
@@ -229,11 +229,10 @@ const events = [
     borough: "Staten-Island",
     eventLink:
       "https://www.eventbrite.com/e/queens-tech-night-2022-designing-new-york-tickets-445165611327?aff=ebdssbdestsearch",
-    status: "pending",
+    status: "approved",
     latitude: 40.74760623549599,
     longitude: -73.95513383089151,
   },
 ];
-
 
 module.exports = events;

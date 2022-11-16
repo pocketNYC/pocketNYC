@@ -15,16 +15,16 @@ const Home = () => {
         <h2>
           <div>Welcome, {firstName}!</div>
           <br />
-          <div>Featured Events Component Here...</div>
-          <br />
           <div>
             <FeaturedEvents />
-          {id && <UserFeed interests={interests} borough={borough} />}
+          </div>
+          <br />
+          <div>
+            {id && <UserFeed interests={interests} borough={borough} />}
           </div>
         </h2>
       ) : (
         <h2>
-          Featured Events Component Here...
           <FeaturedEvents />
         </h2>
       )}
