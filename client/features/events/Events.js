@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
-import { addToFavEvent } from "../favorites/favoriteEventSlice";
+import { addToFavEvents } from "../favorites/favoriteEventsSlice";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
@@ -23,7 +23,7 @@ export default function Events() {
     }
   });
   const addButton = (ev, id) => {
-    dispatch(addToFavEvent(id));
+    dispatch(addToFavEvents(id));
   };
 
   return (

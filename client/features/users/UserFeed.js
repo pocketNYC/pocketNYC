@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { addToFavEvent } from "../favorites/favoriteEventSlice";
+import { addToFavEvents } from "../favorites/favoriteEventsSlice";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,7 @@ function UserFeed({ interests, borough }) {
 
   const events = useSelector((state) => state.events.events);
   const addButton = (ev, id) => {
-    dispatch(addToFavEvent(id));
+    dispatch(addToFavEvents(id));
   };
   const filteredByBoro = events.filter((event) => {
     if (event.status === "approved" && event.borough === borough) {

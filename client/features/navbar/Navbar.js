@@ -76,17 +76,75 @@ const Navbar = () => {
                 </a>
               </li>
               {isLoggedIn ? (
+                <li className="nav-item dropdown">
+                  <a
+                    className="nav-link dropdown-toggle"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style={{ color: "black" }}
+                  >
+                    User
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    aria-labelledby="navbarDropdownMenuLink"
+                  >
+                    <li>
+                      <a className="dropdown-item" href={`/users/${userId}`}>
+                        My Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href={`/users/${userId}/favorites`}
+                      >
+                        My Favorites
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="/add">
+                        Add Event
+                      </a>
+                    </li>
+
+                    {isAdmin ? (
+                      <>
+                        <li>
+                          <a
+                            style={{ color: "red" }}
+                            className="dropdown-item"
+                            href="/users"
+                          >
+                            Admin: View Users
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            style={{ color: "red" }}
+                            className="dropdown-item"
+                            href="/admin"
+                          >
+                            Admin: Events Dashboard
+                          </a>
+                        </li>
+                      </>
+                    ) : null}
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        onClick={logoutAndRedirectHome}
+                      >
+                        Log out
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              ) : (
                 <>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link active"
-                      style={{ color: "black" }}
-                      aria-current="page"
-                      href="/events/add"
-                    >
-                      Add Event
-                    </a>
-                  </li>
                   <li className="nav-item dropdown">
                     <a
                       className="nav-link dropdown-toggle"
@@ -96,92 +154,23 @@ const Navbar = () => {
                       aria-expanded="false"
                       style={{ color: "black" }}
                     >
-                      My Account
+                      User
                     </a>
                     <ul
                       className="dropdown-menu"
                       aria-labelledby="navbarDropdownMenuLink"
                     >
                       <li>
-                        <a className="dropdown-item" href={`/users/${userId}`}>
-                          View Profile
+                        <a className="dropdown-item" href="/login">
+                          Login
                         </a>
                       </li>
                       <li>
-                        <a
-                          className="dropdown-item"
-                          href={`/users/${userId}/favorites`}
-                        >
-                          View Favorites
+                        <a className="dropdown-item" href="/signup">
+                          Sign Up
                         </a>
                       </li>
                     </ul>
-                  </li>
-
-                  {isAdmin && (
-                    <>
-                      <li className="nav-item dropdown">
-                        <a
-                          className="nav-link dropdown-toggle"
-                          id="navbarDropdownMenuLink"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                          style={{ color: "black" }}
-                        >
-                          Admin
-                        </a>
-                        <ul
-                          className="dropdown-menu"
-                          aria-labelledby="navbarDropdownMenuLink"
-                        >
-                          <li>
-                            <a className="dropdown-item" href="/users">
-                              View Users
-                            </a>
-                          </li>
-
-                          <li>
-                            <a className="dropdown-item" href="/admin">
-                              Events Dashboard
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                    </>
-                  )}
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link active"
-                      aria-current="page"
-                      style={{ color: "black" }}
-                      onClick={logoutAndRedirectHome}
-                    >
-                      Log out
-                    </Link>
-                  </li>
-                </>
-              ) : (
-                <>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link active"
-                      style={{ color: "black" }}
-                      aria-current="page"
-                      href="login"
-                    >
-                      Login
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link active"
-                      style={{ color: "black" }}
-                      aria-current="page"
-                      href="/signup"
-                    >
-                      Sign Up
-                    </a>
                   </li>
                 </>
               )}

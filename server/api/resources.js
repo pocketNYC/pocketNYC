@@ -16,7 +16,11 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const resource = await Resource.findByPk(req.params.id);
-    res.json(resource);
+    if (resource) {
+      res.json(resource);
+    } else {
+      res.sendStatus(404);
+    }
   } catch (err) {
     next(err);
   }
@@ -34,7 +38,11 @@ router.post("/", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
   try {
     const resource = await Resource.findByPk(req.params.id);
-    res.send(await resource.update(req.body));
+    if (resource) {
+      res.send(await resource.update(req.body));
+    } else {
+      res.json({ error: "Event not found" });
+    }
   } catch (err) {
     next(err);
   }
@@ -43,9 +51,12 @@ router.put("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
   try {
     const resource = await Resource.findByPk(req.params.id);
-
-    await resource.destroy();
-    res.sendStatus(204);
+    if (resource) {
+      await resource.destroy();
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(401);
+    }
   } catch (err) {
     next(err);
   }

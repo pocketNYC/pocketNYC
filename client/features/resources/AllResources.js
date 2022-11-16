@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 const AllResources = () => {
   const navigate = useNavigate();
 
-  const navigateCategory = (ev) => {
-    const category = ev.target.id;
+  const navigateCategory = ({ target }) => {
+    const category = target.id;
     navigate(`/resources/${category}`);
   };
 
@@ -16,7 +16,7 @@ const AllResources = () => {
       <h3> Select a category below to start:</h3>
       <img
         id="clothes"
-        onClick={(ev) => navigateCategory(ev)}
+        onClick={navigateCategory}
         style={{ width: "200px", height: "200px", padding: "10px" }}
         src="https://i.imgur.com/a7XnSA4.png"
       />
@@ -25,40 +25,40 @@ const AllResources = () => {
         style={{ width: "200px", height: "200px", padding: "10px" }}
         src="https://i.imgur.com/3Qcso6v.png"
         id="city services"
-        onClick={(ev) => navigateCategory(ev)}
+        onClick={navigateCategory}
       />
 
       <img
         style={{ width: "200px", height: "200px", padding: "10px" }}
         src="https://i.imgur.com/cLlro1G.png"
         id="seniors"
-        onClick={(ev) => navigateCategory(ev)}
+        onClick={navigateCategory}
       />
 
       <img
         style={{ width: "200px", height: "200px", padding: "10px" }}
         src="https://i.imgur.com/3igRVdA.png"
         id="disability services"
-        onClick={(ev) => navigateCategory(ev)}
+        onClick={navigateCategory}
       />
 
       <img
         style={{ width: "200px", height: "200px", padding: "10px" }}
         src="https://i.imgur.com/9dcsuh0.png"
         id="food"
-        onClick={(ev) => navigateCategory(ev)}
+        onClick={navigateCategory}
       />
 
       <img
         style={{ width: "200px", height: "200px", padding: "10px" }}
         src="https://i.imgur.com/IzYWITm.png"
         id="health"
-        onClick={(ev) => navigateCategory(ev)}
+        onClick={navigateCategory}
       />
 
       <img
         id="education"
-        onClick={(ev) => navigateCategory(ev)}
+        onClick={navigateCategory}
         style={{ width: "200px", height: "200px", padding: "10px" }}
         src="https://i.imgur.com/TuemK7p.png"
       />
@@ -67,14 +67,14 @@ const AllResources = () => {
         style={{ width: "200px", height: "200px", padding: "10px" }}
         src="https://i.imgur.com/oAkSSwU.png"
         id="employment"
-        onClick={(ev) => navigateCategory(ev)}
+        onClick={navigateCategory}
       />
 
       <img
         style={{ width: "200px", height: "200px", padding: "10px" }}
         src="https://i.imgur.com/dGwI5R7.png"
         id="finance"
-        onClick={(ev) => navigateCategory(ev)}
+        onClick={navigateCategory}
       />
     </div>
   );

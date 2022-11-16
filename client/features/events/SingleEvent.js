@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchSingleEvent } from "./eventsSlice";
-import { addToFavEvent } from "../favorites/favoriteEventSlice";
+import { addToFavEvents } from "../favorites/favoriteEventsSlice";
 
 function SingleEvent() {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function SingleEvent() {
   }, []);
 
   const addButton = (ev, id) => {
-    dispatch(addToFavEvent(id));
+    dispatch(addToFavEvents(id));
   };
 
   return (

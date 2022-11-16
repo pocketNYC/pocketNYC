@@ -50,7 +50,6 @@ router.post("/", async (req, res, next) => {
 //PUT /api/events ADMIN ONLY
 router.put("/:id", getToken, checkForAdmin, async (req, res, next) => {
   try {
-    console.log("PARAMS", req.params.id);
     const event = await Event.findByPk(req.params.id);
     if (event) {
       const editEvent = await event.update(req.body);
