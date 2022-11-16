@@ -82,7 +82,7 @@ const Navbar = () => {
                       className="nav-link active"
                       style={{ color: "black" }}
                       aria-current="page"
-                      href="/events/add"
+                      href="/add"
                     >
                       Add Event
                     </a>
@@ -157,7 +157,7 @@ const Navbar = () => {
                       style={{ color: "black" }}
                       onClick={logoutAndRedirectHome}
                     >
-                      Log out
+                      Log Out
                     </Link>
                   </li>
                 </>
