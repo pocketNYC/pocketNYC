@@ -58,7 +58,7 @@ router.delete("/:id", async (req, res, next) => {
       const event = await Event.findByPk(req.params.id);
       if (event) {
         await event.destroy();
-        res.send(event);
+        res.json(event);
       } else {
         res.sendStatus(404);
       }

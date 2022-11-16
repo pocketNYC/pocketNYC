@@ -43,7 +43,7 @@ export default function Events() {
             <br />
             {isLoggedIn ? (
               <>
-                <Button variant="primary" onClick={(ev) => addButton(ev, id)}>
+                <Button variant="primary" onClick={addButton(id)}>
                   Add to Favorites
                 </Button>
               </>

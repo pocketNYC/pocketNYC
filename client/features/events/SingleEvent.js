@@ -33,7 +33,7 @@ function SingleEvent() {
       <img src={image} style={{ width: "800px", height: "500px" }} />
       <h3 className="underline">{title}</h3>
       {isLoggedIn ? (
-        <Button onClick={(ev) => addButton(ev, id)}>Add to Favorites</Button>
+        <Button onClick={(ev) => addButton(id)}>Add to Favorites</Button>
       ) : null}
       <h4>
         {description}
