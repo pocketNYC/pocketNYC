@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchAllEvents } from "./eventsSlice";
-
+import { fetchAllEvents } from "../events/eventsSlice";
 function FeaturedEvents() {
   const dispatch = useDispatch();
-  const { tag } = useParams();
   const events = useSelector((state) => state.events.events);
   // console.log(events);
   const filteredEvents = events?.filter((event) => {
@@ -16,62 +14,76 @@ function FeaturedEvents() {
       return event;
     }
   });
-  console.log(filteredEvents[0]);
-
+  const first = filteredEvents[0];
+  const exclude1 = filteredEvents.filter((event) => {
+    if (event.id !== filteredEvents[0].id) {
+      return event;
+    }
+  });
+  console.log(exclude1);
   useEffect(() => {
     dispatch(fetchAllEvents());
   }, [dispatch]);
-
   return (
     <div className="container">
       <h1 className="underline">Featured Events</h1>
       <div
-        id="carouselExampleControls"
-        className="carousel slide"
+        id="carouselExampleFade"
+        className="carousel slide carousel-fade"
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
-          {filteredEvents?.map(({ id, image, title, date }) =>
-            console.log(filteredEvents[0].id === id) ? (
-              <div className="carousel-item-active" key={id}>
-                <img src={image} alt="..." />
-                <div>
-                  <h3>{title}</h3>
-                  <h2>{date}</h2>
-                </div>
+          <div
+            className="carousel-item active"
+            data-bs-interval="2000"
+            key={first?.id}
+          >
+            <img
+              class="d-block w-100"
+              style={{ width: "600px", height: "500px" }}
+              src={first?.image}
+              alt="..."
+            />
+            <div>
+              <h3>{first?.title}</h3>
+              <h2>{first?.date}</h2>
+            </div>
+          </div>
+          {exclude1?.map((event) => (
+            <div className="carousel-item" data-bs-interval="2000">
+              <img
+                style={{ width: "600px", height: "500px" }}
+                class="d-block w-100"
+                src={event.image}
+                alt="..."
+              />
+              <div>
+                <h3>{event.title}</h3>
+                <h2>{event.date}</h2>
               </div>
-            ) : (
-              <div className="carousel-item" key={id}>
-                <img src={image} alt="..." />
-                <div>
-                  <h3>{title}</h3>
-                  <h2>{date}</h2>
-                </div>
-              </div>
-            )
-          )}
+            </div>
+          ))}
         </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleFade"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleFade"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <button
-        className="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleControls"
-        data-bs-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button
-        className="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleControls"
-        data-bs-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button>
     </div>
   );
 }
-
 export default FeaturedEvents;
