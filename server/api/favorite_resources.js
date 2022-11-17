@@ -35,3 +35,17 @@ router.post("/", getToken, async (req, res, next) => {
     next(err);
   }
 });
+
+router.delete("/:id", getToken, async (req, res, next) => {
+  const userId = req.user.id;
+  const resourceId = req.params.id;
+
+  try {
+    const resource = await Favorite_Resources.destroy({
+      where: { userId: userId, resourceId: resourceId },
+    });
+    res.json(resource);
+  } catch (error) {
+    next(error);
+  }
+});

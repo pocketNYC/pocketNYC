@@ -5,7 +5,6 @@ const {
 } = require("../db");
 
 const { getToken } = require("./adminAuth");
-module.exports = router;
 
 router.get("/", getToken, async (req, res, next) => {
   const userId = req.user.id;
@@ -35,3 +34,19 @@ router.post("/", getToken, async (req, res, next) => {
     next(err);
   }
 });
+
+router.delete("/:id", getToken, async (req, res, next) => {
+  const userId = req.user.id;
+  const eventId = req.params.id;
+
+  try {
+    const event = await Favorite_Events.destroy({
+      where: { userId: userId, eventId: eventId },
+    });
+    res.json(event);
+  } catch (error) {
+    next(error);
+  }
+});
+
+module.exports = router;

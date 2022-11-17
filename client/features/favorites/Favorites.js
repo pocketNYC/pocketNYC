@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchFavoriteResources,
   selectFavoriteResources,
+  removeFromFavResources,
 } from "./favoriteResourcesSlice";
 import { Link } from "react-router-dom";
 import {
   fetchFavoriteEvents,
+  removeFromFavEvents,
   selectFavoriteEvents,
 } from "./favoriteEventsSlice";
 import moment from "moment";
@@ -21,6 +23,20 @@ const Favorites = () => {
 
   const favResources = useSelector(selectFavoriteResources);
   const favEvents = useSelector(selectFavoriteEvents);
+
+  const removeFavEvent = (ev, id) => {
+    ev.preventDefault();
+    dispatch(removeFromFavEvents(id)).then(() => {
+      dispatch(fetchFavoriteEvents());
+    });
+  };
+
+  const removeFavResource = (ev, id) => {
+    ev.preventDefault();
+    dispatch(removeFromFavResources(id)).then(() => {
+      dispatch(fetchFavoriteResources());
+    });
+  };
 
   const futureEvents = [...favEvents]
     .sort((a, b) => {
@@ -45,6 +61,14 @@ const Favorites = () => {
                   <Link to={`/users/${userId}/favorites/${resource.id}`}>
                     {resource.name}
                   </Link>
+                  <br />
+                  <button
+                    onClick={(ev) => {
+                      removeFavResource(ev, resource.id);
+                    }}
+                  >
+                    Remove from favorites
+                  </button>
                 </li>
               );
             })
@@ -52,7 +76,9 @@ const Favorites = () => {
       </ul>
       <h1>My Favorite Events</h1>
       <ul>
-        <p style={{ textDecorationLine: "underline" }}>Upcoming Events:</p>
+        <p style={{ textDecorationLine: "underline", fontWeight: "bold" }}>
+          Upcoming Events:
+        </p>
         {futureEvents.length
           ? futureEvents?.map(({ event }) => {
               return (
@@ -65,6 +91,13 @@ const Favorites = () => {
                     <li>
                       <Link to={`/events/${event.id}`}>More Details</Link>
                     </li>
+                    <button
+                      onClick={(ev) => {
+                        removeFavEvent(ev, event.id);
+                      }}
+                    >
+                      Remove from favorites
+                    </button>
                   </ul>
                 </li>
               );
@@ -72,18 +105,34 @@ const Favorites = () => {
           : "No favorites to display yet"}
       </ul>
       <ul>
-        <p style={{ color: "red", textDecorationLine: "underline" }}>
+        <p
+          style={{
+            color: "red",
+            fontWeight: "bold",
+            textDecorationLine: "underline",
+          }}
+        >
           Past Events:
         </p>
         {pastEvents.length
           ? pastEvents?.map(({ event }) => {
               return (
                 <li key={event.id}>
-                  <Link to={`/events/${event.id}`}> {event.title}</Link>
+                  {event.title}
                   <ul>
                     <li>
                       Date: {moment(event.date).format("dddd, MMMM Do, YYYY")}
                     </li>
+                    <li>
+                      <Link to={`/events/${event.id}`}>More Details</Link>
+                    </li>
+                    <button
+                      onClick={(ev) => {
+                        removeFavEvent(ev, event.id);
+                      }}
+                    >
+                      Remove from favorites
+                    </button>
                   </ul>
                 </li>
               );
