@@ -13,6 +13,7 @@ const resources = [
     name: "New York City Coalition Against Hunger",
     description:
       "The New York City Coalition Against Hunger (NYCCAH) represents and is the voice for the more than 1,100 nonprofit soup kitchens and food pantries in New York City and the 1.5 million low-income New Yorkers who live in households that can’t afford enough food.",
+    imageUrl: "https://i.imgur.com/oTHzvjL.png",
     address: "16 Beaver Street, New York, NY, 10004",
     borough: ["Manhattan"],
     tag: ["food"],
@@ -22,6 +23,7 @@ const resources = [
     name: "Bronx EOC",
     description:
       "Tuition Free Programs - The career path and life that you deserve are easier to obtain. Get the right training and preparation at no cost to you.",
+    imageUrl: "https://i.imgur.com/DgDQK59.png",
     address: "1666 Bathgate Ave, Bronx, NY, 10457",
     borough: ["Bronx"],
     tag: ["education", "employment"],
@@ -33,6 +35,7 @@ const resources = [
     name: "Meals on Wheels of Staten Island Inc.",
     description:
       "Meals on Wheels of Staten Island, Inc. is a private not-for-profit agency whose mission is to provide two nutritious meals each day to those 60 years of age or older who can no longer shop for or prepare their own meals.",
+    imageUrl: "https://i.imgur.com/IbYSIXU.png",
     address: "304 PORT RICHMOND AVENUE, Staten Island, NY, 10302",
     borough: ["Staten Island"],
     tag: ["seniors", "food"],

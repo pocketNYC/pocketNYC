@@ -5,7 +5,9 @@ import {
   fetchAllEvents,
 } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
-import Button from "react-bootstrap/Button";
+import { IconButton } from "@mui/material";
+import DisabledByDefaultIcon from "@mui/icons-material/DisabledByDefault";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
@@ -53,22 +55,17 @@ function Admin() {
                   <li key={id}>
                     <strong>
                       <Link to={`/events/${id}`}>{title} </Link>
+                      <IconButton onClick={(ev) => approveEventBtn(ev, id)}>
+                        <CheckBoxIcon color="success" />
+                      </IconButton>
+                      <IconButton onClick={(ev) => rejectEventBtn(ev, id)}>
+                        <DisabledByDefaultIcon color="error" />
+                      </IconButton>
                     </strong>
                     <br />
                     <strong>
                       Date: {moment(date).format("dddd, MMMM Do, YYYY")}
                     </strong>
-                    <br />
-                    <Button onClick={(ev) => approveEventBtn(ev, id)}>
-                      Approve
-                    </Button>
-                    &nbsp;
-                    <Button
-                      variant="danger"
-                      onClick={(ev) => rejectEventBtn(ev, id)}
-                    >
-                      Deny
-                    </Button>
                   </li>
                 );
               })

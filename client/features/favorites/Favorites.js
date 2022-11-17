@@ -12,6 +12,8 @@ import {
   selectFavoriteEvents,
 } from "./favoriteEventsSlice";
 import moment from "moment";
+import { IconButton } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const Favorites = () => {
   const dispatch = useDispatch();
@@ -61,14 +63,14 @@ const Favorites = () => {
                   <Link to={`/users/${userId}/favorites/${resource.id}`}>
                     {resource.name}
                   </Link>
-                  <br />
-                  <button
+                  &nbsp;
+                  <IconButton
                     onClick={(ev) => {
                       removeFavResource(ev, resource.id);
                     }}
                   >
-                    Remove from favorites
-                  </button>
+                    <DeleteIcon color="error" />
+                  </IconButton>
                 </li>
               );
             })
@@ -84,6 +86,13 @@ const Favorites = () => {
               return (
                 <li key={event.id}>
                   {event.title}
+                  <IconButton
+                    onClick={(ev) => {
+                      removeFavEvent(ev, event.id);
+                    }}
+                  >
+                    <DeleteIcon color="error" />
+                  </IconButton>
                   <ul>
                     <li>
                       Date: {moment(event.date).format("dddd, MMMM Do, YYYY")}
@@ -91,13 +100,6 @@ const Favorites = () => {
                     <li>
                       <Link to={`/events/${event.id}`}>More Details</Link>
                     </li>
-                    <button
-                      onClick={(ev) => {
-                        removeFavEvent(ev, event.id);
-                      }}
-                    >
-                      Remove from favorites
-                    </button>
                   </ul>
                 </li>
               );
@@ -119,6 +121,13 @@ const Favorites = () => {
               return (
                 <li key={event.id}>
                   {event.title}
+                  <IconButton
+                    onClick={(ev) => {
+                      removeFavEvent(ev, event.id);
+                    }}
+                  >
+                    <DeleteIcon color="error" />
+                  </IconButton>
                   <ul>
                     <li>
                       Date: {moment(event.date).format("dddd, MMMM Do, YYYY")}
@@ -126,13 +135,6 @@ const Favorites = () => {
                     <li>
                       <Link to={`/events/${event.id}`}>More Details</Link>
                     </li>
-                    <button
-                      onClick={(ev) => {
-                        removeFavEvent(ev, event.id);
-                      }}
-                    >
-                      Remove from favorites
-                    </button>
                   </ul>
                 </li>
               );

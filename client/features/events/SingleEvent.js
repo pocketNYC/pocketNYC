@@ -19,7 +19,8 @@ function SingleEvent() {
     dispatch(fetchSingleEvent(id));
   }, []);
 
-  const addButton = (id) => {
+  const addButton = (ev, id) => {
+    ev.preventDefault();
     dispatch(addToFavEvents(id));
     navigate("/events");
   };
