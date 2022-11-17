@@ -45,7 +45,7 @@ const AppRoutes = () => {
           <Route path="/add/success" element={<ConfirmationPage user={user}/>} />
           <Route path="/resources" element={<AllResources />} />
           <Route path="/resources/:category/" element={<ResourceCategory />} />
-          <Route path={`/users/${userId}`} element={<SingleUserProfile />} />
+          <Route path={`/users/${userId}`} element={<SingleUserProfile user={user} />} />
           <Route
             path={`/users/${user.id}/edit`}
             element={<EditUserProfile user={user} />}
