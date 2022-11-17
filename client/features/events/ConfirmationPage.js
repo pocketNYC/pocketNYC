@@ -26,7 +26,7 @@ function ConfirmationPage({ user }) {
 
   return (
     <div>
-      <h2>{`Thank you,${firstName}!`}</h2>
+      <h2>{`Thank you, ${firstName}!`}</h2>
       <h6>
         Your event has been submitted for approval. Below is a summary of event
         details submitted:
