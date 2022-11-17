@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function ConfirmationPage({firstName}) {
+function ConfirmationPage({user}) {
+    const {firstName} = user
   return (
     <div>
         <h2>{`Thank you ${firstName}!`}</h2>

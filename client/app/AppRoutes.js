@@ -20,8 +20,9 @@ import ConfirmationPage from "../features/events/ConfirmationPage";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  const {isAdmin, firstName} = useSelector((state) => state.auth.me);
+  const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const userId = useSelector((state) => state.auth.me.id);
+  const user = useSelector((state) => state.auth.me);
 
   const dispatch = useDispatch();
 
@@ -38,7 +39,7 @@ const AppRoutes = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
           <Route path="/add" element={<AddEvent />} />
-          <Route path="/add/success" element={<ConfirmationPage user={firstName}/>} />
+          <Route path="/add/success" element={<ConfirmationPage user={user}/>} />
           <Route path="/resources" element={<AllResources />} />
           <Route path="/resources/:category/" element={<ResourceCategory />} />
           <Route path={`/users/${userId}`} element={<SingleUserProfile />} />
