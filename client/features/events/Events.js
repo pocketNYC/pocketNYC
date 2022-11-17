@@ -12,6 +12,7 @@ export default function Events() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const events = useSelector((state) => state.events.events);
+  console.log(events);
 
   useEffect(() => {
     dispatch(fetchAllEvents());

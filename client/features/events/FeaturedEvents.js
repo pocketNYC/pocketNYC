@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import moment from "moment";
 import { fetchAllEvents } from "../events/eventsSlice";
 
 function FeaturedEvents() {
@@ -50,7 +50,7 @@ function FeaturedEvents() {
             />
             <div align="center">
               <h3>{first?.title}</h3>
-              <h2>{first?.date}</h2>
+              <h2>{moment(first?.date).format("dddd, MMMM Do, YYYY")}</h2>
             </div>
           </div>
           {exclude1?.map(({ id, image, title, date }) => (
@@ -63,7 +63,7 @@ function FeaturedEvents() {
               />
               <div align="center">
                 <h3>{title}</h3>
-                <h2>{date}</h2>
+                <h2>{moment(date).format("dddd, MMMM Do, YYYY")}</h2>
               </div>
             </div>
           ))}
