@@ -8,6 +8,7 @@ import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ConfirmationPage from "./ConfirmationPage";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ const AddEvent = () => {
       })
     );
     navigate("/add/success");
+
     setValidated(true);
   };
 
