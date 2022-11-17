@@ -7,9 +7,11 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
   const userId = useSelector((state) => state.auth.me.id);
@@ -48,7 +50,7 @@ const AddEvent = () => {
         userId,
       })
     );
-
+    navigate("/add/success");
     setValidated(true);
   };
 
@@ -131,7 +133,7 @@ const AddEvent = () => {
           components={animated}
           closeMenuOnSelect={false}
           onChange={handleChange}
-          isOptionDisabled={() => selectedOptions.length >= 3}
+          isOptionDisabled={() => selectedOptions.length >= 5}
         />
 
         <Button className="primary" type="submit">
