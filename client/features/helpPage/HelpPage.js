@@ -6,11 +6,11 @@ import Questions from "./Questions";
 function Faq() {
   return (
     <div style={{padding: '20px'}}>
-      <ContactUs />
-      <hr />
       <Questions />
       <hr />
       <AboutUs />
+      <hr />
+      <ContactUs />
     </div>
   );
 }
