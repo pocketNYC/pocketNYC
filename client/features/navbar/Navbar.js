@@ -74,6 +74,16 @@ const Navbar = () => {
                   Resources
                 </a>
               </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link active"
+                  style={{ color: "black" }}
+                  aria-current="page"
+                  href="/faq"
+                >
+                  Help
+                </a>
+              </li>
               {isLoggedIn ? (
                 <li className="nav-item dropdown">
                   <a
