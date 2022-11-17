@@ -16,10 +16,11 @@ import Favorites from "../features/favorites/Favorites";
 import SingleResource from "../features/resources/SingleResource";
 import SingleUserProfile from "../features/users/SingleUserProfile";
 import SingleEvent from "../features/events/SingleEvent";
+import ConfirmationPage from "../features/events/ConfirmationPage";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  const isAdmin = useSelector((state) => state.auth.me.isAdmin);
+  const {isAdmin, firstName} = useSelector((state) => state.auth.me);
   const userId = useSelector((state) => state.auth.me.id);
 
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ const AppRoutes = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
           <Route path="/add" element={<AddEvent />} />
+          <Route path="/add/success" element={<ConfirmationPage user={firstName}/>} />
           <Route path="/resources" element={<AllResources />} />
           <Route path="/resources/:category/" element={<ResourceCategory />} />
           <Route path={`/users/${userId}`} element={<SingleUserProfile />} />
