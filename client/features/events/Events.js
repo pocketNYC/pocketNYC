@@ -5,7 +5,8 @@ import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
 import { addToFavEvents } from "../favorites/favoriteEventsSlice";
 import { useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Button } from "@mui/material";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 export default function Events() {
   const navigate = useNavigate();
@@ -46,22 +47,17 @@ export default function Events() {
             onClick={() => navigate(`/events/${id}`)}
           />
           <h3 className="underline">{title}</h3>
-          <h4>
-            Date: {moment(date).format("dddd, MMMM Do, YYYY")}
-            <br />
-            {isLoggedIn ? (
-              <>
-                <Button
-                  variant="primary"
-                  onClick={(ev) => {
-                    addButton(ev, id);
-                  }}
-                >
-                  Add to Favorites
-                </Button>
-              </>
-            ) : null}
-          </h4>
+          {isLoggedIn ? (
+            <Button
+              variant="outlined"
+              onClick={(ev) => addButton(ev, id)}
+              color="error"
+              startIcon={<FavoriteBorderOutlinedIcon />}
+            >
+              Add to Favorites
+            </Button>
+          ) : null}
+          <h4>Date: {moment(date).format("dddd, MMMM Do, YYYY")}</h4>
         </div>
       ))}
     </div>

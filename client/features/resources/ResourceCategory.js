@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchResources, selectResources } from "./resourcesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+// import { Button } from "react-bootstrap";
+import { Button } from "@mui/material";
 import {
   addToFavResources,
   fetchFavoriteResources,
 } from "../favorites/favoriteResourcesSlice";
-import { Link } from "react-router-dom";
+import { IconButton } from "@mui/material";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 const ResourceCategory = () => {
   const dispatch = useDispatch();
@@ -39,9 +42,23 @@ const ResourceCategory = () => {
                     />
                     <br />
                     {isLoggedIn ? (
-                      <button onClick={(ev) => addButton(ev, id)}>
-                        Add to Favorites
-                      </button>
+                      <>
+                        <Button
+                          variant="outlined"
+                          onClick={(ev) => addButton(ev, id)}
+                          color="error"
+                          startIcon={<FavoriteBorderOutlinedIcon />}
+                        >
+                          Add to Favorites
+                        </Button>
+
+                        <IconButton
+                          onClick={(ev) => addButton(ev, id)}
+                          color="error"
+                        >
+                          <FavoriteBorderOutlinedIcon />
+                        </IconButton>
+                      </>
                     ) : null}
                     <p>About: {description}</p>
                     <p>Address: {address}</p>
