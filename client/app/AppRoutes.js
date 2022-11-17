@@ -16,11 +16,13 @@ import Favorites from "../features/favorites/Favorites";
 import SingleResource from "../features/resources/SingleResource";
 import SingleUserProfile from "../features/users/SingleUserProfile";
 import SingleEvent from "../features/events/SingleEvent";
+import EditUser from "../features/users/EditUser";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const userId = useSelector((state) => state.auth.me.id);
+  
 
   const dispatch = useDispatch();
 

@@ -20,6 +20,28 @@ export const fetchSingleUser = createAsyncThunk(
   }
 );
 
+export const editUser = createAsyncThunk(
+  "editUser",
+  async ({ userId, firstName, lastName, email, borough }) => {
+    const token = window.localStorage.getItem("token");
+    const { data } = await axios.put(
+      `/api/users/${userId}`,
+      {
+        firstName,
+        lastName,
+        email,
+        borough,
+      },
+      {
+        headers: { authorization: token },
+      }
+    );
+
+    console.log("data", data);
+    return data;
+  }
+);
+
 export const updateAdminStatus = createAsyncThunk(
   "updateAdminStatus",
   async ({ userId, isAdmin }) => {
@@ -35,11 +57,15 @@ export const updateAdminStatus = createAsyncThunk(
   }
 );
 
-const initialState = { allUsers: [], singleUser: {}, loading: false };
+// const initialState = { allUsers: [], singleUser: {}, loading: false };
 
 const userSlice = createSlice({
   name: "users",
-  initialState,
+  initialState: {
+    allUsers: [],
+    singleUser: {},
+    loading: false,
+  },
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -54,7 +80,10 @@ const userSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchSingleUser.fulfilled, (state, action) => {
-        state.loading = false
+        state.loading = false;
+        state.singleUser = action.payload;
+      })
+      .addCase(editUser.fulfilled, (state, action) => {
         state.singleUser = action.payload;
       })
       .addCase(updateAdminStatus.fulfilled, (state, action) => {

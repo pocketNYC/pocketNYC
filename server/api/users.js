@@ -55,10 +55,14 @@ router.get("/:userId", async (req, res, next) => {
 // PUT /api/users/:userId
 router.put("/:userId", async (req, res, next) => {
   try {
-    const userAuth = await User.findByToken(req.headers.authorization);
-    if (userAuth.isAdmin) {
-      const user = await User.findByPk(req.body.userId);
-      res.json(await user.update(req.body.isAdmin));
+    const userLoggedIn = await User.findByToken(req.headers.authorization);
+    if (userLoggedIn) {
+      const user = await User.findByPk(req.params.userId);
+      if (user) {
+        res.json(await user.update(req.body));
+      } else {
+        res.sendStatus(404);
+      }
     } else {
       res.sendStatus(400);
     }

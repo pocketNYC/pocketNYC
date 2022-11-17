@@ -4,6 +4,7 @@ import { fetchSingleUser } from "./userSlice";
 import { fetchFavoriteEvents } from "../favorites/favoriteEventsSlice";
 import { fetchFavoriteResources } from "../favorites/favoriteResourcesSlice";
 import { fetchAllEvents } from "../events/eventsSlice";
+import EditUser from "./EditUser";
 
 function SingleUserProfile() {
   const dispatch = useDispatch();
@@ -106,6 +107,7 @@ function SingleUserProfile() {
           </div>
         </div>
       </div>
+      <EditUser />
     </div>
   );
 }
