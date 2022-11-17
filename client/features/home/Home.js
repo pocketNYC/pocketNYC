@@ -9,11 +9,13 @@ const Home = () => {
     (state) => state.auth.me
   );
 
+
   return (
     <div>
       {isLoggedIn ? (
         <h2>
           <div>Welcome, {firstName}!</div>
+
           <br />
           <div>
             <FeaturedEvents />
@@ -25,6 +27,7 @@ const Home = () => {
         </h2>
       ) : (
         <h2>
+     
           <FeaturedEvents />
         </h2>
       )}

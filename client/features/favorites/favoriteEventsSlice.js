@@ -41,6 +41,24 @@ export const addToFavEvents = createAsyncThunk(
   }
 );
 
+export const removeFromFavEvents = createAsyncThunk(
+  "removeFavorite_Events",
+  async (id) => {
+    const token = window.localStorage.getItem(TOKEN);
+
+    try {
+      await axios.delete(
+        `/api/favoriteEvents/${id} `,
+
+        { headers: { authorization: token } }
+      );
+      return id;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+
 const favoriteEventsSlice = createSlice({
   name: "favoriteEvents",
   initialState,
@@ -51,6 +69,13 @@ const favoriteEventsSlice = createSlice({
     });
     builder.addCase(addToFavEvents.fulfilled, (state, action) => {
       state.push(action.payload);
+    });
+    builder.addCase(removeFromFavEvents.fulfilled, (state, action) => {
+      state.filter((event) => {
+        if (event.id !== action.payload.eventId) {
+          return event;
+        }
+      });
     });
   },
 });

@@ -40,7 +40,7 @@ const events = [
       "New York City is home to an amazing abundance of wildlife. Our Urban Park Rangers will guide you to the best wildlife viewing spots in the urban jungle.",
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.allaboutbirds.org%2Fnews%2Fwp-content%2Fuploads%2F2019%2F05%2FNYC-birds-Riepe.jpg&f=1&nofb=1&ipt=d859b3c5d5e170c8755c97eafe04b8c7aa8bde1d78b85734dc5294935341fe66&ipo=images",
-    date: "2022-11-02",
+    date: "2022-11-16",
     time: "15:00",
     tag: ["outdoors", "family-friendly"],
     borough: "Queens",

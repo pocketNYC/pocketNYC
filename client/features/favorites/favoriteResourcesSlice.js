@@ -41,6 +41,24 @@ export const addToFavResources = createAsyncThunk(
   }
 );
 
+export const removeFromFavResources = createAsyncThunk(
+  "removeFavorite_Resources",
+  async (id) => {
+    const token = window.localStorage.getItem(TOKEN);
+
+    try {
+      await axios.delete(
+        `/api/favoriteResources/${id} `,
+
+        { headers: { authorization: token } }
+      );
+      return id;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+
 const favoriteResourcesSlice = createSlice({
   name: "favoriteResources",
   initialState,
@@ -51,6 +69,13 @@ const favoriteResourcesSlice = createSlice({
     });
     builder.addCase(addToFavResources.fulfilled, (state, action) => {
       state.push(action.payload);
+    });
+    builder.addCase(removeFromFavResources.fulfilled, (state, action) => {
+      state.filter((resource) => {
+        if (resource.id !== action.payload.resourceId) {
+          return resource;
+        }
+      });
     });
   },
 });

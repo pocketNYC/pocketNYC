@@ -26,7 +26,8 @@ export default function Events() {
       if (event.status === "approved") {
         return event;
       }
-    });
+    })
+    .filter((a) => new Date(a.date) - new Date() > 0);
 
   const addButton = (ev, id) => {
     ev.preventDefault();
