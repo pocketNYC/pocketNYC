@@ -62,7 +62,7 @@ const AddEvent = () => {
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group className="mb-6" controlId="title">
           <Form.Label>Title</Form.Label>
-          <Form.Control required type="text" placeholder="Enter Description" />
+          <Form.Control required type="text" placeholder="Enter Title" />
           <Form.Control.Feedback type="invalid">
             Please provide a title.
           </Form.Control.Feedback>
@@ -94,7 +94,7 @@ const AddEvent = () => {
 
         <Form.Group className="mb-3" controlId="eventLink">
           <Form.Label>More Information</Form.Label>
-          <Form.Control required type="text" placeholder="Enter Link" />
+          <Form.Control required type="text" placeholder="Enter Event Link" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="date">

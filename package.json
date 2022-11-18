@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "@emotion/styled": "^11.10.5",
-    "@mui/icons-material": "^5.10.9",
+    "@mui/icons-material": "^5.10.14",
     "antd": "^4.24.3",
     "bcrypt": "^5.1.0",
     "bootstrap": "^5.2.2",
