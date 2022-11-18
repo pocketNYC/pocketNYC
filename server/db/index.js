@@ -5,7 +5,6 @@ const Event = require("./models/Event");
 const Favorite_Resources = require("./models/Favorite_Resources");
 const Favorite_Events = require("../db/models/Favorite_Events");
 
-// User.hasMany(Resources);
 Resource.belongsToMany(User, { through: Favorite_Resources });
 User.belongsToMany(Resource, { through: Favorite_Resources });
 Favorite_Resources.belongsTo(User);

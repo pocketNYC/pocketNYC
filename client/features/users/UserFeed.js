@@ -35,12 +35,12 @@ function UserFeed({ interests, borough }) {
     .filter((a) => new Date(a.date) - new Date() > 0);
 
   return (
-    <div>
-      <p>Events matching your interests & borough:</p>
+    <div align="center">
+      <p className="underline">Events matching your Interests & Borough</p>
       <ul>
         {filteredByInterest
           ? filteredByInterest?.map(({ id, image, title, date }) => (
-              <li key={id}>
+              <ul key={id}>
                 <Link to={`/events/${id}`}>
                   <img
                     src={image}
@@ -49,16 +49,16 @@ function UserFeed({ interests, borough }) {
                   />
                 </Link>
 
-                <h3>{title}</h3>
+                <h3 className="underline">{title}</h3>
 
                 <h4>
-                  Date: {moment(date).format("dddd, MMMM Do, YYYY")}
+                  {moment(date).format("dddd, MMMM Do, YYYY")}
                   <br />
                   <Link to={`/events/${id}`}>
                     <h4>More Details</h4>
                   </Link>
                 </h4>
-              </li>
+              </ul>
             ))
           : "No events matching your interests/borough."}
       </ul>
