@@ -4,9 +4,8 @@ import { fetchSingleUser } from "./userSlice";
 import { fetchFavoriteEvents } from "../favorites/favoriteEventsSlice";
 import { fetchFavoriteResources } from "../favorites/favoriteResourcesSlice";
 import { fetchAllEvents } from "../events/eventsSlice";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-
 
 function SingleUserProfile() {
   const dispatch = useDispatch();
@@ -67,7 +66,9 @@ function SingleUserProfile() {
                 {borough}
               </h6>
             </div>
-            <Link to={`/users/${userId}/edit`}><button>Edit Profile</button></Link>
+            <Link to={`/users/${userId}/edit`}>
+              <Button>Edit Profile</Button>
+            </Link>
           </div>
         </div>
 
