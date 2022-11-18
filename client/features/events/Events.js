@@ -5,8 +5,10 @@ import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
 import { addToFavEvents } from "../favorites/favoriteEventsSlice";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+// import ReactPaginate from "react-paginate";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 export default function Events() {
   const navigate = useNavigate();
@@ -60,6 +62,26 @@ export default function Events() {
           <h4>Date: {moment(date).format("dddd, MMMM Do, YYYY")}</h4>
         </div>
       ))}
+      <Tooltip title="Scroll to Top">
+        <Button
+          className="scroll"
+          onClick={() => {
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+          }}
+          variant="contained"
+          size="small"
+          style={{
+            position: "fixed",
+            borderRadius: "50%",
+            padding: "1rem 1rem",
+            bottom: "40px",
+            right: "40px",
+            textAlign: "center",
+          }}
+        >
+          <KeyboardArrowUpIcon></KeyboardArrowUpIcon>
+        </Button>
+      </Tooltip>
     </div>
   );
 }

@@ -29,3 +29,6 @@ form div {
   padding-top: 70px;
 }
 
+Button.scroll  {
+  opacity: 50%;
+}
