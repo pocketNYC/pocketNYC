@@ -22,34 +22,19 @@ export const fetchSingleUser = createAsyncThunk(
 
 export const editUser = createAsyncThunk(
   "editUser",
-  async ({ id, firstName, lastName, email, borough, interests }) => {
+  async ({ id, firstName, lastName, email, borough, interests, isAdmin }) => {
     const { data } = await axios.put(`/api/users/${id}`, {
       firstName,
       lastName,
       email,
       borough,
+      isAdmin,
       interests,
     });
 
-    console.log("data******->", data);
     return data;
   }
 );
-
-// export const updateAdminStatus = createAsyncThunk(
-//   "updateAdminStatus",
-//   async ({ userId, isAdmin }) => {
-//     const token = window.localStorage.getItem("token");
-//     const { data } = await axios.put(
-//       `/api/users/${userId}`,
-//       { isAdmin },
-//       {
-//         headers: { authorization: token },
-//       }
-//     );
-//     return data;
-//   }
-// );
 
 const initialState = { allUsers: [], singleUser: {}, loading: false };
 
@@ -73,18 +58,9 @@ const userSlice = createSlice({
       state.singleUser = action.payload;
     });
     builder.addCase(editUser.fulfilled, (state, action) => {
-      console.log(action.payload, "<- GOOD PAYLOAD");
       state.loading = false;
       state.singleUser = action.payload;
     });
-    builder.addCase(editUser.rejected, (state, action) => {
-      console.log(action.error.message, action.payload, "<-REJECTED PAYLOAD");
-      state.loading = false;
-      state.singleUser = action.payload;
-    });
-    // builder.addCase(updateAdminStatus.fulfilled, (state, action) => {
-    //   return action.payload;
-    // });
   },
 });
 

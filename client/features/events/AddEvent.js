@@ -94,7 +94,8 @@ const AddEvent = () => {
 
         <Form.Group className="mb-3" controlId="eventLink">
           <Form.Label>More Information</Form.Label>
-          <Form.Control required type="text" placeholder="Enter URL" />
+
+          <Form.Control required type="text" placeholder="Enter Event Link" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="date">

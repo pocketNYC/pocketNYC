@@ -74,7 +74,7 @@ const events = [
     description:
       "Head to the High Line each Tuesday night for a romantic walk along the park and a chance to take a closer look at the stars.",
     image:
-      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.jharchitecture.ie%2Fwp-content%2Fuploads%2F2011%2F12%2F0011.jpg&f=1&nofb=1&ipt=3dba70fe25fe6f960af803207e27bcee6a699b356393b561c391591c5ff47573&ipo=images",
+      "https://www.nps.gov/articles/000/images/ARCH_stargazing.jpeg?maxwidth=650&autorotate=false",
     date: "2022-11-26",
     time: "17:00",
     tag: ["family-friendly"],
@@ -232,6 +232,23 @@ const events = [
     status: "approved",
     latitude: 40.74760623549599,
     longitude: -73.95513383089151,
+  },
+  {
+    title: "Workfore1 Job Fair: Brooklyn",
+    address:
+      "East New York Urban Youth Corp Inc., 2324 Pitkin Avenue, Brooklyn NY 11207",
+    description:
+      "A wonderful employment opportunity for job seekers! We are recruiting within the following sectors Food Service, Security (Licensed), Customer Service, Human Services, and Maintenance. Please come dressed professionally with 2 or more printed copies of your updated resume.",
+    image:
+      "https://gray-wrdw-prod.cdn.arcpublishing.com/resizer/vIQMLTRQ9PxKVcxZdUWktUau848=/1200x675/smart/filters:quality(85)/cloudfront-us-east-1.images.arcpublishing.com/gray/4NJQM5U3X5BKJIVJDZQ33HRYUE.jpg",
+    date: "2022-12-18",
+    time: "13:00",
+    tag: ["employment", "city-services"],
+    borough: "Brooklyn",
+    eventLink: "https://www.nyc.gov/site/sbs/careers/recruitment-events.page",
+    status: "approved",
+    latitude: 40.66285955593711,
+    longitude: -73.89626817708192,
   },
 ];
 
