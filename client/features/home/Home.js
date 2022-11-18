@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import LoggedInUserFeed from "./LoggedInUserFeed";
 import GuestUserFeed from "./GuestUserFeed";
 import FeaturedEvents from "../events/FeaturedEvents";
+import Map from "../map/Map";
 
 const Home = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -30,6 +31,8 @@ const Home = () => {
           <FeaturedEvents />
           <br />
           <GuestUserFeed />
+          <br />
+          <Map />
         </div>
       )}
     </div>

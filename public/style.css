@@ -29,8 +29,12 @@ form div {
   padding-top: 70px;
 }
 
-.map {
+/* .map {
   height: 180px;
   width: 100px;
-}
+} */
 
+.leaflet-container {
+  width: 100vw;
+  height: 100vh;
+}
