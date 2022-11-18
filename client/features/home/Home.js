@@ -25,6 +25,9 @@ const Home = () => {
           <div>
             {id && <LoggedInUserFeed interests={interests} borough={borough} />}
           </div>
+          <div>
+            <Map />
+          </div>
         </h2>
       ) : (
         <div>
