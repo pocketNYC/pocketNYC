@@ -51,8 +51,7 @@ function Questions() {
             </ul>
           </div>
           <p>
-            Have a question that isn't already answered? Please use the
-            <b>Contact Us</b> form below and a member of our team will get back
+            Have a question that isn't already answered? Please use the <b> Contact Us</b> form below and a member of our team will get back
             to you.
           </p>
         </div>
