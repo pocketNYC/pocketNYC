@@ -234,7 +234,7 @@ const events = [
     longitude: -73.95513383089151,
   },
   {
-    title: "Workfore1 Job Fair: Brooklyn",
+    title: "Workforce1 Job Fair: Brooklyn",
     address:
       "East New York Urban Youth Corp Inc., 2324 Pitkin Avenue, Brooklyn NY 11207",
     description:
@@ -249,6 +249,74 @@ const events = [
     status: "approved",
     latitude: 40.66285955593711,
     longitude: -73.89626817708192,
+  },
+  {
+    title: "Pictures With Santa in Brooklyn!",
+    address: "Weylin, 175 Broadway Brooklyn, NY 11211",
+    description:
+      "Get your picture taken with Santa, right here in Brooklyn! Bring the kids, and make sure to dress up in your best holiday outfit.",
+    image:
+      "https://www.gannett-cdn.com/presto/2018/11/06/PNJM/c8666c42-8d45-4480-89e1-d5d6a7825bd2-Black_Friday_Willowbrook_Mall.JPG",
+    date: "2022-12-18",
+    time: "12:00",
+    tag: ["holidays", "family-friendly"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.eventbrite.com/e/pictures-with-santa-in-brooklyn-tickets-461541431847?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: 40.714526269767596,
+    longitude: -73.96297397649256,
+  },
+  {
+    title: "Yule Ball: Harry Potter (Book) Trivia",
+    address: "Overlook, 225 East 44th Street New York, NY 10017",
+    description:
+      "Deck the Great Hall with boughs of holly, grab a dancing partner, and test your Harry Potter knowledge at our special holiday-themed Yule Ball: Harry Potter (Book) Trivia at Overlook NYC on Monday, December 5 at 8pm! We'll have five rounds of trivia, covering all seven books in the Harry Potter series, with a fun holiday twist.",
+    image:
+      "https://digitalage.com.tr/wp-content/uploads/2021/12/harry-potter-20-835.jpg",
+    date: "2022-12-05",
+    time: "20:00",
+    tag: ["holidays"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/yule-ball-harry-potter-book-trivia-tickets-432257573037?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: 40.75187070318369,
+    longitude: -73.97230586017716,
+  },
+  {
+    title: "Farmhouse Family Day: Festive Colors",
+    address: "The Wyckoff House Museum 5816 Clarendon Road Brooklyn, NY 11203",
+    description:
+      "Join us this December as we light up our Farmhouse Family Day with a paper stained glass activity at the Wyckoff House Museum, perfect for brightening up the long winter days ahead.",
+    image:
+      "https://wyckoffmuseum.org/wp-content/uploads/2019/11/Wykoff-101819-093-scaled-e1575168804130.jpg",
+    date: "2022-12-17",
+    time: "11:00",
+    tag: ["family-friendly", "education"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.eventbrite.com/e/farmhouse-family-day-festive-colors-tickets-420604267687?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: 40.68989098643826,
+    longitude: -73.92103898142189,
+  },
+  {
+    title: "Self-Defense Workshop with Jess Cassetta",
+    address: "PUMA Flagship 609 5th Avenue New York, NY 10017",
+    description:
+      "Join the Mile High Run Club and Puma as they partner with nationally recognized self defense expert, Jennifer Cassetta to learn both mental and physical self defense techniques to help you avoid danger when possible and protect yourself when necessary. You'll strike, elbow and knee your way to feeling strong, safe and powerful from the streets to the trail. No prior experience is necessary.",
+    image:
+      "https://shoutoutla.com/wp-content/uploads/2022/03/c-JenniferCassetta__JenniferCassettabyMichaelCinquinoNovember2018349_1647897009817.jpg",
+    date: "2022-12-10",
+    time: "07:45",
+    tag: ["health", "sports"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/self-defense-workshop-with-jess-cassetta-tickets-468822981157?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: 40.75790374285874,
+    longitude: -73.97753608903936,
   },
 ];
 

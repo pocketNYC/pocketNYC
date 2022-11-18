@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { fetchResources, selectResources } from "./resourcesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import {
   addToFavResources,
   fetchFavoriteResources,
 } from "../favorites/favoriteResourcesSlice";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
@@ -57,6 +58,26 @@ const ResourceCategory = () => {
             </div>
           );
         })}
+      <Tooltip title="Scroll to Top">
+        <Button
+          className="scroll"
+          onClick={() => {
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+          }}
+          variant="contained"
+          size="small"
+          style={{
+            position: "fixed",
+            borderRadius: "50%",
+            padding: "1rem 1rem",
+            bottom: "40px",
+            right: "40px",
+            textAlign: "center",
+          }}
+        >
+          <KeyboardArrowUpIcon></KeyboardArrowUpIcon>
+        </Button>
+      </Tooltip>
     </div>
   );
 };

@@ -29,6 +29,9 @@ form div {
   padding-top: 70px;
 }
 
+Button.scroll  {
+  opacity: 50%;
+}
 /* .map {
   height: 180px;
   width: 100px;
