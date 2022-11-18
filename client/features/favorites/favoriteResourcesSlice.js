@@ -9,16 +9,12 @@ export const fetchFavoriteResources = createAsyncThunk(
 
   async () => {
     const token = window.localStorage.getItem(TOKEN);
-    try {
-      const { data } = await axios.get("/api/favoriteResources", {
-        headers: {
-          authorization: token,
-        },
-      });
-      return data;
-    } catch (err) {
-      console.log(err);
-    }
+    const { data } = await axios.get("/api/favoriteResources", {
+      headers: {
+        authorization: token,
+      },
+    });
+    return data;
   }
 );
 
@@ -26,18 +22,14 @@ export const addToFavResources = createAsyncThunk(
   "addFavorite_Resources",
   async (id) => {
     const token = window.localStorage.getItem(TOKEN);
-    try {
-      const { data } = await axios.post(
-        "/api/favoriteResources",
-        {
-          id,
-        },
-        { headers: { authorization: token } }
-      );
-      return data;
-    } catch (err) {
-      console.log(err);
-    }
+    const { data } = await axios.post(
+      "/api/favoriteResources",
+      {
+        id,
+      },
+      { headers: { authorization: token } }
+    );
+    return data;
   }
 );
 
@@ -45,17 +37,10 @@ export const removeFromFavResources = createAsyncThunk(
   "removeFavorite_Resources",
   async (id) => {
     const token = window.localStorage.getItem(TOKEN);
-
-    try {
-      await axios.delete(
-        `/api/favoriteResources/${id} `,
-
-        { headers: { authorization: token } }
-      );
-      return id;
-    } catch (err) {
-      console.log(err);
-    }
+    const { data } = await axios.delete(`/api/favoriteResources/${id} `, {
+      headers: { authorization: token },
+    });
+    return data;
   }
 );
 
