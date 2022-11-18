@@ -26,46 +26,37 @@ const ResourceCategory = () => {
 
   return (
     <div>
-      <ul>
-        {resources
-          .filter((resource) => resource.tag.includes(category))
-          .map(
-            ({ id, name, imageUrl, description, address, hyperlink, tag }) => {
-              return (
-                <li key={id}>
-                  <div>
-                    <img
-                      src={imageUrl}
-                      style={{ width: "700px", height: "500px" }}
-                    />
-                    <h3>
-                      {name} &nbsp;
-                      {isLoggedIn ? (
-                        <Button
-                          variant="outlined"
-                          onClick={(ev) => addButton(ev, id)}
-                          color="error"
-                          startIcon={<FavoriteBorderOutlinedIcon />}
-                        >
-                          Add to Favorites
-                        </Button>
-                      ) : null}
-                    </h3>
-                    <p>About: {description}</p>
-                    <p>Address: {address}</p>
-                    <p>
-                      More Info:{" "}
-                      <a href={hyperlink} target="_blank">
-                        {hyperlink}
-                      </a>
-                    </p>
-                    <p>Tags: {tag ? tag.join(", ") : null}</p>
-                  </div>
-                </li>
-              );
-            }
-          )}
-      </ul>
+      {resources
+        .filter((resource) => resource.tag.includes(category))
+        .map(({ id, name, imageUrl, description, address, hyperlink, tag }) => {
+          return (
+            <div key={id} style={{ padding: "10px" }}>
+              <img src={imageUrl} style={{ width: "700px", height: "500px" }} />
+              <h3>
+                {name} &nbsp;
+                {isLoggedIn ? (
+                  <Button
+                    variant="outlined"
+                    onClick={(ev) => addButton(ev, id)}
+                    color="error"
+                    startIcon={<FavoriteBorderOutlinedIcon />}
+                  >
+                    Add to Favorites
+                  </Button>
+                ) : null}
+              </h3>
+              <p>About: {description}</p>
+              <p>Address: {address}</p>
+              <p>
+                More Info:{" "}
+                <a href={hyperlink} target="_blank">
+                  {hyperlink}
+                </a>
+              </p>
+              <p>Tags: {tag ? tag.join(", ") : null}</p>
+            </div>
+          );
+        })}
     </div>
   );
 };

@@ -27,40 +27,49 @@ function UserFeed({ interests, borough }) {
     .filter((event) => {
       for (let i = 0; i < event.tag.length; i++) {
         let tag = event.tag[i];
-        if (interests.includes(tag)) {
+        if (interests.includes(tag) && tag !== "holidays") {
           return event;
         }
       }
     })
     .filter((a) => new Date(a.date) - new Date() > 0);
 
+  console.log(filteredByInterest);
+
   return (
     <div>
       <p>Events matching your interests & borough:</p>
       <ul>
-        {filteredByInterest
-          ? filteredByInterest?.map(({ id, image, title, date }) => (
-              <li key={id}>
+        {filteredByInterest.length ? (
+          filteredByInterest?.map(({ id, image, title, date }) => (
+            <li key={id}>
+              <Link to={`/events/${id}`}>
+                <img
+                  src={image}
+                  style={{ width: "500px", height: "300px" }}
+                  onClick={() => navigate(`/events/${id}`)}
+                />
+              </Link>
+
+              <h3>{title}</h3>
+
+              <h4>
+                Date: {moment(date).format("dddd, MMMM Do, YYYY")}
+                <br />
                 <Link to={`/events/${id}`}>
-                  <img
-                    src={image}
-                    style={{ width: "500px", height: "300px" }}
-                    onClick={() => navigate(`/events/${id}`)}
-                  />
+                  <h4>More Details</h4>
                 </Link>
-
-                <h3>{title}</h3>
-
-                <h4>
-                  Date: {moment(date).format("dddd, MMMM Do, YYYY")}
-                  <br />
-                  <Link to={`/events/${id}`}>
-                    <h4>More Details</h4>
-                  </Link>
-                </h4>
-              </li>
-            ))
-          : "No events matching your interests/borough."}
+              </h4>
+            </li>
+          ))
+        ) : (
+          <small>
+            No events currnetly matching your interests and borough. Visit our
+            {""}
+            <Link to="/events">Events</Link> page for a full list of all
+            upcoming events.
+          </small>
+        )}
       </ul>
     </div>
   );
