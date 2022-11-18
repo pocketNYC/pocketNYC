@@ -20,7 +20,7 @@
   "author": "Fullstack Academy of Code",
   "license": "MIT",
   "dependencies": {
-    "@emotion/styled": "^11.10.5",
+
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.14",
