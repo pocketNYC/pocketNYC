@@ -9,16 +9,12 @@ export const fetchFavoriteEvents = createAsyncThunk(
 
   async () => {
     const token = window.localStorage.getItem(TOKEN);
-    try {
-      const { data } = await axios.get("/api/favoriteEvents", {
-        headers: {
-          authorization: token,
-        },
-      });
-      return data;
-    } catch (err) {
-      console.log(err);
-    }
+    const { data } = await axios.get("/api/favoriteEvents", {
+      headers: {
+        authorization: token,
+      },
+    });
+    return data;
   }
 );
 
@@ -26,18 +22,14 @@ export const addToFavEvents = createAsyncThunk(
   "addFavorite_Events",
   async (id) => {
     const token = window.localStorage.getItem(TOKEN);
-    try {
-      const { data } = await axios.post(
-        "/api/favoriteEvents",
-        {
-          id,
-        },
-        { headers: { authorization: token } }
-      );
-      return data;
-    } catch (err) {
-      console.log(err);
-    }
+    const { data } = await axios.post(
+      "/api/favoriteEvents",
+      {
+        id,
+      },
+      { headers: { authorization: token } }
+    );
+    return data;
   }
 );
 
@@ -45,17 +37,10 @@ export const removeFromFavEvents = createAsyncThunk(
   "removeFavorite_Events",
   async (id) => {
     const token = window.localStorage.getItem(TOKEN);
-
-    try {
-      await axios.delete(
-        `/api/favoriteEvents/${id} `,
-
-        { headers: { authorization: token } }
-      );
-      return id;
-    } catch (err) {
-      console.log(err);
-    }
+    const { data } = await axios.delete(`/api/favoriteEvents/${id} `, {
+      headers: { authorization: token },
+    });
+    return data;
   }
 );
 

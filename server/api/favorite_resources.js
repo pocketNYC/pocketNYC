@@ -5,7 +5,6 @@ const {
 } = require("../db");
 
 const { getToken } = require("./adminAuth");
-module.exports = router;
 
 router.get("/", getToken, async (req, res, next) => {
   const userId = req.user.id;
@@ -49,3 +48,5 @@ router.delete("/:id", getToken, async (req, res, next) => {
     next(error);
   }
 });
+
+module.exports = router;

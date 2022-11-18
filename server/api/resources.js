@@ -2,7 +2,6 @@ const router = require("express").Router();
 const {
   models: { Resource },
 } = require("../db");
-module.exports = router;
 
 router.get("/", async (req, res, next) => {
   try {
@@ -61,3 +60,5 @@ router.delete("/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+module.exports = router;
