@@ -6,4 +6,4 @@ A Progressive Web Application that houses free resources for the communities of 
 
 ## Tech Stack
 
-This app predominately uses the Postgres, Express, ReactJS, and NodeJS (PERN) stack. It also includes additional technologies such as JSON Web Tokens for authentication, Tailwind CSS, Bootstrap, and Material UI for styling.
+This app predominantly uses the Postgres, Express, ReactJS, and NodeJS (PERN) stack. It also includes additional technologies such as JSON Web Tokens for authentication, Tailwind CSS, Bootstrap, and Material UI for styling.
