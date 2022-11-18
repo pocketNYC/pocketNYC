@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import moment from "moment";
 import { fetchAllEvents } from "../events/eventsSlice";
 
 function FeaturedEvents() {
@@ -18,6 +18,7 @@ function FeaturedEvents() {
     .filter((a) => new Date(a.date) - new Date() > 0);
 
   const first = filteredEvents[0];
+
   const exclude1 = filteredEvents.filter((event) => {
     if (event.id !== filteredEvents[0].id) {
       return event;
@@ -29,10 +30,8 @@ function FeaturedEvents() {
   }, [dispatch]);
 
   return (
-    <div className="container">
-      <h1 className="underline" align="center">
-        Featured Events
-      </h1>
+    <div className="container" align="center">
+      <h2 className="underline">Featured Events</h2>
       <div
         id="carouselExampleFade"
         className="carousel slide carousel-fade"
@@ -51,8 +50,8 @@ function FeaturedEvents() {
               alt="..."
             />
             <div align="center">
-              <h3>{first?.title}</h3>
-              <h2>{first?.date}</h2>
+              <h3 className="underline">{first?.title}</h3>
+              <h4>{moment(first?.date).format("dddd, MMMM Do, YYYY")}</h4>
             </div>
           </div>
           {exclude1?.map(({ id, image, title, date }) => (
@@ -64,8 +63,8 @@ function FeaturedEvents() {
                 alt="..."
               />
               <div align="center">
-                <h3>{title}</h3>
-                <h2>{date}</h2>
+                <h3 className="underline">{title} </h3>
+                <h4>{moment(date).format("dddd, MMMM Do, YYYY")}</h4>
               </div>
             </div>
           ))}

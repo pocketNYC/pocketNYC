@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import { Button } from "react-bootstrap";
 import { fetchAllEvents } from "../events/eventsSlice";
 
 function ConfirmationPage({ user }) {
@@ -73,11 +74,11 @@ function ConfirmationPage({ user }) {
       </small>
       <br />
       <Link to="/events">
-        <button className="confirm-evt-btn-close">Close</button>
+        <Button className="confirm-evt-btn-close">Close</Button>
       </Link>
       &nbsp;
       <Link to="/add">
-        <button className="confirm-evt-btn-add-more">Add Another Event</button>
+        <Button className="confirm-evt-btn-add-more">Add Another Event</Button>
       </Link>
     </div>
   );
