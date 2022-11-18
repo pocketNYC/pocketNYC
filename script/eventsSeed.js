@@ -234,7 +234,7 @@ const events = [
     longitude: -73.95513383089151,
   },
   {
-    title: "Workfore1 Job Fair: Brooklyn",
+    title: "Workforce1 Job Fair: Brooklyn",
     address:
       "East New York Urban Youth Corp Inc., 2324 Pitkin Avenue, Brooklyn NY 11207",
     description:
