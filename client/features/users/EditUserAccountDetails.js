@@ -2,21 +2,20 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { authenticate } from "../../app/store";
-import { fetchSingleUser, updateUserInfo } from "./userSlice";
+import { editUser } from "./userSlice";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
+import { Update } from "@mui/icons-material";
 
 function EditUserProfile({ user }) {
-  const { id, firstName, lastName, email, interests, borough } = user
-
+  const { id, firstName, lastName, email, interests, borough } = user;
 
   const [userFirstName, setUserFirstName] = useState(firstName);
   const [userLastName, setUserLastName] = useState(lastName);
   const [userEmail, setUserEmail] = useState(email);
   const [userInterests, setUserInterests] = useState(interests);
-  const [userBorough, setUserBorough] = useState([borough]);
+  const [userBorough, setUserBorough] = useState(borough);
   const [validated, setValidated] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -31,56 +30,33 @@ function EditUserProfile({ user }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const updates = {
-    };
-    if (evt.target.firstName.value !== userFirstName) {
-      setUserFirstName(evt.target.firstName.value);
-      updates.firstName = evt.target.firstName.value
-    }
-    if(evt.target.lastName.value !== userLastName) {
-        setUserLastName(evt.target.lastName.value)
-        updates.lastName = evt.target.lastName.value
-    }
-    if(evt.target.email.value !== userEmail) {
-         setUserEmail(evt.target.email.value)
-        updates.email = evt.target.email.value
-    }
-    if (evt.target.borough.value !== userBorough) {
-         setUserBorough(evt.target.borough.value)
-        updates.borough = evt.target.borough.value
-    }
-    if(selectedOptions !== userInterests) {
-         setSelectedOptions(selectedOptions)
-        updates.interests = selectedOptions
-    }
- console.log(updates)
-
-    // const firstName = evt.target.firstName.value;
-    //const lastName = evt.target.lastName.value;
-    //const email = evt.target.email.value;
-    //const password = evt.target.password.value; TODO: *** <-- will come back to this
-    //const borough = evt.target.borough.value;
-    // const interests = selectedOptions; <-- TODO: double check this***
-
+    console.log(evt, "EVENT***")
+    console.log(userBorough, "<- user boro","|", borough, '<- old boro')
     dispatch(
-        console.log(updates),
-    // updateUserInfo(updates)
-
+      editUser({id,
+        firstName: userFirstName,
+        lastName: userLastName,
+        email: userEmail,
+         borough: userBorough,
+        interests:selectedOptions,
+      })
     );
-    setValidated(true);
-    alert("Your changes have been submitted.");
+    console.log(evt.target, "<- EVENT***");
   };
 
   return (
     <>
       <div>
-        <h2 style={{textAlign:'center'}}>Edit Your Details Below</h2></div>
+        <h2 style={{ textAlign: "center" }}>Edit Your Details Below</h2>
+      </div>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group className="mb-6" controlId="firstName">
           <Form.Label>First Name</Form.Label>
           <Form.Control
             required
             type="text"
+            onChange={(e) => {setUserFirstName(e.target.value);
+            }}
             defaultValue={userFirstName}
             placeholder="Enter First Name"
           />
@@ -95,6 +71,8 @@ function EditUserProfile({ user }) {
             required
             type="text"
             defaultValue={userLastName}
+            onChange={(e) => {setUserLastName(e.target.value);
+            }}
             placeholder="Enter Your Last Name"
           />
           <Form.Control.Feedback type="invalid">
@@ -106,6 +84,8 @@ function EditUserProfile({ user }) {
           <Form.Control
             required
             type="email"
+            onChange={(e) => {setUserEmail(e.target.value);
+            }}
             defaultValue={userEmail}
             placeholder="Enter Email"
           />
@@ -115,8 +95,10 @@ function EditUserProfile({ user }) {
         </Form.Group>
         <Form.Group className="mb-6" controlId="borough">
           <Form.Label>Borough</Form.Label>
-          <Form.Select>
-            <option defaultValue>{userBorough}</option>
+          <Form.Select
+          onChange={(e) => {setUserBorough(e.target.value)
+          console.log(e.target.value, typeof e.target.value)}}>
+            <option defaultValue>{borough}</option>
             <option value="Bronx">Bronx</option>
             <option value="Brooklyn">Brooklyn</option>
             <option value="Queens">Queens</option>

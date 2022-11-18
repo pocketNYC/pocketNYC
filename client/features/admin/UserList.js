@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllUsers } from "./userSlice";
+import { fetchAllUsers, updateAdminStatus } from "../users/userSlice";
+import Toggle from "react-toggle";
+import "./toggleButton.css";
 
-function UserDashboardForAdmin() {
+function UserList() {
   const users = useSelector((state) => state.user.allUsers);
-  const [buttonText, setButtonText] = useState("Click Test");
-
-  const toggler = () => {
-    if (buttonText === "BASIC") {
-      setButtonText("ADMIN USER");
-    }
-    setButtonText("BASIC");
-  };
-
   const dispatch = useDispatch();
+  const [adminStatus, setAdminStatus] = useState(false)
+
+  const toggleAdminStatus = (id, isAdmin) => {
+    // TODO: update This function
+    //dispatch(updateAdminStatus({ id, isAdmin }, [dispatch]));
+    console.log("toggled");
+  };
 
   useEffect(() => {
     dispatch(fetchAllUsers());
@@ -21,7 +21,7 @@ function UserDashboardForAdmin() {
 
   return (
     <div>
-      <h2>All Registered Users</h2>
+      <h2 style={{ textAlign: "center" }}>Users Dashboard</h2>
       <table>
         <thead>
           <tr
@@ -38,7 +38,7 @@ function UserDashboardForAdmin() {
           className="user-info-dashboard-table"
           style={{ textAlign: "center" }}
         >
-          {users?.map(({ id, firstName, lastName, email, isAdmin }) => {
+          {users?.map(({id, firstName, lastName, email, isAdmin}) => {
             return (
               <tr key={id}>
                 <td>
@@ -46,11 +46,15 @@ function UserDashboardForAdmin() {
                 </td>
                 <td>{lastName}</td>
                 <td>{email}</td>
-                <td>{isAdmin === false ? "no" : "yes"}</td>
                 <td>
-                  <button onClick={toggler}>
-                    {isAdmin === false ? "BASIC" : "ADMIN USER"}
-                  </button>
+                  <label>
+                    <Toggle
+                      defaultChecked={isAdmin}
+                      value={isAdmin.toString()}
+                      onChange={toggleAdminStatus}
+                      onClick={(e) => console.log(e.target.value) }
+                    />
+                  </label>
                 </td>
               </tr>
             );
@@ -61,4 +65,4 @@ function UserDashboardForAdmin() {
   );
 }
 
-export default UserDashboardForAdmin;
+export default UserList;
