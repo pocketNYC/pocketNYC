@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import moment from "moment";
 
-function UserFeed({ interests, borough }) {
+function LoggedInUserFeed({ interests, borough }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -34,7 +34,7 @@ function UserFeed({ interests, borough }) {
     })
     .filter((a) => new Date(a.date) - new Date() > 0);
 
-  console.log(filteredByInterest);
+
 
   return (
     <div>
@@ -75,4 +75,4 @@ function UserFeed({ interests, borough }) {
   );
 }
 
-export default UserFeed;
+export default LoggedInUserFeed;
