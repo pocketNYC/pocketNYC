@@ -7,14 +7,13 @@ import { fetchAllEvents } from "../events/eventsSlice";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
-function SingleUserProfile() {
+function SingleUserProfile({user}) {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
   const events = useSelector((state) => state.events.events);
 
-  const { firstName, lastName, email, interests, borough, id } = useSelector(
-    (state) => state.user.singleUser
-  );
+  const { firstName, lastName, email, interests, borough, id } = user
+  
 
   useEffect(() => {
     dispatch(fetchSingleUser(userId));
