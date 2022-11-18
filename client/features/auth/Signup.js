@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { authenticate } from "../../app/store";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
-import formInterest from "./formInterest";
+import formInterest from "../forms/formInterest";
 
 function Signup({ displayName, name }) {
   const dispatch = useDispatch();
