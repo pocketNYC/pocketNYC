@@ -6,12 +6,8 @@ const initialState = {};
 export const fetchSingleResource = createAsyncThunk(
   "singleResource/fetchSingleResource",
   async (id) => {
-    try {
-      const { data } = await axios.get(`/api/resources/${id}`);
-      return data;
-    } catch (err) {
-      console.log(err);
-    }
+    const { data } = await axios.get(`/api/resources/${id}`);
+    return data;
   }
 );
 

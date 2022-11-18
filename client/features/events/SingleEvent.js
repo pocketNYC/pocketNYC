@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import moment from "moment";
 import { fetchSingleEvent } from "./eventsSlice";
 import { addToFavEvents } from "../favorites/favoriteEventsSlice";
+import { Button } from "@mui/material";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 function SingleEvent() {
   const dispatch = useDispatch();
@@ -18,7 +19,8 @@ function SingleEvent() {
     dispatch(fetchSingleEvent(id));
   }, []);
 
-  const addButton = (id) => {
+  const addButton = (ev, id) => {
+    ev.preventDefault();
     dispatch(addToFavEvents(id));
     navigate("/events");
   };
@@ -28,7 +30,14 @@ function SingleEvent() {
       <img src={image} style={{ width: "800px", height: "500px" }} />
       <h3 className="underline">{title}</h3>
       {isLoggedIn ? (
-        <Button onClick={(ev) => addButton(id)}>Add to Favorites</Button>
+        <Button
+          variant="outlined"
+          onClick={(ev) => addButton(ev, id)}
+          color="error"
+          startIcon={<FavoriteBorderOutlinedIcon />}
+        >
+          Add to Favorites
+        </Button>
       ) : null}
       <h4>
         {description}
@@ -41,7 +50,7 @@ function SingleEvent() {
         <br />
         Tags: {tag?.join(", ")}
         <br />
-        <a href={eventLink}>{eventLink}</a>
+        <a href={eventLink} target="_blank">{eventLink}</a>
       </h4>
     </div>
   );
