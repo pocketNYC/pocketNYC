@@ -1,10 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, {  useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchAllUsers,
-  fetchSingleUser,
-  updateAdminStatus,
-} from "../users/userSlice";
+import { fetchAllUsers } from "../users/userSlice";
 import Toggle from "react-toggle";
 import "./toggleButton.css";
 import { editUser } from "../users/userSlice";
@@ -12,23 +8,6 @@ import { editUser } from "../users/userSlice";
 function UserList() {
   const users = useSelector((state) => state.user.allUsers);
   const dispatch = useDispatch();
-  const [adminStatus, setAdminStatus] = useState(false);
-
-  const toggleAdminStatus = ({
-    id,
-    firstName,
-    lastName,
-    email,
-    borough,
-    interests,
-    isAdmin,
-  }) => {
-    isAdmin ? (isAdmin = false) : (isAdmin = true);
-    console.log(isAdmin);
-    dispatch(
-      editUser({ id, firstName, lastName, email, borough, interests, isAdmin })
-    );
-  };
 
   useEffect(() => {
     dispatch(fetchAllUsers());
@@ -54,51 +33,48 @@ function UserList() {
           style={{ textAlign: "center" }}
         >
           {users?.map(
-              ({
-                id,
-                firstName,
-                lastName,
-                email,
-                borough,
-                interests,
-                isAdmin,
-              }) => {
-                return (
-                  <tr key={id}>
-                    <td>
-                      <div>{firstName}</div>
-                    </td>
-                    <td>{lastName}</td>
-                    <td>{email}</td>
-                    <td>
-                      <label>
-                        <Toggle
-                          defaultChecked={isAdmin}
-                          onClick={() => {
-                            isAdmin ? (isAdmin = false) : (isAdmin = true);
-                            dispatch(
-                              editUser({
-                                id,
-                                firstName,
-                                lastName,
-                                email,
-                                borough,
-                                interests,
-                                isAdmin,
-                              }),
-                              [dispatch]
-                            );
-                          }}
-                        />
-                      </label>
-                    </td>
-                  </tr>
-                );
-              }
-            )
-            .sort(function (a, b) {
-              return a - b;
-            })}
+            ({
+              id,
+              firstName,
+              lastName,
+              email,
+              borough,
+              interests,
+              isAdmin,
+            }) => {
+              return (
+                <tr key={id}>
+                  <td>
+                    <div>{firstName}</div>
+                  </td>
+                  <td>{lastName}</td>
+                  <td>{email}</td>
+                  <td>
+                    <label>
+                      <Toggle
+                        defaultChecked={isAdmin}
+                        onClick={() => {
+                          isAdmin ? (isAdmin = false) : (isAdmin = true);
+                          dispatch(
+                            editUser({
+                              id,
+                              firstName,
+                              lastName,
+                              email,
+                              borough,
+                              interests,
+                              isAdmin,
+                            }),
+                            [dispatch]
+                          );
+                        }}
+                      />
+                    </label>
+                  </td>
+                </tr>
+              );
+            }
+          )}
         </tbody>
       </table>
     </div>
