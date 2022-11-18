@@ -46,7 +46,7 @@ function Admin() {
   return (
     <div>
       <br />
-      <h2>Pending Events Here</h2>
+      <h2>Pending Events:</h2>
       <>
         <ul>
           {sortedPendingEvents.length
@@ -74,9 +74,6 @@ function Admin() {
       </>
 
       <hr />
-      <h2> Edit Admin Profile</h2>
-      <hr />
-      <h2>Edit a User Here</h2>
     </div>
   );
 }

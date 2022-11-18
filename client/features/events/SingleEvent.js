@@ -50,7 +50,7 @@ function SingleEvent() {
         <br />
         Tags: {tag?.join(", ")}
         <br />
-        <a href={eventLink}>{eventLink}</a>
+        <a href={eventLink} target="_blank">{eventLink}</a>
       </h4>
     </div>
   );
