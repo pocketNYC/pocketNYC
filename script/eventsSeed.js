@@ -74,7 +74,7 @@ const events = [
     description:
       "Head to the High Line each Tuesday night for a romantic walk along the park and a chance to take a closer look at the stars.",
     image:
-      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.jharchitecture.ie%2Fwp-content%2Fuploads%2F2011%2F12%2F0011.jpg&f=1&nofb=1&ipt=3dba70fe25fe6f960af803207e27bcee6a699b356393b561c391591c5ff47573&ipo=images",
+      "https://www.nps.gov/articles/000/images/ARCH_stargazing.jpeg?maxwidth=650&autorotate=false",
     date: "2022-11-26",
     time: "17:00",
     tag: ["family-friendly"],

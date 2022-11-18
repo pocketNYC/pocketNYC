@@ -30,8 +30,6 @@ function EditUserProfile({ user }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log(evt, "EVENT***")
-    console.log(userBorough, "<- user boro","|", borough, '<- old boro')
     dispatch(
       editUser({id,
         firstName: userFirstName,
