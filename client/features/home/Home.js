@@ -9,7 +9,6 @@ const Home = () => {
     (state) => state.auth.me
   );
 
-
   return (
     <div>
       {isLoggedIn ? (
@@ -26,10 +25,11 @@ const Home = () => {
           </div>
         </h2>
       ) : (
-        <h2>
-     
-          <FeaturedEvents />
-        </h2>
+        <div id="map">
+          <h2>
+            <FeaturedEvents />
+          </h2>
+        </div>
       )}
     </div>
   );
