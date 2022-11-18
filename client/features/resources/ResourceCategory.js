@@ -34,22 +34,23 @@ const ResourceCategory = () => {
               return (
                 <li key={id}>
                   <div>
-                    <h3>{name}</h3>
                     <img
                       src={imageUrl}
-                      style={{ width: "600px", height: "300px" }}
+                      style={{ width: "700px", height: "500px" }}
                     />
-                    <br />
-                    {isLoggedIn ? (
-                      <Button
-                        variant="outlined"
-                        onClick={(ev) => addButton(ev, id)}
-                        color="error"
-                        startIcon={<FavoriteBorderOutlinedIcon />}
-                      >
-                        Add to Favorites
-                      </Button>
-                    ) : null}
+                    <h3>
+                      {name} &nbsp;
+                      {isLoggedIn ? (
+                        <Button
+                          variant="outlined"
+                          onClick={(ev) => addButton(ev, id)}
+                          color="error"
+                          startIcon={<FavoriteBorderOutlinedIcon />}
+                        >
+                          Add to Favorites
+                        </Button>
+                      ) : null}
+                    </h3>
                     <p>About: {description}</p>
                     <p>Address: {address}</p>
                     <p>
