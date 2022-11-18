@@ -1,5 +1,6 @@
 import React from "react";
 import "leaflet/dist/leaflet.css";
+import PinDropIcon from "@mui/icons-material/PinDrop";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 
 const Map = () => {
@@ -11,11 +12,11 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[40.748, -73.985]}>
+        <PinDropIcon position={[40.748, -73.985]}>
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
-        </Marker>
+        </PinDropIcon>
       </MapContainer>
     </div>
   );
