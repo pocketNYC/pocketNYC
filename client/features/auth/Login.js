@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Form from "react-bootstrap/Form";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Button from "react-bootstrap/Button";
 import { authenticate } from "../../app/store";
 
@@ -18,25 +19,31 @@ function Login({ name, displayName }) {
     setValidated(true);
   };
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit} name={name}>
-      <Form.Group className="mb-6" controlId="email">
-        <Form.Label>Email</Form.Label>
-        <Form.Control required type="text" placeholder="Enter Email" />
-        <Form.Control.Feedback type="invalid">
-          Please provide your email.
-        </Form.Control.Feedback>
-      </Form.Group>
-      <Form.Group className="mb-6" controlId="password">
-        <Form.Label>Password</Form.Label>
-        <Form.Control required type="password" placeholder="Enter Password" />
-        <Form.Control.Feedback type="invalid">
-          Please provide a password.
-        </Form.Control.Feedback>
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        {displayName}
-      </Button>
-    </Form>
+    <>
+      <Form
+        noValidate
+        validated={validated}
+        onSubmit={handleSubmit}
+        name={name}
+      >
+        <FloatingLabel controlId="email" label="Email Address" className="mb-3">
+          <Form.Control required type="text" placeholder="Email" />
+          <Form.Control.Feedback type="invalid">
+            Please enter an email.
+          </Form.Control.Feedback>
+        </FloatingLabel>
+
+        <FloatingLabel controlId="password" label="Password" className="mb-3">
+          <Form.Control required type="password" placeholder="Password" />
+          <Form.Control.Feedback type="invalid">
+            Please enter a password.
+          </Form.Control.Feedback>
+        </FloatingLabel>
+        <Button variant="primary" type="submit">
+          {displayName}
+        </Button>
+      </Form>
+    </>
   );
 }
 

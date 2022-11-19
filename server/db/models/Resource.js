@@ -29,6 +29,9 @@ const Resource = db.define("resources", {
   },
   hyperlink: {
     type: DataTypes.STRING,
+    validate: {
+      isUrl: true
+    }
   },
   latitude: {
     type: DataTypes.STRING,

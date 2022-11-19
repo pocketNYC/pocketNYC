@@ -36,7 +36,7 @@ const AppRoutes = () => {
     <div>
       {isLoggedIn ? (
         <Routes>
-          <Route path="/*" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
@@ -83,7 +83,7 @@ const AppRoutes = () => {
           <Route path="/resources/:category" element={<ResourceCategory />} />
           <Route path="*" element={<Error />} />
         </Routes>
-      )} 
+      )}
     </div>
   );
 };

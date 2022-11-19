@@ -6,6 +6,9 @@ import { authenticate } from "../../app/store";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import formInterest from "../forms/formInterest";
+import { YupSchema } from "../forms/YupSchema";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 function Signup({ displayName, name }) {
   const dispatch = useDispatch();
@@ -20,8 +23,11 @@ function Signup({ displayName, name }) {
     setSelectedOptions(selections);
   };
 
-  const handleSubmit = (evt) => {
+  const { handleSubmit } = useForm({ resolver: yupResolver(YupSchema) });
+
+  const onSubmit = (evt) => {
     evt.preventDefault();
+
     const firstName = evt.target.firstName.value;
     const lastName = evt.target.lastName.value;
     const email = evt.target.email.value;
@@ -45,12 +51,7 @@ function Signup({ displayName, name }) {
 
   return (
     <>
-      <Form
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmit}
-        name={name}
-      >
+      <Form noValidate validated={validated} onSubmit={onSubmit} name={name}>
         <Form.Group className="mb-6" controlId="firstName">
           <Form.Label>First Name</Form.Label>
           <Form.Control required type="text" placeholder="Enter First Name" />
@@ -83,21 +84,25 @@ function Signup({ displayName, name }) {
             Please provide a password.
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group className="mb-6" controlId="borough">
+        <Form.Group controlId="borough">
           <Form.Label>Borough</Form.Label>
+          {/* <Form.Control required type="text" /> */}
           <Form.Select>
-            <option defaultValue>Select</option>
+            <option defaultValue="select">Select</option>
             <option value="Bronx">Bronx</option>
             <option value="Brooklyn">Brooklyn</option>
             <option value="Queens">Queens</option>
             <option value="Manhattan">Manhattan</option>
             <option value="Staten Island">Staten Island</option>
           </Form.Select>
+          <Form.Control.Feedback type="invalid">
+            Please enter a borough.
+          </Form.Control.Feedback>
         </Form.Group>
         <br />
-        <label htmlFor="interest" style={{ padding: "10px" }}>
+        <Form.Label htmlFor="interest" style={{ padding: "10px" }}>
           Choose your categories of interest (select up to 3):
-        </label>
+        </Form.Label>
         <Select
           isMulti
           options={formInterest}
@@ -105,6 +110,7 @@ function Signup({ displayName, name }) {
           closeMenuOnSelect={false}
           onChange={handleChange}
           isOptionDisabled={() => selectedOptions.length >= 3}
+          autoFocus={true}
         />
         <Button variant="primary" type="submit">
           {displayName}

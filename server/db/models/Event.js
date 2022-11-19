@@ -21,6 +21,9 @@ const Event = db.define("event", {
   date: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      isDate: true
+    }
   },
   time: {
     type: Sequelize.STRING,
@@ -42,6 +45,9 @@ const Event = db.define("event", {
   },
   eventLink: {
     type: Sequelize.STRING,
+    validate: {
+      isUrl: true
+    }
   },
   status: {
     type: Sequelize.ENUM("approved", "pending", "denied"),
