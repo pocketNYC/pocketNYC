@@ -33,7 +33,7 @@
     "i18next": "^22.0.6",
     "immer": "^9.0.16",
     "jsonwebtoken": "^8.5.1",
-    "leaflet": "^1.9.2",
+    "leaflet": "^1.9.3",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
     "react-bootstrap": "^2.6.0",

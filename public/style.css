@@ -29,15 +29,19 @@ form div {
   padding-top: 70px;
 }
 
-Button.scroll  {
+Button.scroll {
   opacity: 50%;
 }
-/* .map {
+.map {
   height: 180px;
-  width: 100px;
-} */
+  width: 80px;
+}
 
 .leaflet-container {
-  width: 100vw;
-  height: 100vh;
+  display: flex;
+  margin-left: 15;
+  margin-right: 15;
+  text-align: center;
+  width: 80%;
+  height: 120vh;
 }
