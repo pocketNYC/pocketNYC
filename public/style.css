@@ -32,3 +32,11 @@ form div {
 Button.scroll  {
   opacity: 50%;
 }
+
+.modal-show {
+  display: block;
+}
+
+.modal-hide {
+  display: none;
+}

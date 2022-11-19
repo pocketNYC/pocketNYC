@@ -19,6 +19,7 @@ import SingleUserProfile from "../features/users/SingleUserProfile";
 import SingleEvent from "../features/events/SingleEvent";
 import ConfirmationPage from "../features/events/ConfirmationPage";
 import Faq from "../features/helpPage/HelpPage";
+import UserCalendar from "../features/users/UserCalendar";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -42,10 +43,17 @@ const AppRoutes = () => {
           <Route path="/events/:id" element={<SingleEvent />} />
 
           <Route path="/add" element={<AddEvent />} />
-          <Route path="/add/success" element={<ConfirmationPage user={user}/>} />
+          <Route path="/calendar" element={<UserCalendar />} />
+          <Route
+            path="/add/success"
+            element={<ConfirmationPage user={user} />}
+          />
           <Route path="/resources" element={<AllResources />} />
           <Route path="/resources/:category/" element={<ResourceCategory />} />
-          <Route path={`/users/${userId}`} element={<SingleUserProfile user={user} />} />
+          <Route
+            path={`/users/${userId}`}
+            element={<SingleUserProfile user={user} />}
+          />
           <Route
             path={`/users/${user.id}/edit`}
             element={<EditUserProfile user={user} />}
@@ -83,7 +91,7 @@ const AppRoutes = () => {
           <Route path="/resources/:category" element={<ResourceCategory />} />
           <Route path="*" element={<Error />} />
         </Routes>
-      )} 
+      )}
     </div>
   );
 };
