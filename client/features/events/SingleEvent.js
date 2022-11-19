@@ -4,8 +4,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import moment from "moment";
 import { fetchSingleEvent } from "./eventsSlice";
 import { addToFavEvents } from "../favorites/favoriteEventsSlice";
+import { addToCalendar } from "../calendar/calendarSlice";
 import { Button } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 function SingleEvent() {
   const dispatch = useDispatch();
@@ -19,10 +21,16 @@ function SingleEvent() {
     dispatch(fetchSingleEvent(id));
   }, []);
 
-  const addButton = (ev, id) => {
+  const addFavButton = (ev, id) => {
     ev.preventDefault();
     dispatch(addToFavEvents(id));
     navigate("/events");
+  };
+
+  const addCalButton = (ev, id) => {
+    ev.preventDefault();
+    dispatch(addToCalendar(id));
+    // navigate("/events");
   };
 
   return (
@@ -30,14 +38,25 @@ function SingleEvent() {
       <img src={image} style={{ width: "800px", height: "500px" }} />
       <h3 className="underline">{title}</h3>
       {isLoggedIn ? (
-        <Button
-          variant="outlined"
-          onClick={(ev) => addButton(ev, id)}
-          color="error"
-          startIcon={<FavoriteBorderOutlinedIcon />}
-        >
-          Add to Favorites
-        </Button>
+        <>
+          <Button
+            variant="outlined"
+            onClick={(ev) => addFavButton(ev, id)}
+            color="error"
+            startIcon={<FavoriteBorderOutlinedIcon />}
+          >
+            Add to Favorites
+          </Button>
+          &nbsp;
+          <Button
+            variant="outlined"
+            onClick={(ev) => addCalButton(ev, id)}
+            color="success"
+            startIcon={<CalendarMonthIcon />}
+          >
+            Add to Calendar
+          </Button>
+        </>
       ) : null}
       <h4>
         {description}
@@ -50,7 +69,9 @@ function SingleEvent() {
         <br />
         Tags: {tag?.join(", ")}
         <br />
-        <a href={eventLink} target="_blank">{eventLink}</a>
+        <a href={eventLink} target="_blank">
+          {eventLink}
+        </a>
       </h4>
     </div>
   );

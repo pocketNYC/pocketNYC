@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
+import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
+import { IconButton } from "@mui/material";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -82,6 +84,17 @@ const Navbar = () => {
                   href="/faq"
                 >
                   Help
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link active"
+                  style={{ color: "red" }}
+                  href="/calendar"
+                >
+                  <IconButton>
+                    <CalendarMonthOutlinedIcon />
+                  </IconButton>
                 </a>
               </li>
               {isLoggedIn ? (

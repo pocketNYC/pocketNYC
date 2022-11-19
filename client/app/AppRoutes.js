@@ -19,7 +19,7 @@ import SingleUserProfile from "../features/users/SingleUserProfile";
 import SingleEvent from "../features/events/SingleEvent";
 import ConfirmationPage from "../features/events/ConfirmationPage";
 import Faq from "../features/helpPage/HelpPage";
-import UserCalendar from "../features/users/UserCalendar";
+import UserCalendar from "../features/calendar/UserCalendar";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
