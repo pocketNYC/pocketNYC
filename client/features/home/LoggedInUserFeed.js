@@ -34,8 +34,6 @@ function LoggedInUserFeed({ interests, borough }) {
     })
     .filter((a) => new Date(a.date) - new Date() > 0);
 
-
-
   return (
     <div align="center">
       <p className="underline">Events matching your Interests & Borough</p>
@@ -64,8 +62,7 @@ function LoggedInUserFeed({ interests, borough }) {
           ))
         ) : (
           <small>
-            No events currnetly matching your interests and borough. Visit our
-            {""}
+            No events currently matching your interests and borough. Visit our{" "}
             <Link to="/events">Events</Link> page for a full list of all
             upcoming events.
           </small>

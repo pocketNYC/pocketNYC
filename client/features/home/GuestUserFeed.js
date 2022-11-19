@@ -35,7 +35,8 @@ function GuestUserFeed() {
         return event;
       }
     })
-    .filter((a) => new Date(a.date) - new Date() > 0);
+    .filter((a) => new Date(a.date) - new Date() > 0)
+    .slice(0, 5);
 
   return (
     <div>
