@@ -14,6 +14,7 @@ function Signup({ displayName, name }) {
   const dispatch = useDispatch();
   const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
+  const [errors, setErrors] = useState("");
 
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -23,7 +24,7 @@ function Signup({ displayName, name }) {
     setSelectedOptions(selections);
   };
 
-  const { handleSubmit } = useForm({ resolver: yupResolver(YupSchema) });
+  // const { handleSubmit } = useForm({ resolver: yupResolver(YupSchema) });
 
   const onSubmit = (evt) => {
     evt.preventDefault();
@@ -34,6 +35,11 @@ function Signup({ displayName, name }) {
     const password = evt.target.password.value;
     const interests = selectedOptions;
     const borough = evt.target.borough.value;
+    console.log(borough);
+
+    if (borough === "Select") {
+      setErrors("Please select a borough!!!");
+    }
 
     dispatch(
       authenticate({
@@ -87,8 +93,8 @@ function Signup({ displayName, name }) {
         <Form.Group controlId="borough">
           <Form.Label>Borough</Form.Label>
           {/* <Form.Control required type="text" /> */}
-          <Form.Select>
-            <option defaultValue="select">Select</option>
+          <Form.Select isInvalid>
+            <option defaultValue>Select</option>
             <option value="Bronx">Bronx</option>
             <option value="Brooklyn">Brooklyn</option>
             <option value="Queens">Queens</option>

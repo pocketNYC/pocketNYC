@@ -27,7 +27,12 @@ function Login({ name, displayName }) {
         name={name}
       >
         <FloatingLabel controlId="email" label="Email Address" className="mb-3">
-          <Form.Control required type="text" placeholder="Email" />
+          <Form.Control
+            required
+            type="text"
+            placeholder="Email"
+            onChange={(e) => console.log(e.target.value)}
+          />
           <Form.Control.Feedback type="invalid">
             Please enter an email.
           </Form.Control.Feedback>
