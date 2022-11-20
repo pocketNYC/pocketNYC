@@ -5,12 +5,12 @@ import Questions from "./Questions";
 
 function Faq() {
   return (
-    <div style={{padding: '20px'}}>
+    <div style={{ padding: "20px" }}>
       <Questions />
       <hr />
       <AboutUs />
       <hr />
-      <ContactUs />
+      {/* <ContactUs /> */}
     </div>
   );
 }

@@ -21,7 +21,7 @@ function Admin() {
 
   const sortedPendingEvents = [...events]
     .sort((a, b) => {
-      return new Date(a.date) - new Date(b.date);
+      return new Date(a.start) - new Date(b.start);
     })
     .filter((event) => {
       if (event.status === "pending") {
@@ -50,7 +50,7 @@ function Admin() {
       <>
         <ul>
           {sortedPendingEvents.length
-            ? sortedPendingEvents.map(({ title, id, date, status }) => {
+            ? sortedPendingEvents.map(({ title, id, start, end }) => {
                 return (
                   <li key={id}>
                     <strong>
@@ -64,7 +64,7 @@ function Admin() {
                     </strong>
                     <br />
                     <strong>
-                      Date: {moment(date).format("dddd, MMMM Do, YYYY")}
+                      Date: {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
                     </strong>
                   </li>
                 );

@@ -13,7 +13,7 @@ function Questions() {
             aria-expanded="false"
             aria-controls="flush-collapseTwo"
           >
-            Frequently Asked Questions
+            <h5>Frequently Asked Questions</h5>
           </button>
         </h2>
         <div
@@ -24,23 +24,30 @@ function Questions() {
         >
           <div className="accordion-body">
             <ul>
-              <li> <button
-            className="accordion-button collapsed"
-            type="button"
-            // data-bs-toggle="collapse"
-            // data-bs-target="#flush-collapseTwo"
-            aria-expanded="false"
-            aria-controls="flush-collapseTwo"
-          
-          >Where can I find resources?</button></li>
+              <li>
+                {" "}
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  // data-bs-toggle="collapse"
+                  // data-bs-target="#flush-collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseTwo"
+                >
+                  Where can I find resources?
+                </button>
+              </li>
               <ul>
-                     <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                     <div className="accordion-body">
-                    <li>
-                      Resource Answer
-                    </li>
-                    </div></div>
-                    </ul>
+                <div
+                  id="panelsStayOpen-collapseTwo"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="panelsStayOpen-headingTwo"
+                >
+                  <div className="accordion-body">
+                    <li>Resource Answer</li>
+                  </div>
+                </div>
+              </ul>
               <li>How do I change the language of the app?</li>
               <li>How can I update my information?</li>
               <li>Can I keep track of the resources or events I like?</li>
@@ -51,7 +58,8 @@ function Questions() {
             </ul>
           </div>
           <p>
-            Have a question that isn't already answered? Please use the <b> Contact Us</b> form below and a member of our team will get back
+            Have a question that isn't already answered? Please use the{" "}
+            <b> Contact Us</b> form below and a member of our team will get back
             to you.
           </p>
         </div>

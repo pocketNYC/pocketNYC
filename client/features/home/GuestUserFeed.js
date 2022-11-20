@@ -21,49 +21,48 @@ function GuestUserFeed() {
 
   const sortedApprovedEvents = [...events]
     .sort((a, b) => {
-      return new Date(a.date) - new Date(b.date);
+      return new Date(a.start) - new Date(b.end);
     })
     .filter((event) => {
       const date = new Date(event.createdAt);
 
       if (
-        date > start() &&
-        date < end &&
+        start > start() &&
+        end < end &&
         event.status === "approved" &&
         !event.tag.includes("holidays")
       ) {
         return event;
       }
     })
-    .filter((a) => new Date(a.date) - new Date() > 0)
+    .filter((a) => new Date(a.start) - new Date() > 0)
     .slice(0, 5);
 
   return (
-    <div>
-      <h1 className="underline" align="center">
-        New this week!
-      </h1>
+    <div align="center">
+      <h2 className="underline">New this week!</h2>
       <ul>
-        {sortedApprovedEvents?.map(({ id, image, title, date }) => (
-          <li key={id}>
+        {sortedApprovedEvents?.map(({ id, image, title, start, end }) => (
+          <ul key={id}>
             <Link to={`/events/${id}`}>
               <img
                 src={image}
-                style={{ width: "500px", height: "300px" }}
+                style={{ width: "600px", height: "300px" }}
                 onClick={() => navigate(`/events/${id}`)}
               />
             </Link>
 
-            <h3>{title}</h3>
+            <h3 className="underline">{title}</h3>
 
             <h4>
-              Date: {moment(date).format("dddd, MMMM Do, YYYY")}
+              {moment(start).format("dddd, MMMM Do YYYY, h:mm:ss a")}-
+              {moment(end).format("dddd, MMMM Do YYYY, h:mm:ss a")}
               <br />
               <Link to={`/events/${id}`}>
                 <h4>More Details</h4>
               </Link>
             </h4>
-          </li>
+          </ul>
         ))}
       </ul>
     </div>
