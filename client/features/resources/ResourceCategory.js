@@ -26,38 +26,43 @@ const ResourceCategory = () => {
   };
 
   return (
-    <div>
-      {resources
-        .filter((resource) => resource.tag.includes(category))
-        .map(({ id, name, imageUrl, description, address, hyperlink, tag }) => {
-          return (
-            <div key={id} style={{ padding: "10px" }}>
-              <img src={imageUrl} style={{ width: "700px", height: "500px" }} />
-              <h3>
-                {name} &nbsp;
-                {isLoggedIn ? (
-                  <Button
-                    variant="outlined"
-                    onClick={(ev) => addButton(ev, id)}
-                    color="error"
-                    startIcon={<FavoriteBorderOutlinedIcon />}
-                  >
-                    Add to Favorites
-                  </Button>
-                ) : null}
-              </h3>
-              <p>About: {description}</p>
-              <p>Address: {address}</p>
-              <p>
-                More Info:{" "}
-                <a href={hyperlink} target="_blank">
-                  {hyperlink}
-                </a>
-              </p>
-              <p>Tags: {tag ? tag.join(", ") : null}</p>
-            </div>
-          );
-        })}
+    <div class="container-fluid">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        {resources
+          .filter((resource) => resource.tag.includes(category))
+          .map(
+            ({ id, name, imageUrl, description, address, hyperlink, tag }) => {
+              return (
+                <div>
+                  <div class="card text-center h-100" key={id}>
+                    <img class="card-img-top-fluid" src={imageUrl} />
+                    <div class="card-body">
+                      <h5 class="card-title">{name}</h5>
+                      {isLoggedIn ? (
+                        <Button
+                          variant="outlined"
+                          onClick={(ev) => addButton(ev, id)}
+                          color="error"
+                          startIcon={<FavoriteBorderOutlinedIcon />}
+                        >
+                          Add to Favorites
+                        </Button>
+                      ) : null}
+                      <p class="card-text">About: {description}</p>
+                      <p class="card-text">Address: {address}</p>
+                      <a class="card-link" href={hyperlink} target="_blank">
+                        Click for more details
+                      </a>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Tags: {tag?.join(", ")}</small>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+          )}
+      </div>
       <Tooltip title="Scroll to Top">
         <Button
           className="scroll"

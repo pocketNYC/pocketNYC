@@ -36,44 +36,51 @@ function SingleEvent() {
   };
 
   return (
-    <div align="center">
-      <img src={image} style={{ width: "800px", height: "500px" }} />
-      <h3 className="underline">{title}</h3>
-      {isLoggedIn ? (
-        <>
-          <Button
-            variant="outlined"
-            onClick={(ev) => addFavButton(ev, id)}
-            color="error"
-            startIcon={<FavoriteBorderOutlinedIcon />}
-          >
-            Add to Favorites
-          </Button>
-          &nbsp;
-          <Button
-            variant="outlined"
-            onClick={(ev) => addCalButton(ev, id)}
-            color="success"
-            startIcon={<CalendarMonthIcon />}
-          >
-            Add to Calendar
-          </Button>
-        </>
-      ) : null}
-      <h4>
-        {description}
-        <br />
-        Address: {address}
-        <br />
-        {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
-        {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
-        <br />
-        Tags: {tag?.join(", ")}
-        <br />
-        <a href={eventLink} target="_blank">
-          {eventLink}
-        </a>
-      </h4>
+    <div class="card text-center">
+      <div class="row">
+        <div class="col">
+          <img src={image} class="card-img-top w-50" alt="image of event" />
+
+          <div class="card-body" style={{ verticalAlign: "middle" }}>
+            <h5 class="card-title"> {title}</h5>
+            <p class="card-text ">
+              {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
+              {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
+            </p>
+            <p class="card-text">Address: {address}</p>
+            <p class="card-text">About: {description}</p>
+
+            <a href={eventLink} target="_blank">
+              Click for more details
+            </a>
+
+            <p class="card-text">
+              <small class="text-muted">Tags: {tag?.join(", ")}</small>
+            </p>
+            {isLoggedIn ? (
+              <>
+                <Button
+                  variant="outlined"
+                  onClick={(ev) => addFavButton(ev, id)}
+                  color="error"
+                  startIcon={<FavoriteBorderOutlinedIcon />}
+                >
+                  Add to Favorites
+                </Button>
+                &nbsp;
+                <Button
+                  variant="outlined"
+                  onClick={(ev) => addCalButton(ev, id)}
+                  color="success"
+                  startIcon={<CalendarMonthIcon />}
+                >
+                  Add to Calendar
+                </Button>
+              </>
+            ) : null}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
