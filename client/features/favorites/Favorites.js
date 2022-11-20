@@ -42,15 +42,15 @@ const Favorites = () => {
 
   const futureEvents = [...favEvents]
     .sort((a, b) => {
-      return new Date(a.event.date) - new Date(b.event.date);
+      return new Date(a.event.start) - new Date(b.event.end);
     })
-    .filter((a) => new Date(a.event.date) - new Date() > 0);
+    .filter((a) => new Date(a.event.start) - new Date() > 0);
 
   const pastEvents = [...favEvents]
     .sort((a, b) => {
-      return new Date(a.event.date) - new Date(b.event.date);
+      return new Date(a.event.start) - new Date(b.event.end);
     })
-    .filter((a) => new Date(a.event.date) - new Date() < 0);
+    .filter((a) => new Date(a.event.start) - new Date() < 0);
 
   return (
     <div>
@@ -95,7 +95,7 @@ const Favorites = () => {
                   </IconButton>
                   <ul>
                     <li>
-                      Date: {moment(event.date).format("dddd, MMMM Do, YYYY")}
+                    {moment(event.start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(event.end).format("dddd, MMMM Do YYYY, h:mm a")}
                     </li>
                     <li>
                       <Link to={`/events/${event.id}`}>More Details</Link>
@@ -130,7 +130,13 @@ const Favorites = () => {
                   </IconButton>
                   <ul>
                     <li>
-                      Date: {moment(event.date).format("dddd, MMMM Do, YYYY")}
+                      {moment(event.start).format(
+                        "dddd, MMMM Do YYYY, h:mm:ss a"
+                      )}
+                      -
+                      {moment(event.end).format(
+                        "dddd, MMMM Do YYYY, h:mm:ss a"
+                      )}
                     </li>
                     <li>
                       <Link to={`/events/${event.id}`}>More Details</Link>

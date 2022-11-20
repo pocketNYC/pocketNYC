@@ -15,7 +15,7 @@ function LoggedInUserFeed({ interests, borough }) {
 
   const sortedApprovedEvents = [...events]
     .sort((a, b) => {
-      return new Date(a.date) - new Date(b.date);
+      return new Date(a.start) - new Date(b.start);
     })
     .filter((event) => {
       if (event.status === "approved" && event.borough === borough) {
@@ -32,16 +32,14 @@ function LoggedInUserFeed({ interests, borough }) {
         }
       }
     })
-    .filter((a) => new Date(a.date) - new Date() > 0);
-
-
+    .filter((a) => new Date(a.start) - new Date() > 0);
 
   return (
     <div align="center">
       <p className="underline">Events matching your Interests & Borough</p>
       <ul>
         {filteredByInterest.length ? (
-          filteredByInterest?.map(({ id, image, title, date }) => (
+          filteredByInterest?.map(({ id, image, title, start, end }) => (
             <ul key={id}>
               <Link to={`/events/${id}`}>
                 <img
@@ -54,7 +52,7 @@ function LoggedInUserFeed({ interests, borough }) {
               <h3 className="underline">{title}</h3>
 
               <h4>
-                {moment(date).format("dddd, MMMM Do, YYYY")}
+              {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
                 <br />
                 <Link to={`/events/${id}`}>
                   <h4>More Details</h4>
@@ -64,8 +62,7 @@ function LoggedInUserFeed({ interests, borough }) {
           ))
         ) : (
           <small>
-            No events currnetly matching your interests and borough. Visit our
-            {""}
+            No events currently match your interests or borough. Visit our{" "}
             <Link to="/events">Events</Link> page for a full list of all
             upcoming events.
           </small>

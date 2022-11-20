@@ -37,7 +37,7 @@ const AppRoutes = () => {
     <div>
       {isLoggedIn ? (
         <Routes>
-          <Route path="/*" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
@@ -64,13 +64,13 @@ const AppRoutes = () => {
             element={<SingleResource />}
           />
           <Route path="/faq" element={<Faq />} />
-          <Route path="*" element={<Error />} />
           {isAdmin && (
             <>
               <Route path="/users" element={<UserList />} />
               <Route path="/admin" element={<Admin />} />
             </>
           )}
+          <Route path="*" element={<Error />} />
         </Routes>
       ) : (
         <Routes>
