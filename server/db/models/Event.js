@@ -26,6 +26,10 @@ const Event = db.define("event", {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  end: {
+    type: Sequelize.STRING,
+    // allowNull: false,
+  },
   tag: {
     type: Sequelize.ARRAY(Sequelize.STRING),
     allowNull: false,

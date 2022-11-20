@@ -36,3 +36,11 @@ Button.scroll  {
 Card {
   padding-bottom:10px;
 }
+
+.modal-show {
+  display: block;
+}
+
+.modal-hide {
+  display: none;
+}

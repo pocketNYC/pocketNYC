@@ -4,11 +4,11 @@ import moment from "moment";
 import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
 import { addToFavEvents } from "../favorites/favoriteEventsSlice";
+import { addToCalendar } from "../calendar/calendarSlice";
 import { useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-// import ReactPaginate from "react-paginate";
 import Paper from "@mui/material/Paper";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Grid from "@mui/material/Grid";
@@ -23,6 +23,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 export default function Events() {
   const navigate = useNavigate();
