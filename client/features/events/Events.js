@@ -4,11 +4,12 @@ import moment from "moment";
 import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
 import { addToFavEvents } from "../favorites/favoriteEventsSlice";
+import { addToCalendar } from "../calendar/calendarSlice";
 import { useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-// import ReactPaginate from "react-paginate";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 export default function Events() {
   const navigate = useNavigate();
@@ -37,7 +38,10 @@ export default function Events() {
     dispatch(addToFavEvents(id));
   };
 
-  console.log(sortedApprovedEvents);
+  const addCalButton = (ev, id) => {
+    ev.preventDefault();
+    dispatch(addToCalendar(id));
+  };
 
   return (
     <div align="center">
@@ -52,17 +56,29 @@ export default function Events() {
           />
           <h3 className="underline">{title}</h3>
           {isLoggedIn ? (
-            <Button
-              variant="outlined"
-              onClick={(ev) => addButton(ev, id)}
-              color="error"
-              startIcon={<FavoriteBorderOutlinedIcon />}
-            >
-              Add to Favorites
-            </Button>
+            <>
+              <Button
+                variant="outlined"
+                onClick={(ev) => addButton(ev, id)}
+                color="error"
+                startIcon={<FavoriteBorderOutlinedIcon />}
+              >
+                Add to Favorites
+              </Button>
+              &nbsp;
+              <Button
+                variant="outlined"
+                onClick={(ev) => addCalButton(ev, id)}
+                color="success"
+                startIcon={<CalendarMonthIcon />}
+              >
+                Add to Calendar
+              </Button>
+            </>
           ) : null}
           <h4>
-            {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
+            {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
+            {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
           </h4>
         </div>
       ))}
