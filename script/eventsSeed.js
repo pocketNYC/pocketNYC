@@ -271,7 +271,7 @@ const events = [
     title: "Yule Ball: Harry Potter (Book) Trivia",
     address: "Overlook, 225 East 44th Street New York, NY 10017",
     description:
-      "Deck the Great Hall with boughs of holly, grab a dancing partner, and test your Harry Potter knowledge at our special holiday-themed Yule Ball: Harry Potter (Book) Trivia at Overlook NYC on Monday, December 5 at 8pm! We'll have five rounds of trivia, covering all seven books in the Harry Potter series, with a fun holiday twist.",
+      "Deck the Great Hall with boughs of holly, grab a dancing partner, and test your Harry Potter knowledge at our special holiday-themed Yule Ball: Harry Potter (Book) Trivia at Overlook NYC on Monday, December 5 at 8pm! ",
     image:
       "https://digitalage.com.tr/wp-content/uploads/2021/12/harry-potter-20-835.jpg",
     date: "2022-12-05",
@@ -305,7 +305,7 @@ const events = [
     title: "Self-Defense Workshop with Jess Cassetta",
     address: "PUMA Flagship 609 5th Avenue New York, NY 10017",
     description:
-      "Join the Mile High Run Club and Puma as they partner with nationally recognized self defense expert, Jennifer Cassetta to learn both mental and physical self defense techniques to help you avoid danger when possible and protect yourself when necessary. You'll strike, elbow and knee your way to feeling strong, safe and powerful from the streets to the trail. No prior experience is necessary.",
+      "Join the Mile High Run Club and Puma as they partner with nationally recognized self defense expert, Jennifer Cassetta to learn both mental and physical self defense techniques to help you avoid danger when possible and protect yourself when necessary.",
     image:
       "https://shoutoutla.com/wp-content/uploads/2022/03/c-JenniferCassetta__JenniferCassettabyMichaelCinquinoNovember2018349_1647897009817.jpg",
     date: "2022-12-10",

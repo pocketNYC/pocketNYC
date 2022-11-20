@@ -32,3 +32,7 @@ form div {
 Button.scroll  {
   opacity: 50%;
 }
+
+Card {
+  padding-bottom:10px;
+}
