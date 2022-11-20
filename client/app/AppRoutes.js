@@ -37,7 +37,7 @@ const AppRoutes = () => {
     <div>
       {isLoggedIn ? (
         <Routes>
-          <Route path="/*" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
@@ -74,7 +74,7 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/*" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route
             path="/login"
