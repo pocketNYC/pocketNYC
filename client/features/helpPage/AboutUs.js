@@ -13,9 +13,9 @@ function AboutUs() {
         <strong>free</strong> <Link to="/resources">resources</Link> and{" "}
         <Link to="/events"> events</Link> for fellow New Yorkers in the
         metropolitan area. We kept our visitors in mind as we wanted the appeal
-        of our app to be its accessibility and ease of use. The five boroughs of
+        of our website to be accessible and easy to use. The five boroughs of
         NYC are a melting pot, therefore PocketNYC is translatable to over 10
-        languages. From the team at PocketNYC, we hope you enjoy using our app
+        languages. From the team at PocketNYC, we hope you enjoy using our website
         as much as we enjoyed making it for you!
       </p>
 
