@@ -27,8 +27,8 @@ function GuestUserFeed() {
       const date = new Date(event.createdAt);
 
       if (
-        start > start() &&
-        end < end &&
+        date > start() &&
+        date < end &&
         event.status === "approved" &&
         !event.tag.includes("holidays")
       ) {
@@ -40,7 +40,7 @@ function GuestUserFeed() {
 
   return (
     <div align="center">
-      <h2 className="underline">New this week!</h2>
+      <h2 className="underline">New This Week!</h2>
       <ul>
         {sortedApprovedEvents?.map(({ id, image, title, start, end }) => (
           <ul key={id}>
@@ -55,8 +55,7 @@ function GuestUserFeed() {
             <h3 className="underline">{title}</h3>
 
             <h4>
-              {moment(start).format("dddd, MMMM Do YYYY, h:mm:ss a")}-
-              {moment(end).format("dddd, MMMM Do YYYY, h:mm:ss a")}
+              {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
               <br />
               <Link to={`/events/${id}`}>
                 <h4>More Details</h4>

@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { authenticate } from "../../app/store";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import formInterest from "./formInterest";
+import { authenticate } from "../../app/store";
 
 function Signup({ displayName, name }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
 
@@ -41,6 +43,7 @@ function Signup({ displayName, name }) {
       })
     );
     setValidated(true);
+    navigate('/')
   };
 
   return (

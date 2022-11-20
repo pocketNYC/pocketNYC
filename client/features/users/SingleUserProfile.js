@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleUser } from "./userSlice";
 import { fetchFavoriteEvents } from "../favorites/favoriteEventsSlice";
@@ -95,13 +96,21 @@ function SingleUserProfile({ user }) {
                   ? myEvents.map(({ title, status, id, start, end }) => {
                       return (
                         <li key={id}>
-                          {title}
-                          <ul>
-                            <li>
-                              {start} - {end}
-                            </li>
-                            <li> Status: {status}</li>
-                          </ul>
+                          <h6>
+                            {title}
+                            <ul>
+                              <li>
+                                {moment(start).format(
+                                  "dddd, MMMM Do YYYY, h:mm a"
+                                )}{" "}
+                                -{" "}
+                                {moment(end).format(
+                                  "dddd, MMMM Do YYYY, h:mm a"
+                                )}
+                              </li>
+                              <li> Status: {status}</li>
+                            </ul>
+                          </h6>
                         </li>
                       );
                     })

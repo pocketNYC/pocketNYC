@@ -20,7 +20,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg sticky-top bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/home">
+          <a className="navbar-brand" href="/">
             <img
               src="
           https://i.imgur.com/0wLXpHh.png"
@@ -51,7 +51,7 @@ const Navbar = () => {
                   className="nav-link active"
                   style={{ color: "black" }}
                   aria-current="page"
-                  href="/home"
+                  href="/"
                 >
                   Home
                 </a>
@@ -87,7 +87,7 @@ const Navbar = () => {
                 </a>
               </li>
 
-              {/* 
+              {/*
                    //this code can be used for the calendar navbar icon
               <li className="nav-item">
                 <a
