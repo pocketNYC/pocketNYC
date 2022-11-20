@@ -7,7 +7,6 @@ import { addToFavEvents } from "../favorites/favoriteEventsSlice";
 import { addToCalendar } from "../calendar/calendarSlice";
 import { useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "@mui/material";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import Paper from "@mui/material/Paper";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -23,7 +22,6 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 export default function Events() {
   const navigate = useNavigate();
@@ -47,85 +45,98 @@ export default function Events() {
     })
     .filter((a) => new Date(a.start) - new Date() > 0);
 
-  const addButton = (ev, id) => {
+  const addFavButton = (ev, id) => {
     ev.preventDefault();
     dispatch(addToFavEvents(id));
+  };
+
+  const addCalButton = (ev, id) => {
+    ev.preventDefault();
+    dispatch(addToCalendar(id));
   };
 
   const Card = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: "center",
     color: theme.palette.text.secondary,
   }));
   return (
-    <Box>
+    <div>
+      <h1 className="underline">List of Events</h1>
       <Grid
         container
+        marginLeft={2.5}
         columnSpacing={2}
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
-        {/* <h1 className="underline">List of Events</h1> */}
-
-        {sortedApprovedEvents?.map(
-          ({ id, image, title, start, end, description }) => (
-            <Grid item xs={2} sm={4} md={4} key={id}>
-              <Card sx={{ maxWidth: 400 }}>
-                <CardHeader
-                  title={title}
-                  subheader={moment(start).format("dddd, MMMM Do, YYYY")}
-                />
-                <CardMedia
-                  component="img"
-                  height="194"
-                  image={image}
-                  onClick={() => navigate(`/events/${id}`)}
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    {description}
-                  </Typography>
-                </CardContent>
-                {/* <img
+        {sortedApprovedEvents?.map(({ id, image, title, start, tag }) => (
+          <Grid item xs={2} sm={4} md={4} key={id}>
+            <Card sx={{ maxWidth: 400, minHeight: 400 }}>
+              <CardMedia
+                component="img"
+                height="194"
+                image={image}
+                onClick={() => navigate(`/events/${id}`)}
+              />
+              <CardHeader title={title} />
+              <CardContent sx={{ padding: 0 }}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: "bold" }}
+                  color="text.secondary"
+                >
+                  {moment(start).format("dddd, MMMM Do, YYYY")}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Tags: {tag.join(", ")}
+                </Typography>
+              </CardContent>
+              {/* <img
             src={image}
             style={{ width: "800px", height: "500px", cursor: "pointer" }}
             onClick={() => navigate(`/events/${id}`)}
           /> */}
-                {/* <h3 className="underline">{title}</h3> */}
-                {isLoggedIn ? (
-                  <CardActions>
+              {/* <h3 className="underline">{title}</h3> */}
+              {isLoggedIn ? (
+                <CardActions>
+                  <Tooltip title="Add to Favorites">
                     <IconButton
-                      onClick={(ev) => addButton(ev, id)}
+                      onClick={(ev) => addFavButton(ev, id)}
                       aria-label="add to favorites"
                     >
                       <FavoriteIcon />
                     </IconButton>
-                    <IconButton aria-label="add to calendar">
+                  </Tooltip>
+                  <Tooltip title="Add to Calendar">
+                    <IconButton
+                      aria-label="add to calendar"
+                      onClick={(ev) => addCalButton(ev, id)}
+                    >
                       <CalendarMonthIcon />
                     </IconButton>
-                    <Button
-                      size="small"
-                      onClick={() => navigate(`/events/${id}`)}
-                    >
-                      More Info
-                    </Button>
-                  </CardActions>
-                ) : // <Button
-                //   variant="outlined"
-                //   onClick={(ev) => addButton(ev, id)}
-                //   color="error"
-                //   startIcon={<FavoriteBorderOutlinedIcon />}
-                // >
-                //   Add to Favorites
-                // </Button>
-                null}
-                {/* <h4>Date: {moment(date).format("dddd, MMMM Do, YYYY")}</h4> */}
-              </Card>
-            </Grid>
-          )
-        )}
+                  </Tooltip>
+                  <Button
+                    size="small"
+                    onClick={() => navigate(`/events/${id}`)}
+                  >
+                    More Info
+                  </Button>
+                </CardActions>
+              ) : // <Button
+              //   variant="outlined"
+              //   onClick={(ev) => addButton(ev, id)}
+              //   color="error"
+              //   startIcon={<FavoriteBorderOutlinedIcon />}
+              // >
+              //   Add to Favorites
+              // </Button>
+              null}
+            </Card>
+          </Grid>
+        ))}
         <Tooltip title="Scroll to Top">
           <Button
             className="scroll"
@@ -147,6 +158,6 @@ export default function Events() {
           </Button>
         </Tooltip>
       </Grid>
-    </Box>
+    </div>
   );
 }

@@ -6,8 +6,8 @@ const events = [
       "Take our signature tour, and let Central Park Conservancy guides give you an insider's look at some of the most iconic features of the world's greatest urban park.",
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg-vimbly-com-images.imgix.net%2Ffull_photos%2Fcentral-park-pedicab-tour-4.jpg%3Fauto%3Dcompress%26fit%3Dcrop%26h%3D490%26ixlib%3Dphp-1.2.1%26w%3D730&f=1&nofb=1&ipt=121f8762a9b462ccc9560bc64fa9397b9a8896f113384fb0be15072b8efd100c&ipo=images",
-    start: "2022-11-24 13:00",
-    end: "2022-11-24 15:00",
+    start: "2022-12-30 13:00",
+    end: "2022-12-30 15:00",
     tag: ["outdoors", "family-friendly"],
     borough: "Manhattan",
     eventLink: "https://www.centralpark.com/tours",
@@ -27,7 +27,7 @@ const events = [
     tag: ["outdoors", "family-friendly", "music/arts"],
     borough: "Manhattan",
     eventLink: "https://bryantpark.org/",
-    status: "approved",
+    status: "pending",
     latitude: 40.75361130200964,
     longitude: -73.98318113600838,
     userId: 2,
@@ -46,7 +46,7 @@ const events = [
     borough: "Queens",
     eventLink:
       "https://home.nps.gov/gate/learn/historyculture/jamaica-bay-wildlife-refuge.htm",
-    status: "approved",
+    status: "pending",
     latitude: 40.61679384055135,
     longitude: -73.82495690679576,
     userId: 3,
@@ -69,14 +69,14 @@ const events = [
     userId: 4,
   },
   {
-    title: "Stargazing",
+    title: "Stargazing Tuesdays at the High Line",
     address: "10th Ave and West 23rd St., New York City, NY 10011",
     description:
       "Head to the High Line each Tuesday night for a romantic walk along the park and a chance to take a closer look at the stars.",
     image:
       "https://www.nps.gov/articles/000/images/ARCH_stargazing.jpeg?maxwidth=650&autorotate=false",
-    start: "2022-11-26 17:00",
-    end: "2022-11-26 21:00",
+    start: "2022-12-27 17:00",
+    end: "2022-12-27 21:00",
     tag: ["family-friendly"],
     borough: "Manhattan",
     eventLink: "https://www.thehighline.org/",
@@ -86,14 +86,14 @@ const events = [
     userId: 5,
   },
   {
-    title: "School's Out Festival",
+    title: "School's Out Summer Bash 2023",
     address: "1300 Greene Ave, Brooklyn, NY, 11237",
     description:
       "Celebrate the start of summer fun at Parks at our fun-filled School's Out Festival with inflatables, games, face painting, music, popcorn, and more!",
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.timeout.com%2Fimages%2F102735335%2F1372%2F772%2Fimage.jpg&f=1&nofb=1&ipt=af220fff75ef2939b3edf0653278a7416bf1e5e4d5dc9d04a12e8d53157318ed&ipo=images",
-    start: "2022-12-15 16:00",
-    end: "2022-12-15 18:00",
+    start: "2023-06-25 16:00",
+    end: "2023-06-25 18:00",
     tag: ["music/arts", "outdoors"],
     borough: "Brooklyn",
     eventLink:
@@ -109,8 +109,8 @@ const events = [
       "Kids ages 6-12 are invited for free sports instruction at Hunts Point Recreation Center!",
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.bxtimes.com%2Fwp-content%2Fuploads%2F2018%2F08%2F32-a-palsportsday-2018-08-10-bx01_z-768x512.jpg&f=1&nofb=1&ipt=2512493b9c86cf516bf9fcb87401d01bdbbb3dd25f37b2775ee51038833967c5&ipo=images",
-    start: "2022-05-15 17:00",
-    end: "2022-05-15 19:00",
+    start: "2023-05-15 17:00",
+    end: "2023-05-15 19:00",
     tag: ["sports", "multicultural", "family-friendly"],
     borough: "Bronx",
     eventLink:
@@ -126,12 +126,12 @@ const events = [
       "New York City-wide annual festival, showcasing the richness and variety of the cultures of Latin America, the Caribbean, and Spain.",
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DhXKTK_C8oiXsee2dYVYlAHaFX%26pid%3DApi&f=1&ipt=47576a1b788c1fdfd2634e4cb6349c3f03f625d18eec39e846f915ad3fe62802&ipo=images",
-    start: "2022-11-30 13:00",
-    end: "2022-11-30 18:00",
+    start: "2023-08-30 13:00",
+    end: "2023-08-30 18:00",
     tag: ["multicultural", "music/arts", "family-friendly"],
     borough: "Manhattan",
     eventLink: "https://lacw.net/",
-    status: "approved",
+    status: "pending",
     longitude: "-74.19256591796875",
     latitude: "40.521690368652344",
   },
@@ -147,7 +147,7 @@ const events = [
     tag: ["outdoors"],
     borough: "Manhattan",
     eventLink: "https://www.nycpride.org/event/nyc-pride-march",
-    status: "approved",
+    status: "pending",
     latitude: 40.74228682409983,
     longitude: -73.98798057341881,
   },
@@ -234,7 +234,7 @@ const events = [
     longitude: -73.95513383089151,
   },
   {
-    title: "Workforce1 Job Fair: Brooklyn",
+    title: "Workforce1 Job Fair(In-Person): Brooklyn",
     address:
       "East New York Urban Youth Corp Inc., 2324 Pitkin Avenue, Brooklyn NY 11207",
     description:
@@ -251,7 +251,7 @@ const events = [
     longitude: -73.89626817708192,
   },
   {
-    title: "Pictures With Santa in Brooklyn!",
+    title: "Holiday Pictures With Santa in Brooklyn!",
     address: "Weylin, 175 Broadway Brooklyn, NY 11211",
     description:
       "Get your picture taken with Santa, right here in Brooklyn! Bring the kids, and make sure to dress up in your best holiday outfit.",
@@ -271,7 +271,7 @@ const events = [
     title: "Yule Ball: Harry Potter (Book) Trivia",
     address: "Overlook, 225 East 44th Street New York, NY 10017",
     description:
-      "Deck the Great Hall with boughs of holly, grab a dancing partner, and test your Harry Potter knowledge at our special holiday-themed Yule Ball: Harry Potter (Book) Trivia at Overlook NYC on Monday, December 5 at 8pm! ",
+      "Deck the Great Hall with boughs of holly, grab a dancing partner, and test your Harry Potter knowledge at our special holiday-themed Yule Ball: Harry Potter (Book) Trivia at Overlook NYC on Monday, December 5 at 8pm! We'll have five rounds of trivia, covering all seven books in the Harry Potter series, with a fun holiday twist.",
     image:
       "https://digitalage.com.tr/wp-content/uploads/2021/12/harry-potter-20-835.jpg",
     start: "2022-12-05 18:00",
@@ -305,7 +305,7 @@ const events = [
     title: "Self-Defense Workshop with Jess Cassetta",
     address: "PUMA Flagship 609 5th Avenue New York, NY 10017",
     description:
-      "Join the Mile High Run Club and Puma as they partner with nationally recognized self defense expert, Jennifer Cassetta to learn both mental and physical self defense techniques to help you avoid danger when possible and protect yourself when necessary.",
+      "Join the Mile High Run Club and Puma as they partner with nationally recognized self defense expert, Jennifer Cassetta to learn both mental and physical self defense techniques to help you avoid danger when possible and protect yourself when necessary. You'll strike, elbow and knee your way to feeling strong, safe and powerful from the streets to the trail. No prior experience is necessary.",
     image:
       "https://shoutoutla.com/wp-content/uploads/2022/03/c-JenniferCassetta__JenniferCassettabyMichaelCinquinoNovember2018349_1647897009817.jpg",
     start: "2022-12-10 07:45",

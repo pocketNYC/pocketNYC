@@ -33,9 +33,10 @@ Button.scroll  {
   opacity: 50%;
 }
 
-Card {
-  padding-bottom:10px;
-}
+/* .eventsGrid Grid{
+  justify-content: space-around;
+  padding-left: 2.5px;
+} */
 
 .modal-show {
   display: block;
