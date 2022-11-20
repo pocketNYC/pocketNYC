@@ -86,6 +86,9 @@ const Navbar = () => {
                   Help
                 </a>
               </li>
+
+              {/* 
+                   //this code can be used for the calendar navbar icon
               <li className="nav-item">
                 <a
                   className="nav-link active"
@@ -96,7 +99,7 @@ const Navbar = () => {
                     <CalendarMonthOutlinedIcon />
                   </IconButton>
                 </a>
-              </li>
+              </li> */}
               {isLoggedIn ? (
                 <li className="nav-item dropdown">
                   <a
@@ -118,12 +121,18 @@ const Navbar = () => {
                         My Profile
                       </a>
                     </li>
+
                     <li>
                       <a
                         className="dropdown-item"
                         href={`/users/${userId}/favorites`}
                       >
                         My Favorites
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="/calendar">
+                        My Calendar
                       </a>
                     </li>
                     <li>
