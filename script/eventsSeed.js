@@ -157,7 +157,7 @@ const events = [
     description:
       "First-ever Holiday Flea Market! We're opening up our Dumbo studio and filling it with samples, vintage, and much, much more.",
     image:
-      "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F373168129%2F311252113458%2F1%2Foriginal.20221013-204056?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=ee276cff241c6d959da7dcfaf0a6cfde",
+      "https://cdn.vox-cdn.com/thumbor/_9_d8u8eAQfwX-Diuzoi0MlyRxw=/0x205:2460x1435/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/13592622/shutterstock_393727495.jpg",
     start: "2022-12-03 12:00",
     end: "2022-12-04 18:00",
     tag: ["holidays", "family-friendly"],
@@ -222,10 +222,10 @@ const events = [
     description:
       "Queens Tech Night returns for 2022 with a special meetup focused on design in, of, and for New York City.",
     image:
-      "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F377274049%2F621442366563%2F1%2Foriginal.20221020-143036?h=2000&w=720&auto=format%2Ccompress&q=75&sharp=10&s=411d2172363c10b829808dc6ca53cc6b",
+      "https://qns.com/wp-content/uploads/2020/01/November-Crowd-Thank-You.jpg",
     start: "2022-12-01 13:00",
     end: "2022-12-01 17:00",
-    tag: ["holidays", "family-friendly", "outdoors"],
+    tag: ["family-friendly", "outdoors"],
     borough: "Staten-Island",
     eventLink:
       "https://www.eventbrite.com/e/queens-tech-night-2022-designing-new-york-tickets-445165611327?aff=ebdssbdestsearch",

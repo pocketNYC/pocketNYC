@@ -19,7 +19,7 @@ const UserCalendar = () => {
   }, [dispatch]);
 
   const calendarEvents = calEvents.map((evt) => {
-    console.log("Evt", evt);
+
     return {
       start: new Date(evt.event.start),
       end: new Date(evt.event.end),

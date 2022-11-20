@@ -38,32 +38,56 @@ function GuestUserFeed() {
     .filter((a) => new Date(a.start) - new Date() > 0)
     .slice(0, 5);
 
+  const navigateToEvent = (ev, id) => {
+    ev.preventDefault();
+    navigate(`/events/${id}`);
+  };
+
   return (
-    <div align="center">
-      <h2 className="underline">New This Week!</h2>
-      <ul>
-        {sortedApprovedEvents?.map(({ id, image, title, start, end }) => (
-          <ul key={id}>
-            <Link to={`/events/${id}`}>
-              <img
-                src={image}
-                style={{ width: "600px", height: "300px" }}
-                onClick={() => navigate(`/events/${id}`)}
-              />
-            </Link>
+    <div>
+      {sortedApprovedEvents?.map(({ id, image, title, description }) => (
+        <div class="card" key={id}>
+          <div class="row g-2">
+            <div class="col-md-6 mb-2">
+              <div
+                class="bg-image hover-overlay ripple shadow-2-strong rounded-5"
+                data-mdb-ripple-color="light"
+              >
+                <img
+                  src={image}
+                  class="img-fluid rounded-start"
+                  style={{ height: "400px", width: "600px" }}
+                />
+                <a>
+                  <div
+                    class="mask"
+                    style={{ backgroundColor: "rgba(251, 251, 251, 0.15" }}
+                  ></div>
+                </a>
+              </div>
+            </div>
 
-            <h3 className="underline">{title}</h3>
-
-            <h4>
-              {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
-              <br />
-              <Link to={`/events/${id}`}>
-                <h4>More Details</h4>
-              </Link>
-            </h4>
-          </ul>
-        ))}
-      </ul>
+            <div class="col-md-6 mb-2">
+              <div class="align-middle">
+                <span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3">
+                  New this week!
+                </span>
+                <h4>
+                  <strong>{title}</strong>
+                </h4>
+                <p class="text-muted">{description}</p>
+                <button
+                  type="button"
+                  onClick={(ev) => navigateToEvent(ev, id)}
+                  class="btn btn-primary"
+                >
+                  Read more
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
