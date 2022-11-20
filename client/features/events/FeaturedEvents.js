@@ -51,7 +51,9 @@ function FeaturedEvents() {
             />
             <div align="center">
               <h3 className="underline">{first?.title}</h3>
-              <h4>{moment(first?.date).format("dddd, MMMM Do, YYYY")}</h4>
+              <h4>
+                {moment(first?.start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(first?.end).format("dddd, MMMM Do YYYY, h:mm a")}
+              </h4>
             </div>
           </div>
           {exclude1?.map(({ id, image, title, start, end }) => (
@@ -65,8 +67,7 @@ function FeaturedEvents() {
               <div align="center">
                 <h3 className="underline">{title} </h3>
                 <h4>
-                  {moment(start).format("dddd, MMMM Do YYYY, h:mm:ss a")}-
-                  {moment(end).format("dddd, MMMM Do YYYY, h:mm:ss a")}
+                  {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
                 </h4>
               </div>
             </div>
