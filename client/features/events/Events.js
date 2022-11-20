@@ -69,12 +69,12 @@ export default function Events() {
         {/* <h1 className="underline">List of Events</h1> */}
 
         {sortedApprovedEvents?.map(
-          ({ id, image, title, date, description }) => (
+          ({ id, image, title, start, end, description }) => (
             <Grid item xs={2} sm={4} md={4} key={id}>
               <Card sx={{ maxWidth: 400 }}>
                 <CardHeader
                   title={title}
-                  subheader={moment(date).format("dddd, MMMM Do, YYYY")}
+                  subheader={moment(start).format("dddd, MMMM Do, YYYY")}
                 />
                 <CardMedia
                   component="img"
@@ -104,7 +104,12 @@ export default function Events() {
                     <IconButton aria-label="add to calendar">
                       <CalendarMonthIcon />
                     </IconButton>
-                    <Button size="small">More Info</Button>
+                    <Button
+                      size="small"
+                      onClick={() => navigate(`/events/${id}`)}
+                    >
+                      More Info
+                    </Button>
                   </CardActions>
                 ) : // <Button
                 //   variant="outlined"
