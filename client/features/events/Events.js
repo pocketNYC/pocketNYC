@@ -23,25 +23,27 @@ export default function Events() {
 
   const sortedApprovedEvents = [...events]
     .sort((a, b) => {
-      return new Date(a.date) - new Date(b.date);
+      return new Date(a.start) - new Date(b.start);
     })
     .filter((event) => {
       if (event.status === "approved") {
         return event;
       }
     })
-    .filter((a) => new Date(a.date) - new Date() > 0);
+    .filter((a) => new Date(a.start) - new Date() > 0);
 
   const addButton = (ev, id) => {
     ev.preventDefault();
     dispatch(addToFavEvents(id));
   };
 
+  console.log(sortedApprovedEvents);
+
   return (
     <div align="center">
       <h1 className="underline">List of Events</h1>
 
-      {sortedApprovedEvents?.map(({ id, image, title, date }) => (
+      {sortedApprovedEvents?.map(({ id, image, title, start, end }) => (
         <div key={id}>
           <img
             src={image}
@@ -59,7 +61,9 @@ export default function Events() {
               Add to Favorites
             </Button>
           ) : null}
-          <h4>Date: {moment(date).format("dddd, MMMM Do, YYYY")}</h4>
+          <h4>
+            {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
+          </h4>
         </div>
       ))}
       <Tooltip title="Scroll to Top">
