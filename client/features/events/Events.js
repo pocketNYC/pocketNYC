@@ -37,14 +37,14 @@ export default function Events() {
 
   const sortedApprovedEvents = [...events]
     .sort((a, b) => {
-      return new Date(a.date) - new Date(b.date);
+      return new Date(a.start) - new Date(b.start);
     })
     .filter((event) => {
       if (event.status === "approved") {
         return event;
       }
     })
-    .filter((a) => new Date(a.date) - new Date() > 0);
+    .filter((a) => new Date(a.start) - new Date() > 0);
 
   const addButton = (ev, id) => {
     ev.preventDefault();

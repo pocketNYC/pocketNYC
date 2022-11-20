@@ -11,7 +11,7 @@ function SingleEvent() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  const { image, title, description, address, date, time, tag, eventLink } =
+  const { image, title, description, address, start, end, tag, eventLink } =
     useSelector((state) => state.events.event);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
 
@@ -44,9 +44,7 @@ function SingleEvent() {
         <br />
         Address: {address}
         <br />
-        Date: {moment(date).format("dddd, MMMM Do, YYYY")}
-        <br />
-        Time: {moment(time, "hhmm").format("h:mm a")}
+        {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
         <br />
         Tags: {tag?.join(", ")}
         <br />

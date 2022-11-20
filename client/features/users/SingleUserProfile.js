@@ -7,13 +7,12 @@ import { fetchAllEvents } from "../events/eventsSlice";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
-function SingleUserProfile({user}) {
+function SingleUserProfile({ user }) {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
   const events = useSelector((state) => state.events.events);
 
-  const { firstName, lastName, email, interests, borough, id } = user
-  
+  const { firstName, lastName, email, interests, borough, id } = user;
 
   useEffect(() => {
     dispatch(fetchSingleUser(userId));
@@ -93,12 +92,14 @@ function SingleUserProfile({user}) {
             <div className="accordion-body">
               <ul>
                 {myEvents.length
-                  ? myEvents.map(({ title, status, id, date }) => {
+                  ? myEvents.map(({ title, status, id, start, end }) => {
                       return (
                         <li key={id}>
                           {title}
                           <ul>
-                            <li> Date: {date}</li>
+                            <li>
+                              {start} - {end}
+                            </li>
                             <li> Status: {status}</li>
                           </ul>
                         </li>
