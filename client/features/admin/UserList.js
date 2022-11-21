@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllUsers } from "../users/userSlice";
 import Toggle from "react-toggle";
 import "./toggleButton.css";
+import UserTable from "./UserTable";
 import { editUser } from "../users/userSlice";
 
 function UserList() {
@@ -16,67 +17,7 @@ function UserList() {
   return (
     <div>
       <h2 style={{ textAlign: "center" }}>Users Dashboard</h2>
-      <table>
-        <thead>
-          <tr
-            className="table-headers-user-dash"
-            style={{ textAlign: "center" }}
-          >
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Administrator Privileges</th>
-          </tr>
-        </thead>
-        <tbody
-          className="user-info-dashboard-table"
-          style={{ textAlign: "center" }}
-        >
-          {users?.map(
-            ({
-              id,
-              firstName,
-              lastName,
-              email,
-              borough,
-              interests,
-              isAdmin,
-            }) => {
-              return (
-                <tr key={id}>
-                  <td>
-                    <div>{firstName}</div>
-                  </td>
-                  <td>{lastName}</td>
-                  <td>{email}</td>
-                  <td>
-                    <label>
-                      <Toggle
-                        defaultChecked={isAdmin}
-                        onClick={() => {
-                          isAdmin ? (isAdmin = false) : (isAdmin = true);
-                          dispatch(
-                            editUser({
-                              id,
-                              firstName,
-                              lastName,
-                              email,
-                              borough,
-                              interests,
-                              isAdmin,
-                            }),
-                            [dispatch]
-                          );
-                        }}
-                      />
-                    </label>
-                  </td>
-                </tr>
-              );
-            }
-          )}
-        </tbody>
-      </table>
+      <UserTable />
     </div>
   );
 }

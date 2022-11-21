@@ -251,6 +251,106 @@ const events = [
     longitude: -73.89626817708192,
   },
   {
+
+    title: "Puerto Rican Day Parade",
+    address: "598 5th Ave, New York, NY 10036",
+    description:
+      "A parade designed to celebrate and advance Art, Culture and Education in the Puerto Rican community, both in Puerto Rico and the mainland U.S.",
+    image:
+      "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2017_21/2013061/puerto-rican-day-parade.jpg",
+    start: "2023-06-11 11:00",
+    end: "2023-06-11 16:00",
+    tag: ["multi-cultural", "city-services", "outdoors"],
+    borough: "Manhattan",
+    eventLink: "https://www.nprdpinc.org",
+    status: "approved",
+    latitude: 40.7574893581487,
+    longitude: -73.97824346208284,
+  },
+  {
+    title: "Kwanzaa Crawl",
+    address: "Commodore Barry Park, Flushing Ave, Brooklyn, NY 11201",
+    description:
+      "Kwanzaa Crawl® is a one-day event where people of the African diaspora join together to support Black-owned bars in their neighborhoods",
+
+    image: "https://www.essence.com/wp-content/uploads/2019/12/Kwanzaa-Crawl-1832x1374.jpg",
+    start: "2022-12-26 18:00",
+    end: "2022-12-26 23:00",
+    tag: ["multi-cultural", "holidays"],
+    borough: "Brooklyn",
+    eventLink: "https://www.kwanzaacrawl.com",
+    status: "approved",
+    latitude: 40.69737502147545,
+    longitude: -73.97888485874641,
+  },
+  {
+    title: "Cedar Hill Sledding Extravaganza",
+    address: "Cedar Hill, East Dr. &, 79th St Transverse, New York, 10021",
+    description: "A free sledding event in NYC for people of all ages.",
+
+    image:
+      "https://wvstateparks.com/wp-content/uploads/2022/01/DSC07243-scaled.jpg",
+    start: "2023-01-13 10:00",
+    end: "2023-01-13 13:00",
+    tag: ["Family-friendly", "holidays", "outdoors"],
+    borough: "Manhattan",
+    eventLink: "https://secretnyc.co/sledding-in-nyc/",
+    status: "approved",
+    latitude: 40.777475637062985,
+    longitude: -73.96620708942594,
+  },
+  {
+    title: "Toys for Tots Distribution",
+    address:
+      "Queens Community House - Forest Hills Community Center, 108-25 62nd Dr, Queens, NY 11375",
+    description:
+      "Toys for Tots is a program run by the United States Marine Corps Reserve which distributes toys to children whose parents cannot afford to buy them gifts for Christmas.",
+
+    image:
+      "https://www.powelltribune.com/uploads/original/20201029-093510-Gift-1.jpg",
+    start: "2022-12-23 17:00",
+    end: "2022-12-23 19:00",
+    tag: ["family-friendly", "holidays"],
+    borough: "Queens",
+    eventLink:
+      "https://brooklyn-ny.toysfortots.org/local-coordinator-sites/lco-sites/default.aspx?nPageID=100&nPreviewInd=200&nRedirectInd=3",
+    status: "approved",
+    latitude: 40.739672343419386,
+    longitude: -73.84941062842637,
+  },
+  {
+    title: "Roller-skating Lessons at Pier 2",
+    address: "150 Furman St, Pier 2, Brooklyn, NY 11201",
+    description:
+      "Everyone is welcomed at this fun and immersive roller-skating class. All you need to bring is a positive attitude and willingness to learn... everything else will be provided.",
+
+    image:
+      "https://images.squarespace-cdn.com/content/v1/5fed90bc8500a82fe9d33785/1654574029429-98Q3Z56IFQW2A6U4VHMD/private-lesson.jpg",
+    start: "2022-12-28 12:00",
+    end: "2022-12-28 16:00",
+    tag: ["outdoors", "family-friendly", "sports"],
+    borough: "Brooklyn",
+    eventLink: "https://www.brooklynbridgeskating.com/",
+    status: "approved",
+    latitude: 40.6997147822431,
+    longitude: -73.9987746181839,
+  },
+  {
+    title: "Girls Who Code",
+    address: "485 Clawson St, Staten Island, NY 10306",
+    description:
+      "A day of learning the fundamentals of computer science for free. This event aims to introduce school-aged girls to the vast and ever growing world of tech",
+    image: "https://api.time.com/wp-content/uploads/2014/07/girls-who-code-tech-camp.jpg",
+    start: "2022-02-26 11:00",
+    end: "2022-02-26 13:30",
+    tag: ["education"],
+    borough: "Brooklyn",
+    eventLink: "https://girlswhocode.com",
+    status: "approved",
+    latitude: 40.574098173799875,
+    longitude: -74.11939145168874,
+},
+{
     title: "Holiday Pictures With Santa in Brooklyn!",
     address: "Weylin, 175 Broadway Brooklyn, NY 11211",
     description:

@@ -37,15 +37,15 @@ export default function Events() {
     })
     .filter((a) => new Date(a.start) - new Date() > 0);
 
-  const addFavButton = (ev, id) => {
-    ev.preventDefault();
-    dispatch(addToFavEvents(id));
-  };
+  // const addButton = (ev, id) => {
+  //   ev.preventDefault();
+  //   dispatch(addToFavEvents(id));
+  // };
 
-  const addCalButton = (ev, id) => {
-    ev.preventDefault();
-    dispatch(addToCalendar(id));
-  };
+  // const addCalButton = (ev, id) => {
+  //   ev.preventDefault();
+  //   dispatch(addToCalendar(id));
+  // };
 
   return (
     <div className="container-fluid">

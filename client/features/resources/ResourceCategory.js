@@ -8,7 +8,6 @@ import {
   fetchFavoriteResources,
 } from "../favorites/favoriteResourcesSlice";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 const ResourceCategory = () => {
@@ -21,15 +20,21 @@ const ResourceCategory = () => {
     dispatch(fetchResources());
   }, [dispatch]);
 
-  const addButton = (ev, id) => {
-    dispatch(addToFavResources(id));
+  const addToFavoritesButton = (ev, id) => {
+    ev.preventDefault();
+    dispatch(addToFavResources(id)).then(() => {
+      dispatch(fetchFavoriteResources());
+    });
   };
 
   return (
     <div class="container-fluid">
       <div class="row row-cols-1 row-cols-md-2 g-4">
         {resources
-          .filter((resource) => resource.tag.includes(category))
+          .filter(
+          (resource) => resource.tag
+          .includes(category)
+        )
           .map(
             ({ id, name, imageUrl, description, address, hyperlink, tag }) => {
               return (
@@ -41,7 +46,7 @@ const ResourceCategory = () => {
                       {isLoggedIn ? (
                         <Button
                           variant="outlined"
-                          onClick={(ev) => addButton(ev, id)}
+                          onClick={(ev) => addToFavoritesButton(ev, id)}
                           color="error"
                           startIcon={<FavoriteBorderOutlinedIcon />}
                         >
