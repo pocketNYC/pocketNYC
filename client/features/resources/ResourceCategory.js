@@ -28,41 +28,45 @@ const ResourceCategory = () => {
   };
 
   return (
-    <div>
-      {resources
-        .filter(
-          (resource) => resource.tag
-          .includes(category)
-        )
-        .map(({ id, name, imageUrl, description, address, hyperlink, tag }) => {
-          return (
-            <div key={id} style={{ padding: "10px" }}>
-              <img src={imageUrl} alt={`image of ${name}`} style={{ width: "700px", height: "500px" }} />
-              <h3>
-                {name} &nbsp;
-                {isLoggedIn ? (
-                  <Button
-                    variant="outlined"
-                    onClick={(ev) => addToFavoritesButton(ev, id)}
-                    color="error"
-                    startIcon={<FavoriteBorderOutlinedIcon />}
-                  >
-                    Add to Favorites
-                  </Button>
-                ) : null}
-              </h3>
-              <p>About: {description}</p>
-              <p>Address: {address}</p>
-              <p>
-                More Info:{" "}
-                <a href={hyperlink} target="_blank">
-                  {hyperlink}
-                </a>
-              </p>
-              <p>Tags: {tag ? tag.join(", ") : null}</p>
-            </div>
-          );
-        })}
+    <div className="container-fluid">
+      <div className="row row-cols-1 row-cols-md-2 g-4">
+        {resources
+          .filter((resource) => resource.tag.includes(category))
+          .map(
+            ({ id, name, imageUrl, description, address, hyperlink, tag }) => {
+              return (
+                <div key={id}>
+                  <div className="card text-center h-100" key={id}>
+                    <img className="card-img-top fluid" src={imageUrl} alt={`image of ${name}`} />
+                    <div className="card-body">
+                      <h5 className="card-title">{name}</h5>
+                      {isLoggedIn ? (
+                        <Button
+                          variant="outlined"
+                          onClick={(ev) => addToFavoritesButton(ev, id)}
+                          color="error"
+                          startIcon={<FavoriteBorderOutlinedIcon />}
+                        >
+                          Add to Favorites
+                        </Button>
+                      ) : null}
+                      <p className="card-text">About: {description}</p>
+                      <p className="card-text">Address: {address}</p>
+                      <a className="card-link" href={hyperlink} target="_blank">
+                        Click for more details
+                      </a>
+                    </div>
+                    <div className="card-footer">
+                      <small className="text-muted">
+                        Tags: {tag?.join(", ")}
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+          )}
+      </div>
       <Tooltip title="Scroll to Top">
         <Button
           className="scroll"

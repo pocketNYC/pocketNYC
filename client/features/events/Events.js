@@ -3,18 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
 import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
-import { addToFavEvents } from "../favorites/favoriteEventsSlice";
-import { addToCalendar } from "../calendar/calendarSlice";
 import { useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "@mui/material";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 export default function Events() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const events = useSelector((state) => state.events.events);
 
   useEffect(() => {
@@ -33,56 +28,40 @@ export default function Events() {
     })
     .filter((a) => new Date(a.start) - new Date() > 0);
 
-  // const addButton = (ev, id) => {
-  //   ev.preventDefault();
-  //   dispatch(addToFavEvents(id));
-  // };
-
-  // const addCalButton = (ev, id) => {
-  //   ev.preventDefault();
-  //   dispatch(addToCalendar(id));
-  // };
-
   return (
-    <div align="center">
-      <h1 className="underline">List of Events</h1>
-
-      {sortedApprovedEvents?.map(({ id, image, title, start, end }) => (
-        <div key={id}>
-          <img
-            src={image}
-            style={{ width: "800px", height: "500px", cursor: "pointer" }}
-            onClick={() => navigate(`/events/${id}`)}
-            alt={`image of ${title}`}
-          />
-          <h3 className="underline">{title}</h3>
-          {/* {isLoggedIn ? (
-            <>
-              <Button
-                variant="outlined"
-                onClick={(ev) => addButton(ev, id)}
-                color="error"
-                startIcon={<FavoriteBorderOutlinedIcon />}
-              >
-                Add to Favorites
-              </Button>
-              &nbsp;
-              <Button
-                variant="outlined"
-                onClick={(ev) => addCalButton(ev, id)}
-                color="success"
-                startIcon={<CalendarMonthIcon />}
-              >
-                Add to Calendar
-              </Button>
-            </>
-          ) : null} */}
-          <h4>
-            {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
-            {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
-          </h4>
-        </div>
-      ))}
+    <div className="container-fluid">
+      <h1 className="fw-light text-center text-lg-center"> All Events </h1>
+      <div className="row row-cols-1 row-cols-md-2 g-4">
+        {sortedApprovedEvents?.map(({ id, image, title, start, tag }) => (
+          <div key={id}>
+            <div className="card text-center">
+              <img
+                className="card-img-top "
+                src={image}
+                alt={`image of ${title}`}
+                onClick={() => navigate(`/events/${id}`)}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{title}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">
+                  {moment(start).format("dddd, MMMM Do, YYYY")}
+                </h6>
+                <small className="card-subtitle mb-2 text-muted">
+                  Tags: {tag.join(", ")}
+                </small>
+                <div>
+                  <Button
+                    size="small"
+                    onClick={() => navigate(`/events/${id}`)}
+                  >
+                    More Info
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
       <Tooltip title="Scroll to Top">
         <Button
           className="scroll"

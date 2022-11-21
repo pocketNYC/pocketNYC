@@ -31,15 +31,15 @@ function EditUserProfile({ user }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(
-      editUser({id,
+      editUser({
+        id,
         firstName: userFirstName,
         lastName: userLastName,
         email: userEmail,
-         borough: userBorough,
-        interests:selectedOptions,
+        borough: userBorough,
+        interests: selectedOptions,
       })
     );
-    console.log(evt.target, "<- EVENT***");
   };
 
   return (
@@ -53,7 +53,8 @@ function EditUserProfile({ user }) {
           <Form.Control
             required
             type="text"
-            onChange={(e) => {setUserFirstName(e.target.value);
+            onChange={(e) => {
+              setUserFirstName(e.target.value);
             }}
             defaultValue={userFirstName}
             placeholder="Enter First Name"
@@ -69,7 +70,8 @@ function EditUserProfile({ user }) {
             required
             type="text"
             defaultValue={userLastName}
-            onChange={(e) => {setUserLastName(e.target.value);
+            onChange={(e) => {
+              setUserLastName(e.target.value);
             }}
             placeholder="Enter Your Last Name"
           />
@@ -82,7 +84,8 @@ function EditUserProfile({ user }) {
           <Form.Control
             required
             type="email"
-            onChange={(e) => {setUserEmail(e.target.value);
+            onChange={(e) => {
+              setUserEmail(e.target.value);
             }}
             defaultValue={userEmail}
             placeholder="Enter Email"
@@ -94,8 +97,10 @@ function EditUserProfile({ user }) {
         <Form.Group className="mb-6" controlId="borough">
           <Form.Label>Borough</Form.Label>
           <Form.Select
-          onChange={(e) => {setUserBorough(e.target.value)
-          console.log(e.target.value, typeof e.target.value)}}>
+            onChange={(e) => {
+              setUserBorough(e.target.value);
+            }}
+          >
             <option defaultValue>{borough}</option>
             <option value="Bronx">Bronx</option>
             <option value="Brooklyn">Brooklyn</option>

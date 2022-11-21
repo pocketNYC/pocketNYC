@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import moment from "moment";
+import { useNavigate } from "react-router-dom";
+import GuestUserFeed from "./GuestUserFeed";
 
 function LoggedInUserFeed({ interests, borough }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   useEffect(() => {
     dispatch(fetchAllEvents());
   }, [dispatch]);
@@ -27,48 +28,71 @@ function LoggedInUserFeed({ interests, borough }) {
     .filter((event) => {
       for (let i = 0; i < event.tag.length; i++) {
         let tag = event.tag[i];
-        if (interests.includes(tag) && tag !== "holidays") {
-          return event;
+
+        if (tag !== "holidays") {
+          if (interests.includes(tag)) {
+            return event;
+          }
         }
       }
     })
     .filter((a) => new Date(a.start) - new Date() > 0);
 
+  const navigateToEvent = (ev, id) => {
+    ev.preventDefault();
+    navigate(`/events/${id}`);
+  };
+
   return (
-    <div align="center">
-      <p className="underline">Events matching your Interests & Borough</p>
-      <ul>
-        {filteredByInterest.length ? (
-          filteredByInterest?.map(({ id, image, title, start, end }) => (
-            <ul key={id}>
-              <Link to={`/events/${id}`}>
-                <img
-                  src={image}
-                  style={{ width: "500px", height: "300px" }}
-                  alt={`image of ${title}`}
-                  onClick={() => navigate(`/events/${id}`)}
-                />
-              </Link>
+    <div>
+      {filteredByInterest.length ? (
+        filteredByInterest?.map(({ id, image, title, description }) => (
+          <div className="card" key={id}>
+            <div className="row g-2">
+              <div className="col-md-6 mb-2">
+                <div
+                  className="bg-image hover-overlay ripple shadow-2-strong rounded-5"
+                  data-mdb-ripple-color="light"
+                >
+                  <img
+                    src={image}
+                    className="img-fluid rounded-start"
+                    alt={`image of ${title}`}
+                  style={{ height: "400px", width: "600px" }}
+                  />
+                  <a>
+                    <div
+                      className="mask"
+                      style={{ backgroundColor: "rgba(251, 251, 251, 0.15" }}
+                    ></div>
+                  </a>
+                </div>
+              </div>
 
-              <h3 className="underline">{title}</h3>
-
-              <h4>
-              {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
-                <br />
-                <Link to={`/events/${id}`}>
-                  <h4>More Details</h4>
-                </Link>
-              </h4>
-            </ul>
-          ))
-        ) : (
-          <small>
-            No events currently match your interests or borough. Visit our{" "}
-            <Link to="/events">Events</Link> page for a full list of all
-            upcoming events.
-          </small>
-        )}
-      </ul>
+              <div className="col-md-6 mb-2">
+                <div className="align-middle">
+                  <span className="badge bg-danger px-2 py-1 shadow-1-strong mb-3">
+                    Personalized Recommendation
+                  </span>
+                  <h4>
+                    <strong>{title}</strong>
+                  </h4>
+                  <p className="text-muted">{description}</p>
+                  <button
+                    type="button"
+                    onClick={(ev) => navigateToEvent(ev, id)}
+                    className="btn btn-primary"
+                  >
+                    Read more
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      ) : (
+        <GuestUserFeed />
+      )}
     </div>
   );
 }

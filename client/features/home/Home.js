@@ -2,36 +2,31 @@ import React from "react";
 import { useSelector } from "react-redux";
 import LoggedInUserFeed from "./LoggedInUserFeed";
 import GuestUserFeed from "./GuestUserFeed";
-import FeaturedEvents from "../events/FeaturedEvents";
+import FeaturedEvents from "./FeaturedEvents";
 
 const Home = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  const { id, firstName, interests, borough } = useSelector(
-    (state) => state.auth.me
-  );
+  const { id, interests, borough } = useSelector((state) => state.auth.me);
 
   return (
-    <div>
-      {isLoggedIn ? (
-        <h2>
-          <div>Welcome, {firstName}!</div>
-
-          <br />
-          <div>
+    <div className="container-fluid">
+      <div>
+        {isLoggedIn ? (
+          <>
             <FeaturedEvents />
-          </div>
-          <br />
-          <div>
+
+            <div className="p-2"> </div>
             {id && <LoggedInUserFeed interests={interests} borough={borough} />}
-          </div>
-        </h2>
-      ) : (
-        <div>
-          <FeaturedEvents />
-          <br />
-          <GuestUserFeed />
-        </div>
-      )}
+          </>
+        ) : (
+          <>
+            <FeaturedEvents />
+            <div className="p-2"> </div>
+            <GuestUserFeed />
+          </>
+        )}
+        <div className="row p-2"></div>
+      </div>
     </div>
   );
 };

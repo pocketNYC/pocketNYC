@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
 function GuestUserFeed() {
   const dispatch = useDispatch();
@@ -38,33 +37,57 @@ function GuestUserFeed() {
     .filter((a) => new Date(a.start) - new Date() > 0)
     .slice(0, 5);
 
+  const navigateToEvent = (ev, id) => {
+    ev.preventDefault();
+    navigate(`/events/${id}`);
+  };
+
   return (
-    <div align="center">
-      <h2 className="underline">New This Week!</h2>
-      <ul>
-        {sortedApprovedEvents?.map(({ id, image, title, start, end }) => (
-          <ul key={id}>
-            <Link to={`/events/${id}`}>
-              <img
-                src={image}
+    <div>
+      {sortedApprovedEvents?.map(({ id, image, title, description }) => (
+        <div className="card" key={id}>
+          <div className="row g-2">
+            <div className="col-md-6 mb-2">
+              <div
+                className="bg-image hover-overlay ripple shadow-2-strong rounded-5"
+                data-mdb-ripple-color="light"
+              >
+                <img
+                  src={image}
                 alt={`image of ${title}`}
-                style={{ width: "600px", height: "300px" }}
-                onClick={() => navigate(`/events/${id}`)}
-              />
-            </Link>
+                  className="img-fluid rounded-start"
+                  style={{ height: "400px", width: "700px" }}
+                />
+                <a>
+                  <div
+                    className="mask"
+                    style={{ backgroundColor: "rgba(251, 251, 251, 0.15" }}
+                  ></div>
+                </a>
+              </div>
+            </div>
 
-            <h3 className="underline">{title}</h3>
-
-            <h4>
-              {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
-              <br />
-              <Link to={`/events/${id}`}>
-                <h4>More Details</h4>
-              </Link>
-            </h4>
-          </ul>
-        ))}
-      </ul>
+            <div className="col-md-6 mb-2">
+              <div className="card-body">
+                <span className="badge bg-danger px-2 py-1 shadow-1-strong mb-3">
+                  New this week!
+                </span>
+                <h4>
+                  <strong>{title}</strong>
+                </h4>
+                <p className="text-muted">{description}</p>
+                <button
+                  type="button"
+                  onClick={(ev) => navigateToEvent(ev, id)}
+                  className="btn btn-primary"
+                >
+                  Read more
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

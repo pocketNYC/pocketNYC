@@ -121,7 +121,7 @@ const resources = [
   {
     name: "Legal Services NYC",
     description:
-      "Provides free civil legal services, with a focus on cases involving housing, family, domestic violence, public benefits, income tax, employment, education, consumer rights, economic development, AIDS/HIV and elderly citizens facing eviction and unsafe living conditions. Offices in every boroughugh of NYC.",
+      "Provides free civil legal services, with a focus on cases involving housing, family, domestic violence, public benefits, income tax, employment, education, consumer rights, economic development, AIDS/HIV and elderly citizens facing eviction and unsafe living conditions. Offices in every borough of NYC.",
     imageUrl: "https://www.pngitem.com/pimgs/m/54-548394_lawyers-lawyer-png-clipart-transparent-png.png",
     address: "40 Worth Street, Suite 606, New York, NY 10013",
     borough: ["Manhattan"],
