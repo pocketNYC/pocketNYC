@@ -4,8 +4,8 @@ const db = require("../db");
 const Resource = db.define("resources", {
   name: {
     type: DataTypes.STRING,
-    unique: true,
-    //allowNull: false,
+    //unique: true,
+    allowNull: false,
   },
   description: {
     type: DataTypes.TEXT,
