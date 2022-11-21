@@ -33,14 +33,13 @@ export default function Events() {
       <h1 className="fw-light text-center text-lg-center"> All Events </h1>
       <div className="row row-cols-1 row-cols-md-2 g-4">
         {sortedApprovedEvents?.map(({ id, image, title, start, tag }) => (
-          <div>
-            <div className="card text-center" key={id}>
+          <div key={id}>
+            <div className="card text-center">
               <img
                 className="card-img-top "
                 src={image}
                 alt="images of events"
                 onClick={() => navigate(`/events/${id}`)}
-                s
               />
               <div className="card-body">
                 <h5 className="card-title">{title}</h5>

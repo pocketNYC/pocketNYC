@@ -31,14 +31,11 @@ const ResourceCategory = () => {
     <div className="container-fluid">
       <div className="row row-cols-1 row-cols-md-2 g-4">
         {resources
-          .filter(
-          (resource) => resource.tag
-          .includes(category)
-        )
+          .filter((resource) => resource.tag.includes(category))
           .map(
             ({ id, name, imageUrl, description, address, hyperlink, tag }) => {
               return (
-                <div>
+                <div key={id}>
                   <div className="card text-center h-100" key={id}>
                     <img className="card-img-top fluid" src={imageUrl} />
                     <div className="card-body">
@@ -60,7 +57,9 @@ const ResourceCategory = () => {
                       </a>
                     </div>
                     <div className="card-footer">
-                      <small className="text-muted">Tags: {tag?.join(", ")}</small>
+                      <small className="text-muted">
+                        Tags: {tag?.join(", ")}
+                      </small>
                     </div>
                   </div>
                 </div>
