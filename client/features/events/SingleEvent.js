@@ -73,26 +73,26 @@ function SingleEvent() {
   });
 
   return (
-    <div class="card text-center">
-      <div class="row">
-        <div class="col">
-          <img src={image} class="card-img-top w-50" alt="image of event" />
+    <div className="card text-center">
+      <div className="row">
+        <div className="col">
+          <img src={image} className="card-img-top w-50" alt="image of event" />
 
-          <div class="card-body" style={{ verticalAlign: "middle" }}>
-            <h5 class="card-title"> {title}</h5>
-            <p class="card-text ">
+          <div className="card-body" style={{ verticalAlign: "middle" }}>
+            <h5 className="card-title"> {title}</h5>
+            <p className="card-text ">
               {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
               {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
             </p>
-            <p class="card-text">Address: {address}</p>
-            <p class="card-text">About: {description}</p>
+            <p className="card-text">Address: {address}</p>
+            <p className="card-text">About: {description}</p>
 
             <a href={eventLink} target="_blank">
               Click for more details
             </a>
 
-            <p class="card-text">
-              <small class="text-muted">Tags: {tag?.join(", ")}</small>
+            <p className="card-text">
+              <small className="text-muted">Tags: {tag?.join(", ")}</small>
             </p>
             {isLoggedIn ? (
               <>

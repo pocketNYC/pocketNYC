@@ -30,9 +30,9 @@ function FeaturedEvents() {
   }, [dispatch]);
 
   return (
-    <div class="row">
-      <div class="col mx-auto">
-        <div class="card text-center">
+    <div className="row">
+      <div className="col mx-auto">
+        <div className="card text-center">
           <div
             id="carouselExampleCaptions"
             className="carousel slide"
@@ -46,7 +46,7 @@ function FeaturedEvents() {
               >
                 <img className="d-block w-100" src={first?.image} alt="..." />
 
-                <div class="carousel-caption d-none d-md-block">
+                <div className="carousel-caption d-none d-md-block">
                   <h5>{first?.title}</h5>
                   <p>
                     {moment(first?.start).format("dddd, MMMM Do YYYY, h:mm a")}{" "}
@@ -58,7 +58,7 @@ function FeaturedEvents() {
                 <div key={id} className="carousel-item" data-bs-interval="4500">
                   <img className="d-block w-100" src={image} alt="..." />
 
-                  <div class="carousel-caption d-none d-md-block">
+                  <div className="carousel-caption d-none d-md-block">
                     <h5>{title}</h5>
                     <p>
                       {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
@@ -70,28 +70,28 @@ function FeaturedEvents() {
             </div>
 
             <button
-              class="carousel-control-prev"
+              className="carousel-control-prev"
               type="button"
               data-bs-target="#carouselExampleCaptions"
               data-bs-slide="prev"
             >
               <span
-                class="carousel-control-prev-icon"
+                className="carousel-control-prev-icon"
                 aria-hidden="true"
               ></span>
-              <span class="visually-hidden">Previous</span>
+              <span className="visually-hidden">Previous</span>
             </button>
             <button
-              class="carousel-control-next"
+              className="carousel-control-next"
               type="button"
               data-bs-target="#carouselExampleCaptions"
               data-bs-slide="next"
             >
               <span
-                class="carousel-control-next-icon"
+                className="carousel-control-next-icon"
                 aria-hidden="true"
               ></span>
-              <span class="visually-hidden">Next</span>
+              <span className="visually-hidden">Next</span>
             </button>
           </div>
         </div>

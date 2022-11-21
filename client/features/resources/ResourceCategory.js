@@ -28,8 +28,8 @@ const ResourceCategory = () => {
   };
 
   return (
-    <div class="container-fluid">
-      <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div className="container-fluid">
+      <div className="row row-cols-1 row-cols-md-2 g-4">
         {resources
           .filter(
           (resource) => resource.tag
@@ -39,10 +39,10 @@ const ResourceCategory = () => {
             ({ id, name, imageUrl, description, address, hyperlink, tag }) => {
               return (
                 <div>
-                  <div class="card text-center h-100" key={id}>
-                    <img class="card-img-top fluid" src={imageUrl} />
-                    <div class="card-body">
-                      <h5 class="card-title">{name}</h5>
+                  <div className="card text-center h-100" key={id}>
+                    <img className="card-img-top fluid" src={imageUrl} />
+                    <div className="card-body">
+                      <h5 className="card-title">{name}</h5>
                       {isLoggedIn ? (
                         <Button
                           variant="outlined"
@@ -53,14 +53,14 @@ const ResourceCategory = () => {
                           Add to Favorites
                         </Button>
                       ) : null}
-                      <p class="card-text">About: {description}</p>
-                      <p class="card-text">Address: {address}</p>
-                      <a class="card-link" href={hyperlink} target="_blank">
+                      <p className="card-text">About: {description}</p>
+                      <p className="card-text">Address: {address}</p>
+                      <a className="card-link" href={hyperlink} target="_blank">
                         Click for more details
                       </a>
                     </div>
-                    <div class="card-footer">
-                      <small class="text-muted">Tags: {tag?.join(", ")}</small>
+                    <div className="card-footer">
+                      <small className="text-muted">Tags: {tag?.join(", ")}</small>
                     </div>
                   </div>
                 </div>

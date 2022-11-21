@@ -16,7 +16,7 @@ function UserTable() {
 
   return (
     <div className="userTable">
-      <table class="table table-hover">
+      <table className="table table-hover">
         <thead>
           <tr className="table-headers-user-dash">
             <th className="user-containter">User</th>

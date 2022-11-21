@@ -15,17 +15,17 @@ const Home = () => {
           <>
             <FeaturedEvents />
 
-            <div class="p-2"> </div>
+            <div className="p-2"> </div>
             {id && <LoggedInUserFeed interests={interests} borough={borough} />}
           </>
         ) : (
           <>
             <FeaturedEvents />
-            <div class="p-2"> </div>
+            <div className="p-2"> </div>
             <GuestUserFeed />
           </>
         )}
-        <div class="row p-2"></div>
+        <div className="row p-2"></div>
       </div>
     </div>
   );
