@@ -5,7 +5,7 @@ function FormContainer({ children }) {
   return (
     <Container>
       <Row className="justify-content-md-center">
-        <Col xs={8} md={4}>
+        <Col xs={5} md={2}>
           {children}
         </Col>
       </Row>

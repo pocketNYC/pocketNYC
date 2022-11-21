@@ -9,8 +9,9 @@ import formInterest from "../forms/formInterest";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ConfirmationPage from "./ConfirmationPage";
+import FormContainer from "../forms/FormContainer";
 
-const AddEvent = () => {
+const AddEvent = ({ name }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const animated = makeAnimated();
@@ -57,7 +58,7 @@ const AddEvent = () => {
   };
 
   return (
-    <>
+    <FormContainer>
       <h2 style={{ padding: "15px" }}>Create an Event</h2>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group className="mb-6" controlId="title">
@@ -97,19 +98,21 @@ const AddEvent = () => {
           <Form.Control required type="text" placeholder="Enter URL" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="date">
-          <Form.Label>Date</Form.Label>
-          <Form.Control required type="date" placeholder="Enter Date" />
+        <Form.Group className="mb-3" controlId="start">
+          <Form.Label>Start:</Form.Label>
+          <Form.Control required type="date" />
+          <Form.Control required type="time" />
           <Form.Control.Feedback type="invalid">
-            Please provide a date.
+            Please provide a starting time and date.
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="time">
-          <Form.Label>Time</Form.Label>
-          <Form.Control required type="time" placeholder="Enter Time" />
+        <Form.Group className="mb-3" controlId="end">
+          <Form.Label>End:</Form.Label>
+          <Form.Control required type="date" />
+          <Form.Control required type="time" />
           <Form.Control.Feedback type="invalid">
-            Please provide a time.
+            Please provide an ending time and date.
           </Form.Control.Feedback>
         </Form.Group>
 
@@ -142,7 +145,7 @@ const AddEvent = () => {
           Submit
         </Button>
       </Form>
-    </>
+    </FormContainer>
   );
 };
 

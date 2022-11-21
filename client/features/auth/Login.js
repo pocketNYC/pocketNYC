@@ -31,7 +31,6 @@ function Login({ name, displayName }) {
             required
             type="text"
             placeholder="Email"
-            onChange={(e) => console.log(e.target.value)}
           />
           <Form.Control.Feedback type="invalid">
             Please enter an email.

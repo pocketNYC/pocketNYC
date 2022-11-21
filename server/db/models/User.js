@@ -9,10 +9,16 @@ const User = db.define("user", {
   firstName: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   lastName: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   email: {
     type: DataTypes.STRING,
@@ -24,6 +30,9 @@ const User = db.define("user", {
   password: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   interests: {
     type: DataTypes.ARRAY(DataTypes.STRING),
@@ -37,7 +46,6 @@ const User = db.define("user", {
       "Manhattan",
       "Staten Island"
     ),
-    allowNull: false,
   },
   isAdmin: {
     type: DataTypes.BOOLEAN,
