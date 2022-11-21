@@ -24,9 +24,9 @@ async function seed() {
   //   "https://data.cityofnewyork.us/resource/ji82-xba5.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&$q=EMPLOYMENT&$limit=7"
   // );
 
-  const tax = await axios.get(
-    "https://data.cityofnewyork.us/resource/5kqf-fg3n.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&$q=TAX&$limit=12"
-  );
+  // const tax = await axios.get(
+  //   "https://data.cityofnewyork.us/resource/5kqf-fg3n.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&$q=TAX&$limit=12"
+  // );
 
   // const financialEmpowermentCtr = await axios.get(
   //   "https://data.cityofnewyork.us/resource/dt2z-amuf.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&$limit=10"
@@ -167,30 +167,46 @@ async function seed() {
   //   )
   // );
 
-  const taxFacilitySeed = await Promise.all(
-    tax.data.map((taxFacility) =>
-      Resource.create({
-        name: taxFacility.sitename == taxFacility.borough ? `${taxFacility.providername} of ${taxFacility.borough}` : taxFacility.sitename,
-         description: taxFacility.incomelimit,
-        imageUrl:
-          "https://www.incimages.com/uploaded_files/image/1920x1080/getty_470934239_86014.jpg",
-        address: taxFacility.mappedaddress
-          .split("")
-          .filter((ele) => ele != '"')
-          .join("")
-          ,
-         borough: [taxFacility.borough],
-        tag: ["finance"],
-        hyperlink: "https://www.tax.ny.gov/pit/efile/",
-        latitude: taxFacility.latitude,
-        longitude: taxFacility.longitude,
-      })
-    )
-  );
+  // const taxFacilitySeed = await Promise.all(
+  //   tax.data.map((taxFacility) =>
+  //     Resource.create({
+  //       name: taxFacility.sitename == taxFacility.borough ? `${taxFacility.providername} of ${taxFacility.borough}` : taxFacility.sitename,
+  //        description: taxFacility.incomelimit,
+  //       imageUrl:
+  //         "https://www.incimages.com/uploaded_files/image/1920x1080/getty_470934239_86014.jpg",
+  //       address: taxFacility.mappedaddress
+  //         .split("")
+  //         .filter((ele) => ele != '"')
+  //         .join("")
+  //         ,
+  //        borough: [taxFacility.borough],
+  //       tag: ["finance"],
+  //       hyperlink: "https://www.tax.ny.gov/pit/efile/",
+  //       latitude: taxFacility.latitude,
+  //       longitude: taxFacility.longitude,
+  //     })
+  //   )
+  // );
 
+  const financeCtrSeed = await Promise.all(financialEmpowermentCtr.data.map(financeCtr => Resource.create({
+    name:financeCtr.host_organization === 'Neighborhood Trust Financial Partners' ? `Neighborhood Trust Financial Partners of ${financeCtr.borough}`: financeCtr.host_organization,
+    description:'NYC Financial Empowerment Centers provide FREE one-on-one professional financial counseling and coaching to support you in reaching your goals. Financial counseling is free and confidential, regardless of income or immigration status.',
+    address:`${financeCtr.building} ${financeCtr.street}, ${financeCtr.borough}, NY ${financeCtr.zip_code}`,
+    borough:[financeCtr.borough],
+    tag:['finance'] ,
+    hyperlink:'https://www.nyc.gov/site/dca/consumers/get-free-financial-counseling.page#:~:text=Empowerment%20Center%20Brochure-,NYC%20Financial%20Empowerment%20Centers%20provide%20FREE%20one%2Don%2Done%20professional,Center%20brochure%20in%2011%20languages.',
+    latitude: financeCtr.latitude,
+    longitude:financeCtr.longitude ,
+  }) ))
+
+
+
+
+
+  console.log(financialEmpowermentCtr)
 
   console.log(
-    `seeded ${taxFacilitySeed.length} facilities`
+    `seeded ${financeCtrSeed.length} facilities`
   );
 }
 
