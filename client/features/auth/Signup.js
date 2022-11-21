@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { authenticate } from "../../app/store";
+import FormContainer from "../forms/FormContainter";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import formInterest from "../forms/formInterest";
@@ -56,7 +57,7 @@ function Signup({ displayName, name }) {
   };
 
   return (
-    <>
+    <FormContainer>
       <Form noValidate validated={validated} onSubmit={onSubmit} name={name}>
         <Form.Group className="mb-6" controlId="firstName">
           <Form.Label>First Name</Form.Label>
@@ -122,7 +123,7 @@ function Signup({ displayName, name }) {
           {displayName}
         </Button>
       </Form>
-    </>
+    </FormContainer>
   );
 }
 

@@ -146,6 +146,7 @@ const Navbar = () => {
                       <a
                         className="dropdown-item"
                         onClick={logoutAndRedirectHome}
+                        href="/logout"
                       >
                         Log out
                       </a>
