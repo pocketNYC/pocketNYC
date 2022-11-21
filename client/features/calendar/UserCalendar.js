@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import { useEffect, useRef } from "react";
-import { Calendar, momentLocalizer, Navigate } from "react-big-calendar";
+import React, { useState, useEffect } from "react";
+import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { useDispatch } from "react-redux";
 import { fetchCalendarEvents, selectCalendar } from "./calendarSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -19,7 +17,6 @@ const UserCalendar = () => {
   }, [dispatch]);
 
   const calendarEvents = calEvents.map((evt) => {
-    console.log("Evt", evt);
     return {
       start: new Date(evt.event.start),
       end: new Date(evt.event.end),
@@ -27,37 +24,17 @@ const UserCalendar = () => {
       id: evt.eventId,
       address: evt.event.address,
       description: evt.event.description,
+      link: evt.event.eventLink,
     };
   });
 
   const [selected, setSelected] = useState();
 
-  const clickRef = useRef(null);
-
-  useEffect(() => {
-    return () => {
-      window.clearTimeout(clickRef?.current);
-    };
-  }, []);
-
   const handleSelected = (event) => {
     setSelected(event);
-    window.clearTimeout(clickRef?.current);
-    clickRef.current = window.setTimeout(() => {
-      alert(event.title + "\r" + event.address + "\r" + event.description);
-    }, 250);
-    console.log(event);
+    navigate(`/events/${event.id}`);
   };
 
-  // const handleSelected = (event) => {
-  //   setSelected(event);
-  //   navigate(`/events/${event.id}`);
-
-  //   // window.clearTimeout(clickRef?.current);
-  //   // clickRef.current = window.setTimeout(() => {
-  //   //   alert(event.title + "\r" + event.start);
-  //   // }, 250);
-  // };
   return (
     <div>
       <Calendar
@@ -69,7 +46,7 @@ const UserCalendar = () => {
         endAccessor="end"
         popup
         style={{ height: 500, padding: "10px" }}
-      ></Calendar>
+      />
     </div>
   );
 };
