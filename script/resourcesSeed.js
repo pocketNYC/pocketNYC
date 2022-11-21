@@ -318,7 +318,7 @@ const resources = [
     name: "Center For Independence of the Disabled, New York",
     description:
       "CIDNY is a nonprofit organization founded in 1978. We are part of the Independent Living Centers movement: a national network of grassroots and community-based organizations that enhance opportunities for all people with disabilities to direct their own lives.",
-    imageUrl: "https://i.imgur.com/Tfdznnx.png",
+    imageUrl: "https://media.istockphoto.com/id/1298415912/vector/group-diverse-of-people-with-disabilities-work-together-in-office-disabled-different-people.jpg?s=612x612&w=0&k=20&c=mUql1CSbWa4uE5HwKn_5gwMa3syPmgzMhVgt611h_ZM=",
     address: "1010 6th Ave, New York, NY 10018",
     borough: ["Manhattan", "Queens"],
     tag: ["disability services", "education"],

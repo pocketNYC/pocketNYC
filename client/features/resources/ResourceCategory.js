@@ -30,7 +30,10 @@ const ResourceCategory = () => {
   return (
     <div>
       {resources
-        .filter((resource) => resource.tag.includes(category))
+        .filter(
+          (resource) => resource.tag
+          .includes(category)
+        )
         .map(({ id, name, imageUrl, description, address, hyperlink, tag }) => {
           return (
             <div key={id} style={{ padding: "10px" }}>

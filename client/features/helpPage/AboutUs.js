@@ -10,7 +10,7 @@ function AboutUs() {
       <p>
         PocketNYC is an app initially developed by Corinna, Cynthia, Noor, and
         Breana as a senior capstone project. PocketNYC hosts several{" "}
-        <strong>free</strong> <Link to="/resources">resources</Link> and{" "}
+        <strong>free and low-cost</strong> <Link to="/resources">resources</Link> and{" "}
         <Link to="/events"> events</Link> for fellow New Yorkers in the
         metropolitan area. We kept our visitors in mind as we wanted the appeal
         of our website to provide accessibility and easy of use. The five
