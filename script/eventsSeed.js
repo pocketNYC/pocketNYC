@@ -190,7 +190,7 @@ const events = [
     description:
       "Spread holiday cheer throughout the community with Christmas carols, festive crafts, sips and snacks, and more.",
     image:
-      "https://images.squarespace-cdn.com/content/v1/5b345fbf5ffd20f6d3846596/1543446426669-JTEYBSL8N6K3WIJFIJI8/25396123_234610190412968_6197764132181031678_n.jpg",
+      "https://www.tripsavvy.com/thmb/dLVe8--_UwBa7nYniaREpBUPiUQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-895677840-5c1a715946e0fb0001576046.jpg",
     start: "2022-12-19 13:00",
     end: "2022-12-19 18:00",
     tag: ["holidays", "family-friendly", "outdoors"],

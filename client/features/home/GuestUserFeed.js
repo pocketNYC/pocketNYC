@@ -56,7 +56,7 @@ function GuestUserFeed() {
                 <img
                   src={image}
                   class="img-fluid rounded-start"
-                  style={{ height: "400px", width: "600px" }}
+                  style={{ height: "400px", width: "700px" }}
                 />
                 <a>
                   <div
@@ -68,7 +68,7 @@ function GuestUserFeed() {
             </div>
 
             <div class="col-md-6 mb-2">
-              <div class="align-middle">
+              <div class="card-body">
                 <span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3">
                   New this week!
                 </span>
@@ -89,6 +89,7 @@ function GuestUserFeed() {
         </div>
       ))}
     </div>
+    // <div class="card-body d-flex align-items-center justify-content-center" style=" height:150px">
   );
 }
 export default GuestUserFeed;

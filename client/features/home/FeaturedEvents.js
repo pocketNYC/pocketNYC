@@ -35,7 +35,7 @@ function FeaturedEvents() {
       <div class="col mx-auto">
         {/* <h2 className="underline">Holiday Events: 2022</h2> */}
         <div class="card text-center">
-          <h1 class="card-header">Upcoming Holiday Events</h1>
+          {/* <h1 class="card-header">Upcoming Holiday Events</h1> */}
 
           <div
             id="carouselExampleCaptions"
@@ -51,7 +51,7 @@ function FeaturedEvents() {
                 {/* <Link to={`/events/${first?.id}`}> */}
                 <img
                   className="d-block w-100"
-                  style={{ width: "300px", height: "600px", padding: "10px" }}
+                  // style={{ width: "300px", height: "600px", padding: "10px" }}
                   src={first?.image}
                   alt="..."
                 />
@@ -75,7 +75,7 @@ function FeaturedEvents() {
                 <div key={id} className="carousel-item" data-bs-interval="4500">
                   {/* <Link to={`/events/${id}`}> */}
                   <img
-                    style={{ width: "300px", height: "600px", padding: "10px" }}
+                    // style={{ width: "300px", height: "600px", padding: "10px" }}
                     className="d-block w-100"
                     src={image}
                     alt="..."

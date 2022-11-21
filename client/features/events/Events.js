@@ -50,55 +50,57 @@ export default function Events() {
   return (
     <div className="container-fluid">
       <h1 class="fw-light text-center text-lg-center"> All Events </h1>
-      <div className="row row-cols-1 row-cols-md-3">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
         {sortedApprovedEvents?.map(({ id, image, title, start, tag }) => (
-          <div
-            className="card text-center"
-            // style={{ padding: "5px", margin: "5px" }}
-            key={id}
-          >
-            <img
-              className="card-img-top h-100"
-              src={image}
-              alt="images of events"
-              onClick={() => navigate(`/events/${id}`)}
-              s
-            />
-            <div className="card-body">
-              <h5 className="card-title">{title}</h5>
-              <h6 className="card-subtitle mb-2 text-muted">
-                {moment(start).format("dddd, MMMM Do, YYYY")}
-              </h6>
-              <small className="card-subtitle mb-2 text-muted">
-                Tags: {tag.join(", ")}
-              </small>
+          <div>
+            <div
+              className="card text-center"
+              // style={{ padding: "5px", margin: "5px" }}
+              key={id}
+            >
+              <img
+                className="card-img-top "
+                src={image}
+                alt="images of events"
+                onClick={() => navigate(`/events/${id}`)}
+                s
+              />
+              <div className="card-body">
+                <h5 className="card-title">{title}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">
+                  {moment(start).format("dddd, MMMM Do, YYYY")}
+                </h6>
+                <small className="card-subtitle mb-2 text-muted">
+                  Tags: {tag.join(", ")}
+                </small>
 
-              {isLoggedIn ? (
-                <div>
-                  <Tooltip title="Add to Favorites">
-                    <IconButton
-                      onClick={(ev) => addFavButton(ev, id)}
-                      aria-label="add to favorites"
+                {isLoggedIn ? (
+                  <div>
+                    <Tooltip title="Add to Favorites">
+                      <IconButton
+                        onClick={(ev) => addFavButton(ev, id)}
+                        aria-label="add to favorites"
+                      >
+                        <FavoriteIcon />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Add to Calendar">
+                      <IconButton
+                        aria-label="add to calendar"
+                        onClick={(ev) => addCalButton(ev, id)}
+                      >
+                        <CalendarMonthIcon />
+                      </IconButton>
+                    </Tooltip>
+                    <Button
+                      size="small"
+                      onClick={() => navigate(`/events/${id}`)}
                     >
-                      <FavoriteIcon />
-                    </IconButton>
-                  </Tooltip>
-                  <Tooltip title="Add to Calendar">
-                    <IconButton
-                      aria-label="add to calendar"
-                      onClick={(ev) => addCalButton(ev, id)}
-                    >
-                      <CalendarMonthIcon />
-                    </IconButton>
-                  </Tooltip>
-                  <Button
-                    size="small"
-                    onClick={() => navigate(`/events/${id}`)}
-                  >
-                    More Info
-                  </Button>
-                </div>
-              ) : null}
+                      More Info
+                    </Button>
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
         ))}

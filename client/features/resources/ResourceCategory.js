@@ -35,7 +35,7 @@ const ResourceCategory = () => {
               return (
                 <div>
                   <div class="card text-center h-100" key={id}>
-                    <img class="card-img-top-fluid" src={imageUrl} />
+                    <img class="card-img-top fluid" src={imageUrl} />
                     <div class="card-body">
                       <h5 class="card-title">{name}</h5>
                       {isLoggedIn ? (
