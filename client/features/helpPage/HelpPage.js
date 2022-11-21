@@ -10,7 +10,6 @@ function Faq() {
       <hr />
       <AboutUs />
       <hr />
-      <ContactUs />
     </div>
   );
 }

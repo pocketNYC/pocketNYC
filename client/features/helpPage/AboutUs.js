@@ -21,22 +21,20 @@ function AboutUs() {
 
       <h4>Corinna De Jesus</h4>
       <a href="https://www.linkedin.com/in/corinnadejesus/" target={"_blank"}>
-        <LinkedInIcon /> linkedin.com/in/corinnadejesus/
+        <LinkedInIcon />linkedin.com/in/corinnadejesus/
       </a>
       <br />
       <a href="https://github.com/Corinnadejesus" target={"_blank"}>
-        <GitHubIcon /> github.com/Corinnadejesus
+        <GitHubIcon />github.com/Corinnadejesus
       </a>
       <hr />
       <h4>Cynthia Brito-Mena</h4>
       <a href="https://www.linkedin.com/in/cynthiabritomena/" target={"_blank"}>
-        <LinkedInIcon />
-        linkedin.com/in/cynthiabritomena/
+        <LinkedInIcon />linkedin.com/in/cynthiabritomena/
       </a>
       <br />
       <a href="https://github.com/cb2866" target={"_blank"}>
-        <GitHubIcon />
-        github.com/cb2866
+        <GitHubIcon />github.com/cb2866
       </a>
       <hr />
       <h4>Noor Mudassar</h4>
