@@ -318,7 +318,7 @@ const events = [
     longitude: -73.84941062842637,
   },
   {
-    title: "Roller-skating Lessons | Pier 2",
+    title: "Roller-skating Lessons at Pier 2",
     address: "150 Furman St, Pier 2, Brooklyn, NY 11201",
     description:
       "Everyone is welcomed at this fun and immersive roller-skating class. All you need to bring is a positive attitude and willingness to learn... everything else will be provided.",
