@@ -4,8 +4,7 @@ const db = require("../db");
 const Resource = db.define("resources", {
   name: {
     type: DataTypes.STRING,
-    unique: true,
-    // allowNull: false,
+    allowNull: false,
   },
   description: {
     type: DataTypes.TEXT,
@@ -17,7 +16,7 @@ const Resource = db.define("resources", {
   },
   address: {
     type: DataTypes.STRING,
-    // allowNull: false,
+     allowNull: false,
   },
   borough: {
     type: DataTypes.ARRAY(DataTypes.STRING),

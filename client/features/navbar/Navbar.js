@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
+import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
+import { IconButton } from "@mui/material";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -18,7 +20,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg sticky-top bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/home">
+          <a className="navbar-brand" href="/">
             <img
               src="
           https://i.imgur.com/0wLXpHh.png"
@@ -49,7 +51,7 @@ const Navbar = () => {
                   className="nav-link active"
                   style={{ color: "black" }}
                   aria-current="page"
-                  href="/home"
+                  href="/"
                 >
                   Home
                 </a>
@@ -84,6 +86,20 @@ const Navbar = () => {
                   Help
                 </a>
               </li>
+
+              {/*
+                   //this code can be used for the calendar navbar icon
+              <li className="nav-item">
+                <a
+                  className="nav-link active"
+                  style={{ color: "red" }}
+                  href="/calendar"
+                >
+                  <IconButton>
+                    <CalendarMonthOutlinedIcon />
+                  </IconButton>
+                </a>
+              </li> */}
               {isLoggedIn ? (
                 <li className="nav-item dropdown">
                   <a
@@ -105,12 +121,18 @@ const Navbar = () => {
                         My Profile
                       </a>
                     </li>
+
                     <li>
                       <a
                         className="dropdown-item"
                         href={`/users/${userId}/favorites`}
                       >
                         My Favorites
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="/calendar">
+                        My Calendar
                       </a>
                     </li>
                     <li>

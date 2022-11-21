@@ -29,7 +29,7 @@ function ConfirmationPage({ user }) {
     <div>
       <h2>{`Thank you, ${firstName}!`}</h2>
       <h6>
-        Your event has been submitted for approval. Below is a summary of event
+        Your event has been submitted for approval. Below is a summary of the event
         details submitted:
       </h6>
       <small>
@@ -43,8 +43,8 @@ function ConfirmationPage({ user }) {
       <br />
       <small>
         <strong>Date & Time: </strong>
-        {moment(current?.date).format("dddd, MMMM Do, YYYY")} at{" "}
-        {moment(current?.time, "hhmm").format("h:mm a")}
+        {moment(current?.start).format("dddd, MMMM Do YYYY, h:mm:ss a")} -
+        {moment(current?.end).format("dddd, MMMM Do YYYY, h:mm:ss a")}
       </small>
       <br />
       <small>

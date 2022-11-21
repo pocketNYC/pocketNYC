@@ -8,14 +8,14 @@ function FeaturedEvents() {
   const events = useSelector((state) => state.events.events);
   const filteredEvents = [...events]
     .sort((a, b) => {
-      return new Date(a.date) - new Date(b.date);
+      return new Date(a.start) - new Date(b.end);
     })
     ?.filter((event) => {
       if (event.tag.includes("holidays") && event.status === "approved") {
         return event;
       }
     })
-    .filter((a) => new Date(a.date) - new Date() > 0);
+    .filter((a) => new Date(a.start) - new Date() > 0);
 
   const first = filteredEvents[0];
 
@@ -51,10 +51,12 @@ function FeaturedEvents() {
             />
             <div align="center">
               <h3 className="underline">{first?.title}</h3>
-              <h4>{moment(first?.date).format("dddd, MMMM Do, YYYY")}</h4>
+              <h4>
+                {moment(first?.start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(first?.end).format("dddd, MMMM Do YYYY, h:mm a")}
+              </h4>
             </div>
           </div>
-          {exclude1?.map(({ id, image, title, date }) => (
+          {exclude1?.map(({ id, image, title, start, end }) => (
             <div key={id} className="carousel-item" data-bs-interval="4500">
               <img
                 style={{ width: "200px", height: "600px", padding: "10px" }}
@@ -64,7 +66,9 @@ function FeaturedEvents() {
               />
               <div align="center">
                 <h3 className="underline">{title} </h3>
-                <h4>{moment(date).format("dddd, MMMM Do, YYYY")}</h4>
+                <h4>
+                  {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
+                </h4>
               </div>
             </div>
           ))}

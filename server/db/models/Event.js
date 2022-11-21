@@ -18,13 +18,17 @@ const Event = db.define("event", {
     type: Sequelize.TEXT,
     allowNull: false,
   },
-  date: {
+  start: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  time: {
+  end: {
     type: Sequelize.STRING,
     allowNull: false,
+  },
+  end: {
+    type: Sequelize.STRING,
+    // allowNull: false,
   },
   tag: {
     type: Sequelize.ARRAY(Sequelize.STRING),

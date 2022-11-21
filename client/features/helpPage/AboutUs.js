@@ -13,30 +13,28 @@ function AboutUs() {
         <strong>free</strong> <Link to="/resources">resources</Link> and{" "}
         <Link to="/events"> events</Link> for fellow New Yorkers in the
         metropolitan area. We kept our visitors in mind as we wanted the appeal
-        of our app to be its accessibility and ease of use. The five boroughs of
-        NYC are a melting pot, therefore PocketNYC is translatable to over 10
-        languages. From the team at PocketNYC, we hope you enjoy using our app
-        as much as we enjoyed making it for you!
+        of our website to provide accessibility and easy of use. The five
+        boroughs of NYC are a melting pot, therefore PocketNYC is translatable
+        to over 10 languages. From the team at PocketNYC, we hope you enjoy
+        using our website as much as we enjoyed making it for you!
       </p>
 
       <h4>Corinna De Jesus</h4>
       <a href="https://www.linkedin.com/in/corinnadejesus/" target={"_blank"}>
-        <LinkedInIcon /> linkedin.com/in/corinnadejesus/
+        <LinkedInIcon />linkedin.com/in/corinnadejesus/
       </a>
       <br />
       <a href="https://github.com/Corinnadejesus" target={"_blank"}>
-        <GitHubIcon /> github.com/Corinnadejesus
+        <GitHubIcon />github.com/Corinnadejesus
       </a>
       <hr />
       <h4>Cynthia Brito-Mena</h4>
       <a href="https://www.linkedin.com/in/cynthiabritomena/" target={"_blank"}>
-        <LinkedInIcon />
-        linkedin.com/in/cynthiabritomena/
+        <LinkedInIcon />linkedin.com/in/cynthiabritomena/
       </a>
       <br />
       <a href="https://github.com/cb2866" target={"_blank"}>
-        <GitHubIcon />
-        github.com/cb2866
+        <GitHubIcon />github.com/cb2866
       </a>
       <hr />
       <h4>Noor Mudassar</h4>
