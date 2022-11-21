@@ -4,6 +4,7 @@ const Resource = require("./models/Resource");
 const Event = require("./models/Event");
 const Favorite_Resources = require("./models/Favorite_Resources");
 const Favorite_Events = require("../db/models/Favorite_Events");
+const UserCalendar = require("../db/models/UserCalendar");
 
 Resource.belongsToMany(User, { through: Favorite_Resources });
 User.belongsToMany(Resource, { through: Favorite_Resources });
@@ -17,6 +18,11 @@ Event.belongsToMany(User, { through: Favorite_Events });
 Favorite_Events.belongsTo(User);
 Favorite_Events.belongsTo(Event);
 
+User.belongsToMany(Event, { through: UserCalendar });
+Event.belongsToMany(User, { through: UserCalendar });
+UserCalendar.belongsTo(User);
+UserCalendar.belongsTo(Event);
+
 module.exports = {
   db,
   models: {
@@ -25,5 +31,6 @@ module.exports = {
     Resource,
     Favorite_Resources,
     Favorite_Events,
+    UserCalendar,
   },
 };

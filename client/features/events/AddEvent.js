@@ -31,8 +31,8 @@ const AddEvent = () => {
     const description = evt.target.description.value;
     const address = evt.target.address.value;
     const image = evt.target.image.value;
-    const date = evt.target.date.value;
-    const time = evt.target.time.value;
+    const start = evt.target.start.value;
+    const end = evt.target.end.value;
     const tag = selectedOptions;
     const borough = evt.target.borough.value;
     const eventLink = evt.target.eventLink.value;
@@ -43,8 +43,8 @@ const AddEvent = () => {
         description,
         address,
         image,
-        date,
-        time,
+        start,
+        end,
         borough,
         tag,
         eventLink,
@@ -67,7 +67,6 @@ const AddEvent = () => {
             Please provide a title.
           </Form.Control.Feedback>
         </Form.Group>
-
         <Form.Group className="mb-6" controlId="description">
           <Form.Label>Description</Form.Label>
           <Form.Control required placeholder="Enter Description" />
@@ -75,7 +74,6 @@ const AddEvent = () => {
             Please provide a description of the event.
           </Form.Control.Feedback>
         </Form.Group>
-
         <Form.Group className="mb-6" controlId="address">
           <Form.Label>Address</Form.Label>
           <Form.Control required type="text" placeholder="Enter Address" />
@@ -83,7 +81,7 @@ const AddEvent = () => {
             Please provide an address.
           </Form.Control.Feedback>
         </Form.Group>
-
+        //DISREGARD START - END DATE AND TIME FIELDS FOR NOW. *IN PROGRESS*
         <Form.Group className="mb-3" controlId="image">
           <Form.Label>Image</Form.Label>
           <Form.Control required type="text" placeholder="Enter Image URL" />
@@ -91,29 +89,11 @@ const AddEvent = () => {
             Please provide an image.
           </Form.Control.Feedback>
         </Form.Group>
-
         <Form.Group className="mb-3" controlId="eventLink">
           <Form.Label>More Information</Form.Label>
 
           <Form.Control required type="text" placeholder="Enter Event Link" />
         </Form.Group>
-
-        <Form.Group className="mb-3" controlId="date">
-          <Form.Label>Date</Form.Label>
-          <Form.Control required type="date" placeholder="Enter Date" />
-          <Form.Control.Feedback type="invalid">
-            Please provide a date.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="time">
-          <Form.Label>Time</Form.Label>
-          <Form.Control required type="time" placeholder="Enter Time" />
-          <Form.Control.Feedback type="invalid">
-            Please provide a time.
-          </Form.Control.Feedback>
-        </Form.Group>
-
         <Form.Group className="mb-3" controlId="borough">
           <Form.Label>Borough</Form.Label>
           <Form.Select>
@@ -125,7 +105,6 @@ const AddEvent = () => {
             <option value="Staten-Island">Staten Island</option>
           </Form.Select>
         </Form.Group>
-
         <br />
         <label htmlFor="tags" style={{ padding: "10px" }}>
           Choose your event tags (select up to 3):
@@ -138,7 +117,6 @@ const AddEvent = () => {
           onChange={handleChange}
           isOptionDisabled={() => selectedOptions.length >= 5}
         />
-
         <Button className="primary" type="submit">
           Submit
         </Button>

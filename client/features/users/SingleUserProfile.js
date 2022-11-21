@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleUser } from "./userSlice";
 import { fetchFavoriteEvents } from "../favorites/favoriteEventsSlice";
@@ -7,13 +8,12 @@ import { fetchAllEvents } from "../events/eventsSlice";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
-function SingleUserProfile({user}) {
+function SingleUserProfile({ user }) {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
   const events = useSelector((state) => state.events.events);
 
-  const { firstName, lastName, email, interests, borough, id } = user
-  
+  const { firstName, lastName, email, interests, borough, id } = user;
 
   useEffect(() => {
     dispatch(fetchSingleUser(userId));
@@ -93,14 +93,24 @@ function SingleUserProfile({user}) {
             <div className="accordion-body">
               <ul>
                 {myEvents.length
-                  ? myEvents.map(({ title, status, id, date }) => {
+                  ? myEvents.map(({ title, status, id, start, end }) => {
                       return (
                         <li key={id}>
-                          {title}
-                          <ul>
-                            <li> Date: {date}</li>
-                            <li> Status: {status}</li>
-                          </ul>
+                          <h6>
+                            {title}
+                            <ul>
+                              <li>
+                                {moment(start).format(
+                                  "dddd, MMMM Do YYYY, h:mm a"
+                                )}{" "}
+                                -{" "}
+                                {moment(end).format(
+                                  "dddd, MMMM Do YYYY, h:mm a"
+                                )}
+                              </li>
+                              <li> Status: {status}</li>
+                            </ul>
+                          </h6>
                         </li>
                       );
                     })
