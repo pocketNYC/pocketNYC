@@ -20,7 +20,7 @@ const AllResources = () => {
         <div className="cards">
           <img
             id="clothes"
-            alt="clothing thumbnail"
+            alt="NYC Resources for Clothes "
             className="img-thumbnail"
             onClick={navigateCategory}
             style={{ width: "350px", height: "350px" }}
@@ -32,7 +32,7 @@ const AllResources = () => {
             style={{ width: "350px", height: "350px" }}
             src="https://i.imgur.com/3Qcso6v.png"
             id="city services"
-            alt="city services thumbnail"
+            alt="NYC Services"
             className="img-thumbnail"
             onClick={navigateCategory}
           />
@@ -43,7 +43,7 @@ const AllResources = () => {
             src="https://i.imgur.com/cLlro1G.png"
             id="seniors"
             className="img-thumbnail"
-            alt="seniors thumbnail"
+            alt="NYC Senior Services"
             onClick={navigateCategory}
           />
         </div>
@@ -53,7 +53,7 @@ const AllResources = () => {
             src="https://i.imgur.com/3igRVdA.png"
             id="disability services"
             className="img-thumbnail"
-            alt="disability services thumbnail"
+            alt="NYC Disability Resources"
             onClick={navigateCategory}
           />
         </div>
@@ -63,7 +63,7 @@ const AllResources = () => {
             src="https://i.imgur.com/9dcsuh0.png"
             id="food"
             className="img-thumbnail"
-            alt="food thumbnail"
+            alt="NYC Food Resources"
             onClick={navigateCategory}
           />
         </div>
@@ -73,7 +73,7 @@ const AllResources = () => {
             src="https://i.imgur.com/IzYWITm.png"
             id="health"
             className="img-thumbnail"
-            alt="health thumbnail"
+            alt="NYC Health Resources"
             onClick={navigateCategory}
           />
         </div>
@@ -81,7 +81,7 @@ const AllResources = () => {
           <img
             id="education"
             className="img-thumbnail"
-            alt="education thumbnail"
+            alt="NYC Education Resources"
             onClick={navigateCategory}
             style={{ width: "350px", height: "350px" }}
             src="https://i.imgur.com/TuemK7p.png"
@@ -92,7 +92,7 @@ const AllResources = () => {
             style={{ width: "350px", height: "350px" }}
             src="https://i.imgur.com/oAkSSwU.png"
             id="employment"
-            alt="employment thumbnail"
+            alt="NYC Employment Resources"
             className="img-thumbnail"
             onClick={navigateCategory}
           />
@@ -102,7 +102,7 @@ const AllResources = () => {
             style={{ width: "350px", height: "350px" }}
             src="https://i.imgur.com/dGwI5R7.png"
             id="finance"
-            alt="finance thumbnail"
+            alt="NYC Financial Services"
             className="img-thumbnail"
             onClick={navigateCategory}
           />

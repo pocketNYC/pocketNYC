@@ -38,7 +38,7 @@ export default function Events() {
               <img
                 className="card-img-top "
                 src={image}
-                alt="images of events"
+                alt={`image of ${title}`}
                 onClick={() => navigate(`/events/${id}`)}
               />
               <div className="card-body">
