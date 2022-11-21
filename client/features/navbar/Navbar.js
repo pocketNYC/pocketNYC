@@ -25,7 +25,7 @@ const Navbar = () => {
             <img
               src="
           https://i.imgur.com/0wLXpHh.png"
-              alt=""
+              alt="PocketNYC logo"
               width="65"
               height="70"
             />
