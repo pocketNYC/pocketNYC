@@ -5,7 +5,7 @@ const Resource = db.define("resources", {
   name: {
     type: DataTypes.STRING,
     //unique: true,
-    allowNull: false,
+    //allowNull: false,
   },
   description: {
     type: DataTypes.TEXT,
