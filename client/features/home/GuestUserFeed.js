@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
 function GuestUserFeed() {
   const dispatch = useDispatch();
@@ -89,7 +88,6 @@ function GuestUserFeed() {
         </div>
       ))}
     </div>
-    // <div class="card-body d-flex align-items-center justify-content-center" style=" height:150px">
   );
 }
 export default GuestUserFeed;

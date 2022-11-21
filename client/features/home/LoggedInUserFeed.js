@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import moment from "moment";
+import { useNavigate } from "react-router-dom";
+import GuestUserFeed from "./GuestUserFeed";
 
 function LoggedInUserFeed({ interests, borough }) {
   const dispatch = useDispatch();
@@ -31,7 +31,6 @@ function LoggedInUserFeed({ interests, borough }) {
 
         if (tag !== "holidays") {
           if (interests.includes(tag)) {
-            console.log(event);
             return event;
           }
         }
@@ -91,51 +90,9 @@ function LoggedInUserFeed({ interests, borough }) {
           </div>
         ))
       ) : (
-        <small>
-          No events currently match your interests or borough. Visit our{" "}
-          <Link to="/events">Events</Link> page for a full list of all upcoming
-          events.
-        </small>
+        <GuestUserFeed />
       )}
     </div>
-
-    /* // <div>
-    //   <p className="underline">Events matching your Interests & Borough</p>
-    //   <div className="card"> */
-    //     <ul>
-    //       {filteredByInterest.length ? (
-    //         filteredByInterest?.map(({ id, image, title, start, end }) => (
-    //           <ul key={id}>
-    //             <Link to={`/events/${id}`}>
-    //               <img
-    //                 src={image}
-    //                 style={{ width: "500px", height: "300px" }}
-    //                 onClick={() => navigate(`/events/${id}`)}
-    //               />
-    //             </Link>
-
-    //             <h3 className="underline">{title}</h3>
-
-    //             <h4>
-    //               {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
-    //               {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
-    //               <br />
-    //               <Link to={`/events/${id}`}>
-    //                 <h4>More Details</h4>
-    //               </Link>
-    //             </h4>
-    //           </ul>
-    //         ))
-    //       ) : (
-    //         <small>
-    //           No events currently match your interests or borough. Visit our{" "}
-    //           <Link to="/events">Events</Link> page for a full list of all
-    //           upcoming events.
-    //         </small>
-    //       )}
-    //     </ul>
-    //   </div>
-    // </div>
   );
 }
 

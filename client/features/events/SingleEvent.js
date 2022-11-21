@@ -96,23 +96,45 @@ function SingleEvent() {
             </p>
             {isLoggedIn ? (
               <>
-                <Button
-                  variant="outlined"
-                  onClick={(ev) => addFavButton(ev, id)}
-                  color="error"
-                  startIcon={<FavoriteBorderOutlinedIcon />}
-                >
-                  Add to Favorites
-                </Button>
+                {isItInMyFavs.length ? (
+                  <Button
+                    variant="outlined"
+                    onClick={(ev) => removeFromFavsButton(ev, id)}
+                    color="error"
+                    startIcon={<FavoriteBorderOutlinedIcon />}
+                  >
+                    Remove from Favorites
+                  </Button>
+                ) : (
+                  <Button
+                    variant="outlined"
+                    onClick={(ev) => addToFavsButton(ev, id)}
+                    color="error"
+                    startIcon={<FavoriteBorderOutlinedIcon />}
+                  >
+                    Add to Favorites
+                  </Button>
+                )}
                 &nbsp;
-                <Button
-                  variant="outlined"
-                  onClick={(ev) => addCalButton(ev, id)}
-                  color="success"
-                  startIcon={<CalendarMonthIcon />}
-                >
-                  Add to Calendar
-                </Button>
+                {isItOnMyCal.length ? (
+                  <Button
+                    variant="outlined"
+                    onClick={(ev) => removeFromCalButton(ev, id)}
+                    color="success"
+                    startIcon={<CalendarMonthIcon />}
+                  >
+                    Remove from Calendar
+                  </Button>
+                ) : (
+                  <Button
+                    variant="outlined"
+                    onClick={(ev) => addToCalButton(ev, id)}
+                    color="success"
+                    startIcon={<CalendarMonthIcon />}
+                  >
+                    Add to Calendar
+                  </Button>
+                )}
               </>
             ) : null}
           </div>

@@ -19,8 +19,6 @@ function UserTable() {
       <table class="table table-hover">
         <thead>
           <tr className="table-headers-user-dash">
-            {/* <th>First Name</th>
-            <th>Last Name</th> */}
             <th className="user-containter">User</th>
             <th className="admin-priv-container">Administrator Privileges</th>
           </tr>

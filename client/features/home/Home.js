@@ -6,16 +6,13 @@ import FeaturedEvents from "./FeaturedEvents";
 
 const Home = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  const { id, firstName, interests, borough } = useSelector(
-    (state) => state.auth.me
-  );
+  const { id, interests, borough } = useSelector((state) => state.auth.me);
 
   return (
     <div className="container-fluid">
       <div>
         {isLoggedIn ? (
           <>
-            {/* <div>Welcome, {firstName}!</div> */}
             <FeaturedEvents />
 
             <div class="p-2"> </div>

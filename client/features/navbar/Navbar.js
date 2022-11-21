@@ -88,19 +88,6 @@ const Navbar = () => {
                 </a>
               </li>
 
-              {/*
-                   //this code can be used for the calendar navbar icon
-              <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  style={{ color: "red" }}
-                  href="/calendar"
-                >
-                  <IconButton>
-                    <CalendarMonthOutlinedIcon />
-                  </IconButton>
-                </a>
-              </li> */}
               {isLoggedIn ? (
                 <li className="nav-item dropdown">
                   <a

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
 import { fetchAllEvents } from "../events/eventsSlice";
-import { Link } from "react-router-dom";
 
 function FeaturedEvents() {
   const dispatch = useDispatch();
@@ -33,10 +32,7 @@ function FeaturedEvents() {
   return (
     <div class="row">
       <div class="col mx-auto">
-        {/* <h2 className="underline">Holiday Events: 2022</h2> */}
         <div class="card text-center">
-          {/* <h1 class="card-header">Upcoming Holiday Events</h1> */}
-
           <div
             id="carouselExampleCaptions"
             className="carousel slide"
@@ -48,14 +44,8 @@ function FeaturedEvents() {
                 data-bs-interval="4500"
                 key={first?.id}
               >
-                {/* <Link to={`/events/${first?.id}`}> */}
-                <img
-                  className="d-block w-100"
-                  // style={{ width: "300px", height: "600px", padding: "10px" }}
-                  src={first?.image}
-                  alt="..."
-                />
-                {/* </Link> */}
+                <img className="d-block w-100" src={first?.image} alt="..." />
+
                 <div class="carousel-caption d-none d-md-block">
                   <h5>{first?.title}</h5>
                   <p>
@@ -63,31 +53,11 @@ function FeaturedEvents() {
                     - {moment(first?.end).format("dddd, MMMM Do YYYY, h:mm a")}
                   </p>
                 </div>
-                {/* <div align="center">
-              <h3 className="underline">{first?.title}</h3>
-              <h4>
-                {moment(first?.start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
-                {moment(first?.end).format("dddd, MMMM Do YYYY, h:mm a")}
-              </h4>
-            </div> */}
               </div>
               {exclude1?.map(({ id, image, title, start, end }) => (
                 <div key={id} className="carousel-item" data-bs-interval="4500">
-                  {/* <Link to={`/events/${id}`}> */}
-                  <img
-                    // style={{ width: "300px", height: "600px", padding: "10px" }}
-                    className="d-block w-100"
-                    src={image}
-                    alt="..."
-                  />
-                  {/* </Link> */}
-                  {/* <div align="center">
-                <h3 className="underline">{title} </h3>
-                <h4>
-                  {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
-                  {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
-                </h4>
-              </div> */}
+                  <img className="d-block w-100" src={image} alt="..." />
+
                   <div class="carousel-caption d-none d-md-block">
                     <h5>{title}</h5>
                     <p>
