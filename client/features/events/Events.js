@@ -53,7 +53,7 @@ export default function Events() {
             src={image}
             style={{ width: "800px", height: "500px", cursor: "pointer" }}
             onClick={() => navigate(`/events/${id}`)}
-            alt="images of events"
+            alt={`image of ${title}`}
           />
           <h3 className="underline">{title}</h3>
           {/* {isLoggedIn ? (

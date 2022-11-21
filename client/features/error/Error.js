@@ -12,6 +12,7 @@ export default function Error() {
             src={
               "https://t4.ftcdn.net/jpg/04/72/82/55/360_F_472825540_Wnx8f2eqPcZjnAgyZ5Rp6RFCUZt0niF6.jpg"
             }
+            alt={'Something went wrong, but enjoy this picture of a festive horse.'}
             className="error-img"
           />
           <h1>HEEE-HAWWW!</h1>

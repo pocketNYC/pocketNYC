@@ -45,6 +45,7 @@ function LoggedInUserFeed({ interests, borough }) {
                 <img
                   src={image}
                   style={{ width: "500px", height: "300px" }}
+                  alt={`image of ${title}`}
                   onClick={() => navigate(`/events/${id}`)}
                 />
               </Link>
