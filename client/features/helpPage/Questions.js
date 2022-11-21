@@ -107,7 +107,7 @@ function Questions() {
         >
           <div className="accordion-body">
             Of course! You can always submit an event{" "}
-            <Link to="/events/add">here</Link> or click the plus sign ('+')
+            <Link to="/add">here</Link> or click the plus sign ('+')
             towards the bottom of the screen. Please be advised that you{" "}
             <strong> must have an account</strong> to submit an event.
           </div>
