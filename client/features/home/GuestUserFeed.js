@@ -47,6 +47,7 @@ function GuestUserFeed() {
             <Link to={`/events/${id}`}>
               <img
                 src={image}
+                alt={`image of ${title}`}
                 style={{ width: "600px", height: "300px" }}
                 onClick={() => navigate(`/events/${id}`)}
               />

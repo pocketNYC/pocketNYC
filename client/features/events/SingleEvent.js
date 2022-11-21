@@ -74,7 +74,7 @@ function SingleEvent() {
 
   return (
     <div align="center">
-      <img src={image} style={{ width: "800px", height: "500px" }} />
+      <img src={image} style={{ width: "800px", height: "500px" }} alt={description}/>
       <h3 className="underline">{title}</h3>
       {isLoggedIn ? (
         <>

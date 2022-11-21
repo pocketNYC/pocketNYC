@@ -50,7 +50,7 @@ const SingleResource = () => {
   return (
     <div>
       <h1>{name}</h1>
-      <img src={imageUrl} style={{ height: "200px", width: "300px" }} />
+      <img src={imageUrl} style={{ height: "200px", width: "300px" }} alt={`image of ${name}`} />
       {isItInMyFavs.length ? (
         <Button
           variant="outlined"

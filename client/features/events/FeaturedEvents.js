@@ -47,7 +47,7 @@ function FeaturedEvents() {
               className="d-block w-100"
               style={{ width: "200px", height: "600px", padding: "10px" }}
               src={first?.image}
-              alt="..."
+              alt={`image of ${first?.title}`}
             />
             <div align="center">
               <h3 className="underline">{first?.title}</h3>
@@ -62,7 +62,7 @@ function FeaturedEvents() {
                 style={{ width: "200px", height: "600px", padding: "10px" }}
                 className="d-block w-100"
                 src={image}
-                alt="..."
+                alt={`image of ${title}`}
               />
               <div align="center">
                 <h3 className="underline">{title} </h3>

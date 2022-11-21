@@ -37,7 +37,7 @@ const ResourceCategory = () => {
         .map(({ id, name, imageUrl, description, address, hyperlink, tag }) => {
           return (
             <div key={id} style={{ padding: "10px" }}>
-              <img src={imageUrl} style={{ width: "700px", height: "500px" }} />
+              <img src={imageUrl} alt={`image of ${name}`} style={{ width: "700px", height: "500px" }} />
               <h3>
                 {name} &nbsp;
                 {isLoggedIn ? (
