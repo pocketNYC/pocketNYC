@@ -2,7 +2,7 @@ const resources = [
   {
     name: "St. Mary's Hospital for Children",
     description: "Traumatic brain injury and coma recovery",
-    imageUrl: "https://i.imgur.com/jWoI5bI.png",
+    imageUrl: "https://media.istockphoto.com/id/1215582607/vector/parents-visit-sick-son-in-bed-at-hospital-ward.jpg?s=612x612&w=0&k=20&c=iwCt-j9oYFMLSf9kGGA4KyFP7ilYDjZ213gmwlNBuOQ=",
     address: "2601 216th Street, Bayside, NY",
     borough: ["Queens"],
     tag: ["health"],
@@ -48,7 +48,7 @@ const resources = [
     name: "Spanish Speaking Elderly Council RAICES Inc.",
     description:
       "RAICES was founded in 1978 by retired Hispanic older adults who saw the need for an organization which would provide services, educate and organize the Latino, minority and low-income aging community in the boroughugh of Brooklyn.",
-    imageUrl: "https://i.imgur.com/jWoI5bI.png",
+    imageUrl: "https://i.pinimg.com/originals/47/d4/40/47d440bbc3a8057074e1553e522e3ef0.png",
     address: "420 Baltic St, Brooklyn, NY 11217",
     borough: ["Brooklyn"],
     tag: ["seniors", "education"],
@@ -57,20 +57,24 @@ const resources = [
     longitude: "-73.9890473043",
   },
   {
-    name: "ICD- International Center for the Disabled",
+    name: "ICD - International Center for the Disabled",
     description:
       "ICD is a not-for-profit workforce development organization based in New York City. Our mission is to help people transform their lives through career development and employment.",
-    imageUrl: "https://i.imgur.com/YfrinD9.png",
+    imageUrl:
+      "https://media.istockphoto.com/id/1298415912/vector/group-diverse-of-people-with-disabilities-work-together-in-office-disabled-different-people.jpg?s=612x612&w=0&k=20&c=mUql1CSbWa4uE5HwKn_5gwMa3syPmgzMhVgt611h_ZM=",
     address: "123 William St #5, New York, NY 10038",
     borough: ["Manhattan"],
     tag: ["employment", "education", "finance", "disability services"],
     hyperlink: "https://www.icdnyc.org/about",
+    latitude: 40.70802130774009,
+    longitude: -74.0077641630858,
   },
   {
     name: "Bottomless Closet",
     description:
       "The mission of Bottomless Closet is to promote economic self sufficiency by providing interview skills, business clothing, and ongoing career development and support programs to economically disadvantaged New York City women. By enhancing their self-confidence and self-esteem, we enable them to enter and succeed in the workforce and transform the vision for their lives.",
-    imageUrl: "https://i.imgur.com/FW2Spsj.png",
+    imageUrl:
+      "https://news.cgtn.com/news/2020-10-10/China-to-boost-employment-with-multi-pronged-measures-Ut5aNsEZAQ/img/21c47235c71c4476ae4454011829e9de/21c47235c71c4476ae4454011829e9de.jpeg",
     address: "15 Penn Plaza, Level B, Suite 40, New York, NY 10001",
     borough: ["Manhattan"],
     tag: ["clothes", "employment"],
@@ -82,7 +86,7 @@ const resources = [
     name: "VHA New York Harbor Healthcare-Brooklyn Campus",
     description:
       "Veterans hospital providing inpatient/outpatient care including mental health and social services.",
-    imageUrl: "https://i.imgur.com/Tfdznnx.png",
+    imageUrl: "https://media.istockphoto.com/id/1306535183/vector/male-nurse-and-veteran-soldier-in-military-uniform-on-a-wheelchair.jpg?s=612x612&w=0&k=20&c=h6J3nFT3Tql1-0T4E_2l487uR3YsTYuuXOBi4u0uKnY=",
     address: "800 Poly Place, Brooklyn, NY 11209",
     borough: ["Brooklyn"],
     tag: ["city services", "health"],
@@ -118,7 +122,7 @@ const resources = [
     name: "Legal Services NYC",
     description:
       "Provides free civil legal services, with a focus on cases involving housing, family, domestic violence, public benefits, income tax, employment, education, consumer rights, economic development, AIDS/HIV and elderly citizens facing eviction and unsafe living conditions. Offices in every boroughugh of NYC.",
-    imageUrl: "https://i.imgur.com/FW2Spsj.png",
+    imageUrl: "https://www.pngitem.com/pimgs/m/54-548394_lawyers-lawyer-png-clipart-transparent-png.png",
     address: "40 Worth Street, Suite 606, New York, NY 10013",
     borough: ["Manhattan"],
     tag: ["finance", "city services"],
@@ -129,7 +133,8 @@ const resources = [
   {
     name: "Food Bank For New York City",
     description: "Website contains information about food programs in NYC.",
-    imageUrl: "https://i.imgur.com/Tfdznnx.png",
+    imageUrl:
+      "https://cdn.dribbble.com/users/2390791/screenshots/6889596/1_3_.jpg",
     address: "39 Broadway, 10th Floor, New York, NY, 10006",
     borough: ["Manhattan", "Queens", "Brooklyn", "Bronx", "Staten Island"],
     tag: ["food", "city services"],
@@ -151,7 +156,7 @@ const resources = [
     name: "Immigration Advocacy Services, Inc.",
     description:
       "Outreach service that provides assistance with immigration procedures, computer filings, certification, translation and notarization of documents and citizenship drives; anti-fraud help; information about new laws; immigration legal services and fingerprinting.",
-    imageUrl: "https://i.imgur.com/YfrinD9.png",
+    imageUrl: "https://img.freepik.com/free-vector/immigrants-queueing-registration_74855-17065.jpg?w=2000",
     address: "36-16 Astoria Blvd S, Astoria, NY 11103",
     borough: ["Queens"],
     tag: ["city services", "finance"],
@@ -230,7 +235,8 @@ const resources = [
     name: "Murray Hill Neighborhood Association",
     description:
       "The mission of The Murray Hill Neighborhood Association is to continue to make Murray Hill a highly desirable place to live, work and visit. We do this through programs to preserve the neighborhood's historic character, greening and beautification, liaising with local government officials about quality of life issues, providing information about the neighborhood to members, and social events.",
-    imageUrl: "https://i.imgur.com/jWoI5bI.png",
+    imageUrl:
+      "https://img.freepik.com/free-vector/illustration-hands-holding-junk-food_53876-26715.jpg?w=2000",
     address: "15020 Barclay Ave, Queens, NY 11355",
     borough: ["Queens"],
     tag: ["food"],
@@ -280,7 +286,7 @@ const resources = [
     name: "OnTrackNY",
     description:
       "OnTrackNY is a mental health treatment program that empowers young people to make meaning of their experiences and to pursue their goals for school, work, and relationships. We support the well-being of young people across New York State who are impacted by unexpected changes in their thinking and perceptions. Equity, inclusion, rapid access, and self-determination are at the core of everything we do.",
-    imageUrl: "https://i.imgur.com/jWoI5bI.png",
+    imageUrl: "https://media.istockphoto.com/id/1270641282/vector/mental-health-or-psychology-concept-with-flowering-human-head.jpg?s=612x612&w=0&k=20&c=-ZycQUvWskTvH_BoF1LoGJ3XpfrN7jVs8Nu3-NHjDZE=",
     address: "1051 Riverside Dr, New York, NY 10032",
     borough: ["Manhattan"],
     tag: ["food", "health"],
@@ -334,7 +340,7 @@ const resources = [
     name: "The Door",
     description:
       "The Door’s mission is to empower young people to reach their potential by providing comprehensive youth development services in a diverse and caring environment.",
-    imageUrl: "https://i.imgur.com/YfrinD9.png",
+    imageUrl: "https://img.freepik.com/free-vector/international-group-young-happy-children-concept-kids-holiday-cute-cartoon-characters_71593-949.jpg?w=2000",
     address: "Online",
     borough: ["Manhattan", "Queens", "Brooklyn", "Bronx", "Staten Island"],
     tag: ["education", "city services"],
@@ -351,6 +357,104 @@ const resources = [
     hyperlink: "https://unionhealthcenter.org/",
     latitude: "40.746295205990876",
     longitude: "-73.99402254232842",
+  },
+  {
+    name: "Crown Heights STD Clinic",
+    description:
+      "Clinic offering free and low-cost STD testing and other medical services.",
+    address: "1218 Prospect Place, 1st Floor, Brooklyn, NY 11213",
+    borough: ["Brooklyn"],
+    latitude: 40.67348409656334,
+    longitude: -73.93592094872969,
+    imageUrl:
+      "https://media.istockphoto.com/id/1268743281/vector/school-sexuality-education-program-schools-lesson-on-safe-sex-teens.jpg?s=612x612&w=0&k=20&c=B-cj3ACV7KkURu3noTCxSu9a5j36LNdcXdZl_9q7wk0=",
+    tag: ["health", "city-services"],
+    hyperlink:
+      "https://www.nyc.gov/site/doh/services/sexual-health-clinics.page",
+  },
+  {
+    name: "Central Harlem STD Clinic",
+    description:
+      "Clinic offering free and low-cost STD testing and other medical services.",
+    address: "2238 5th Avenue, 1st Floor, Brooklyn, NY 10037",
+    borough: ["Manhattan"],
+    latitude: 40.81401625864816,
+    longitude: -73.9370823587415,
+    imageUrl:
+      "https://www.prioritystdtesting.com/wp-content/uploads/2021/01/prio_accuracy-blog_cover-03-1024x546.jpg",
+    tag: ["health", "city-services"],
+    hyperlink:
+      "https://www.nyc.gov/site/doh/services/sexual-health-clinics.page",
+  },
+  {
+    name: "Corona STD Clinic",
+    description:
+      "Clinic offering free and low-cost STD testing and other medical services.",
+    address: "34-33 Junction Boulevard, Jackson Heights, NY, 11372",
+    borough: ["Queens"],
+    latitude: 40.75440907899731,
+    longitude: -73.87199685874401,
+    imageUrl:
+      "https://www.prioritylabtesting.com/wp-content/uploads/2021/06/hero-illustration_STD-Testing.png",
+    tag: ["health", "city-services"],
+    hyperlink:
+      "https://www.nyc.gov/site/doh/services/sexual-health-clinics.page",
+  },
+  {
+    name: "Manhattanville Renaissance STD Clinic",
+    description:
+      "Clinic offering free and low-cost STD testing and other medical services.",
+    address: "21 Old Broadway, 2nd Floor, New York, NY 10027",
+    borough: ["Manhattan"],
+    latitude: 40.81573783150304,
+    longitude: -73.95667903175362,
+    imageUrl:
+      "https://images.ctfassets.net/982hy6slwllg/22Uh7ifR3JrBJ7p79G7foD/3ade225d089ad9fa36f99ba60852805e/company-14159015000-photoURL-ef139c7f-4f42-40c4-a2b0-760b998275e9.png",
+    tag: ["health", "city-services"],
+    hyperlink:
+      "https://www.nyc.gov/site/doh/services/sexual-health-clinics.page",
+  },
+  {
+    name: "Fort Greene STD Clinic",
+    description:
+      "Clinic offering free and low-cost STD testing and other medical services.",
+    address: "295 Flatbush Avenue Extension, 2nd Floor, Brooklyn, NY 11201",
+    borough: ["Brooklyn"],
+    latitude: 40.691855463118834,
+    longitude: -73.98197308758192,
+    imageUrl:
+      "https://images.ctfassets.net/982hy6slwllg/22Uh7ifR3JrBJ7p79G7foD/3ade225d089ad9fa36f99ba60852805e/company-14159015000-photoURL-ef139c7f-4f42-40c4-a2b0-760b998275e9.png",
+    tag: ["health", "city-services"],
+    hyperlink:
+      "https://www.nyc.gov/site/doh/services/sexual-health-clinics.page",
+  },
+  {
+    name: "Jamaica STD Clinic",
+    description:
+      "Clinic offering free and low-cost STD testing and other medical services.",
+    address: "90-37 Parsons Blvd 1st Floor, Jamaica, NY 11432",
+    borough: ["Queens"],
+    latitude: 40.70415078068194,
+    longitude: -73.80028246059362,
+    imageUrl:
+      "https://www.prioritystdtesting.com/wp-content/uploads/2020/06/prio_blog_stdTesting-before-sex_061820-768x424.jpg",
+    tag: ["health", "city-services"],
+    hyperlink:
+      "https://www.nyc.gov/site/doh/services/sexual-health-clinics.page",
+  },
+  {
+    name: "Morrisania STD Clinic",
+    description:
+      "Clinic offering free and low-cost STD testing and other medical services.",
+    address: "1309 Fulton Ave 2nd floor, The Bronx, NY 10456",
+    borough: ["Bronx"],
+    latitude: 40.83286997945421,
+    longitude: -73.90328351641145,
+    imageUrl:
+      "https://www.ntdaily.com/wp-uploads/2019/04/1-1024x570.png",
+    tag: ["health", "city-services"],
+    hyperlink:
+      "https://www.nyc.gov/site/doh/services/sexual-health-clinics.page",
   },
 ];
 
