@@ -57,7 +57,7 @@ const resources = [
     longitude: "-73.9890473043",
   },
   {
-    name: "ICD- International Center for the Disabled",
+    name: "ICD - International Center for the Disabled",
     description:
       "ICD is a not-for-profit workforce development organization based in New York City. Our mission is to help people transform their lives through career development and employment.",
     imageUrl: "https://i.imgur.com/YfrinD9.png",
@@ -65,6 +65,8 @@ const resources = [
     borough: ["Manhattan"],
     tag: ["employment", "education", "finance", "disability services"],
     hyperlink: "https://www.icdnyc.org/about",
+    latitude:40.70802130774009, 
+    longitude: -74.0077641630858
   },
   {
     name: "Bottomless Closet",
