@@ -23,11 +23,11 @@ export default function TopNav() {
             </a>
           </MDBNavbarBrand>
 
-          {isLoggedIn ? (
+          {isLoggedIn && (
             <MDBNavbarBrand href="/calendar">
               <CalendarMonthIcon />
             </MDBNavbarBrand>
-          ) : null}
+          )}
 
           <MDBNavbarBrand href="/faq">
             <HelpIcon />
