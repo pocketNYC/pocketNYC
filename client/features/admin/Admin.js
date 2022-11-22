@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import {
   approveEvent,
   rejectEvent,
-  fetchAllEvents,
+  fetchAllPendingEvents,
 } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { IconButton } from "@mui/material";
@@ -16,30 +16,20 @@ function Admin() {
   const events = useSelector((state) => state.events.events);
 
   useEffect(() => {
-    dispatch(fetchAllEvents());
+    dispatch(fetchAllPendingEvents());
   }, [dispatch]);
-
-  const sortedPendingEvents = [...events]
-    .sort((a, b) => {
-      return new Date(a.start) - new Date(b.start);
-    })
-    .filter((event) => {
-      if (event.status === "pending") {
-        return event;
-      }
-    });
 
   const approveEventBtn = (ev, id) => {
     ev.preventDefault();
-    dispatch(approveEvent(id, status)).then(() => {
-      dispatch(fetchAllEvents());
+    dispatch(approveEvent(id)).then(() => {
+      dispatch(fetchAllPendingEvents());
     });
   };
 
   const rejectEventBtn = (ev, id) => {
     ev.preventDefault();
-    dispatch(rejectEvent(id, status)).then(() => {
-      dispatch(fetchAllEvents());
+    dispatch(rejectEvent(id)).then(() => {
+      dispatch(fetchAllPendingEvents());
     });
   };
 
@@ -57,8 +47,8 @@ function Admin() {
                 <th scope="col">Reject</th>
               </tr>
             </thead>
-            {sortedPendingEvents.length ? (
-              sortedPendingEvents.map(({ title, id, start }) => {
+            {events.length ? (
+              events.map(({ title, id, start }) => {
                 return (
                   <tbody key={id}>
                     <tr>

@@ -22,15 +22,13 @@ function LoggedInUserFeed({ interests, borough }) {
       if (event.status === "approved" && event.borough === borough) {
         return event;
       }
-    });
-
-  const filteredByInterest = sortedApprovedEvents
+    })
     .filter((event) => {
       for (let i = 0; i < event.tag.length; i++) {
-        let tag = event.tag[i];
+        let singleTag = event.tag[i];
 
-        if (tag !== "holidays") {
-          if (interests.includes(tag)) {
+        if (!event.tag.includes("holidays")) {
+          if (interests.includes(singleTag)) {
             return event;
           }
         }
@@ -45,8 +43,8 @@ function LoggedInUserFeed({ interests, borough }) {
 
   return (
     <div>
-      {filteredByInterest.length ? (
-        filteredByInterest?.map(({ id, image, title, description }) => (
+      {sortedApprovedEvents.length ? (
+        sortedApprovedEvents?.map(({ id, image, title, description }) => (
           <div className="card" key={id}>
             <div className="row g-2">
               <div className="col-md-6 mb-2">
@@ -58,7 +56,7 @@ function LoggedInUserFeed({ interests, borough }) {
                     src={image}
                     className="img-fluid rounded-start"
                     alt={`image of ${title}`}
-                  style={{ height: "400px", width: "600px" }}
+                    style={{ height: "400px", width: "600px" }}
                   />
                   <a>
                     <div

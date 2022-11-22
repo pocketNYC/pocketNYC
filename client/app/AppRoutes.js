@@ -60,10 +60,7 @@ const AppRoutes = () => {
             element={<EditUserProfile user={user} />}
           />
           <Route path={`/users/${userId}/favorites`} element={<Favorites />} />
-          <Route
-            path={`/users/${userId}/favorites/:id`}
-            element={<SingleResource />}
-          />
+          <Route path={`/r/:id`} element={<SingleResource />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/map" element={<Map />} />
           {isAdmin && (

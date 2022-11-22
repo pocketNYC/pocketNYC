@@ -60,9 +60,7 @@ const Favorites = () => {
           ? favResources?.map(({ resource }) => {
               return (
                 <li key={resource.id}>
-                  <Link to={`/users/${userId}/favorites/${resource.id}`}>
-                    {resource.name}
-                  </Link>
+                  <Link to={`/r/${resource.id}`}>{resource.name}</Link>
                   &nbsp;
                   <IconButton
                     onClick={(ev) => {
@@ -95,7 +93,8 @@ const Favorites = () => {
                   </IconButton>
                   <ul>
                     <li>
-                    {moment(event.start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(event.end).format("dddd, MMMM Do YYYY, h:mm a")}
+                      {moment(event.start).format("dddd, MMMM Do YYYY, h:mm a")}{" "}
+                      - {moment(event.end).format("dddd, MMMM Do YYYY, h:mm a")}
                     </li>
                     <li>
                       <Link to={`/events/${event.id}`}>More Details</Link>
