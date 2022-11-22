@@ -7,8 +7,7 @@ const Resource = db.define("resources", {
     allowNull: false,
   },
   description: {
-    type: DataTypes.TEXT,
-    // allowNull: false,
+    type: DataTypes.TEXT
   },
   imageUrl: {
     type: DataTypes.STRING,
@@ -20,11 +19,9 @@ const Resource = db.define("resources", {
   },
   borough: {
     type: DataTypes.ARRAY(DataTypes.STRING),
-    // allowNull: false,
   },
   tag: {
     type: DataTypes.ARRAY(DataTypes.STRING),
-    // allowNull: false,
   },
   hyperlink: {
     type: DataTypes.STRING,

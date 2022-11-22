@@ -29,7 +29,7 @@ export default function AccountMenu() {
     navigate("/home");
   };
   return (
-    <>
+    <div>
       <IconButton
         onClick={(evt) => setAnchorEl(evt.currentTarget)}
         size="small"
@@ -41,7 +41,7 @@ export default function AccountMenu() {
         <AccountBoxIcon />
       </IconButton>
       <Menu
-        anchor={anchorEl}
+        anchorEl={anchorEl}
         name="accountMenu"
         open={open}
         onClose={() => setAnchorEl(null)}
@@ -76,7 +76,7 @@ export default function AccountMenu() {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         {isLoggedIn ? (
-          <>
+          <div>
             <MenuItem>
               <Avatar />
               <Link to={`/users/${userId}`}>Profile</Link>
@@ -87,7 +87,7 @@ export default function AccountMenu() {
             </MenuItem>
 
             {isAdmin ? (
-              <>
+              <div>
                 <MenuItem>
                   <PeopleAltIcon />
                   <Link to={`/users`}>Users</Link>
@@ -96,7 +96,7 @@ export default function AccountMenu() {
                   <BallotIcon />
                   <Link to={`/admin`}>Events</Link>
                 </MenuItem>
-              </>
+              </div>
             ) : null}
 
             <MenuItem onClick={logoutAndRedirectHome}>
@@ -105,9 +105,9 @@ export default function AccountMenu() {
               </ListItemIcon>
               <Link to={"/home"}>Logout</Link>
             </MenuItem>
-          </>
+          </div>
         ) : (
-          <>
+          <div>
             <MenuItem>
               <LoginIcon />
               <Link to={"/login"}>Login</Link>
@@ -116,9 +116,9 @@ export default function AccountMenu() {
               <EnhancedEncryptionIcon />
               <Link to={"/signup"}>Sign Up</Link>
             </MenuItem>
-          </>
+          </div>
         )}
       </Menu>
-    </>
+    </div>
   );
 }

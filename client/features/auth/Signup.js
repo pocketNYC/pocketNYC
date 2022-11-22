@@ -10,7 +10,7 @@ import { authenticate } from "../../app/store";
 
 function Signup({ displayName, name }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
 
@@ -43,7 +43,6 @@ function Signup({ displayName, name }) {
       })
     );
     setValidated(true);
-    // navigate('/')
   };
 
   return (

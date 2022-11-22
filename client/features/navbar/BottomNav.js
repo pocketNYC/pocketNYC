@@ -8,7 +8,7 @@ import AccountMenu from "./AccountMenu";
 
 export default function BottomNav() {
   return (
-    <>
+    <div>
       <MDBNavbar fixed="bottom" light bgColor="light">
         <MDBContainer fluid>
           <MDBNavbarBrand href="/" label="Home">
@@ -32,6 +32,6 @@ export default function BottomNav() {
           </MDBNavbarBrand>
         </MDBContainer>
       </MDBNavbar>
-    </>
+    </div>
   );
 }
