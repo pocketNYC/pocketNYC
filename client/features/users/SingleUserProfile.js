@@ -16,7 +16,6 @@ function SingleUserProfile({ user }) {
   const { firstName, lastName, email, interests, borough, id } = user;
 
   useEffect(() => {
-    dispatch(fetchSingleUser(userId));
     dispatch(fetchFavoriteEvents());
     dispatch(fetchFavoriteResources());
     dispatch(fetchAllEvents());

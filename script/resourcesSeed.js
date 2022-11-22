@@ -76,7 +76,7 @@ const resources = [
     description:
       "The mission of Bottomless Closet is to promote economic self sufficiency by providing interview skills, business clothing, and ongoing career development and support programs to economically disadvantaged New York City women. By enhancing their self-confidence and self-esteem, we enable them to enter and succeed in the workforce and transform the vision for their lives.",
     imageUrl:
-      "https://news.cgtn.com/news/2020-10-10/China-to-boost-employment-with-multi-pronged-measures-Ut5aNsEZAQ/img/21c47235c71c4476ae4454011829e9de/21c47235c71c4476ae4454011829e9de.jpeg",
+      "https://media.istockphoto.com/vectors/charity-volunteering-and-donating-concept-raised-up-human-hands-with-vector-id1188864563?b=1&k=20&m=1188864563&s=170667a&w=0&h=q55g4ZYOmdJlAeFuau_ZAJwmNeE9CXu6VbTk9uyPkS0=",
     address: "15 Penn Plaza, Level B, Suite 40, New York, NY 10001",
     borough: ["Manhattan"],
     tag: ["clothes", "employment"],

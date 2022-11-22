@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const {
-  models: { User },
+  models: { User, Event },
 } = require("../db");
 
 // GET api/users
@@ -28,7 +28,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//GET api/users/:userId
 router.get("/:userId", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.body.userId, {
@@ -55,8 +54,8 @@ router.get("/:userId", async (req, res, next) => {
 // PUT /api/users/:userId
 router.put("/:userId/", async (req, res, next) => {
   try {
-      const user = await User.findByPk(req.params.userId);
-      res.json(await user.update(req.body));
+    const user = await User.findByPk(req.params.userId);
+    res.json(await user.update(req.body));
   } catch (error) {
     next(error);
   }
