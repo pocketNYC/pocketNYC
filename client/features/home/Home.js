@@ -14,7 +14,6 @@ const Home = () => {
         {isLoggedIn ? (
           <>
             <FeaturedEvents />
-
             <div className="p-2"> </div>
             {id && <LoggedInUserFeed interests={interests} borough={borough} />}
           </>

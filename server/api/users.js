@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const {
-  models: { User },
+  models: { User, Event },
 } = require("../db");
 
 // GET api/users
@@ -28,23 +28,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/getNewlySubmittedEvent", async (req, res, next) => {
-  try {
-    const events = await Event.findAll({
-      where: {
-        status: "approved",
-        start: {
-          [Op.gt]: new Date(),
-        },
-      },
-      order: ["start"],
-    });
-    events ? res.json(events) : res.sendStatus(404);
-  } catch (error) {
-    next(error);
-  }
-});
-//GET api/users/:userId
 router.get("/:userId", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.body.userId, {

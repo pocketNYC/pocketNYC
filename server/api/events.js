@@ -15,6 +15,7 @@ router.get("/", async (req, res, next) => {
     next(error);
   }
 });
+
 //gets all approved events in ascending order [only if they take place after today's date]
 router.get("/sortedAscendingApproved", async (req, res, next) => {
   try {
@@ -33,45 +34,6 @@ router.get("/sortedAscendingApproved", async (req, res, next) => {
   }
 });
 
-// router.get("/getNewlySubmittedEvent", async (req, res, next) => {
-//   const userId = req.user;
-//   console.log(req.user);
-
-//   try {
-//     const events = await Event.findAll({
-//       where: [
-//         { userId: userId },
-//         { status: "pending" },
-//         // start: {
-//         //   [Op.gt]: new Date(),
-//         // },
-//       ],
-//       order: ["start"],
-//     });
-//     events ? res.json(events) : res.sendStatus(404);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
-// router.get("/featuredEvents", async (req, res, next) => {
-//   try {
-//     const events = await Event.findAll({
-//       where: {
-//         status: "approved",
-//         start: {
-//           [Op.gt]: new Date(),
-//         },
-//         tag: {
-//           [Op.substring]: ["holidays"],
-//         },
-//       },
-//       order: ["start"],
-//     });
-//     events ? res.json(events) : res.sendStatus(404);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
 
 //gets all pending events in ascending order
 router.get("/sortedAscendingPending", async (req, res, next) => {
@@ -87,6 +49,7 @@ router.get("/sortedAscendingPending", async (req, res, next) => {
     next(error);
   }
 });
+
 // GET /api/events/:id
 router.get("/:id", async (req, res, next) => {
   try {

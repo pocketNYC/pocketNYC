@@ -7,19 +7,6 @@ export const fetchAllEvents = createAsyncThunk("fetchAllEvents", async () => {
   return data;
 });
 
-// export const fetchNewlyCreatedEvent = createAsyncThunk(
-//   "fetchNewlyCreatedEvent",
-//   async () => {
-//     const token = window.localStorage.getItem(TOKEN);
-//     const { data } = await axios.get("/api/events/getNewlySubmittedEvent", {
-//       headers: {
-//         authorization: token,
-//       },
-//     });
-//     return data;
-//   }
-// );
-
 export const fetchAllApprovedEvents = createAsyncThunk(
   "fetchAllApprovedEvents",
   async () => {
@@ -112,9 +99,6 @@ export const eventsSlice = createSlice({
     builder.addCase(fetchAllEvents.fulfilled, (state, action) => {
       state.events = action.payload;
     });
-    // builder.addCase(fetchNewlyCreatedEvent.fulfilled, (state, action) => {
-    //   state.events = action.payload;
-    // });
     builder.addCase(fetchAllApprovedEvents.fulfilled, (state, action) => {
       state.events = action.payload;
     });
