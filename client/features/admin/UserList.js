@@ -1,4 +1,4 @@
-import React, {  useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllUsers } from "../users/userSlice";
 import Toggle from "react-toggle";
@@ -15,7 +15,7 @@ function UserList() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className>
       <h2 style={{ textAlign: "center" }}>Users Dashboard</h2>
       <UserTable />
     </div>

@@ -30,11 +30,11 @@ export default function Events() {
 
   return (
     <div className="container-fluid">
-      <h1 className="fw-light text-center text-lg-center"> All Events </h1>
+      <h1 className="fw-light text-center text-lg-center p-4"> All Events </h1>
       <div className="row row-cols-1 row-cols-md-2 g-4">
         {sortedApprovedEvents?.map(({ id, image, title, start, tag }) => (
           <div key={id}>
-            <div className="card text-center">
+            <div className="card text-center h-100">
               <img
                 className="card-img-top "
                 src={image}
