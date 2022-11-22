@@ -1,34 +1,27 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { logout } from "../auth/authSlice";
+import { useSelector } from "react-redux";
 import { MDBNavbar, MDBContainer, MDBNavbarBrand } from "mdb-react-ui-kit";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import HelpIcon from "@mui/icons-material/Help";
 
 export default function TopNav() {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const logoutAndRedirectHome = () => {
-    dispatch(logout());
-    navigate("/home");
-  };
   return (
-    <>
-      <MDBNavbar fixed="top" light bgColor="light">
-        <MDBContainer fluid>
-          <a className="navbar-brand" href="/">
-            <img
-              src="
+    <div>
+      <MDBNavbar light bgColor="light">
+        <MDBContainer fluid size="sm">
+          <MDBNavbarBrand href="/">
+            <a>
+              <img
+                src="
           https://i.imgur.com/0wLXpHh.png"
-              alt="PocketNYC logo"
-              width="65"
-              height="70"
-            />
-            PocketNYC
-          </a>
+                alt="PocketNYC logo"
+                width="65"
+                height="70"
+              />
+              PocketNYC
+            </a>
+          </MDBNavbarBrand>
 
           {isLoggedIn ? (
             <MDBNavbarBrand href="/calendar">
@@ -41,6 +34,6 @@ export default function TopNav() {
           </MDBNavbarBrand>
         </MDBContainer>
       </MDBNavbar>
-    </>
+    </div>
   );
 }

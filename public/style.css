@@ -71,34 +71,22 @@ Button.scroll  {
 margin-bottom: 10px;
 
 }
- /* .line2{
-  color:#000;
-  font-size:12px;
-  
-}
- .line3{
-  color:#000;
-  font-size:12px;
-  
-} */
 
 .cards{
 
   transition: all 0.2s ease;
   cursor: pointer;
-  
+
 
 }
-  
+
 
 
 .cards:hover{
-
-  /* box-shadow: 5px 6px 6px 2px #e9ecef; */
   transform: scale(1.1);
 }
 
-.react-calendar { 
+.react-calendar {
   width: 400px;
   max-width: 100%;
   background-color: #fff;
@@ -125,9 +113,7 @@ margin-bottom: 10px;
  abbr[title] {
   text-decoration: none;
  }
- /* .react-calendar__month-view__days__day--weekend {
-  color: #d10000;
- } */
+
  .react-calendar__tile:enabled:hover,
  .react-calendar__tile:enabled:focus {
   background: #f8f8fa;
