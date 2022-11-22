@@ -1,10 +1,40 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+const TOKEN = "token";
 
 export const fetchAllEvents = createAsyncThunk("fetchAllEvents", async () => {
   const { data } = await axios.get("/api/events");
   return data;
 });
+
+// export const fetchNewlyCreatedEvent = createAsyncThunk(
+//   "fetchNewlyCreatedEvent",
+//   async () => {
+//     const token = window.localStorage.getItem(TOKEN);
+//     const { data } = await axios.get("/api/events/getNewlySubmittedEvent", {
+//       headers: {
+//         authorization: token,
+//       },
+//     });
+//     return data;
+//   }
+// );
+
+export const fetchAllApprovedEvents = createAsyncThunk(
+  "fetchAllApprovedEvents",
+  async () => {
+    const { data } = await axios.get("/api/events/sortedAscendingApproved");
+    return data;
+  }
+);
+
+export const fetchAllPendingEvents = createAsyncThunk(
+  "fetchAllPendingEvents",
+  async () => {
+    const { data } = await axios.get("/api/events/sortedAscendingPending");
+    return data;
+  }
+);
 
 export const fetchSingleEvent = createAsyncThunk(
   "fetchSingleEvent",
@@ -80,6 +110,15 @@ export const eventsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAllEvents.fulfilled, (state, action) => {
+      state.events = action.payload;
+    });
+    // builder.addCase(fetchNewlyCreatedEvent.fulfilled, (state, action) => {
+    //   state.events = action.payload;
+    // });
+    builder.addCase(fetchAllApprovedEvents.fulfilled, (state, action) => {
+      state.events = action.payload;
+    });
+    builder.addCase(fetchAllPendingEvents.fulfilled, (state, action) => {
       state.events = action.payload;
     });
     builder.addCase(fetchSingleEvent.fulfilled, (state, action) => {

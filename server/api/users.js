@@ -28,6 +28,22 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/getNewlySubmittedEvent", async (req, res, next) => {
+  try {
+    const events = await Event.findAll({
+      where: {
+        status: "approved",
+        start: {
+          [Op.gt]: new Date(),
+        },
+      },
+      order: ["start"],
+    });
+    events ? res.json(events) : res.sendStatus(404);
+  } catch (error) {
+    next(error);
+  }
+});
 //GET api/users/:userId
 router.get("/:userId", async (req, res, next) => {
   try {
@@ -55,8 +71,8 @@ router.get("/:userId", async (req, res, next) => {
 // PUT /api/users/:userId
 router.put("/:userId/", async (req, res, next) => {
   try {
-      const user = await User.findByPk(req.params.userId);
-      res.json(await user.update(req.body));
+    const user = await User.findByPk(req.params.userId);
+    res.json(await user.update(req.body));
   } catch (error) {
     next(error);
   }

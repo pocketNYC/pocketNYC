@@ -9,6 +9,7 @@ function ConfirmationPage({ user }) {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events.events);
   const { firstName, id } = user;
+
   useEffect(() => {
     dispatch(fetchAllEvents());
   }, [dispatch]);

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
-import { fetchAllEvents } from "./eventsSlice";
+import { fetchAllApprovedEvents, fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
 import { Button, Tooltip } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -15,27 +15,16 @@ export default function Events() {
   const events = useSelector((state) => state.events.events);
 
   useEffect(() => {
-    dispatch(fetchAllEvents());
+    dispatch(fetchAllApprovedEvents());
     dispatch(me());
   }, []);
-
-  const sortedApprovedEvents = [...events]
-    .sort((a, b) => {
-      return new Date(a.start) - new Date(b.start);
-    })
-    .filter((event) => {
-      if (event.status === "approved") {
-        return event;
-      }
-    })
-    .filter((a) => new Date(a.start) - new Date() > 0);
 
   return (
     <div className="container-fluid">
       {isLoggedIn && <AddIcon />}
       <h1 className="fw-light text-center text-lg-center p-4"> All Events </h1>
       <div className="row row-cols-1 row-cols-md-2 g-4">
-        {sortedApprovedEvents?.map(({ id, image, title, start, tag }) => (
+        {events?.map(({ id, image, title, start, tag }) => (
           <div key={id}>
             <div className="card text-center h-100">
               <img
