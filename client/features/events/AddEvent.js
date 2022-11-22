@@ -8,7 +8,6 @@ import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import ConfirmationPage from "./ConfirmationPage";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
@@ -82,19 +81,17 @@ const AddEvent = () => {
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-6" controlId="start">
-          <Form.Label>Start:</Form.Label>
+          <Form.Label>Date:</Form.Label>
           <Form.Control required type="date" />
-          <Form.Control required type="time" />
           <Form.Control.Feedback type="invalid">
-            Please provide a starting date and time.
+            Please provide a starting date.
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-6" controlId="end">
-          <Form.Label>End:</Form.Label>
-          <Form.Control required type="date" />
+          <Form.Label>Time:</Form.Label>
           <Form.Control required type="time" />
           <Form.Control.Feedback type="invalid">
-            Please provide a ending date and time.
+            Please provide a ending time.
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-3" controlId="image">

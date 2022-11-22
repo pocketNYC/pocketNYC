@@ -81,8 +81,7 @@ function SingleEvent() {
           <div className="card-body" style={{ verticalAlign: "middle" }}>
             <h5 className="card-title"> {title}</h5>
             <p className="card-text ">
-              {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
-              {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
+              {moment(start).format("dddd, MMMM Do YYYY h:mm a")}
             </p>
             <p className="card-text">Address: {address}</p>
             <p className="card-text">About: {description}</p>

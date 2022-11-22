@@ -50,7 +50,7 @@ function Admin() {
       <>
         <ul>
           {sortedPendingEvents.length
-            ? sortedPendingEvents.map(({ title, id, start, end }) => {
+            ? sortedPendingEvents.map(({ title, id, start }) => {
                 return (
                   <li key={id}>
                     <strong>
@@ -64,7 +64,7 @@ function Admin() {
                     </strong>
                     <br />
                     <strong>
-                      Date: {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
+                      Date: {moment(start).format("dddd, MMMM Do YYYY h:mm a")}
                     </strong>
                   </li>
                 );
