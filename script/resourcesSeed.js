@@ -1,4 +1,4 @@
-const resources = [
+[
   {
     name: "St. Mary's Hospital for Children",
     description: "Traumatic brain injury and coma recovery",
@@ -464,5 +464,3 @@ const resources = [
       "https://www.nyc.gov/site/doh/services/sexual-health-clinics.page",
   },
 ];
-
-module.exports = { resources };

@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { editUser } from "./userSlice";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
-import formInterest from "../auth/formInterest";
+import formInterest from "../forms/formInterest";
 import { Update } from "@mui/icons-material";
 
 function EditUserProfile({ user }) {

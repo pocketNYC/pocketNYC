@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { addEvent } from "./eventsSlice";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
-import formInterest from "../auth/formInterest";
+import formInterest from "../forms/formInterest";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 

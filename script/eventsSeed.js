@@ -1,4 +1,4 @@
-const events = [
+[
   {
     title: "Central Park Tour: Iconic Views of Central Park",
     address: "Central Park, NY",
@@ -419,6 +419,4 @@ const events = [
     latitude: 40.75790374285874,
     longitude: -73.97753608903936,
   },
-];
-
-module.exports = events;
+]

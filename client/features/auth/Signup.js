@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
-import formInterest from "./formInterest";
+import formInterest from "../forms/formInterest";
 import { authenticate } from "../../app/store";
 
 function Signup({ displayName, name }) {
@@ -88,13 +88,18 @@ function Signup({ displayName, name }) {
         <Form.Group className="mb-6" controlId="borough">
           <Form.Label>Borough</Form.Label>
           <Form.Select>
-            <option defaultValue>Select</option>
+            <option defaultValue invalid>
+              Select
+            </option>
             <option value="Bronx">Bronx</option>
             <option value="Brooklyn">Brooklyn</option>
             <option value="Queens">Queens</option>
             <option value="Manhattan">Manhattan</option>
             <option value="Staten Island">Staten Island</option>
           </Form.Select>
+          <Form.Control.Feedback type="invalid">
+            Please provide a borough.
+          </Form.Control.Feedback>
         </Form.Group>
         <br />
         <label htmlFor="interest" style={{ padding: "10px" }}>

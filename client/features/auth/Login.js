@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { authenticate } from "../../app/store";
+import FormContainer from "../forms/FormContainer";
 
 function Login({ name, displayName }) {
   const dispatch = useDispatch();
@@ -18,25 +19,32 @@ function Login({ name, displayName }) {
     setValidated(true);
   };
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit} name={name}>
-      <Form.Group className="mb-6" controlId="email">
-        <Form.Label>Email</Form.Label>
-        <Form.Control required type="text" placeholder="Enter Email" />
-        <Form.Control.Feedback type="invalid">
-          Please provide your email.
-        </Form.Control.Feedback>
-      </Form.Group>
-      <Form.Group className="mb-6" controlId="password">
-        <Form.Label>Password</Form.Label>
-        <Form.Control required type="password" placeholder="Enter Password" />
-        <Form.Control.Feedback type="invalid">
-          Please provide a password.
-        </Form.Control.Feedback>
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        {displayName}
-      </Button>
-    </Form>
+    <FormContainer>
+      <Form
+        noValidate
+        validated={validated}
+        onSubmit={handleSubmit}
+        name={name}
+      >
+        <Form.Group className="mb-6" controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control required type="text" placeholder="Enter Email" />
+          <Form.Control.Feedback type="invalid">
+            Please provide your email.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="mb-6" controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control required type="password" placeholder="Enter Password" />
+          <Form.Control.Feedback type="invalid">
+            Please provide a password.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          {displayName}
+        </Button>
+      </Form>
+    </FormContainer>
   );
 }
 
