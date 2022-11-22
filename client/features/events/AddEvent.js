@@ -81,7 +81,22 @@ const AddEvent = () => {
             Please provide an address.
           </Form.Control.Feedback>
         </Form.Group>
-        //DISREGARD START - END DATE AND TIME FIELDS FOR NOW. *IN PROGRESS*
+        <Form.Group className="mb-6" controlId="start">
+          <Form.Label>Start:</Form.Label>
+          <Form.Control required type="date" />
+          <Form.Control required type="time" />
+          <Form.Control.Feedback type="invalid">
+            Please provide a starting date and time.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="mb-6" controlId="end">
+          <Form.Label>End:</Form.Label>
+          <Form.Control required type="date" />
+          <Form.Control required type="time" />
+          <Form.Control.Feedback type="invalid">
+            Please provide a ending date and time.
+          </Form.Control.Feedback>
+        </Form.Group>
         <Form.Group className="mb-3" controlId="image">
           <Form.Label>Image</Form.Label>
           <Form.Control required type="text" placeholder="Enter Image URL" />
