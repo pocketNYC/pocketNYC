@@ -35,7 +35,7 @@ async function seed() {
   );
 
   const clothes = await axios.get(
-    "https://data.cityofnewyork.us/resource/ji82-xba5.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&$q=CLOTHES&$limit=7"
+    "https://data.cityofnewyork.us/resource/ji82-xba5.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&$q=TEXTILE&$limit=18"
   );
 
   const senior = await axios.get(
