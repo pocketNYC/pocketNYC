@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
-import { useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import AddIcon from "./AddIcon";
 
 export default function Events() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const events = useSelector((state) => state.events.events);
 
   useEffect(() => {
@@ -30,6 +32,7 @@ export default function Events() {
 
   return (
     <div className="container-fluid">
+      {isLoggedIn && <AddIcon />}
       <h1 className="fw-light text-center text-lg-center p-4"> All Events </h1>
       <div className="row row-cols-1 row-cols-md-2 g-4">
         {sortedApprovedEvents?.map(({ id, image, title, start, tag }) => (

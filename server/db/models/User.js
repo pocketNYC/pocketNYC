@@ -3,30 +3,35 @@ const db = require("../db");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-
-
 const SALT_ROUNDS = 5;
 
 const User = db.define("user", {
   firstName: {
     type: DataTypes.STRING,
-    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   lastName: {
     type: DataTypes.STRING,
-    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   email: {
     type: DataTypes.STRING,
-    allowNull: false,
     unique: true,
     validate: {
       isEmail: true,
+      notEmpty: true,
     },
   },
   password: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   interests: {
     type: DataTypes.ARRAY(DataTypes.STRING),
@@ -40,7 +45,9 @@ const User = db.define("user", {
       "Manhattan",
       "Staten Island"
     ),
-    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   isAdmin: {
     type: DataTypes.BOOLEAN,

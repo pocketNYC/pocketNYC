@@ -8,7 +8,6 @@ import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import ConfirmationPage from "./ConfirmationPage";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
@@ -81,7 +80,20 @@ const AddEvent = () => {
             Please provide an address.
           </Form.Control.Feedback>
         </Form.Group>
-        //DISREGARD START - END DATE AND TIME FIELDS FOR NOW. *IN PROGRESS*
+        <Form.Group className="mb-6" controlId="start">
+          <Form.Label>Date:</Form.Label>
+          <Form.Control required type="date" />
+          <Form.Control.Feedback type="invalid">
+            Please provide a starting date.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="mb-6" controlId="end">
+          <Form.Label>Time:</Form.Label>
+          <Form.Control required type="time" />
+          <Form.Control.Feedback type="invalid">
+            Please provide a ending time.
+          </Form.Control.Feedback>
+        </Form.Group>
         <Form.Group className="mb-3" controlId="image">
           <Form.Label>Image</Form.Label>
           <Form.Control required type="text" placeholder="Enter Image URL" />
