@@ -6,32 +6,31 @@ import MapIcon from "@mui/icons-material/Map";
 import HomeIcon from "@mui/icons-material/Home";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import InfoSharpIcon from "@mui/icons-material/InfoSharp";
+import AccountMenu from "./AccountMenu";
 
 export default function BottomNav() {
-  const userId = useSelector((state) => state.auth.me.id);
-
   return (
     <>
       <MDBNavbar fixed="bottom" light bgColor="light">
         <MDBContainer fluid>
-          <MDBNavbarBrand href="/">
+          <MDBNavbarBrand href="/" label="Home">
             <HomeIcon />
           </MDBNavbarBrand>
 
-          <MDBNavbarBrand href="/events">
+          <MDBNavbarBrand href="/events" label="Events">
             <EventAvailableIcon />
           </MDBNavbarBrand>
 
-          <MDBNavbarBrand href="/map">
+          <MDBNavbarBrand href="/map" label="Map">
             <MapIcon />
           </MDBNavbarBrand>
 
-          <MDBNavbarBrand href="/resources">
+          <MDBNavbarBrand href="/resources" label="Resources">
             <InfoSharpIcon />
           </MDBNavbarBrand>
 
-          <MDBNavbarBrand href={`/users/${userId}`}>
-            <AccountBoxIcon />
+          <MDBNavbarBrand label="User">
+            <AccountMenu />
           </MDBNavbarBrand>
         </MDBContainer>
       </MDBNavbar>
