@@ -12,7 +12,7 @@ function UserList() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className>
       <h2 style={{ textAlign: "center" }}>Users Dashboard</h2>
       <UserTable />
     </div>

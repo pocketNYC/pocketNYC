@@ -30,7 +30,7 @@ function FeaturedEvents() {
   }, [dispatch]);
 
   return (
-    <div className="row">
+    <div className="row ">
       <div className="col mx-auto">
         <div className="card text-center">
           <div

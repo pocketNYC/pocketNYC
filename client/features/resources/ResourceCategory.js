@@ -29,7 +29,7 @@ const ResourceCategory = () => {
 
   return (
     <div className="container-fluid">
-      <div className="row row-cols-1 row-cols-md-2 g-4">
+      <div className="row row-cols-1 row-cols-md-2 p-4 g-4">
         {resources
           .filter((resource) => resource.tag.includes(category))
           .map(
@@ -37,7 +37,11 @@ const ResourceCategory = () => {
               return (
                 <div key={id}>
                   <div className="card text-center h-100" key={id}>
-                    <img className="card-img-top fluid" src={imageUrl} alt={`image of ${name}`} />
+                    <img
+                      className="card-img-top fluid"
+                      src={imageUrl}
+                      alt={`image of ${name}`}
+                    />
                     <div className="card-body">
                       <h5 className="card-title">{name}</h5>
                       {isLoggedIn ? (
@@ -53,7 +57,7 @@ const ResourceCategory = () => {
                       <p className="card-text">About: {description}</p>
                       <p className="card-text">Address: {address}</p>
                       <a className="card-link" href={hyperlink} target="_blank">
-                        Click for more details
+                        Visit site for more details
                       </a>
                     </div>
                     <div className="card-footer">

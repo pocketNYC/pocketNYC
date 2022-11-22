@@ -251,7 +251,6 @@ const events = [
     longitude: -73.89626817708192,
   },
   {
-
     title: "Puerto Rican Day Parade",
     address: "598 5th Ave, New York, NY 10036",
     description:
@@ -273,7 +272,8 @@ const events = [
     description:
       "Kwanzaa Crawl® is a one-day event where people of the African diaspora join together to support Black-owned bars in their neighborhoods",
 
-    image: "https://www.essence.com/wp-content/uploads/2019/12/Kwanzaa-Crawl-1832x1374.jpg",
+    image:
+      "https://www.essence.com/wp-content/uploads/2019/12/Kwanzaa-Crawl-1832x1374.jpg",
     start: "2022-12-26 18:00",
     end: "2022-12-26 23:00",
     tag: ["multi-cultural", "holidays"],
@@ -319,7 +319,7 @@ const events = [
     longitude: -73.84941062842637,
   },
   {
-    title: "Roller-skating Lessons at Pier 2",
+    title: "Roller-Skating Lessons at Pier 2",
     address: "150 Furman St, Pier 2, Brooklyn, NY 11201",
     description:
       "Everyone is welcomed at this fun and immersive roller-skating class. All you need to bring is a positive attitude and willingness to learn... everything else will be provided.",
@@ -340,7 +340,8 @@ const events = [
     address: "485 Clawson St, Staten Island, NY 10306",
     description:
       "A day of learning the fundamentals of computer science for free. This event aims to introduce school-aged girls to the vast and ever growing world of tech",
-    image: "https://api.time.com/wp-content/uploads/2014/07/girls-who-code-tech-camp.jpg",
+    image:
+      "https://api.time.com/wp-content/uploads/2014/07/girls-who-code-tech-camp.jpg",
     start: "2022-02-26 11:00",
     end: "2022-02-26 13:30",
     tag: ["education"],
@@ -349,8 +350,8 @@ const events = [
     status: "approved",
     latitude: 40.574098173799875,
     longitude: -74.11939145168874,
-},
-{
+  },
+  {
     title: "Holiday Pictures With Santa in Brooklyn!",
     address: "Weylin, 175 Broadway Brooklyn, NY 11211",
     description:
