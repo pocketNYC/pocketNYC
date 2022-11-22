@@ -281,6 +281,9 @@ async function seed() {
   const clothesImages = [
     "https://thumbs.dreamstime.com/b/colored-clothes-apparel-hanging-hangers-garment-rack-rail-isolated-white-background-clothing-organization-storage-inner-120845037.jpg",
     "https://media.istockphoto.com/id/1223169039/vector/clothing-donation-box.jpg?s=612x612&w=0&k=20&c=iSWltxvBXcq4snbrCNaG3BbiRpr8Rc-bYXmPglwX59M=",
+    "https://t4.ftcdn.net/jpg/04/46/49/07/360_F_446490788_X2nf4OdVjq9casKZ83guVx0xq1uoNC5R.jpg",
+    "https://t3.ftcdn.net/jpg/05/25/44/42/360_F_525444283_Uag1V1BQOkKlYNt0bwos7B1Lh8msD5zj.jpg",
+    "https://img.freepik.com/free-vector/clothing-donation-concept-flat-hand-drawn_52683-55267.jpg?w=2000",
   ];
 
   const clothesFacilitiesSeed = await Promise.all(
@@ -322,6 +325,7 @@ async function seed() {
     "https://us.123rf.com/450wm/jeysent/jeysent1711/jeysent171100015/jeysent171100015.jpg?ver=6",
     "https://img.freepik.com/premium-vector/senior-people-couple-playing-chess-nursing-home_316839-3053.jpg",
     "https://img.freepik.com/free-vector/old-couple-bikes-park_74855-5905.jpg?w=2000",
+    "https://us.123rf.com/450wm/tartila/tartila1807/tartila180700162/tartila180700162.jpg?ver=6",
   ];
 
   const seniorFacilitySeed = await Promise.all(
@@ -423,6 +427,7 @@ async function seed() {
     "https://media.istockphoto.com/id/1214244666/vector/street-food-market-flat-vector-illustration.jpg?s=612x612&w=0&k=20&c=G8ZKGeAJqACG0BkcyYSlgSsOn2R4NUGgDHineqbk_E0=",
     "https://media.istockphoto.com/id/1299977349/vector/charity-donation-box-with-food-humanitarian-support-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=f34k_4gV46jC9KAwEIO5062mZ3ajckrbo8RkvLsfVt4=",
     "https://thumbs.dreamstime.com/b/food-clothes-donation-vector-flat-illustration-social-care-charity-concept-volunteer-collect-donations-people-boxes-145047407.jpg",
+    "https://thumbs.dreamstime.com/b/group-volunteers-carry-hands-cardboard-boxes-donations-full-food-drinks-center-social-support-assistance-to-poor-198800199.jpg",
   ];
 
   const foodFacilitiesSeed = await Promise.all(
