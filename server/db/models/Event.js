@@ -4,35 +4,45 @@ const db = require("../db");
 const Event = db.define("event", {
   title: {
     type: Sequelize.STRING,
-    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   description: {
     type: Sequelize.TEXT,
-    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   address: {
     type: Sequelize.TEXT,
-    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   image: {
     type: Sequelize.TEXT,
-    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   start: {
     type: Sequelize.STRING,
-    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   end: {
     type: Sequelize.STRING,
-    allowNull: false,
-  },
-  end: {
-    type: Sequelize.STRING,
-    // allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   tag: {
     type: Sequelize.ARRAY(Sequelize.STRING),
-    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   borough: {
     type: Sequelize.ENUM(
@@ -42,7 +52,9 @@ const Event = db.define("event", {
       "Manhattan",
       "Staten-Island"
     ),
-    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   eventLink: {
     type: Sequelize.STRING,

@@ -43,7 +43,7 @@ function Signup({ displayName, name }) {
       })
     );
     setValidated(true);
-    navigate('/')
+    // navigate('/')
   };
 
   return (

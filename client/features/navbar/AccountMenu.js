@@ -15,8 +15,8 @@ export default function AccountMenu() {
   const userId = useSelector((state) => state.auth.me.id);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
-  const [anchor, setAnchor] = useState(null);
-  const open = Boolean(anchor);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ export default function AccountMenu() {
   return (
     <>
       <IconButton
-        onClick={(evt) => setAnchor(evt.currentTarget)}
+        onClick={(evt) => setAnchorEl(evt.currentTarget)}
         size="small"
         sx={{ ml: 2 }}
         aria-controls={open ? "accountMenu" : undefined}
@@ -37,11 +37,11 @@ export default function AccountMenu() {
         <AccountBoxIcon />
       </IconButton>
       <Menu
-        anchor={anchor}
+        anchor={anchorEl}
         name="accountMenu"
         open={open}
-        onClose={() => setAnchor(null)}
-        onClick={() => setAnchor(null)}
+        onClose={() => setAnchorEl(null)}
+        onClick={() => setAnchorEl(null)}
         PaperProps={{
           elevation: 0,
           sx: {
