@@ -18,7 +18,7 @@ const SingleResource = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const favResources = useSelector(selectFavoriteResources);
-  console.log(favResources);
+  console.log(favResources); // <-- remember to take this out
   const { name, description, address, tag, hyperlink, imageUrl } =
     useSelector(selectSingleResource);
 

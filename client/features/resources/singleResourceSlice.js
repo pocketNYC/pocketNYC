@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = {};
+const initialState = { singleResource: {}, loading: false };
 
 export const fetchSingleResource = createAsyncThunk(
   "singleResource/fetchSingleResource",
@@ -17,13 +17,14 @@ const singleResourceSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchSingleResource.fulfilled, (state, action) => {
-      return action.payload;
+     console.log('***********single resource SHOWING**************')
+      state.singleResource = action.payload;
     });
   },
 });
 
 export const selectSingleResource = (state) => {
-  return state.singleResource;
+  return state.singleResource.singleResource;
 };
 
 export default singleResourceSlice.reducer;

@@ -10,12 +10,15 @@ import { Button, Tooltip } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import LoadingScreen from "../loading/LoadingScreen";
+
 
 export default function Events() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const events = useSelector((state) => state.events.events);
+  //const loading = useSelector((state) => state.events.loading);
 
   useEffect(() => {
     dispatch(fetchAllEvents());
@@ -45,6 +48,10 @@ export default function Events() {
 
   return (
     <div align="center">
+      {/* {loading ? (
+      <LoadingScreen />
+      ) : ( */}
+        <div>
       <h1 className="underline">List of Events</h1>
 
       {sortedApprovedEvents?.map(({ id, image, title, start, end }) => (
@@ -81,6 +88,7 @@ export default function Events() {
             {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
             {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
           </h4>
+          
         </div>
       ))}
       <Tooltip title="Scroll to Top">
@@ -103,6 +111,8 @@ export default function Events() {
           <KeyboardArrowUpIcon></KeyboardArrowUpIcon>
         </Button>
       </Tooltip>
+     </div>
+     {/* )} */}
     </div>
   );
 }

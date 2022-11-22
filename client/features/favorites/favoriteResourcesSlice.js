@@ -50,6 +50,7 @@ const favoriteResourcesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchFavoriteResources.fulfilled, (state, action) => {
+      console.log('testing ')
       return action.payload;
     });
     builder.addCase(addToFavResources.fulfilled, (state, action) => {

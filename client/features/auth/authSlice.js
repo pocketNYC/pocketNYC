@@ -66,6 +66,7 @@ export const authSlice = createSlice({
   initialState: {
     me: {},
     error: null,
+    loading: false
   },
   reducers: {
     logout(state, action) {
@@ -75,14 +76,28 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(me.pending, (state, action) => {
+      console.log('THIS THING IS LOADING-auth')
+      state.loading = true;
+    });
     builder.addCase(me.fulfilled, (state, action) => {
+      console.log('ALL DONE!-auth')
       state.me = action.payload;
+      state.loading = false
     });
     builder.addCase(me.rejected, (state, action) => {
       state.error = action.error;
     });
     builder.addCase(authenticate.rejected, (state, action) => {
       state.error = action.payload;
+    });
+    builder.addCase(authenticate.pending, (state, action) => {
+      state.loading = true;
+      console.log("LOADING AUTH OF USER")
+    });
+    builder.addCase(authenticate.fulfilled, (state, action) => {
+      state.loading = true;
+      console.log("GUESS WHO's user is loaded? YOURS!")
     });
   },
 });

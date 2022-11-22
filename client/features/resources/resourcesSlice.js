@@ -13,17 +13,27 @@ export const fetchResources = createAsyncThunk(
 
 const resourcesSlice = createSlice({
   name: "resources",
-  initialState,
+  initialState: {
+    loading: false,
+    resources: [],
+  },
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(fetchResources.pending, (state, action) => {
+      console.log('loading *** RESOURCES ***')
+      state.loading = true;
+      //return action.payload;
+    });
     builder.addCase(fetchResources.fulfilled, (state, action) => {
-      return action.payload;
+      console.log('DONE *** RESOURCES ***')
+      state.loading = false;
+      state.resources = action.payload;
     });
   },
 });
 
 export const selectResources = (state) => {
-  return state.resources;
+  return state.resources.resources;
 };
 
 export default resourcesSlice.reducer;

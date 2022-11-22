@@ -50,6 +50,7 @@ const favoriteEventsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchFavoriteEvents.fulfilled, (state, action) => {
+      console.log('testing event')
       return action.payload;
     });
     builder.addCase(addToFavEvents.fulfilled, (state, action) => {

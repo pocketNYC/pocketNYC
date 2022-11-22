@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSingleUser } from "./userSlice";
 import { fetchFavoriteEvents } from "../favorites/favoriteEventsSlice";
 import { fetchFavoriteResources } from "../favorites/favoriteResourcesSlice";
 import { fetchAllEvents } from "../events/eventsSlice";
@@ -16,7 +15,6 @@ function SingleUserProfile({ user }) {
   const { firstName, lastName, email, interests, borough, id } = user;
 
   useEffect(() => {
-    dispatch(fetchSingleUser(userId));
     dispatch(fetchFavoriteEvents());
     dispatch(fetchFavoriteResources());
     dispatch(fetchAllEvents());

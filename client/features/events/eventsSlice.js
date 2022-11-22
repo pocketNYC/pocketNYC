@@ -76,23 +76,39 @@ export const eventsSlice = createSlice({
   initialState: {
     events: [],
     event: {},
+    loading: false
   },
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(fetchAllEvents.pending, (state, action) => {
+      console.log('LOADING ST8')
+      state.loading = true;
+    });
     builder.addCase(fetchAllEvents.fulfilled, (state, action) => {
       state.events = action.payload;
+      state.loading = false;
+      console.log("NO LONGER LOADING -- CONTENT ON PAGE")
+    });
+    builder.addCase(fetchSingleEvent.pending, (state, action) => {
+      console.log("DANG we're still loading")
+      state.loading = true;
     });
     builder.addCase(fetchSingleEvent.fulfilled, (state, action) => {
+     console.log('fetched event DONE')
       state.event = action.payload;
+      state.loading = false;
     });
     builder.addCase(addEvent.fulfilled, (state, action) => {
       state.events.push(action.payload);
+      state.loading = false;
     });
     builder.addCase(approveEvent.fulfilled, (state, action) => {
       state.event = action.payload.status;
+      state.loading = false;
     });
     builder.addCase(rejectEvent.fulfilled, (state, action) => {
       state.event = action.payload.status;
+      state.loading = false;
     });
     builder.addCase(deleteEvent.fulfilled, (state, action) => {
       state.events.filter((event) => event.id !== action.payload.id);
