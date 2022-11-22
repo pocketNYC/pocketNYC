@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { authenticate } from "../../app/store";
 
 function Login({ name, displayName }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (evt) => {
@@ -18,7 +16,6 @@ function Login({ name, displayName }) {
 
     dispatch(authenticate({ email, password, method: formName }));
     setValidated(true);
-    navigate("/");
   };
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit} name={name}>
