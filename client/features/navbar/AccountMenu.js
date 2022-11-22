@@ -10,6 +10,10 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Logout from "@mui/icons-material/Logout";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import BallotIcon from "@mui/icons-material/Ballot";
+import LoginIcon from "@mui/icons-material/Login";
+import EnhancedEncryptionIcon from "@mui/icons-material/EnhancedEncryption";
 
 export default function AccountMenu() {
   const userId = useSelector((state) => state.auth.me.id);
@@ -85,9 +89,11 @@ export default function AccountMenu() {
             {isAdmin ? (
               <>
                 <MenuItem>
+                  <PeopleAltIcon />
                   <Link to={`/users`}>Users</Link>
                 </MenuItem>
                 <MenuItem>
+                  <BallotIcon />
                   <Link to={`/admin`}>Events</Link>
                 </MenuItem>
               </>
@@ -103,9 +109,11 @@ export default function AccountMenu() {
         ) : (
           <>
             <MenuItem>
+              <LoginIcon />
               <Link to={"/login"}>Login</Link>
             </MenuItem>
             <MenuItem>
+              <EnhancedEncryptionIcon />
               <Link to={"/signup"}>Sign Up</Link>
             </MenuItem>
           </>
