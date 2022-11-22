@@ -2,7 +2,8 @@ const resources = [
   {
     name: "St. Mary's Hospital for Children",
     description: "Traumatic brain injury and coma recovery",
-    imageUrl: "https://media.istockphoto.com/id/1215582607/vector/parents-visit-sick-son-in-bed-at-hospital-ward.jpg?s=612x612&w=0&k=20&c=iwCt-j9oYFMLSf9kGGA4KyFP7ilYDjZ213gmwlNBuOQ=",
+    imageUrl:
+      "https://media.istockphoto.com/id/1215582607/vector/parents-visit-sick-son-in-bed-at-hospital-ward.jpg?s=612x612&w=0&k=20&c=iwCt-j9oYFMLSf9kGGA4KyFP7ilYDjZ213gmwlNBuOQ=",
     address: "2601 216th Street, Bayside, NY",
     borough: ["Queens"],
     tag: ["health"],
@@ -48,7 +49,8 @@ const resources = [
     name: "Spanish Speaking Elderly Council RAICES Inc.",
     description:
       "RAICES was founded in 1978 by retired Hispanic older adults who saw the need for an organization which would provide services, educate and organize the Latino, minority and low-income aging community in the boroughugh of Brooklyn.",
-    imageUrl: "https://i.pinimg.com/originals/47/d4/40/47d440bbc3a8057074e1553e522e3ef0.png",
+    imageUrl:
+      "https://i.pinimg.com/originals/47/d4/40/47d440bbc3a8057074e1553e522e3ef0.png",
     address: "420 Baltic St, Brooklyn, NY 11217",
     borough: ["Brooklyn"],
     tag: ["seniors", "education"],
@@ -86,7 +88,8 @@ const resources = [
     name: "VHA New York Harbor Healthcare-Brooklyn Campus",
     description:
       "Veterans hospital providing inpatient/outpatient care including mental health and social services.",
-    imageUrl: "https://media.istockphoto.com/id/1306535183/vector/male-nurse-and-veteran-soldier-in-military-uniform-on-a-wheelchair.jpg?s=612x612&w=0&k=20&c=h6J3nFT3Tql1-0T4E_2l487uR3YsTYuuXOBi4u0uKnY=",
+    imageUrl:
+      "https://media.istockphoto.com/id/1306535183/vector/male-nurse-and-veteran-soldier-in-military-uniform-on-a-wheelchair.jpg?s=612x612&w=0&k=20&c=h6J3nFT3Tql1-0T4E_2l487uR3YsTYuuXOBi4u0uKnY=",
     address: "800 Poly Place, Brooklyn, NY 11209",
     borough: ["Brooklyn"],
     tag: ["city services", "health"],
@@ -122,7 +125,8 @@ const resources = [
     name: "Legal Services NYC",
     description:
       "Provides free civil legal services, with a focus on cases involving housing, family, domestic violence, public benefits, income tax, employment, education, consumer rights, economic development, AIDS/HIV and elderly citizens facing eviction and unsafe living conditions. Offices in every borough of NYC.",
-    imageUrl: "https://www.pngitem.com/pimgs/m/54-548394_lawyers-lawyer-png-clipart-transparent-png.png",
+    imageUrl:
+      "https://www.pngitem.com/pimgs/m/54-548394_lawyers-lawyer-png-clipart-transparent-png.png",
     address: "40 Worth Street, Suite 606, New York, NY 10013",
     borough: ["Manhattan"],
     tag: ["finance", "city services"],
@@ -156,7 +160,8 @@ const resources = [
     name: "Immigration Advocacy Services, Inc.",
     description:
       "Outreach service that provides assistance with immigration procedures, computer filings, certification, translation and notarization of documents and citizenship drives; anti-fraud help; information about new laws; immigration legal services and fingerprinting.",
-    imageUrl: "https://img.freepik.com/free-vector/immigrants-queueing-registration_74855-17065.jpg?w=2000",
+    imageUrl:
+      "https://img.freepik.com/free-vector/immigrants-queueing-registration_74855-17065.jpg?w=2000",
     address: "36-16 Astoria Blvd S, Astoria, NY 11103",
     borough: ["Queens"],
     tag: ["city services", "finance"],
@@ -286,7 +291,8 @@ const resources = [
     name: "OnTrackNY",
     description:
       "OnTrackNY is a mental health treatment program that empowers young people to make meaning of their experiences and to pursue their goals for school, work, and relationships. We support the well-being of young people across New York State who are impacted by unexpected changes in their thinking and perceptions. Equity, inclusion, rapid access, and self-determination are at the core of everything we do.",
-    imageUrl: "https://media.istockphoto.com/id/1270641282/vector/mental-health-or-psychology-concept-with-flowering-human-head.jpg?s=612x612&w=0&k=20&c=-ZycQUvWskTvH_BoF1LoGJ3XpfrN7jVs8Nu3-NHjDZE=",
+    imageUrl:
+      "https://media.istockphoto.com/id/1270641282/vector/mental-health-or-chology-concept-with-flowering-human-head.jpg?s=612x612&w=0&k=20&c=-ZycQUvWskTvH_BoF1LoGJ3XpfrN7jVs8Nu3-NHjDZE=",
     address: "1051 Riverside Dr, New York, NY 10032",
     borough: ["Manhattan"],
     tag: ["food", "health"],
@@ -318,7 +324,8 @@ const resources = [
     name: "Center For Independence of the Disabled, New York",
     description:
       "CIDNY is a nonprofit organization founded in 1978. We are part of the Independent Living Centers movement: a national network of grassroots and community-based organizations that enhance opportunities for all people with disabilities to direct their own lives.",
-    imageUrl: "https://media.istockphoto.com/id/1298415912/vector/group-diverse-of-people-with-disabilities-work-together-in-office-disabled-different-people.jpg?s=612x612&w=0&k=20&c=mUql1CSbWa4uE5HwKn_5gwMa3syPmgzMhVgt611h_ZM=",
+    imageUrl:
+      "https://media.istockphoto.com/id/1298415912/vector/group-diverse-of-people-with-disabilities-work-together-in-office-disabled-different-people.jpg?s=612x612&w=0&k=20&c=mUql1CSbWa4uE5HwKn_5gwMa3syPmgzMhVgt611h_ZM=",
     address: "1010 6th Ave, New York, NY 10018",
     borough: ["Manhattan", "Queens"],
     tag: ["disability services", "education"],
@@ -340,7 +347,8 @@ const resources = [
     name: "The Door",
     description:
       "The Door’s mission is to empower young people to reach their potential by providing comprehensive youth development services in a diverse and caring environment.",
-    imageUrl: "https://img.freepik.com/free-vector/international-group-young-happy-children-concept-kids-holiday-cute-cartoon-characters_71593-949.jpg?w=2000",
+    imageUrl:
+      "https://img.freepik.com/free-vector/international-group-young-happy-children-concept-kids-holiday-cute-cartoon-characters_71593-949.jpg?w=2000",
     address: "Online",
     borough: ["Manhattan", "Queens", "Brooklyn", "Bronx", "Staten Island"],
     tag: ["education", "city services"],
@@ -450,8 +458,7 @@ const resources = [
     borough: ["Bronx"],
     latitude: 40.83286997945421,
     longitude: -73.90328351641145,
-    imageUrl:
-      "https://www.ntdaily.com/wp-uploads/2019/04/1-1024x570.png",
+    imageUrl: "https://www.ntdaily.com/wp-uploads/2019/04/1-1024x570.png",
     tag: ["health", "city-services"],
     hyperlink:
       "https://www.nyc.gov/site/doh/services/sexual-health-clinics.page",

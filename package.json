@@ -36,6 +36,7 @@
     "i18next": "^22.0.6",
     "immer": "^9.0.16",
     "jsonwebtoken": "^8.5.1",
+    "mdb-react-ui-kit": "^5.0.0",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
     "react-big-calendar": "^1.5.2",
