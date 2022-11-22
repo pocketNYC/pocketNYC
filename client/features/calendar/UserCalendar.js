@@ -6,6 +6,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import { fetchCalendarEvents, selectCalendar } from "./calendarSlice";
 import { useNavigate } from "react-router-dom";
 
+// o: is there a reason this is outside the function definition?
 const localizer = momentLocalizer(moment);
 
 const UserCalendar = () => {

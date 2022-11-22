@@ -28,6 +28,7 @@ const SingleResource = () => {
 
   const addToFavoritesButton = (ev, id) => {
     ev.preventDefault();
+    // o: you can use async await here
     dispatch(addToFavResources(id)).then(() => {
       dispatch(fetchFavoriteResources());
     });
@@ -35,6 +36,7 @@ const SingleResource = () => {
 
   const removeFromFavoritesButton = (ev, id) => {
     ev.preventDefault();
+    // o: you can use async await here
     dispatch(removeFromFavResources(id)).then(() => {
       dispatch(fetchFavoriteResources());
     });

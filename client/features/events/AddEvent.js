@@ -20,6 +20,9 @@ const AddEvent = () => {
 
   const handleChange = (formInterest) => {
     let selections = [];
+
+    // o: why not => const selections = formInterest.map((tags) => tags.value)
+    //  ... also, this should be singular tag... not tags
     formInterest.map((tags) => selections.push(tags.value));
     setSelectedOptions(selections);
   };

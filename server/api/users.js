@@ -3,6 +3,8 @@ const {
   models: { User },
 } = require("../db");
 
+// o: are you using this api route?
+
 // GET api/users
 router.get("/", async (req, res, next) => {
   try {

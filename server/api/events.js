@@ -9,6 +9,8 @@ const { getToken, checkForAdmin } = require("./adminAuth");
 router.get("/", async (req, res, next) => {
   try {
     const events = await Event.findAll();
+
+    // o: there will never be an instance where events will not be set
     events ? res.json(events) : res.sendStatus(404);
   } catch (error) {
     next(error);
@@ -19,6 +21,8 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const event = await Event.findByPk(req.params.id);
+
+    // o: I would avoid using a ternary in this way, just use an if statement
     event ? res.json(event) : res.sendStatus(404);
   } catch (error) {
     next(error);
@@ -29,6 +33,8 @@ router.get("/:id", async (req, res, next) => {
 router.post("/", getToken, async (req, res, next) => {
   try {
     const event = await Event.create(req.body);
+
+    // o: I would avoid using a ternary in this way, just use an if statement
     event ? res.json(event) : res.sendStatus(404);
   } catch (error) {
     next(error);

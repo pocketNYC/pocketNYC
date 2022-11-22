@@ -23,6 +23,7 @@ export default function TopNav() {
             </a>
           </MDBNavbarBrand>
 
+          {/* o: you can use isLoggedIn && ... here */}
           {isLoggedIn ? (
             <MDBNavbarBrand href="/calendar">
               <CalendarMonthIcon />

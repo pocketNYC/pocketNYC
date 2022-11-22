@@ -19,11 +19,13 @@ export default function Events() {
     dispatch(me());
   }, []);
 
+  // o: why not filter once?
   const sortedApprovedEvents = [...events]
     .sort((a, b) => {
       return new Date(a.start) - new Date(b.start);
     })
     .filter((event) => {
+      // o: you don't need to return the event here
       if (event.status === "approved") {
         return event;
       }

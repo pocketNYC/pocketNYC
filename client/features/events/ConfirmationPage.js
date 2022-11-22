@@ -13,8 +13,10 @@ function ConfirmationPage({ user }) {
     dispatch(fetchAllEvents());
   }, [dispatch]);
 
+  // o: what exactly is going on here?
   const myEvents = events
     .filter((event) => {
+      // o: you don't need to return the event here
       if (event.userId == id && event.status === "pending") {
         return event;
       }
@@ -55,6 +57,7 @@ function ConfirmationPage({ user }) {
         {current?.borough}
       </small>
       <br />
+      {/* o: you can use current?.eventLink && ... here */}
       {current?.eventLink ? (
         <>
           <small>

@@ -6,6 +6,8 @@ import { fetchAllEvents } from "../events/eventsSlice";
 function FeaturedEvents() {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events.events);
+  // o: I am seeing this kind of code in multiple places... can you explain why this
+  //  is being done in so many places?
   const filteredEvents = [...events]
     .sort((a, b) => {
       return new Date(a.start) - new Date(b.end);

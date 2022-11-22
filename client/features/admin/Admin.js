@@ -31,6 +31,8 @@ function Admin() {
 
   const approveEventBtn = (ev, id) => {
     ev.preventDefault();
+    // o: you can use async await here...
+    //  also, where is status coming from?
     dispatch(approveEvent(id, status)).then(() => {
       dispatch(fetchAllEvents());
     });
@@ -38,6 +40,8 @@ function Admin() {
 
   const rejectEventBtn = (ev, id) => {
     ev.preventDefault();
+    // o: you can use async await here...
+    //  also, where is status coming from?
     dispatch(rejectEvent(id, status)).then(() => {
       dispatch(fetchAllEvents());
     });

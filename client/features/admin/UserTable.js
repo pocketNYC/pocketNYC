@@ -46,6 +46,9 @@ function UserTable() {
                     <label className="toggle-label">
                       <Toggle
                         defaultChecked={isAdmin}
+                        // o: this should be a function defined outside of this
+                        //  onClick... also, avoid using ternaries in this way
+                        // isAdmin = isAdmin ? false : true;
                         onClick={() => {
                           isAdmin ? (isAdmin = false) : (isAdmin = true);
                           dispatch(

@@ -26,6 +26,7 @@ function LoggedInUserFeed({ interests, borough }) {
 
   const filteredByInterest = sortedApprovedEvents
     .filter((event) => {
+      // o: explain
       for (let i = 0; i < event.tag.length; i++) {
         let tag = event.tag[i];
 

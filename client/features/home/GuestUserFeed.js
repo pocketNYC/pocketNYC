@@ -24,7 +24,8 @@ function GuestUserFeed() {
     })
     .filter((event) => {
       const date = new Date(event.createdAt);
-
+      
+      // o: you don't need to return the event here
       if (
         date > start() &&
         date < end &&

@@ -35,6 +35,7 @@ const Favorites = () => {
 
   const removeFavResource = (ev, id) => {
     ev.preventDefault();
+    // o: you can use async / await in these situations
     dispatch(removeFromFavResources(id)).then(() => {
       dispatch(fetchFavoriteResources());
     });

@@ -6,6 +6,8 @@ import { fetchAllEvents } from "../events/eventsSlice";
 function FeaturedEvents() {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events.events);
+
+  // o: is there a point where the sort doesn't return an array?
   const filteredEvents = [...events]
     .sort((a, b) => {
       return new Date(a.start) - new Date(b.end);

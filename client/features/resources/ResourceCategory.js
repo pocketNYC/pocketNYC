@@ -44,6 +44,7 @@ const ResourceCategory = () => {
                     />
                     <div className="card-body">
                       <h5 className="card-title">{name}</h5>
+                      {/* o: you can use isLoggedIn && ... here */}
                       {isLoggedIn ? (
                         <Button
                           variant="outlined"

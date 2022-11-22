@@ -35,6 +35,7 @@ function SingleEvent() {
 
   const addToFavsButton = (ev, id) => {
     ev.preventDefault();
+    // o: you can use async / await in these situations
     dispatch(addToFavEvents(id)).then(() => {
       dispatch(fetchFavoriteEvents());
     });

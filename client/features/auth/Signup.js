@@ -18,6 +18,8 @@ function Signup({ displayName, name }) {
 
   const handleChange = (formInterest) => {
     let selections = [];
+
+    // o: why not => const selections = formInterest.map((interest) => interest.value)
     formInterest.map((interest) => selections.push(interest.value));
     setSelectedOptions(selections);
   };
