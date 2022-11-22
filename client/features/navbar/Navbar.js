@@ -5,6 +5,7 @@ import { logout } from "../../app/store";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import { IconButton } from "@mui/material";
 import BottomNav from "./BottomNav";
+import TopNav from "./TopNav";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -20,6 +21,7 @@ const Navbar = () => {
 
   return (
     <div>
+      <TopNav />
       <nav className="navbar navbar-expand-lg sticky-top bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">

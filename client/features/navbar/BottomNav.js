@@ -1,7 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { MDBNavbar, MDBContainer, MDBNavbarBrand } from "mdb-react-ui-kit";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import MapIcon from "@mui/icons-material/Map";
 import HomeIcon from "@mui/icons-material/Home";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";

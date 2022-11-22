@@ -20,6 +20,7 @@ import SingleEvent from "../features/events/SingleEvent";
 import ConfirmationPage from "../features/events/ConfirmationPage";
 import Faq from "../features/helpPage/HelpPage";
 import UserCalendar from "../features/calendar/UserCalendar";
+import Map from "../features/map/Map";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -37,7 +38,7 @@ const AppRoutes = () => {
     <div>
       {isLoggedIn ? (
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
@@ -64,6 +65,7 @@ const AppRoutes = () => {
             element={<SingleResource />}
           />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/map" element={<Map />} />
           {isAdmin && (
             <>
               <Route path="/users" element={<UserList />} />
@@ -74,7 +76,7 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route
             path="/login"
@@ -89,6 +91,7 @@ const AppRoutes = () => {
           <Route path="/resources" element={<AllResources />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/resources/:category" element={<ResourceCategory />} />
+          <Route path="/map" element={<Map />} />
           <Route path="*" element={<Error />} />
         </Routes>
       )}

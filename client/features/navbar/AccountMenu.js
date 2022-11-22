@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../auth/authSlice";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -10,13 +10,12 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Logout from "@mui/icons-material/Logout";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { Link } from "react-router-dom";
 
 export default function AccountMenu() {
-  const [anchor, setAnchor] = useState(null);
   const userId = useSelector((state) => state.auth.me.id);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
+  const [anchor, setAnchor] = useState(null);
   const open = Boolean(anchor);
 
   const dispatch = useDispatch();
@@ -98,16 +97,16 @@ export default function AccountMenu() {
               <ListItemIcon>
                 <Logout fontSize="small" />
               </ListItemIcon>
-              <Link to={`/home`}>Logout</Link>
+              <Link to={"/home"}>Logout</Link>
             </MenuItem>
           </>
         ) : (
           <>
             <MenuItem>
-              <Link to={`/login`}>Login</Link>
+              <Link to={"/login"}>Login</Link>
             </MenuItem>
             <MenuItem>
-              <Link to={`/signup`}>Sign Up</Link>
+              <Link to={"/signup"}>Sign Up</Link>
             </MenuItem>
           </>
         )}

@@ -530,7 +530,7 @@ async function seed() {
   );
 
   console.log(
-    `seeded  ${event.length} events, ${users.length} users, ${
+    `seeded ${users.length} users, ${event.length} events, ${
       educationSeed.length +
       healthFacilitiesSeed.length +
       financeCtrSeed.length +
@@ -542,7 +542,7 @@ async function seed() {
       disabilityServicesSeed.length +
       foodFacilitiesSeed.length +
       cityServicesFacilitySeed.length
-    } facilities`
+    } resources`
   );
 }
 
