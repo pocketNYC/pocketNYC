@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import { fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
-import { useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import AddIcon from "./AddIcon";
