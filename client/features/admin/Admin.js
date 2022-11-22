@@ -44,36 +44,55 @@ function Admin() {
   };
 
   return (
-    <div>
-      <br />
-      <h2>Pending Events:</h2>
-      <>
-        <ul>
-          {sortedPendingEvents.length
-            ? sortedPendingEvents.map(({ title, id, start, end }) => {
+    <div className="container-fluid">
+      <div className="p-4">
+        <h1 className="text-center">Pending Events</h1>
+        <div className="card">
+          <table className="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Date(s)</th>
+                <th scope="col">Approve</th>
+                <th scope="col">Reject</th>
+              </tr>
+            </thead>
+            {sortedPendingEvents.length ? (
+              sortedPendingEvents.map(({ title, id, start, end }) => {
                 return (
-                  <li key={id}>
-                    <strong>
-                      <Link to={`/events/${id}`}>{title} </Link>
-                      <IconButton onClick={(ev) => approveEventBtn(ev, id)}>
-                        <CheckBoxIcon color="success" />
-                      </IconButton>
-                      <IconButton onClick={(ev) => rejectEventBtn(ev, id)}>
-                        <DisabledByDefaultIcon color="error" />
-                      </IconButton>
-                    </strong>
-                    <br />
-                    <strong>
-                      Date: {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} - {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
-                    </strong>
-                  </li>
+                  <tbody key={id}>
+                    <tr>
+                      <td>
+                        <Link to={`/events/${id}`}>{title} </Link>
+                      </td>
+                      <td>
+                        {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
+                        {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
+                      </td>
+                      <td>
+                        <IconButton onClick={(ev) => approveEventBtn(ev, id)}>
+                          <CheckBoxIcon color="success" />
+                        </IconButton>
+                      </td>
+                      <td>
+                        <IconButton onClick={(ev) => rejectEventBtn(ev, id)}>
+                          <DisabledByDefaultIcon color="error" />
+                        </IconButton>
+                      </td>
+                    </tr>
+                  </tbody>
                 );
               })
-            : "No pending events remaining"}
-        </ul>
-      </>
-
-      <hr />
+            ) : (
+              <tbody>
+                <tr>
+                  <td>No pending events to approve</td>
+                </tr>
+              </tbody>
+            )}
+          </table>
+        </div>
+      </div>
     </div>
   );
 }

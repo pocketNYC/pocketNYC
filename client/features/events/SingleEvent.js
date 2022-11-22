@@ -73,70 +73,78 @@ function SingleEvent() {
   });
 
   return (
-    <div className="card text-center">
-      <div className="row">
-        <div className="col">
-          <img src={image} className="card-img-top w-50" alt="image of event" />
+    <div className="container-fluid p-4">
+      <div className="card border-light text-center d-flex align-items-center h-100 ">
+        <div className="row g-0">
+          <div className="col-md-6">
+            <img
+              src={image}
+              className="img-fluid rounded-start h-100"
+              alt="image of event"
+            />
+          </div>
+          <div className="col-md-6">
+            <div className="card-body" style={{ verticalAlign: "middle" }}>
+              <h5 className="card-title"> {title}</h5>
+              <p className="card-text ">
+                {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
+                {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
+              </p>
+              <p className="card-text">Address: {address}</p>
+              <p className="card-text">About: {description}</p>
 
-          <div className="card-body" style={{ verticalAlign: "middle" }}>
-            <h5 className="card-title"> {title}</h5>
-            <p className="card-text ">
-              {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
-              {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
-            </p>
-            <p className="card-text">Address: {address}</p>
-            <p className="card-text">About: {description}</p>
+              <a href={eventLink} target="_blank">
+                Click for more details
+              </a>
 
-            <a href={eventLink} target="_blank">
-              Click for more details
-            </a>
+              <p className="card-text">
+                <small className="text-muted">Tags: {tag?.join(", ")}</small>
+              </p>
 
-            <p className="card-text">
-              <small className="text-muted">Tags: {tag?.join(", ")}</small>
-            </p>
-            {isLoggedIn ? (
-              <>
-                {isItInMyFavs.length ? (
-                  <Button
-                    variant="outlined"
-                    onClick={(ev) => removeFromFavsButton(ev, id)}
-                    color="error"
-                    startIcon={<FavoriteBorderOutlinedIcon />}
-                  >
-                    Remove from Favorites
-                  </Button>
-                ) : (
-                  <Button
-                    variant="outlined"
-                    onClick={(ev) => addToFavsButton(ev, id)}
-                    color="error"
-                    startIcon={<FavoriteBorderOutlinedIcon />}
-                  >
-                    Add to Favorites
-                  </Button>
-                )}
-                &nbsp;
-                {isItOnMyCal.length ? (
-                  <Button
-                    variant="outlined"
-                    onClick={(ev) => removeFromCalButton(ev, id)}
-                    color="success"
-                    startIcon={<CalendarMonthIcon />}
-                  >
-                    Remove from Calendar
-                  </Button>
-                ) : (
-                  <Button
-                    variant="outlined"
-                    onClick={(ev) => addToCalButton(ev, id)}
-                    color="success"
-                    startIcon={<CalendarMonthIcon />}
-                  >
-                    Add to Calendar
-                  </Button>
-                )}
-              </>
-            ) : null}
+              {isLoggedIn ? (
+                <>
+                  {isItInMyFavs.length ? (
+                    <Button
+                      variant="outlined"
+                      onClick={(ev) => removeFromFavsButton(ev, id)}
+                      color="error"
+                      startIcon={<FavoriteBorderOutlinedIcon />}
+                    >
+                      Remove from Favorites
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="outlined"
+                      onClick={(ev) => addToFavsButton(ev, id)}
+                      color="error"
+                      startIcon={<FavoriteBorderOutlinedIcon />}
+                    >
+                      Add to Favorites
+                    </Button>
+                  )}
+                  &nbsp;
+                  {isItOnMyCal.length ? (
+                    <Button
+                      variant="outlined"
+                      onClick={(ev) => removeFromCalButton(ev, id)}
+                      color="success"
+                      startIcon={<CalendarMonthIcon />}
+                    >
+                      Remove from Calendar
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="outlined"
+                      onClick={(ev) => addToCalButton(ev, id)}
+                      color="success"
+                      startIcon={<CalendarMonthIcon />}
+                    >
+                      Add to Calendar
+                    </Button>
+                  )}
+                </>
+              ) : null}
+            </div>
           </div>
         </div>
       </div>
