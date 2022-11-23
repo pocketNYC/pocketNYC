@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import { Button } from "react-bootstrap";
 import { fetchAllEvents } from "../events/eventsSlice";
+import LoadingScreen from "../loading/LoadingScreen";
 
 function ConfirmationPage({ user }) {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events.events);
+  const loading = useSelector((state) => state.auth.loading);
+
   const { firstName, id } = user;
 
   useEffect(() => {
@@ -27,7 +30,8 @@ function ConfirmationPage({ user }) {
   const current = myEvents[0];
 
   return (
-    <div>
+    <div> {loading ? <LoadingScreen /> : (
+      <div>
       <h2>{`Thank you, ${firstName}!`}</h2>
       <h6>
         Your event has been submitted for approval. Below is a summary of the
@@ -80,6 +84,7 @@ function ConfirmationPage({ user }) {
       <Link to="/add">
         <Button className="confirm-evt-btn-add-more">Add Another Event</Button>
       </Link>
+    </div>)}
     </div>
   );
 }

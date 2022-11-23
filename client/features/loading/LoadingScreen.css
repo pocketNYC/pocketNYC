@@ -1,0 +1,7 @@
+img {
+  display: flex;
+  max-height: 375px;
+  object-position: center;
+  background-position: center;
+  justify-content: space-around;
+}

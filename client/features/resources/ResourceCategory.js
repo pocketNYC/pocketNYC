@@ -9,12 +9,14 @@ import {
 } from "../favorites/favoriteResourcesSlice";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import LoadingScreen from "../loading/LoadingScreen";
 
 const ResourceCategory = () => {
   const dispatch = useDispatch();
   const resources = useSelector(selectResources);
   const { category } = useParams();
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const loading = useSelector((state) => state.resources.loading);
 
   useEffect(() => {
     dispatch(fetchResources());
@@ -28,7 +30,9 @@ const ResourceCategory = () => {
   };
 
   return (
+    <div> {loading ? (<LoadingScreen />): (
     <div className="container-fluid">
+
       <div className="row row-cols-1 row-cols-md-2 p-4 g-4">
         {resources
           .filter((resource) => resource.tag.includes(category))
@@ -40,7 +44,7 @@ const ResourceCategory = () => {
                     <img
                       className="card-img-top fluid"
                       src={imageUrl}
-                      alt={`image of ${name}`}
+                      alt={`Clip art for the ${name} resource`}
                     />
                     <div className="card-body">
                       <h5 className="card-title">{name}</h5>
@@ -66,6 +70,7 @@ const ResourceCategory = () => {
                       </small>
                     </div>
                   </div>
+                  
                 </div>
               );
             }
@@ -89,6 +94,7 @@ const ResourceCategory = () => {
           <KeyboardArrowUpIcon style={{ color: "white" }}></KeyboardArrowUpIcon>
         </Button>
       </Tooltip>
+    </div>)}
     </div>
   );
 };

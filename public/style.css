@@ -30,7 +30,6 @@ form div {
   padding-top: 70px;
 }
 
-
 Button.scroll  {
   opacity: 70%;
   size: 20%;
@@ -73,12 +72,12 @@ Button.scroll  {
   object-fit: cover;
 }
 
-.img-thumbnail{
-  color:#000;
-  font-size:12px;
-margin-bottom: 10px;
-
+.img-thumbnail {
+  color: #000;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
+
 
 .cards{
   transition: all 0.2s ease;
@@ -90,3 +89,6 @@ margin-bottom: 10px;
   transform: scale(1.05);
 }
 
+.card-img-top {
+  cursor: pointer;
+}

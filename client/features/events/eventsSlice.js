@@ -92,20 +92,35 @@ export const eventsSlice = createSlice({
   name: "events",
   initialState: {
     events: [],
+    loading: false,
     event: {},
   },
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(fetchAllEvents.pending, (state, action) => {
+      state.loading = true;
+    });
     builder.addCase(fetchAllEvents.fulfilled, (state, action) => {
+      state.loading = false
       state.events = action.payload;
     });
+    //----------------- all events ⬆️
     builder.addCase(fetchAllApprovedEvents.fulfilled, (state, action) => {
+      state.loading = false
       state.events = action.payload;
     });
+    builder.addCase(fetchAllApprovedEvents.pending, (state, action) => {
+      state.loading = true;
+    });
+    // -------------------- approved events ⬆️ ------------
     builder.addCase(fetchAllPendingEvents.fulfilled, (state, action) => {
       state.events = action.payload;
     });
+    builder.addCase(fetchSingleEvent.pending, (state, action) => {
+      state.loading = true;
+    });
     builder.addCase(fetchSingleEvent.fulfilled, (state, action) => {
+      state.loading = false
       state.event = action.payload;
     });
     builder.addCase(addEvent.fulfilled, (state, action) => {

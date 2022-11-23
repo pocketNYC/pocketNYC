@@ -11,7 +11,7 @@ export default function TopNav() {
       <MDBNavbar light bgColor="light">
         <MDBContainer fluid size="sm">
           <MDBNavbarBrand href="/">
-            {/* <a> */}
+            {/* {/* <><a> */} */}
             <img
               src="
           https://i.imgur.com/0wLXpHh.png"
@@ -20,7 +20,7 @@ export default function TopNav() {
               height="70"
             />
             PocketNYC
-            {/* </a> */}
+            {/* {/* </a> */}</> */}
           </MDBNavbarBrand>
 
           {isLoggedIn ? (
