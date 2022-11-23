@@ -39,6 +39,7 @@ function Signup({ displayName, name }) {
     const interests = selectedOptions;
     const borough = evt.target.borough.value;
 
+    console.log("hi");
     dispatch(
       authenticate({
         firstName,
@@ -51,7 +52,6 @@ function Signup({ displayName, name }) {
       })
     );
     setValidated(true);
-    navigate("/home");
   };
 
   return (
@@ -110,13 +110,16 @@ function Signup({ displayName, name }) {
         <Form.Group className="mb-6" controlId="borough">
           <Form.Label>Borough</Form.Label>
           <Form.Select>
-            <option defaultValue>Select</option>
+            <option>Select</option>
             <option value="Bronx">Bronx</option>
             <option value="Brooklyn">Brooklyn</option>
             <option value="Queens">Queens</option>
             <option value="Manhattan">Manhattan</option>
             <option value="Staten Island">Staten Island</option>
           </Form.Select>
+          <Form.Control.Feedback type="invalid">
+            Please select an interest.
+          </Form.Control.Feedback>
         </Form.Group>
         <br />
         <label htmlFor="interest" style={{ padding: "10px" }}>
