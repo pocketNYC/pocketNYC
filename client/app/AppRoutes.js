@@ -39,11 +39,10 @@ const AppRoutes = () => {
 
   return (
     <div>
-      {loading ? (<LoadingScreen />) :
-      (<div> 
+      {loading && <LoadingScreen />}
       {isLoggedIn ? (
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
@@ -86,7 +85,7 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route
             path="/login"
@@ -105,9 +104,8 @@ const AppRoutes = () => {
           <Route path="/load" element={<LoadingScreen />} />
 
           <Route path="*" element={<Error />} />
-          </Routes>
-       )}
-        </div>)} 
+        </Routes>
+      )}
     </div>
   );
 };

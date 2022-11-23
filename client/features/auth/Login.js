@@ -25,10 +25,10 @@ function Login({ name, displayName }) {
     const email = evt.target.email.value;
     const password = evt.target.password.value;
 
-    navigate("/home");
     dispatch(authenticate({ email, password, method: formName }));
     setValidated(true);
   };
+
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit} name={name}>
       <Form.Group className="mb-6" controlId="email">
