@@ -87,3 +87,41 @@ Button.scroll  {
 .card-img-top {
   cursor: pointer;
 }
+
+Button.scroll {
+  opacity: 50%;
+}
+
+.map {
+  height: 180px;
+  width: 80px;
+}
+
+.leaflet-container {
+  display: flex;
+  width: 80%;
+  height: 120vh;
+}
+
+.icon:hover {
+  fill: #6f48eb;
+}
+
+Button.scroll {
+  opacity: 50%;
+}
+
+.map {
+  height: 180px;
+  width: 80px;
+}
+
+.leaflet-container {
+  display: flex;
+  width: 80%;
+  height: 120vh;
+}
+
+.icon:hover {
+  fill: #6f48eb;
+}
