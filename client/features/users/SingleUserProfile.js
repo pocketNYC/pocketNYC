@@ -60,8 +60,8 @@ function SingleUserProfile({ user }) {
                             <div class="mt-3 mb-4">
                               <img
                                 src="https://images.cf.nycsubway.org/images/maps/subway-map-2019a.png"
-                                class="rounded-circle img-fluid"
-                                style={{ width: "100px" }}
+                                class="rounded-circle"
+                                style={{ width: "100px", height: "100px" }}
                               />
                             </div>
                             <h4 class="mb-2">
