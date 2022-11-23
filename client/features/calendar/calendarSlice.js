@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const TOKEN = "token";
 
-const initialState = [];
+const initialState = {calendar: [], loading: false};
 
 export const fetchCalendarEvents = createAsyncThunk(
   "fetchCalendar_Events",
@@ -46,14 +46,18 @@ const calendarSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(fetchCalendarEvents.pending, (state, action) => {
+     state.loading = true
+    });
     builder.addCase(fetchCalendarEvents.fulfilled, (state, action) => {
-      return action.payload;
+      state.loading = false
+      state.calendar = action.payload;
     });
     builder.addCase(addToCalendar.fulfilled, (state, action) => {
-      state.push(action.payload);
+       state.calendar.push(action.payload);
     });
     builder.addCase(removeFromCalendar.fulfilled, (state, action) => {
-      state.filter((event) => {
+      state.calendar.filter((event) => {
         if (event.id !== action.payload.eventId) {
           return event;
         }
@@ -63,7 +67,7 @@ const calendarSlice = createSlice({
 });
 
 export const selectCalendar = (state) => {
-  return state.calendar;
+   return state.calendar.calendar;
 };
 
 export default calendarSlice.reducer;

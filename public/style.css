@@ -30,10 +30,10 @@ form div {
   padding-top: 70px;
 }
 
-
 Button.scroll  {
   opacity: 40%;
   size: 25%;
+
 }
 
 .modal-show {
@@ -74,16 +74,38 @@ Button.scroll  {
   margin-bottom: 10px;
 }
 
+
 .cards{
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
-
-.cards:hover{
+.cards:hover {
   transform: scale(1.1);
 }
 
+.card-img-top {
+  cursor: pointer;
+}
+
+Button.scroll {
+  opacity: 50%;
+}
+
+.map {
+  height: 180px;
+  width: 80px;
+}
+
+.leaflet-container {
+  display: flex;
+  width: 80%;
+  height: 120vh;
+}
+
+.icon:hover {
+  fill: #6f48eb;
+}
 
 Button.scroll {
   opacity: 50%;

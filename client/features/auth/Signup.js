@@ -7,14 +7,22 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import formInterest from "./formInterest";
 import { authenticate } from "../../app/store";
+import InputGroup from "react-bootstrap/InputGroup";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 function Signup({ displayName, name }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
-
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePassword = (evt) => {
+    evt.preventDefault();
+    setPasswordShown(!passwordShown);
+  };
 
   const handleChange = (formInterest) => {
     let selections = [];
@@ -78,13 +86,26 @@ function Signup({ displayName, name }) {
             Please provide an email.
           </Form.Control.Feedback>
         </Form.Group>
+
         <Form.Group className="mb-6" controlId="password">
           <Form.Label>Password</Form.Label>
-          <Form.Control required type="password" placeholder="Enter Password" />
-          <Form.Control.Feedback type="invalid">
-            Please provide a password.
-          </Form.Control.Feedback>
+          <InputGroup className="mb-3">
+            <Form.Control
+              required
+              type={passwordShown ? "text" : "password"}
+              placeholder="Enter Password"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a password.
+            </Form.Control.Feedback>
+            <InputGroup.Text id="basic-addon2">
+              <button onClick={togglePassword}>
+                {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
+              </button>
+            </InputGroup.Text>
+          </InputGroup>
         </Form.Group>
+
         <Form.Group className="mb-6" controlId="borough">
           <Form.Label>Borough</Form.Label>
           <Form.Select>

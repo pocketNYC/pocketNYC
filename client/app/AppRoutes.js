@@ -21,13 +21,15 @@ import ConfirmationPage from "../features/events/ConfirmationPage";
 import Faq from "../features/helpPage/HelpPage";
 import UserCalendar from "../features/calendar/UserCalendar";
 import Map from "../features/map/Map";
+import LoadingScreen from "../features/loading/LoadingScreen";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const userId = useSelector((state) => state.auth.me.id);
   const user = useSelector((state) => state.auth.me);
-
+  const loading = useSelector((state) => state.auth.loading);
+ 
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,7 +40,7 @@ const AppRoutes = () => {
     <div>
       {isLoggedIn ? (
         <Routes>
-          <Route path="/*" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
@@ -63,6 +65,7 @@ const AppRoutes = () => {
           <Route path={`/r/:id`} element={<SingleResource />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/map" element={<Map />} />
+          <Route path="/load" element={<LoadingScreen />} />
           {isAdmin && (
             <>
               <Route path="/users" element={<UserList />} />
@@ -73,7 +76,7 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/*" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route
             path="/login"
@@ -89,9 +92,11 @@ const AppRoutes = () => {
           <Route path="/faq" element={<Faq />} />
           <Route path="/resources/:category" element={<ResourceCategory />} />
           <Route path="/map" element={<Map />} />
+          <Route path="/load" element={<LoadingScreen />} />
+
           <Route path="*" element={<Error />} />
         </Routes>
-      )}
+       )}
     </div>
   );
 };
