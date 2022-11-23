@@ -4,9 +4,8 @@ import InfoSharpIcon from "@mui/icons-material/InfoSharp";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 
-
 function Questions() {
-   return (
+  return (
     <div className="accordion accordion-flush" id="accordionFlushExample">
       <div className="accordion-item">
         <h2 className="accordion-header" id="flush-headingOne">
@@ -54,10 +53,12 @@ function Questions() {
           data-bs-parent="#accordionFlushExample"
         >
           <div className="accordion-body">
-            Yes. Navigate to the <AccountBoxIcon /> section below and click on "My Profile. From
-            there, you can see your User Information and an "Edit Profile"
-            button. <br />
-            <strong><AccountBoxIcon /> > Profile > User Information > Edit Profile</strong>
+            Yes. Navigate to the <AccountBoxIcon /> section below and click on
+            "My Profile. From there, you can see your User Information and an
+            "Edit Profile" button. <br />
+            <strong>
+              <AccountBoxIcon /> > Profile > Edit Profile
+            </strong>
           </div>
         </div>
       </div>
@@ -83,8 +84,12 @@ function Questions() {
         >
           <div className="accordion-body">
             Yes. You can add events and/or resources to your "Favorites" for
-            easy access. Your "Favorites" are located in the <AccountBoxIcon /> section of the
-            navigation bar below.
+            easy access. Your "Favorites" are located in the <AccountBoxIcon />{" "}
+            section of the navigation bar below.
+            <br />
+            <strong>
+              <AccountBoxIcon /> > Profile > My Favorite Resources | My Favorite Events
+            </strong>
           </div>
         </div>
       </div>
@@ -111,9 +116,10 @@ function Questions() {
         >
           <div className="accordion-body">
             Of course! You can always submit an event{" "}
-            <Link to="/add">here</Link> or by navigating to the Events page (<EventAvailableIcon />)
-            in the navigation bar below. Please be advised that you{" "}
-            <strong> must have an account</strong> to submit an event.
+            <Link to="/add">here</Link> or by navigating to the Events page (
+            <EventAvailableIcon />) in the navigation bar below. Please be
+            advised that you <strong> must have an account</strong> to submit an
+            event.
           </div>
         </div>
       </div>
@@ -166,10 +172,12 @@ function Questions() {
           data-bs-parent="#accordionFlushExample"
         >
           <div className="accordion-body">
-            Navigate to the <AccountBoxIcon /> section of the navigation bar. Then, click
-            "Log out"
+            Navigate to the <AccountBoxIcon /> section of the navigation bar.
+            Then, click "Log out"
             <br />
-            <strong><AccountBoxIcon /> > Log out</strong>
+            <strong>
+              <AccountBoxIcon /> > Log out
+            </strong>
           </div>
         </div>
       </div>
@@ -204,6 +212,3 @@ function Questions() {
 }
 
 export default Questions;
-
-
-

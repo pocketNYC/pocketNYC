@@ -17,6 +17,7 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 const SingleResource = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const favResources = useSelector(selectFavoriteResources);
   const { name, description, address, tag, hyperlink, imageUrl } =
     useSelector(selectSingleResource);
@@ -47,42 +48,58 @@ const SingleResource = () => {
   });
 
   return (
-    <div>
-      <h1>{name}</h1>
-      <img
-        src={imageUrl}
-        style={{ height: "200px", width: "300px" }}
-        alt={`Image of ${name}`}
-      />
-      {isItInMyFavs.length ? (
-        <Button
-          variant="outlined"
-          onClick={(ev) => removeFromFavoritesButton(ev, id)}
-          color="error"
-          startIcon={<FavoriteBorderOutlinedIcon />}
-        >
-          Remove from Favorites
-        </Button>
-      ) : (
-        <Button
-          variant="outlined"
-          onClick={(ev) => addToFavoritesButton(ev, id)}
-          color="success"
-          startIcon={<FavoriteBorderOutlinedIcon />}
-        >
-          Add to Favorites
-        </Button>
-      )}
+    <div className="container-fluid p-4">
+      <div className="card border-light text-center d-flex align-items-center h-50 ">
+        <div className="row g-0">
+          <div className="col-md-6">
+            <img
+              src={imageUrl}
+              className="img-fluid rounded-start h-100"
+              alt={`image of ${name}`}
+            />
+          </div>
+          <div className="col-md-6">
+            <div className="card-body" style={{ verticalAlign: "middle" }}>
+              <h5 className="card-title"> {name}</h5>
 
-      <p>About: {description}</p>
-      <p>Address: {address}</p>
-      <p>
-        More Info:{" "}
-        <a href={hyperlink} target="_blank">
-          {hyperlink}
-        </a>
-      </p>
-      <p>Tags: {tag ? tag.join(", ") : null}</p>
+              <p className="card-text">Address: {address}</p>
+              <p className="card-text">About: {description}</p>
+
+              <a href={hyperlink} target="_blank">
+                Click for more details
+              </a>
+
+              <p className="card-text">
+                <small className="text-muted">Tags: {tag?.join(", ")}</small>
+              </p>
+
+              {isLoggedIn ? (
+                <>
+                  {isItInMyFavs.length ? (
+                    <Button
+                      variant="outlined"
+                      onClick={(ev) => removeFromFavoritesButton(ev, id)}
+                      color="error"
+                      startIcon={<FavoriteBorderOutlinedIcon />}
+                    >
+                      Remove from Favorites
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="outlined"
+                      onClick={(ev) => addToFavoritesButton(ev, id)}
+                      color="success"
+                      startIcon={<FavoriteBorderOutlinedIcon />}
+                    >
+                      Add to Favorites
+                    </Button>
+                  )}
+                </>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

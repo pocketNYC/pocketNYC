@@ -43,8 +43,7 @@ function Admin() {
               <tr>
                 <th scope="col">Title</th>
                 <th scope="col">Date(s)</th>
-                <th scope="col">Approve</th>
-                <th scope="col">Reject</th>
+                <th scope="col">Yes/No</th>
               </tr>
             </thead>
             {events.length ? (
@@ -62,8 +61,7 @@ function Admin() {
                         <IconButton onClick={(ev) => approveEventBtn(ev, id)}>
                           <CheckBoxIcon color="success" />
                         </IconButton>
-                      </td>
-                      <td>
+
                         <IconButton onClick={(ev) => rejectEventBtn(ev, id)}>
                           <DisabledByDefaultIcon color="error" />
                         </IconButton>

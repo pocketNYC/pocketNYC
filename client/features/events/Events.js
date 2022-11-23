@@ -26,7 +26,7 @@ export default function Events() {
       {loading ? (
         <LoadingScreen />
       ) : (
-        <div className="container">
+        <div className="container-fluid">
           {isLoggedIn && <AddIcon />}
           <h1 className="fw-light text-center text-lg-center p-4">
             {" "}
@@ -39,9 +39,10 @@ export default function Events() {
                   <img
                     className="card-img-top "
                     src={image}
-                    alt={`Image of ${title}`}
+                    alt={`image of ${title}`}
                     onClick={() => navigate(`/events/${id}`)}
                   />
+
                   <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">
@@ -54,8 +55,10 @@ export default function Events() {
                       <Button
                         size="small"
                         onClick={() => navigate(`/events/${id}`)}
-                      />
-                    </div>{" "}
+                      >
+                        More Info
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -71,14 +74,14 @@ export default function Events() {
               size="small"
               style={{
                 position: "fixed",
-                borderRadius: "50%",
-                padding: "1rem 1rem",
                 bottom: "120px",
-                right: "10px",
+                right: "5px",
                 textAlign: "center",
               }}
             >
-              <KeyboardArrowUpIcon></KeyboardArrowUpIcon>
+              <KeyboardArrowUpIcon
+                style={{ color: "white" }}
+              ></KeyboardArrowUpIcon>
             </Button>
           </Tooltip>
         </div>

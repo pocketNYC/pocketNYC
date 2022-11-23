@@ -31,10 +31,14 @@ form div {
 }
 
 Button.scroll  {
-  opacity: 40%;
-  size: 25%;
+  opacity: 70%;
+  size: 20%;
+  background-color: gray;
+
 
 }
+
+
 
 .modal-show {
   display: block;
@@ -80,14 +84,19 @@ Button.scroll  {
   cursor: pointer;
 }
 
-.cards:hover {
-  transform: scale(1.1);
+
+.cards:hover{
+  transform: scale(1.05);
 }
 
 .card-img-top {
   cursor: pointer;
 }
 
+img.rounded-circle {
+justify-content: center;
+object-position: center;
+}
 Button.scroll {
   opacity: 50%;
 }
