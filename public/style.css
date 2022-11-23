@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  padding-bottom: 100px;
 }
 
 a {
@@ -29,8 +30,10 @@ form div {
   padding-top: 70px;
 }
 
-Button.scroll {
-  opacity: 50%;
+Button.scroll  {
+  opacity: 40%;
+  size: 25%;
+
 }
 
 .modal-show {
@@ -71,7 +74,8 @@ Button.scroll {
   margin-bottom: 10px;
 }
 
-.cards {
+
+.cards{
   transition: all 0.2s ease;
   cursor: pointer;
 }

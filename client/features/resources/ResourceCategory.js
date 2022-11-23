@@ -31,7 +31,8 @@ const ResourceCategory = () => {
 
   return (
     <div> {loading ? (<LoadingScreen />): (
-    <div className="container-fluid">
+    <div className="container">
+
       <div className="row row-cols-1 row-cols-md-2 p-4 g-4">
         {resources
           .filter((resource) => resource.tag.includes(category))
@@ -87,8 +88,8 @@ const ResourceCategory = () => {
             position: "fixed",
             borderRadius: "50%",
             padding: "1rem 1rem",
-            bottom: "40px",
-            right: "40px",
+            bottom: "120px",
+            right: "10px",
             textAlign: "center",
           }}
         >

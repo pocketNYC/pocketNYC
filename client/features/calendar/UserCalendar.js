@@ -40,19 +40,22 @@ const UserCalendar = () => {
   };
 
   return (
+
     <div>
       {loading ? <LoadingScreen /> : (
-      <div>
-      <Calendar
-        selectable
-        localizer={localizer}
-        events={calendarEvents}
-        onSelectEvent={handleSelected}
-        startAccessor="start"
-        endAccessor="end"
-        popup
-        style={{ height: 500, padding: "10px" }}
-      /></div>)}
+    <div className="container-fluid">
+      <div className="p-4">
+        <Calendar
+          selectable
+          localizer={localizer}
+          events={calendarEvents}
+          onSelectEvent={handleSelected}
+          startAccessor="start"
+          endAccessor="end"
+          popup
+          style={{ height: 500, padding: "10px" }}
+        />
+      </div>
     </div>
   );
 };
