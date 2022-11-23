@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { authenticate } from "../../app/store";
@@ -9,6 +10,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 function Login({ name, displayName }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
 
@@ -23,6 +25,7 @@ function Login({ name, displayName }) {
     const email = evt.target.email.value;
     const password = evt.target.password.value;
 
+    navigate("/home");
     dispatch(authenticate({ email, password, method: formName }));
     setValidated(true);
   };
