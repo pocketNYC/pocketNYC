@@ -13,7 +13,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 function Signup({ displayName, name }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -51,7 +51,6 @@ function Signup({ displayName, name }) {
       })
     );
     setValidated(true);
-    navigate('/')
   };
 
   return (
