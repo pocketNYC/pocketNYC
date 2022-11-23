@@ -30,7 +30,7 @@ function Login({ name, displayName }) {
     const password = evt.target.password.value;
 
     dispatch(authenticate({ email, password, method: formName }),[dispatch]);
-   console.log("wtf", user, '***********', error, authenticate.payload, )
+   console.log("wtf", user, '*********', error, authenticate.payload, )
     navigate("/");
     setValidated(true);
   };
