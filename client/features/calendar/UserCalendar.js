@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { fetchCalendarEvents, selectCalendar } from "./calendarSlice";
 import { useNavigate } from "react-router-dom";
+import './Calendar.css'
 
 const localizer = momentLocalizer(moment);
 

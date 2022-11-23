@@ -3,7 +3,7 @@ import './LoadingScreen.css'
 function LoadingScreen() {
   return (
     <div>
-      <h1>LoadingScreen</h1>
+      <h1 style={{textAlign:'center'}}>LoadingScreen</h1>
       <img src="pocketlogo.png" alt='' />
     </div>
   );

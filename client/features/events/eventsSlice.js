@@ -119,7 +119,13 @@ export const eventsSlice = createSlice({
     builder.addCase(fetchAllPendingEvents.fulfilled, (state, action) => {
       state.events = action.payload;
     });
+    builder.addCase(fetchSingleEvent.pending, (state, action) => {
+      state.loading = true;
+      console.log('aww you have to wait.')
+    });
     builder.addCase(fetchSingleEvent.fulfilled, (state, action) => {
+      state.loading = false
+      console.log('** LOOK ISSA SINGLE EVENT')
       state.event = action.payload;
     });
     builder.addCase(addEvent.fulfilled, (state, action) => {

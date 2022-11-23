@@ -18,13 +18,14 @@ import {
 import { Button } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import LoadingScreen from "../loading/LoadingScreen";
 
 function SingleEvent() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { image, title, description, address, start, end, tag, eventLink } =
     useSelector((state) => state.events.event);
-
+  const loading = useSelector(state => state.events.loading)
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const favEvents = useSelector(selectFavoriteEvents);
   const calEvents = useSelector(selectCalendar);
@@ -73,6 +74,8 @@ function SingleEvent() {
   });
 
   return (
+    <div>
+      {loading ? <LoadingScreen /> : (
     <div className="container-fluid p-4">
       <div className="card border-light text-center d-flex align-items-center h-100 ">
         <div className="row g-0">
@@ -147,6 +150,9 @@ function SingleEvent() {
           </div>
         </div>
       </div>
+      
+    </div>
+    )}
     </div>
   );
 }
