@@ -1,21 +1,66 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Link } from "react-router-dom";
+import { icon } from "leaflet";
+import { fetchAllEvents } from "../events/eventsSlice";
+import { useNavigate } from "react-router-dom";
 
-function Map() {
+const ICON = icon({
+  iconUrl: "/geo-fill.svg",
+  iconSize: [29, 29],
+  className: "icon",
+});
+
+const Map = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const events = useSelector((state) => state.events.events);
+
+  useEffect(() => {
+    dispatch(fetchAllEvents());
+  }, [dispatch]);
+
+  const navigateToEvent = (ev, id) => {
+    ev.preventDefault();
+    navigate(`/events/${id}`);
+  };
+
+  console.log(fetchAllEvents, "our events!!!");
+
+  // const currentUser = useAuth();
+
+  // const userLocation = [currentUser.lat, currentUser.lng];
   return (
-    <div>
-      <div className="p-4"></div>
-      <center>
-        <img
-          src={
-            "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.google.com%2Fmaps%2Fd%2Fthumbnail%3Fmid%3D19tYGrxvVWr345v_VePrUfooqtmo&f=1&nofb=1&ipt=55786a1341a7757360a6208088b7dacc1992abc05dd7c10792c7d87dc8289dcd&ipo=images"
-          }
-          alt={"Image of a map"}
-        />
-        <h2>Pin your selection of Events and Resources on our map!</h2>
-        <h2>Coming Soon...</h2>
-      </center>
+    <div id="map" className="map, underline">
+      <h1 align="center">Map</h1>
+      <div className="d-flex justify-content-center">
+        <MapContainer center={[40.6782, -73.9442]} zoom={11}>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {events.map((event) => {
+            return (
+              <Marker
+                icon={ICON}
+                key={event.id}
+                position={[event.latitude, event.longitude]}
+              >
+                <Popup onClick={(ev) => navigateToEvent(ev, id)}>
+                  <Link to={`/events/${event.id}`}>
+                    {event.title} <br />
+                  </Link>
+                  {event.description}
+                </Popup>
+                {/* <button onClick={(ev) => navigateToEvent(ev, id)} /> */}
+              </Marker>
+            );
+          })}
+        </MapContainer>
+      </div>
     </div>
   );
-}
+};
 
 export default Map;
