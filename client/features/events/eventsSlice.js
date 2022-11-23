@@ -92,16 +92,30 @@ export const eventsSlice = createSlice({
   name: "events",
   initialState: {
     events: [],
+    loading: false,
     event: {},
   },
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(fetchAllEvents.pending, (state, action) => {
+      state.loading = true;
+      console.log('LOADING EVENTS b/c auth causes things to crash')
+    });
     builder.addCase(fetchAllEvents.fulfilled, (state, action) => {
+      state.loading = false
       state.events = action.payload;
     });
+    //----------------- all events ⬆️
     builder.addCase(fetchAllApprovedEvents.fulfilled, (state, action) => {
+      console.log('VIEWING EVENTS')
+      state.loading = false
       state.events = action.payload;
     });
+    builder.addCase(fetchAllApprovedEvents.pending, (state, action) => {
+      state.loading = true;
+      console.log('** APPROVED EVENTS LOADING')
+    });
+    // -------------------- approved events ⬆️ ------------
     builder.addCase(fetchAllPendingEvents.fulfilled, (state, action) => {
       state.events = action.payload;
     });

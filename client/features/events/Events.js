@@ -7,12 +7,14 @@ import { me } from "../auth/authSlice";
 import { Button, Tooltip } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import AddIcon from "./AddIcon";
+import LoadingScreen from "../loading/LoadingScreen";
 
 export default function Events() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const events = useSelector((state) => state.events.events);
+  const loading = useSelector((state) => state.events.loading);
 
   useEffect(() => {
     dispatch(fetchAllApprovedEvents());
@@ -21,6 +23,7 @@ export default function Events() {
 
   return (
     <div className="container-fluid">
+      {loading ? <LoadingScreen /> :(<div> 
       {isLoggedIn && <AddIcon />}
       <h1 className="fw-light text-center text-lg-center p-4"> All Events </h1>
       <div className="row row-cols-1 row-cols-md-2 g-4">
@@ -74,6 +77,8 @@ export default function Events() {
           <KeyboardArrowUpIcon></KeyboardArrowUpIcon>
         </Button>
       </Tooltip>
-    </div>
-  );
+      </div>)}</div>
+    
+  )
+  
 }
