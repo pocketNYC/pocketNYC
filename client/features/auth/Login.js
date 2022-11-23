@@ -25,7 +25,6 @@ function Login({ name, displayName }) {
     const email = evt.target.email.value;
     const password = evt.target.password.value;
 
-    navigate("/home");
     dispatch(authenticate({ email, password, method: formName }));
     setValidated(true);
   };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Typeahead } from "react-bootstrap-typeahead";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Select from "react-select";
@@ -51,7 +52,7 @@ function Signup({ displayName, name }) {
       })
     );
     setValidated(true);
-    navigate("/home");
+    // navigate("/home");
   };
 
   return (
@@ -117,19 +118,22 @@ function Signup({ displayName, name }) {
             <option value="Manhattan">Manhattan</option>
             <option value="Staten Island">Staten Island</option>
           </Form.Select>
+          <Form.Control.Feedback type="invalid">
+            Please select a borough.
+          </Form.Control.Feedback>
         </Form.Group>
         <br />
-        <label htmlFor="interest" style={{ padding: "10px" }}>
-          Choose your categories of interest (select up to 3):
-        </label>
-        <Select
-          isMulti
-          options={formInterest}
-          components={animated}
-          closeMenuOnSelect={false}
-          onChange={handleChange}
-          isOptionDisabled={() => selectedOptions.length >= 3}
-        />
+        <Form.Group className="mb-6" controlId="interest">
+          <Form.Label>Interest</Form.Label>
+          <Typeahead
+            id="interest"
+            label="interest"
+            multiple
+            options={formInterest}
+            placeholder="Select an interest"
+            onChange={handleChange}
+          />
+        </Form.Group>
         <Button variant="primary" type="submit">
           {displayName}
         </Button>
