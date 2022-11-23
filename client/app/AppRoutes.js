@@ -38,6 +38,8 @@ const AppRoutes = () => {
 
   return (
     <div>
+      {loading ? (<LoadingScreen />) :
+      (<div> 
       {isLoggedIn ? (
         <Routes>
           <Route path="/" element={<Home />} />
@@ -95,10 +97,10 @@ const AppRoutes = () => {
           <Route path="/load" element={<LoadingScreen />} />
 
           <Route path="*" element={<Error />} />
-        </Routes>
-      )}
+          </Routes>
+       )}
+        </div>)} 
     </div>
   );
 };
-
 export default AppRoutes;

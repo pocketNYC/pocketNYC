@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
-import { fetchAllApprovedEvents } from "./eventsSlice";
+import { fetchAllApprovedEvents, fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
 import { Button, Tooltip } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -18,7 +18,7 @@ export default function Events() {
 
   useEffect(() => {
     dispatch(fetchAllApprovedEvents());
-    dispatch(me());
+    // dispatch(me());
   }, []);
 
   return (
