@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { editUser } from "./userSlice";
@@ -7,9 +7,12 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
 import { Update } from "@mui/icons-material";
+import LoadingScreen from "../loading/LoadingScreen";
 
 function EditUserProfile({ user }) {
   const { id, firstName, lastName, email, interests, borough } = user;
+  const loading = useSelector((state) => state.auth.loading);
+
 
   const [userFirstName, setUserFirstName] = useState(firstName);
   const [userLastName, setUserLastName] = useState(lastName);
@@ -43,10 +46,12 @@ function EditUserProfile({ user }) {
   };
 
   return (
-    <>
-      <div>
-        <h2 style={{ textAlign: "center" }}>Edit Your Details Below</h2>
+    <div>
+      <div style={{ textAlign: "center" }}>
+        <h2 >Edit Your Details Below</h2>
+        <h6>Click on a field to edit your information. Please reselect your interests</h6>
       </div>
+    {loading ? <LoadingScreen/> :(
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group className="mb-6" controlId="firstName">
           <Form.Label>First Name</Form.Label>
@@ -125,8 +130,8 @@ function EditUserProfile({ user }) {
         <Button variant="primary" type="submit">
           SUBMIT
         </Button>
-      </Form>
-    </>
+      </Form> )}
+    </div>
   );
 }
 
