@@ -31,9 +31,9 @@ form div {
 }
 
 
-
 Button.scroll  {
-  opacity: 50%;
+  opacity: 40%;
+  size: 25%;
 }
 
 .modal-show {
@@ -78,7 +78,6 @@ margin-bottom: 10px;
 .cards{
   transition: all 0.2s ease;
   cursor: pointer;
-
 }
 
 
