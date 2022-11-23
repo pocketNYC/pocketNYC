@@ -6,7 +6,7 @@ import {
   removeFromFavResources,
 } from "./favoriteResourcesSlice";
 import { Link } from "react-router-dom";
-import { IconButton } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import LoadingScreen from "../loading/LoadingScreen";
 
@@ -42,13 +42,15 @@ const FavoriteResources = () => {
                     <li key={resource.id}>
                       <Link to={`/r/${resource.id}`}>{resource.name}</Link>
                       &nbsp;
-                      <IconButton
-                        onClick={(ev) => {
-                          removeFavResource(ev, resource.id);
-                        }}
-                      >
-                        <DeleteIcon color="error" />
-                      </IconButton>
+                      <Tooltip title="Remove from favorites">
+                        <IconButton
+                          onClick={(ev) => {
+                            removeFavResource(ev, resource.id);
+                          }}
+                        >
+                          <DeleteIcon color="error" />
+                        </IconButton>
+                      </Tooltip>
                     </li>
                   );
                 })

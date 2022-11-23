@@ -46,82 +46,104 @@ const FavoriteEvents = () => {
         <LoadingScreen />
       ) : (
         <div>
-          <ul>
-            <p style={{ textDecorationLine: "underline", fontWeight: "bold" }}>
-              Upcoming Events:
-            </p>
-            {futureEvents.length
-              ? futureEvents?.map(({ event }) => {
-                  return (
-                    <li key={event.id}>
-                      {event.title}
-                      <IconButton
-                        onClick={(ev) => {
-                          removeFavEvent(ev, event.id);
-                        }}
-                      >
-                        <DeleteIcon color="error" />
-                      </IconButton>
-                      <ul>
-                        <li>
+          <p style={{ fontWeight: "bold" }}>Upcoming Events:</p>
+          {futureEvents.length ? (
+            futureEvents?.map(({ event }) => {
+              return (
+                <>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col"> Title</th>
+                        <th scope="col">More Details</th>
+                        <th scope="col">Remove From Favs</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
                           {moment(event.start).format(
                             "dddd, MMMM Do YYYY, h:mm a"
-                          )}{" "}
-                          -{" "}
-                          {moment(event.end).format(
-                            "dddd, MMMM Do YYYY, h:mm a"
                           )}
-                        </li>
-                        <li>
-                          <Link to={`/events/${event.id}`}>More Details</Link>
-                        </li>
-                      </ul>
-                    </li>
-                  );
-                })
-              : "No favorites to display yet"}
-          </ul>
-          <ul>
-            <p
-              style={{
-                color: "red",
-                fontWeight: "bold",
-                textDecorationLine: "underline",
-              }}
-            >
-              Past Events:
-            </p>
-            {pastEvents.length
-              ? pastEvents?.map(({ event }) => {
-                  return (
-                    <li key={event.id}>
-                      {event.title}
-                      <IconButton
-                        onClick={(ev) => {
-                          removeFavEvent(ev, event.id);
-                        }}
-                      >
-                        <DeleteIcon color="error" />
-                      </IconButton>
-                      <ul>
-                        <li>
-                          {moment(event.start).format(
-                            "dddd, MMMM Do YYYY, h:mm:ss a"
-                          )}
-                          -
-                          {moment(event.end).format(
-                            "dddd, MMMM Do YYYY, h:mm:ss a"
-                          )}
-                        </li>
-                        <li>
-                          <Link to={`/events/${event.id}`}>More Details</Link>
-                        </li>
-                      </ul>
-                    </li>
-                  );
-                })
-              : "No past favorites to display"}
-          </ul>
+                        </td>
+                        <td>{event.title} </td>
+                        <td>
+                          <Link to={`/events/${event.id}`}>
+                            Visit Event Page
+                          </Link>
+                        </td>
+                        <td>
+                          <IconButton
+                            onClick={(ev) => {
+                              removeFavEvent(ev, event.id);
+                            }}
+                          >
+                            <DeleteIcon color="error" />
+                          </IconButton>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </>
+              );
+            })
+          ) : (
+            <>
+              <p>No favorites to display yet </p> <br />
+            </>
+          )}
+
+          <p
+            style={{
+              color: "red",
+              fontWeight: "bold",
+            }}
+          >
+            Past Events:
+          </p>
+          {pastEvents.length
+            ? pastEvents?.map(({ event }) => {
+                return (
+                  <>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Date</th>
+                          <th scope="col"> Title</th>
+                          <th scope="col">More Details</th>
+                          <th scope="col">Remove From Favs</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            {moment(event.start).format(
+                              "dddd, MMMM Do YYYY, h:mm a"
+                            )}
+                          </td>
+                          <td>{event.title} </td>
+                          <td>
+                            <Link to={`/events/${event.id}`}>
+                              Visit Event Page
+                            </Link>
+                          </td>
+                          <td>
+                            <IconButton
+                              onClick={(ev) => {
+                                removeFavEvent(ev, event.id);
+                              }}
+                            >
+                              <DeleteIcon color="error" />
+                            </IconButton>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </>
+                );
+              })
+            : "No past favorites to display"}
         </div>
       )}
     </div>

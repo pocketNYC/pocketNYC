@@ -48,15 +48,10 @@ function SingleUserProfile({ user }) {
                   <div className="mt-3 mb-4">
                     <img
                       src="https://ih1.redbubble.net/image.348125876.6557/st,small,507x507-pad,600x600,f8f8f8.u2.jpg"
-                      className="rounded-circle img-fluid"
-                      style={
-                        {
-                          // width: "150px",
-                          // justifyContent: "center",
-                          // alignContent: "center",
-                          // alignItems: "center",
-                        }
-                      }
+                      className="rounded-circle mx-auto"
+                      style={{
+                        width: "200px",
+                      }}
                     />
                   </div>
 
@@ -83,7 +78,7 @@ function SingleUserProfile({ user }) {
             </div>
 
             <div className="col-md-8">
-              <div className="card text-center">
+              <div className="card">
                 <div
                   className="accordion accordion-flush"
                   id="accordionFlushExample"
