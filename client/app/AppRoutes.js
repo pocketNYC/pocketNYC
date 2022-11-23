@@ -29,7 +29,7 @@ const AppRoutes = () => {
   const userId = useSelector((state) => state.auth.me.id);
   const user = useSelector((state) => state.auth.me);
   const loading = useSelector((state) => state.auth.loading);
- 
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const AppRoutes = () => {
     <div>
       {isLoggedIn ? (
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
@@ -76,7 +76,7 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route
             path="/login"
@@ -96,7 +96,7 @@ const AppRoutes = () => {
 
           <Route path="*" element={<Error />} />
         </Routes>
-       )}
+      )}
     </div>
   );
 };
