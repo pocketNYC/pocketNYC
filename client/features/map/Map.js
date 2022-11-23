@@ -4,10 +4,16 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Link } from "react-router-dom";
 import { icon } from "leaflet";
 import { fetchAllEvents } from "../events/eventsSlice";
-import { useNavigate } from "react-router-dom";
+import { fetchResources, selectResources } from "../resources/resourcesSlice";
+import { useNavigate, useParams } from "react-router-dom";
 
-const ICON = icon({
+const eventIcon = icon({
   iconUrl: "/geo-fill.svg",
+  iconSize: [29, 29],
+  className: "icon",
+});
+const rescourceIcon = icon({
+  iconUrl: "/pin-map.svg",
   iconSize: [29, 29],
   className: "icon",
 });
@@ -16,9 +22,23 @@ const Map = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const events = useSelector((state) => state.events.events);
+  const { id } = useParams();
+  const resources = useSelector(selectResources);
+
+  const filteredResources = resources.filter((resource) => {
+    if (resource.latitude !== null && resource.longitude !== null) {
+      return resource;
+    }
+  });
+
+  const navigateCategory = ({ target }) => {
+    const category = target.id;
+    navigate(`/resources/${category}`);
+  };
 
   useEffect(() => {
     dispatch(fetchAllEvents());
+    dispatch(fetchResources());
   }, [dispatch]);
 
   const navigateToEvent = (ev, id) => {
@@ -26,7 +46,10 @@ const Map = () => {
     navigate(`/events/${id}`);
   };
 
-  console.log(fetchAllEvents, "our events!!!");
+  // const navigateToResource = (ev, id) => {
+  //   ev.preventDefault();
+  //   navigate(`/resources/${id}`);
+  // };
 
   // const currentUser = useAuth();
 
@@ -43,15 +66,32 @@ const Map = () => {
           {events.map((event) => {
             return (
               <Marker
-                icon={ICON}
+                icon={eventIcon}
                 key={event.id}
                 position={[event.latitude, event.longitude]}
               >
-                <Popup onClick={(ev) => navigateToEvent(ev, id)}>
+                <Popup onClick={(ev) => navigateToResource(ev, id)}>
                   <Link to={`/events/${event.id}`}>
                     {event.title} <br />
                   </Link>
                   {event.description}
+                </Popup>
+                {/* <button onClick={(ev) => navigateToEvent(ev, id)} /> */}
+              </Marker>
+            );
+          })}
+          {filteredResources.map((resource) => {
+            return (
+              <Marker
+                icon={rescourceIcon}
+                key={resource.id}
+                position={[resource.latitude, resource.longitude]}
+              >
+                <Popup onClick={(ev) => navigateToResource(ev, id)}>
+                  <Link to={navigateCategory}>
+                    {resource.name} <br />
+                  </Link>
+                  {resource.description}
                 </Popup>
                 {/* <button onClick={(ev) => navigateToEvent(ev, id)} /> */}
               </Marker>
