@@ -1,13 +1,7 @@
-/* div {
-    text-align: center;
-} */
-
-
 img {
   display: flex;
   max-height: 375px;
   object-position: center;
-  image-rendering: crisp-edges;
   background-position: center;
   justify-content: space-around;
 }
