@@ -3,6 +3,7 @@ import React from "react";
 function Map() {
   return (
     <div>
+      <div className="p-4"></div>
       <center>
         <img
           src={

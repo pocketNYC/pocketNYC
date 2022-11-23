@@ -28,7 +28,7 @@ const ResourceCategory = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row row-cols-1 row-cols-md-2 p-4 g-4">
         {resources
           .filter((resource) => resource.tag.includes(category))
@@ -81,14 +81,12 @@ const ResourceCategory = () => {
           size="small"
           style={{
             position: "fixed",
-            borderRadius: "50%",
-            padding: "1rem 1rem",
             bottom: "120px",
-            right: "10px",
+            right: "5px",
             textAlign: "center",
           }}
         >
-          <KeyboardArrowUpIcon></KeyboardArrowUpIcon>
+          <KeyboardArrowUpIcon style={{ color: "white" }}></KeyboardArrowUpIcon>
         </Button>
       </Tooltip>
     </div>

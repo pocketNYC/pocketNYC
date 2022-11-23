@@ -20,7 +20,7 @@ export default function Events() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       {isLoggedIn && <AddIcon />}
       <h1 className="fw-light text-center text-lg-center p-4"> All Events </h1>
       <div className="row row-cols-1 row-cols-md-2 g-4">
@@ -64,14 +64,12 @@ export default function Events() {
           size="small"
           style={{
             position: "fixed",
-            borderRadius: "50%",
-            padding: "1rem 1rem",
             bottom: "120px",
-            right: "10px",
+            right: "5px",
             textAlign: "center",
           }}
         >
-          <KeyboardArrowUpIcon></KeyboardArrowUpIcon>
+          <KeyboardArrowUpIcon style={{ color: "white" }}></KeyboardArrowUpIcon>
         </Button>
       </Tooltip>
     </div>
