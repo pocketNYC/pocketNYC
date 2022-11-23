@@ -54,7 +54,7 @@ function GuestUserFeed() {
               >
                 <img
                   src={image}
-                  alt={`image of ${title}`}
+                  alt={`Image of ${title}`}
                   className="img-fluid rounded-start"
                   style={{ height: "400px", width: "700px" }}
                 />

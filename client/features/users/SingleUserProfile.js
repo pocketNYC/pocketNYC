@@ -7,10 +7,13 @@ import { fetchFavoriteResources } from "../favorites/favoriteResourcesSlice";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import LoadingScreen from "../loading/LoadingScreen";
+import EditIcon from '@mui/icons-material/Edit';
 
 function SingleUserProfile({ user }) {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
+  const loading = useSelector((state) => state.auth.loading);
   const events = useSelector((state) => state.events.events);
 
   const { firstName, lastName, email, interests, borough, id } = user;
@@ -29,6 +32,8 @@ function SingleUserProfile({ user }) {
 
   return (
     <div>
+      {loading ? <LoadingScreen /> : (
+      <div>
       <h4> Welcome, {`${firstName} ${lastName}`}! </h4>
 
       <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -65,7 +70,7 @@ function SingleUserProfile({ user }) {
               </h6>
             </div>
             <Link to={`/users/${userId}/edit`}>
-              <Button>Edit Profile</Button>
+              <Button><EditIcon/> Edit Profile</Button>
             </Link>
           </div>
         </div>
@@ -120,6 +125,7 @@ function SingleUserProfile({ user }) {
         </div>
       </div>
     </div>
+    )}</div>
   );
 }
 

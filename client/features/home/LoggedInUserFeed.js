@@ -55,7 +55,7 @@ function LoggedInUserFeed({ interests, borough }) {
                   <img
                     src={image}
                     className="img-fluid rounded-start"
-                    alt={`image of ${title}`}
+                    alt={`Image of ${title}`}
                     style={{ height: "400px", width: "600px" }}
                   />
                   <a>
