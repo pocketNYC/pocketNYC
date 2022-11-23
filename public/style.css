@@ -181,3 +181,7 @@ Button.scroll {
   width: 80%;
   height: 120vh;
 }
+
+.icon:hover {
+  fill: #6f48eb;
+}
