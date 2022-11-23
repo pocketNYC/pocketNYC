@@ -8,6 +8,7 @@ import { fetchAllEvents } from "../events/eventsSlice";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import LoadingScreen from "../loading/LoadingScreen";
+import EditIcon from '@mui/icons-material/Edit';
 
 function SingleUserProfile({ user }) {
   const dispatch = useDispatch();
@@ -69,7 +70,7 @@ function SingleUserProfile({ user }) {
               </h6>
             </div>
             <Link to={`/users/${userId}/edit`}>
-              <Button>Edit Profile</Button>
+              <Button><EditIcon/> Edit Profile</Button>
             </Link>
           </div>
         </div>
