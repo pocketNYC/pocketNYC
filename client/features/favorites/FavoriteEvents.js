@@ -47,31 +47,29 @@ const FavoriteEvents = () => {
       ) : (
         <div>
           <p style={{ fontWeight: "bold" }}>Upcoming Events:</p>
-          {futureEvents.length ? (
-            futureEvents?.map(({ event }) => {
-              return (
-                <>
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col"> Title</th>
-                        <th scope="col">More Details</th>
-                        <th scope="col">Remove From Favs</th>
-                      </tr>
-                    </thead>
+          <table className="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col"> Title</th>
+
+                <th scope="col">Remove</th>
+              </tr>
+            </thead>
+            {futureEvents.length ? (
+              futureEvents?.map(({ event }) => {
+                return (
+                  <>
                     <tbody>
-                      <tr>
+                      <tr key={event.id}>
                         <td>
                           {moment(event.start).format(
                             "dddd, MMMM Do YYYY, h:mm a"
                           )}
                         </td>
-                        <td>{event.title} </td>
+
                         <td>
-                          <Link to={`/events/${event.id}`}>
-                            Visit Event Page
-                          </Link>
+                          <Link to={`/events/${event.id}`}>{event.title}</Link>
                         </td>
                         <td>
                           <IconButton
@@ -84,16 +82,17 @@ const FavoriteEvents = () => {
                         </td>
                       </tr>
                     </tbody>
-                  </table>
-                </>
-              );
-            })
-          ) : (
-            <>
-              <p>No favorites to display yet </p> <br />
-            </>
-          )}
-
+                  </>
+                );
+              })
+            ) : (
+              <tbody>
+                <tr>
+                  <td>No favorites to display</td>
+                </tr>
+              </tbody>
+            )}
+          </table>
           <p
             style={{
               color: "red",
@@ -102,48 +101,51 @@ const FavoriteEvents = () => {
           >
             Past Events:
           </p>
-          {pastEvents.length
-            ? pastEvents?.map(({ event }) => {
+          <table className="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col"> Title</th>
+                <th scope="col">Remove </th>
+              </tr>
+            </thead>
+
+            {pastEvents.length ? (
+              pastEvents?.map(({ event }) => {
                 return (
                   <>
-                    <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th scope="col">Date</th>
-                          <th scope="col"> Title</th>
-                          <th scope="col">More Details</th>
-                          <th scope="col">Remove From Favs</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            {moment(event.start).format(
-                              "dddd, MMMM Do YYYY, h:mm a"
-                            )}
-                          </td>
-                          <td>{event.title} </td>
-                          <td>
-                            <Link to={`/events/${event.id}`}>
-                              Visit Event Page
-                            </Link>
-                          </td>
-                          <td>
-                            <IconButton
-                              onClick={(ev) => {
-                                removeFavEvent(ev, event.id);
-                              }}
-                            >
-                              <DeleteIcon color="error" />
-                            </IconButton>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <tbody>
+                      <tr key={event.id}>
+                        <td>
+                          {moment(event.start).format(
+                            "dddd, MMMM Do YYYY, h:mm a"
+                          )}
+                        </td>
+                        <td>
+                          <Link to={`/events/${event.id}`}>{event.title}</Link>
+                        </td>
+                        <td>
+                          <IconButton
+                            onClick={(ev) => {
+                              removeFavEvent(ev, event.id);
+                            }}
+                          >
+                            <DeleteIcon color="error" />
+                          </IconButton>
+                        </td>
+                      </tr>
+                    </tbody>
                   </>
                 );
               })
-            : "No past favorites to display"}
+            ) : (
+              <tbody>
+                <tr>
+                  <td>No favorites to display</td>
+                </tr>
+              </tbody>
+            )}
+          </table>
         </div>
       )}
     </div>

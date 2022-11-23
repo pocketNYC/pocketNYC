@@ -18,7 +18,7 @@ const FavoriteResources = () => {
   }, [dispatch]);
 
   const favResources = useSelector(selectFavoriteResources);
-  const favResoucesLoading = useSelector(
+  const favResourcesLoading = useSelector(
     (state) => state.favoriteResources.loading
   );
 
@@ -30,32 +30,49 @@ const FavoriteResources = () => {
   };
 
   return (
-    <div>
-      {favResoucesLoading ? (
+    <div className="container-fluid">
+      {favResourcesLoading ? (
         <LoadingScreen />
       ) : (
         <div>
-          <ul>
-            {favResources.length
-              ? favResources?.map(({ resource }) => {
-                  return (
-                    <li key={resource.id}>
-                      <Link to={`/r/${resource.id}`}>{resource.name}</Link>
-                      &nbsp;
-                      <Tooltip title="Remove from favorites">
-                        <IconButton
-                          onClick={(ev) => {
-                            removeFavResource(ev, resource.id);
-                          }}
-                        >
-                          <DeleteIcon color="error" />
-                        </IconButton>
-                      </Tooltip>
-                    </li>
-                  );
-                })
-              : "No favorites to display yet"}
-          </ul>
+          <table className="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Remove</th>
+              </tr>
+            </thead>
+            {favResources.length ? (
+              favResources?.map(({ resource }) => {
+                return (
+                  <tbody key={resource.id}>
+                    <tr>
+                      <td>
+                        <Link to={`/r/${resource.id}`}>{resource.name}</Link>
+                      </td>
+                      <td>
+                        <Tooltip title="Remove from favorites">
+                          <IconButton
+                            onClick={(ev) => {
+                              removeFavResource(ev, resource.id);
+                            }}
+                          >
+                            <DeleteIcon color="error" />
+                          </IconButton>
+                        </Tooltip>
+                      </td>
+                    </tr>
+                  </tbody>
+                );
+              })
+            ) : (
+              <tbody>
+                <tr>
+                  <td>No favorites to display</td>
+                </tr>
+              </tbody>
+            )}
+          </table>
         </div>
       )}
     </div>
