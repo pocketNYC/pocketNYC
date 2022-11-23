@@ -53,7 +53,6 @@ const favoriteResourcesSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchFavoriteResources.fulfilled, (state, action) => {
-      (console.log('allLoaded**'))
       state.loading = false
       state.favoriteResources = action.payload;
     });

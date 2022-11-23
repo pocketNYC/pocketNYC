@@ -68,7 +68,6 @@ export const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(me.pending, (state, action) => {
-      console.log("LOADING USER**");
       state.loading = true;
     });
     builder.addCase(me.fulfilled, (state, action) => {
@@ -79,7 +78,6 @@ export const authSlice = createSlice({
       state.error = action.error;
     });
     builder.addCase(authenticate.pending, (state, action) => {
-     console.log('**PENDING AUTHENTICATION')
       state.loading = true;
     });
     builder.addCase(authenticate.rejected, (state, action) => {

@@ -57,7 +57,7 @@ function Questions() {
             Yes. Navigate to the <AccountBoxIcon /> section below and click on "My Profile. From
             there, you can see your User Information and an "Edit Profile"
             button. <br />
-            <strong>User > My Profile > User Information > Edit Profile</strong>
+            <strong><AccountBoxIcon /> > Profile > User Information > Edit Profile</strong>
           </div>
         </div>
       </div>

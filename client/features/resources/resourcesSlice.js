@@ -18,10 +18,8 @@ const resourcesSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchResources.pending, (state, action) => {
      state.loading = true
-      console.log('Loading Resources')
     });
     builder.addCase(fetchResources.fulfilled, (state, action) => {
-     console.log('RESOURCES SHOWING')
       state.loading = false
       state.resources = action.payload;
     });

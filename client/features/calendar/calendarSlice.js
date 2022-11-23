@@ -47,12 +47,10 @@ const calendarSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchCalendarEvents.pending, (state, action) => {
-      console.log('load CALENDAR')
      state.loading = true
     });
     builder.addCase(fetchCalendarEvents.fulfilled, (state, action) => {
       state.loading = false
-      console.log('THE CALENDAR IS LOADED')
       state.calendar = action.payload;
     });
     builder.addCase(addToCalendar.fulfilled, (state, action) => {

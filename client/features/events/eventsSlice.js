@@ -99,7 +99,6 @@ export const eventsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchAllEvents.pending, (state, action) => {
       state.loading = true;
-      console.log('LOADING EVENTS b/c auth causes things to crash')
     });
     builder.addCase(fetchAllEvents.fulfilled, (state, action) => {
       state.loading = false
@@ -107,13 +106,11 @@ export const eventsSlice = createSlice({
     });
     //----------------- all events ⬆️
     builder.addCase(fetchAllApprovedEvents.fulfilled, (state, action) => {
-      console.log('VIEWING EVENTS')
       state.loading = false
       state.events = action.payload;
     });
     builder.addCase(fetchAllApprovedEvents.pending, (state, action) => {
       state.loading = true;
-      console.log('** APPROVED EVENTS LOADING')
     });
     // -------------------- approved events ⬆️ ------------
     builder.addCase(fetchAllPendingEvents.fulfilled, (state, action) => {
@@ -121,11 +118,9 @@ export const eventsSlice = createSlice({
     });
     builder.addCase(fetchSingleEvent.pending, (state, action) => {
       state.loading = true;
-      console.log('aww you have to wait.')
     });
     builder.addCase(fetchSingleEvent.fulfilled, (state, action) => {
       state.loading = false
-      console.log('** LOOK ISSA SINGLE EVENT')
       state.event = action.payload;
     });
     builder.addCase(addEvent.fulfilled, (state, action) => {
