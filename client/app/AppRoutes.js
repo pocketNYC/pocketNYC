@@ -13,7 +13,6 @@ import Login from "../features/auth/Login";
 import Signup from "../features/auth/Signup";
 import AllResources from "../features/resources/AllResources";
 import ResourceCategory from "../features/resources/ResourceCategory";
-import Favorites from "../features/favorites/Favorites";
 import SingleResource from "../features/resources/SingleResource";
 import SingleUserProfile from "../features/users/SingleUserProfile";
 import SingleEvent from "../features/events/SingleEvent";
@@ -22,6 +21,8 @@ import Faq from "../features/helpPage/HelpPage";
 import UserCalendar from "../features/calendar/UserCalendar";
 import Map from "../features/map/Map";
 import LoadingScreen from "../features/loading/LoadingScreen";
+import FavoriteResources from "../features/favorites/FavoriteResources";
+import FavoriteEvents from "../features/favorites/FavoriteEvents";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -29,7 +30,7 @@ const AppRoutes = () => {
   const userId = useSelector((state) => state.auth.me.id);
   const user = useSelector((state) => state.auth.me);
   const loading = useSelector((state) => state.auth.loading);
- 
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -61,7 +62,14 @@ const AppRoutes = () => {
             path={`/users/${user.id}/edit`}
             element={<EditUserProfile user={user} />}
           />
-          <Route path={`/users/${userId}/favorites`} element={<Favorites />} />
+          <Route
+            path={`/users/${userId}/favoriteResources`}
+            element={<FavoriteResources />}
+          />
+          <Route
+            path={`/users/${userId}/favoriteEvents`}
+            element={<FavoriteEvents />}
+          />
           <Route path={`/r/:id`} element={<SingleResource />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/map" element={<Map />} />
@@ -96,7 +104,7 @@ const AppRoutes = () => {
 
           <Route path="*" element={<Error />} />
         </Routes>
-       )}
+      )}
     </div>
   );
 };

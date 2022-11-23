@@ -81,10 +81,10 @@ export default function AccountMenu() {
               <Avatar />
               <Link to={`/users/${userId}`}>Profile</Link>
             </MenuItem>
-            <MenuItem>
+            {/* <MenuItem>
               <FavoriteIcon />
               <Link to={`/users/${userId}/favorites`}>Favorites</Link>
-            </MenuItem>
+            </MenuItem> */}
 
             {isAdmin ? (
               <div>

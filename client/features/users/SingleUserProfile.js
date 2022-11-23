@@ -8,7 +8,9 @@ import { fetchAllEvents } from "../events/eventsSlice";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import LoadingScreen from "../loading/LoadingScreen";
-import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from "@mui/icons-material/Edit";
+import FavoriteResources from "../favorites/FavoriteResources";
+import FavoriteEvents from "../favorites/FavoriteEvents";
 
 function SingleUserProfile({ user }) {
   const dispatch = useDispatch();
@@ -31,120 +33,168 @@ function SingleUserProfile({ user }) {
   });
 
   return (
-    <div className="container-fluid">
-      <div className="row p-4">
-        <div className="card">
-          <div className="accordion accordion-flush" id="accordionFlushExample">
-            <div className="accordion-item">
-              <h2 className="accordion-header" id="flush-headingTwo">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="flush-collapseTwo"
-                >
-                  My User Information
-                </button>
-              </h2>
+    <div>
+      {loading ? (
+        <LoadingScreen />
+      ) : (
+        <div className="container-fluid">
+          <div className="row p-4">
+            <div className="col-md-4">
               <div
-                id="flush-collapseTwo"
-                className="accordion-collapse collapse"
-                aria-labelledby="flush-headingTwo"
-                data-bs-parent="#accordionFlushExample"
+                className="card text-center"
+                style={{ borderRadius: "15px" }}
               >
-                <div className="accordion-body">
-                  <div class="container py-2 h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                      <div class="col-md-12 col-xl-4">
-                        <div class="card" style={{ borderRadius: "15px" }}>
-                          <div class="card-body text-center">
-                            <div class="mt-3 mb-4">
-                              <img
-                                src="https://images.cf.nycsubway.org/images/maps/subway-map-2019a.png"
-                                class="rounded-circle"
-                                style={{ width: "100px", height: "100px" }}
-                              />
-                            </div>
-                            <h4 class="mb-2">
-                              {firstName} {lastName}
-                            </h4>
-                            <h6 class="text-muted mb-4">
-                              <strong>My Interests: </strong>
-                              {[interests].toString().split(",").join(", ")}
-                              <strong>
-                                <br />
-                                My Email:{" "}
-                              </strong>
-                              {email}
-                            </h6>
+                <div className="card-body text-center">
+                  <div className="mt-3 mb-4">
+                    <img
+                      src="https://ih1.redbubble.net/image.348125876.6557/st,small,507x507-pad,600x600,f8f8f8.u2.jpg"
+                      className="rounded-circle img-fluid"
+                      style={
+                        {
+                          // width: "150px",
+                          // justifyContent: "center",
+                          // alignContent: "center",
+                          // alignItems: "center",
+                        }
+                      }
+                    />
+                  </div>
 
-                            <Link to={`/users/${userId}/edit`}>
-                              <Button>Edit Profile</Button>
-                            </Link>
-                          </div>
-                        </div>
+                  <h4 className="mb-2">
+                    {firstName} {lastName}
+                  </h4>
+                  <h6 className="text-muted mb-4">
+                    <strong>My Interests: </strong>
+                    {[interests].toString().split(",").join(", ")}
+                    <strong>
+                      <br />
+                      My Email:{" "}
+                    </strong>
+                    {email}
+                  </h6>
+                </div>
+                <Link to={`/users/${userId}/edit`}>
+                  <Button>
+                    <EditIcon /> Edit Profile
+                  </Button>
+                  <div className="p-2"></div>
+                </Link>
+              </div>
+            </div>
+
+            <div className="col-md-8">
+              <div className="card text-center">
+                <div
+                  className="accordion accordion-flush"
+                  id="accordionFlushExample"
+                >
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="flush-headingOne">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseOne"
+                      >
+                        My Submitted Events
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseOne"
+                      className="accordion-collapse collapse"
+                      aria-labelledby="flush-headingOne"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div className="accordion-body">
+                        <ul>
+                          {myEvents.length
+                            ? myEvents.map(
+                                ({ title, status, id, start, end }) => {
+                                  return (
+                                    <li key={id}>
+                                      <h6>
+                                        {title}
+                                        <ul>
+                                          <li>
+                                            {moment(start).format(
+                                              "dddd, MMMM Do YYYY, h:mm a"
+                                            )}{" "}
+                                            -{" "}
+                                            {moment(end).format(
+                                              "dddd, MMMM Do YYYY, h:mm a"
+                                            )}
+                                          </li>
+                                          <li> Status: {status}</li>
+                                        </ul>
+                                      </h6>
+                                    </li>
+                                  );
+                                }
+                              )
+                            : "No events to display"}
+                        </ul>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              <div className="accordion-item">
-                <h2 className="accordion-header" id="flush-headingOne">
-                  <button
-                    className="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseOne"
-                    aria-expanded="false"
-                    aria-controls="flush-collapseOne"
-                  >
-                    My Submitted Events
-                  </button>
-                </h2>
-                <div
-                  id="flush-collapseOne"
-                  className="accordion-collapse collapse"
-                  aria-labelledby="flush-headingOne"
-                  data-bs-parent="#accordionFlushExample"
-                >
-                  <div className="accordion-body">
-                    <ul>
-                      {myEvents.length
-                        ? myEvents.map(({ title, status, id, start, end }) => {
-                            return (
-                              <li key={id}>
-                                <h6>
-                                  {title}
-                                  <ul>
-                                    <li>
-                                      {moment(start).format(
-                                        "dddd, MMMM Do YYYY, h:mm a"
-                                      )}{" "}
-                                      -{" "}
-                                      {moment(end).format(
-                                        "dddd, MMMM Do YYYY, h:mm a"
-                                      )}
-                                    </li>
-                                    <li> Status: {status}</li>
-                                  </ul>
-                                </h6>
-                              </li>
-                            );
-                          })
-                        : "No events to display"}
-                    </ul>
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="flush-headingTwo">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseTwo"
+                      >
+                        My Favorite Resources
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseTwo"
+                      className="accordion-collapse collapse"
+                      aria-labelledby="flush-headingTwo"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div className="accordion-body">
+                        <FavoriteResources />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="flush-headingThree">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseThree"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseThree"
+                      >
+                        My Favorite Events
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseThree"
+                      className="accordion-collapse collapse"
+                      aria-labelledby="flush-headingThree"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div className="accordion-body">
+                        <FavoriteEvents />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
-    )}</div>
   );
 }
 

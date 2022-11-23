@@ -92,3 +92,8 @@ Button.scroll  {
 .card-img-top {
   cursor: pointer;
 }
+
+img.rounded-circle {
+justify-content: center;
+object-position: center;
+}
