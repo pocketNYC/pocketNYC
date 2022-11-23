@@ -29,7 +29,7 @@ const AppRoutes = () => {
   const userId = useSelector((state) => state.auth.me.id);
   const user = useSelector((state) => state.auth.me);
   const loading = useSelector((state) => state.auth.loading);
- 
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -96,7 +96,7 @@ const AppRoutes = () => {
 
           <Route path="*" element={<Error />} />
         </Routes>
-       )}
+      )}
     </div>
   );
 };

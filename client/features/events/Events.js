@@ -55,24 +55,6 @@ export default function Events() {
                         size="small"
                         onClick={() => navigate(`/events/${id}`)}
                       />
-                      <div className="card-body">
-                        <h5 className="card-title">{title}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">
-                          {moment(start).format("dddd, MMMM Do, YYYY")}
-                        </h6>
-                        <small className="card-subtitle mb-2 text-muted">
-                          Tags: {tag.join(", ")}
-                        </small>
-                        <div>
-                          {" "}
-                          <Button
-                            size="small"
-                            onClick={() => navigate(`/events/${id}`)}
-                          >
-                            More Info{" "}
-                          </Button>
-                        </div>
-                      </div>
                     </div>{" "}
                   </div>
                 </div>

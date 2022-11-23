@@ -51,6 +51,7 @@ function Signup({ displayName, name }) {
       })
     );
     setValidated(true);
+    navigate("/home");
   };
 
   return (
