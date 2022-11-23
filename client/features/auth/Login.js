@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -13,6 +13,9 @@ function Login({ name, displayName }) {
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
+  const { error } = useSelector((state) => state.auth);
+  
+  const user = useSelector((state) => state.auth.me);
 
   const togglePassword = (evt) => {
     evt.preventDefault();
@@ -21,12 +24,14 @@ function Login({ name, displayName }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+  
     const formName = evt.target.name;
     const email = evt.target.email.value;
     const password = evt.target.password.value;
 
-    navigate("/home");
-    dispatch(authenticate({ email, password, method: formName }));
+    dispatch(authenticate({ email, password, method: formName }),[dispatch]);
+   console.log("wtf", user, '***********', error, authenticate.payload, )
+    navigate("/");
     setValidated(true);
   };
   return (
@@ -57,6 +62,7 @@ function Login({ name, displayName }) {
           </InputGroup.Text>
         </InputGroup>
       </Form.Group>
+      <div> {error && <div style={{color:'red'}}> {error} </div>}</div>
       <Button variant="primary" type="submit">
         {displayName}
       </Button>
