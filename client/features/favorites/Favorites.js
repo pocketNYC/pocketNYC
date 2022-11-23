@@ -14,6 +14,7 @@ import {
 import moment from "moment";
 import { IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import LoadingScreen from "../loading/LoadingScreen";
 
 const Favorites = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,8 @@ const Favorites = () => {
 
   const favResources = useSelector(selectFavoriteResources);
   const favEvents = useSelector(selectFavoriteEvents);
+  const eventsLoading = useSelector(state => state.events.loading)
+  const favResoucesLoading = useSelector(state => state.favoriteResources.loading)
 
   const removeFavEvent = (ev, id) => {
     ev.preventDefault();
@@ -54,6 +57,8 @@ const Favorites = () => {
 
   return (
     <div>
+      {eventsLoading && favResoucesLoading ? <LoadingScreen/> : (
+      <div>
       <h1>My Favorite Resources</h1>
       <ul>
         {favResources.length
@@ -146,6 +151,7 @@ const Favorites = () => {
             })
           : "No past favorites to display"}
       </ul>
+      </div>)}
     </div>
   );
 };

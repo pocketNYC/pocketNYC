@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const TOKEN = "token";
 
-const initialState = [];
+const initialState = {favoriteResources:[], loading:false};
 
 export const fetchFavoriteResources = createAsyncThunk(
   "fetchFavorite_Resources",
@@ -49,14 +49,19 @@ const favoriteResourcesSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(fetchFavoriteResources.pending, (state, action) => {
+      state.loading = true;
+    });
     builder.addCase(fetchFavoriteResources.fulfilled, (state, action) => {
-      return action.payload;
+      (console.log('allLoaded**'))
+      state.loading = false
+      state.favoriteResources = action.payload;
     });
     builder.addCase(addToFavResources.fulfilled, (state, action) => {
-      state.push(action.payload);
+      state.favoriteResources.push(action.payload);
     });
     builder.addCase(removeFromFavResources.fulfilled, (state, action) => {
-      state.filter((resource) => {
+      state.favoriteResources.filter((resource) => {
         if (resource.id !== action.payload.resourceId) {
           return resource;
         }
@@ -66,7 +71,7 @@ const favoriteResourcesSlice = createSlice({
 });
 
 export const selectFavoriteResources = (state) => {
-  return state.favoriteResources;
+  return state.favoriteResources.favoriteResources;
 };
 
 export default favoriteResourcesSlice.reducer;
