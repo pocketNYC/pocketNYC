@@ -27,6 +27,7 @@
     "@fullcalendar/react": "^5.11.3",
     "@mui/icons-material": "^5.10.14",
     "@mui/material": "^5.10.14",
+    "@mui/x-date-pickers": "^5.0.9",
     "antd": "^4.24.3",
     "bcrypt": "^5.1.0",
     "bootstrap": "^5.2.2",

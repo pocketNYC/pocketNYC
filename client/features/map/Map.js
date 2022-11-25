@@ -26,11 +26,6 @@ const Map = () => {
     navigate(`/events/${id}`);
   };
 
-  console.log(fetchAllEvents, "our events!!!");
-
-  // const currentUser = useAuth();
-
-  // const userLocation = [currentUser.lat, currentUser.lng];
   return (
     <div id="map" className="map, underline">
       <h1 align="center">Map</h1>
@@ -53,7 +48,6 @@ const Map = () => {
                   </Link>
                   {event.description}
                 </Popup>
-                {/* <button onClick={(ev) => navigateToEvent(ev, id)} /> */}
               </Marker>
             );
           })}

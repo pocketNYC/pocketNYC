@@ -8,6 +8,7 @@ import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import DateTimePicker from "./DateTimePicker";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,8 @@ const AddEvent = () => {
   const userId = useSelector((state) => state.auth.me.id);
 
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [startVal, setStartVal] = useState(new Date());
+  const [endVal, setEndVal] = useState(new Date());
 
   const handleChange = (formInterest) => {
     let selections = [];
@@ -30,8 +33,8 @@ const AddEvent = () => {
     const description = evt.target.description.value;
     const address = evt.target.address.value;
     const image = evt.target.image.value;
-    const start = evt.target.start.value;
-    const end = evt.target.end.value;
+    const start = startVal;
+    const end = endVal;
     const tag = selectedOptions;
     const borough = evt.target.borough.value;
     const eventLink = evt.target.eventLink.value;
@@ -81,18 +84,18 @@ const AddEvent = () => {
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-6" controlId="start">
-          <Form.Label>Date:</Form.Label>
-          <Form.Control required type="date" />
-          <Form.Control.Feedback type="invalid">
-            Please provide a starting date.
-          </Form.Control.Feedback>
+          <DateTimePicker
+            label="Starting Date and Time"
+            value={startVal}
+            onChange={(newValue) => setStartVal(newValue)}
+          />
         </Form.Group>
         <Form.Group className="mb-6" controlId="end">
-          <Form.Label>Time:</Form.Label>
-          <Form.Control required type="time" />
-          <Form.Control.Feedback type="invalid">
-            Please provide a ending time.
-          </Form.Control.Feedback>
+          <DateTimePicker
+            label="Ending Date and Time"
+            value={endVal}
+            onChange={(newValue) => setEndVal(newValue)}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="image">
           <Form.Label>Image</Form.Label>

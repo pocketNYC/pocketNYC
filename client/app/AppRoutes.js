@@ -46,15 +46,23 @@ const AppRoutes = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
-
+          <Route
+            path={`/users/${userId}/favoriteEvents`}
+            element={<FavoriteEvents />}
+          />
           <Route path="/add" element={<AddEvent />} />
-          <Route path="/calendar" element={<UserCalendar />} />
           <Route
             path="/add/success"
             element={<ConfirmationPage user={user} />}
           />
           <Route path="/resources" element={<AllResources />} />
+          <Route path={`/r/:id`} element={<SingleResource />} />
           <Route path="/resources/:category/" element={<ResourceCategory />} />
+          <Route
+            path={`/users/${userId}/favoriteResources`}
+            element={<FavoriteResources />}
+          />
+          <Route path="/calendar" element={<UserCalendar />} />
           <Route
             path={`/users/${userId}`}
             element={<SingleUserProfile user={user} />}
@@ -63,18 +71,8 @@ const AppRoutes = () => {
             path={`/users/${user.id}/edit`}
             element={<EditUserProfile user={user} />}
           />
-          <Route
-            path={`/users/${userId}/favoriteResources`}
-            element={<FavoriteResources />}
-          />
-          <Route
-            path={`/users/${userId}/favoriteEvents`}
-            element={<FavoriteEvents />}
-          />
-          <Route path={`/r/:id`} element={<SingleResource />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/map" element={<Map />} />
-          <Route path="/load" element={<LoadingScreen />} />
           {isAdmin && (
             <>
               <Route path="/users" element={<UserList />} />
@@ -98,11 +96,9 @@ const AppRoutes = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
           <Route path="/resources" element={<AllResources />} />
-          <Route path="/faq" element={<Faq />} />
           <Route path="/resources/:category" element={<ResourceCategory />} />
           <Route path="/map" element={<Map />} />
-          <Route path="/load" element={<LoadingScreen />} />
-
+          <Route path="/faq" element={<Faq />} />
           <Route path="*" element={<Error />} />
         </Routes>
       )}
