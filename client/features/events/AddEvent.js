@@ -1,29 +1,27 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { addEvent } from "./eventsSlice";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import DateTimePicker from "./DateTimePicker";
+import { addEvent } from "./eventsSlice";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const animated = makeAnimated();
-  const [validated, setValidated] = useState(false);
   const userId = useSelector((state) => state.auth.me.id);
-
+  const [validated, setValidated] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [startVal, setStartVal] = useState(new Date());
   const [endVal, setEndVal] = useState(new Date());
 
   const handleChange = (formInterest) => {
-    let selections = [];
-    formInterest.map((tags) => selections.push(tags.value));
+    const selections = formInterest.map((tags) => tags.value);
     setSelectedOptions(selections);
   };
 
@@ -35,8 +33,8 @@ const AddEvent = () => {
     const image = evt.target.image.value;
     const start = startVal;
     const end = endVal;
-    const tag = selectedOptions;
     const borough = evt.target.borough.value;
+    const tag = selectedOptions;
     const eventLink = evt.target.eventLink.value;
 
     dispatch(
@@ -54,7 +52,6 @@ const AddEvent = () => {
       })
     );
     navigate("/add/success");
-
     setValidated(true);
   };
 
@@ -89,6 +86,9 @@ const AddEvent = () => {
             value={startVal}
             onChange={(newValue) => setStartVal(newValue)}
           />
+          <Form.Control.Feedback type="invalid">
+            Please provide a starting date and time.
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-6" controlId="end">
           <DateTimePicker
@@ -96,6 +96,9 @@ const AddEvent = () => {
             value={endVal}
             onChange={(newValue) => setEndVal(newValue)}
           />
+          <Form.Control.Feedback type="invalid">
+            Please provide an ending date and time.
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-3" controlId="image">
           <Form.Label>Image</Form.Label>

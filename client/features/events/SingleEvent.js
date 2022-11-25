@@ -24,7 +24,6 @@ function SingleEvent() {
   const { id } = useParams();
   const { image, title, description, address, start, end, tag, eventLink } =
     useSelector((state) => state.events.event);
-  const loading = useSelector((state) => state.events.loading);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const favEvents = useSelector(selectFavoriteEvents);
   const calEvents = useSelector(selectCalendar);
