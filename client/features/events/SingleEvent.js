@@ -19,6 +19,8 @@ import { Button } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LoadingScreen from "../loading/LoadingScreen";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import EventIcon from "@mui/icons-material/Event";
 
 function SingleEvent() {
   const dispatch = useDispatch();
@@ -114,7 +116,7 @@ function SingleEvent() {
                           variant="outlined"
                           onClick={(ev) => removeFromFavsButton(ev, id)}
                           color="error"
-                          startIcon={<FavoriteBorderOutlinedIcon />}
+                          startIcon={<FavoriteIcon />}
                         >
                           Remove from Favorites
                         </Button>
@@ -134,7 +136,7 @@ function SingleEvent() {
                           variant="outlined"
                           onClick={(ev) => removeFromCalButton(ev, id)}
                           color="success"
-                          startIcon={<CalendarMonthIcon />}
+                          startIcon={<EventIcon />}
                         >
                           Remove from Calendar
                         </Button>

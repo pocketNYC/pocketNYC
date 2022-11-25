@@ -29,6 +29,7 @@ const ResourceCategory = () => {
     });
   };
 
+
   return (
     <div> {loading ? (<LoadingScreen />): (
     <div className="container-fluid">

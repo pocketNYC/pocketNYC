@@ -8,6 +8,7 @@ import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,13 @@ const AddEvent = () => {
   const userId = useSelector((state) => state.auth.me.id);
 
   const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const [show, setShow] = useState(false);
+  const addNewEventButton = () => {
+    setShow(false).then(navigate("add"));
+  };
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
   const handleChange = (formInterest) => {
     let selections = [];
@@ -50,7 +58,7 @@ const AddEvent = () => {
         userId,
       })
     );
-    navigate("/add/success");
+    // navigate("/add/success");
 
     setValidated(true);
   };
@@ -129,9 +137,30 @@ const AddEvent = () => {
           onChange={handleChange}
           isOptionDisabled={() => selectedOptions.length >= 5}
         />
-        <Button className="primary" type="submit">
+        <Button className="primary" onClick={handleShow} type="submit">
           Submit
         </Button>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Woohoo, thanks for submitting an event to PocketNYC!
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Your event is currently under review but once our Admin team
+            approves the event, it will be listed on the{" "}
+            <a href="/events">Events</a> page. Below is a summary of the event
+            you submitted:
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={addNewEventButton}>
+              Add New Event
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Form>
     </>
   );
