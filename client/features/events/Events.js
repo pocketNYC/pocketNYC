@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import { fetchAllApprovedEvents, fetchAllEvents } from "./eventsSlice";
 import { me } from "../auth/authSlice";
-import { Button, Tooltip } from "@mui/material";
+import { Button } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import AddIcon from "./AddIcon";
 import LoadingScreen from "../loading/LoadingScreen";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 export default function Events() {
   const navigate = useNavigate();
@@ -64,7 +66,11 @@ export default function Events() {
               </div>
             ))}
           </div>
-          <Tooltip title="Scroll to Top">
+          <OverlayTrigger
+            key="top"
+            placement="top"
+            overlay={<Tooltip>Scroll to top</Tooltip>}
+          >
             <Button
               className="scroll"
               onClick={() => {
@@ -83,7 +89,7 @@ export default function Events() {
                 style={{ color: "white" }}
               ></KeyboardArrowUpIcon>
             </Button>
-          </Tooltip>
+          </OverlayTrigger>
         </div>
       )}
     </div>

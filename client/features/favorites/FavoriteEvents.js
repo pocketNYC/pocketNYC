@@ -53,7 +53,7 @@ const FavoriteEvents = () => {
                 <th scope="col">Date</th>
                 <th scope="col"> Title</th>
 
-                <th scope="col">Remove</th>
+                <th scope="col">Delete</th>
               </tr>
             </thead>
             {futureEvents.length ? (

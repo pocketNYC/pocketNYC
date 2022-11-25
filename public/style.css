@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
   padding-bottom: 100px;
+
 }
 
 a {
@@ -37,8 +38,6 @@ Button.scroll  {
 
 
 }
-
-
 
 .modal-show {
   display: block;
@@ -134,3 +133,11 @@ Button.scroll {
 .icon:hover {
   fill: #6f48eb;
 }
+.carousel-caption.d-none.d-md-block{
+  background-color:darkred;
+  opacity: 75%;
+  border-radius: 1rem;
+  height:fit-content;
+  }
+  
+
