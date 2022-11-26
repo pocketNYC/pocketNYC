@@ -45,6 +45,7 @@
     "pg": "^8.8.0",
     "react-big-calendar": "^1.5.2",
     "react-bootstrap": "^2.6.0",
+    "react-bootstrap-typeahead": "^6.0.0",
     "react-calendar": "^4.0.0",
     "react-i18next": "^12.0.0",
     "react-intl": "^6.2.1",

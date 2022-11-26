@@ -58,7 +58,7 @@ function Signup({ displayName, name }) {
     setValidated(true);
 
     if (validated) {
-      navigate("/home");
+      navigate("/");
     }
   };
 
