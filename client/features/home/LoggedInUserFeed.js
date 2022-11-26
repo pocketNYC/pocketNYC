@@ -46,8 +46,8 @@ function LoggedInUserFeed({ interests, borough }) {
       {sortedApprovedEvents.length ? (
         sortedApprovedEvents?.map(({ id, image, title, description }) => (
           <div className="card" key={id}>
-            <div className="row g-2">
-              <div className="col-md-6 mb-2">
+            <div className="row g-0">
+              <div className="col-md-6 ">
                 <div
                   className="bg-image hover-overlay ripple shadow-2-strong rounded-5"
                   data-mdb-ripple-color="light"
@@ -67,8 +67,8 @@ function LoggedInUserFeed({ interests, borough }) {
                 </div>
               </div>
 
-              <div className="col-md-6 mb-2">
-                <div className="align-middle">
+              <div className="col-md-6 mb-2 mx-auto ">
+                <div className="card-body">
                   <span className="badge bg-danger px-2 py-1 shadow-1-strong mb-3">
                     Personalized Recommendation
                   </span>

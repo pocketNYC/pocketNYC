@@ -19,12 +19,12 @@ const AddEvent = () => {
 
   const [selectedOptions, setSelectedOptions] = useState([]);
 
-  const [show, setShow] = useState(false);
-  const addNewEventButton = () => {
-    setShow(false).then(navigate("add"));
-  };
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+  // const [show, setShow] = useState(false);
+  // const addNewEventButton = () => {
+  //   setShow(false).then(navigate("add"));
+  // };
+  // const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
 
   const handleChange = (formInterest) => {
     let selections = [];
@@ -58,7 +58,7 @@ const AddEvent = () => {
         userId,
       })
     );
-    // navigate("/add/success");
+    navigate("/add/success");
 
     setValidated(true);
   };
@@ -137,7 +137,10 @@ const AddEvent = () => {
           onChange={handleChange}
           isOptionDisabled={() => selectedOptions.length >= 5}
         />
-        <Button className="primary" onClick={handleShow} type="submit">
+        <Button className="primary" type="submit">
+          Submit
+        </Button>
+        {/* <Button className="primary" onClick={handleShow} type="submit">
           Submit
         </Button>
         <Modal show={show} onHide={handleClose}>
@@ -147,20 +150,21 @@ const AddEvent = () => {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Your event is currently under review but once our Admin team
-            approves the event, it will be listed on the{" "}
-            <a href="/events">Events</a> page. Below is a summary of the event
-            you submitted:
+            Your event is currently under review. Once the PocketNYC Admins
+            approve the event, it will be listed on the{" "}
+            <a href="/events">Events</a> page.
+            <br />
+            <br /> Below is a summary of the event you submitted:
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
             <Button variant="primary" onClick={addNewEventButton}>
               Add New Event
             </Button>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
           </Modal.Footer>
-        </Modal>
+        </Modal> */}
       </Form>
     </>
   );
