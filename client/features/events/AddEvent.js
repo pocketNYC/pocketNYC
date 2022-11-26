@@ -19,9 +19,10 @@ const AddEvent = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [startVal, setStartVal] = useState(new Date());
   const [endVal, setEndVal] = useState(new Date());
+  const [errors, setErrors] = useState("");
 
   const handleChange = (formInterest) => {
-    const selections = formInterest.map((tags) => tags.value);
+    const selections = formInterest.map((tag) => tag.value);
     setSelectedOptions(selections);
   };
 
@@ -37,6 +38,10 @@ const AddEvent = () => {
     const tag = selectedOptions;
     const eventLink = evt.target.eventLink.value;
 
+    if (!borough || borough === "Select") {
+      setErrors("Please provide a borough.");
+    }
+
     dispatch(
       addEvent({
         title,
@@ -51,8 +56,12 @@ const AddEvent = () => {
         userId,
       })
     );
-    navigate("/add/success");
+
     setValidated(true);
+
+    if (validated) {
+      navigate("/add/success");
+    }
   };
 
   return (
@@ -66,6 +75,7 @@ const AddEvent = () => {
             Please provide a title.
           </Form.Control.Feedback>
         </Form.Group>
+
         <Form.Group className="mb-6" controlId="description">
           <Form.Label>Description</Form.Label>
           <Form.Control required placeholder="Enter Description" />
@@ -73,6 +83,7 @@ const AddEvent = () => {
             Please provide a description of the event.
           </Form.Control.Feedback>
         </Form.Group>
+
         <Form.Group className="mb-6" controlId="address">
           <Form.Label>Address</Form.Label>
           <Form.Control required type="text" placeholder="Enter Address" />
@@ -80,26 +91,7 @@ const AddEvent = () => {
             Please provide an address.
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group className="mb-6" controlId="start">
-          <DateTimePicker
-            label="Starting Date and Time"
-            value={startVal}
-            onChange={(newValue) => setStartVal(newValue)}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a starting date and time.
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group className="mb-6" controlId="end">
-          <DateTimePicker
-            label="Ending Date and Time"
-            value={endVal}
-            onChange={(newValue) => setEndVal(newValue)}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide an ending date and time.
-          </Form.Control.Feedback>
-        </Form.Group>
+
         <Form.Group className="mb-3" controlId="image">
           <Form.Label>Image</Form.Label>
           <Form.Control required type="text" placeholder="Enter Image URL" />
@@ -107,14 +99,10 @@ const AddEvent = () => {
             Please provide an image.
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="eventLink">
-          <Form.Label>More Information</Form.Label>
 
-          <Form.Control required type="text" placeholder="Enter Event Link" />
-        </Form.Group>
         <Form.Group className="mb-3" controlId="borough">
           <Form.Label>Borough</Form.Label>
-          <Form.Select>
+          <Form.Select required isInvalid={errors}>
             <option defaultValue>Select</option>
             <option value="Bronx">Bronx</option>
             <option value="Brooklyn">Brooklyn</option>
@@ -122,19 +110,40 @@ const AddEvent = () => {
             <option value="Manhattan">Manhattan</option>
             <option value="Staten-Island">Staten Island</option>
           </Form.Select>
+          <Form.Control.Feedback type="invalid">{errors}</Form.Control.Feedback>
         </Form.Group>
+
+        <Form.Group className="mb-3" controlId="eventLink">
+          <Form.Label>More Information</Form.Label>
+          <Form.Control type="text" placeholder="Enter Event Link" />
+        </Form.Group>
+
         <br />
-        <label htmlFor="tags" style={{ padding: "10px" }}>
-          Choose your event tags (select up to 3):
-        </label>
-        <Select
-          isMulti
-          options={formInterest}
-          components={animated}
-          closeMenuOnSelect={false}
-          onChange={handleChange}
-          isOptionDisabled={() => selectedOptions.length >= 5}
-        />
+        <Form.Group className="mb-6" controlId="start" required>
+          <DateTimePicker
+            label="Starting Date and Time"
+            value={startVal}
+            onChange={(newValue) => setStartVal(newValue)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-6" controlId="end">
+          <DateTimePicker
+            label="Ending Date and Time"
+            value={endVal}
+            onChange={(newValue) => setEndVal(newValue)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-6" controlId="tags">
+          <Form.Label>Choose your event tags (select up to 3)</Form.Label>
+          <Select
+            isMulti
+            options={formInterest}
+            components={animated}
+            closeMenuOnSelect={false}
+            onChange={handleChange}
+            isOptionDisabled={() => selectedOptions.length >= 3}
+          />
+        </Form.Group>
         <Button className="primary" type="submit">
           Submit
         </Button>
