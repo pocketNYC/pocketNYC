@@ -23,6 +23,20 @@ export const fetchAllPendingEvents = createAsyncThunk(
   }
 );
 
+export const fetchUserPendingEvents = createAsyncThunk(
+  "fetchUserPendingEvents",
+
+  async () => {
+    const token = window.localStorage.getItem("token");
+    const { data } = await axios.get("/api/events/fetchUserPendingEvents", {
+      headers: {
+        authorization: token,
+      },
+    });
+    return data;
+  }
+);
+
 export const fetchSingleEvent = createAsyncThunk(
   "fetchSingleEvent",
   async (id) => {
@@ -101,12 +115,12 @@ export const eventsSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchAllEvents.fulfilled, (state, action) => {
-      state.loading = false
+      state.loading = false;
       state.events = action.payload;
     });
     //----------------- all events ⬆️
     builder.addCase(fetchAllApprovedEvents.fulfilled, (state, action) => {
-      state.loading = false
+      state.loading = false;
       state.events = action.payload;
     });
     builder.addCase(fetchAllApprovedEvents.pending, (state, action) => {
@@ -116,11 +130,14 @@ export const eventsSlice = createSlice({
     builder.addCase(fetchAllPendingEvents.fulfilled, (state, action) => {
       state.events = action.payload;
     });
+    builder.addCase(fetchUserPendingEvents.fulfilled, (state, action) => {
+      state.events = action.payload;
+    });
     builder.addCase(fetchSingleEvent.pending, (state, action) => {
       state.loading = true;
     });
     builder.addCase(fetchSingleEvent.fulfilled, (state, action) => {
-      state.loading = false
+      state.loading = false;
       state.event = action.payload;
     });
     builder.addCase(addEvent.fulfilled, (state, action) => {

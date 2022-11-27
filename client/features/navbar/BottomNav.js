@@ -12,35 +12,35 @@ export default function BottomNav() {
   return (
     <MDBNavbar fixed="bottom" light bgColor="light">
       <MDBContainer>
-        <OverlayTrigger placement="top" overlay={<Tooltip> Home</Tooltip>}>
-          <MDBNavbarBrand href="/" label="Home">
-            <HomeIcon />
-          </MDBNavbarBrand>
-        </OverlayTrigger>
+        {/* <OverlayTrigger placement="top" overlay={<Tooltip> Home</Tooltip>}> */}
+        <MDBNavbarBrand href="/" label="Home">
+          <HomeIcon />
+        </MDBNavbarBrand>
+        {/* </OverlayTrigger> */}
 
-        <OverlayTrigger placement="top" overlay={<Tooltip>Events</Tooltip>}>
-          <MDBNavbarBrand href="/events" label="Events">
-            <EventAvailableIcon />
-          </MDBNavbarBrand>
-        </OverlayTrigger>
+        {/* <OverlayTrigger placement="top" overlay={<Tooltip>Events</Tooltip>}> */}
+        <MDBNavbarBrand href="/events" label="Events">
+          <EventAvailableIcon />
+        </MDBNavbarBrand>
+        {/* </OverlayTrigger> */}
 
-        <OverlayTrigger placement="top" overlay={<Tooltip>Map</Tooltip>}>
-          <MDBNavbarBrand href="/map" label="Map">
-            <MapIcon />
-          </MDBNavbarBrand>
-        </OverlayTrigger>
+        {/* <OverlayTrigger placement="top" overlay={<Tooltip>Map</Tooltip>}> */}
+        <MDBNavbarBrand href="/map" label="Map">
+          <MapIcon />
+        </MDBNavbarBrand>
+        {/* </OverlayTrigger> */}
 
-        <OverlayTrigger placement="top" overlay={<Tooltip>Resources</Tooltip>}>
-          <MDBNavbarBrand href="/resources" label="Resources">
-            <InfoSharpIcon />
-          </MDBNavbarBrand>
-        </OverlayTrigger>
+        {/* <OverlayTrigger placement="top" overlay={<Tooltip>Resources</Tooltip>}> */}
+        <MDBNavbarBrand href="/resources" label="Resources">
+          <InfoSharpIcon />
+        </MDBNavbarBrand>
+        {/* </OverlayTrigger> */}
 
-        <OverlayTrigger placement="top" overlay={<Tooltip>User</Tooltip>}>
-          <MDBNavbarBrand label="User">
-            <AccountMenu />
-          </MDBNavbarBrand>
-        </OverlayTrigger>
+        {/* <OverlayTrigger placement="top" overlay={<Tooltip>User</Tooltip>}> */}
+        <MDBNavbarBrand label="User">
+          <AccountMenu />
+        </MDBNavbarBrand>
+        {/* </OverlayTrigger> */}
       </MDBContainer>
     </MDBNavbar>
   );

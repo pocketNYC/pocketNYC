@@ -81,8 +81,9 @@ function SingleEvent() {
         <LoadingScreen />
       ) : (
         <div className="container-fluid p-4">
-          <div className="card border-light text-center d-flex align-items-center h-100 ">
-            <div className="row g-0">
+          <h1 className="text-center"> {title}</h1>
+          <div className="card border-secondary d-flex align-items-center h-100 ">
+            <div className="row g-1">
               <div className="col-md-6">
                 <img
                   src={image}
@@ -91,16 +92,17 @@ function SingleEvent() {
                 />
               </div>
               <div className="col-md-6">
-                <div className="card-body" style={{ verticalAlign: "middle" }}>
-                  <h5 className="card-title"> {title}</h5>
+                <div className="card-body " style={{ verticalAlign: "middle" }}>
+                  <p className="card-text">{description}</p>
                   <p className="card-text ">
+                    <strong>Date:</strong>{" "}
                     {moment(start).format("dddd, MMMM Do YYYY h:mm a")}
                   </p>
-                  <p className="card-text">Address: {address}</p>
-                  <p className="card-text">About: {description}</p>
-
-                  <a href={eventLink} target="_blank">
-                    Click for more details
+                  <p className="card-text">
+                    <strong>Address: </strong> {address}
+                  </p>
+                  <a href={eventLink} className="card-text" target="_blank">
+                    Visit event page for more details
                   </a>
 
                   <p className="card-text">

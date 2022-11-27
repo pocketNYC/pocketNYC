@@ -19,12 +19,12 @@ const AddEvent = () => {
 
   const [selectedOptions, setSelectedOptions] = useState([]);
 
-  // const [show, setShow] = useState(false);
-  // const addNewEventButton = () => {
-  //   setShow(false).then(navigate("add"));
-  // };
-  // const handleShow = () => setShow(true);
-  // const handleClose = () => setShow(false);
+  const [show, setShow] = useState(false);
+  const addNewEventButton = () => {
+    setShow(false).then(navigate("/add"));
+  };
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
   const handleChange = (formInterest) => {
     let selections = [];
@@ -58,7 +58,8 @@ const AddEvent = () => {
         userId,
       })
     );
-    navigate("/add/success");
+    evt.target.reset();
+    // navigate("/add/success");
 
     setValidated(true);
   };
@@ -137,10 +138,10 @@ const AddEvent = () => {
           onChange={handleChange}
           isOptionDisabled={() => selectedOptions.length >= 5}
         />
-        <Button className="primary" type="submit">
+        {/* <Button className="primary" type="submit">
           Submit
-        </Button>
-        {/* <Button className="primary" onClick={handleShow} type="submit">
+        </Button> */}
+        <Button className="primary" onClick={handleShow} type="submit">
           Submit
         </Button>
         <Modal show={show} onHide={handleClose}>
@@ -164,7 +165,7 @@ const AddEvent = () => {
               Close
             </Button>
           </Modal.Footer>
-        </Modal> */}
+        </Modal>
       </Form>
     </>
   );

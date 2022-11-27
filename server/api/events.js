@@ -28,12 +28,11 @@ router.get("/sortedAscendingApproved", async (req, res, next) => {
       },
       order: ["start"],
     });
-    events ? res.json(events) : res.sendStatus(404);
+    res.json(events);
   } catch (error) {
     next(error);
   }
 });
-
 
 //gets all pending events in ascending order
 router.get("/sortedAscendingPending", async (req, res, next) => {
@@ -45,6 +44,28 @@ router.get("/sortedAscendingPending", async (req, res, next) => {
       order: ["start"],
     });
     events ? res.json(events) : res.sendStatus(404);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// get events associated with userId
+
+router.get("/userEvents", getToken, async (req, res, next) => {
+  const userId = req.user.id;
+  try {
+    console.log(userId);
+    const events = await Event.findAll({
+      where: [
+        {
+          status: "pending",
+        },
+        {
+          userId: userId,
+        },
+      ],
+    });
+    res.json(events);
   } catch (error) {
     next(error);
   }

@@ -3,18 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { Button } from "react-bootstrap";
-import { fetchAllEvents } from "../events/eventsSlice";
+import { fetchAllEvents, fetchUserPendingEvents } from "../events/eventsSlice";
 import LoadingScreen from "../loading/LoadingScreen";
 
 function ConfirmationPage({ user }) {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events.events);
+  console.log(events);
   const loading = useSelector((state) => state.auth.loading);
 
   const { firstName, id } = user;
 
   useEffect(() => {
-    dispatch(fetchAllEvents());
+    dispatch(fetchUserPendingEvents());
   }, [dispatch]);
 
   const myEvents = events
@@ -30,61 +31,68 @@ function ConfirmationPage({ user }) {
   const current = myEvents[0];
 
   return (
-    <div> {loading ? <LoadingScreen /> : (
-      <div>
-      <h2>{`Thank you, ${firstName}!`}</h2>
-      <h6>
-        Your event has been submitted for approval. Below is a summary of the
-        event details submitted:
-      </h6>
-      <small>
-        <strong>Title: </strong>
-        {current?.title}
-      </small>
-      <br />
-      <small>
-        <strong>Description: </strong> {current?.description}
-      </small>
-      <br />
-      <small>
-        <strong>Date & Time: </strong>
-        {moment(current?.start).format("dddd, MMMM Do YYYY h:mm a")}
-      </small>
-      <br />
-      <small>
-        <strong>Address: </strong> {current?.address}
-      </small>
-      <br />
-      <small>
-        <strong>Borough: </strong>
-        {current?.borough}
-      </small>
-      <br />
-      {current?.eventLink ? (
-        <>
+    <div>
+      {" "}
+      {loading ? (
+        <LoadingScreen />
+      ) : (
+        <div>
+          <h2>{`Thank you, ${firstName}!`}</h2>
+          <h6>
+            Your event has been submitted for approval. Below is a summary of
+            the event details submitted:
+          </h6>
           <small>
-            <strong>More Info: </strong> {current?.eventLink}
+            <strong>Title: </strong>
+            {current?.title}
           </small>
           <br />
-        </>
-      ) : null}
-      <small>
-        <strong>Event Tags: </strong> {current?.tag.join(", ")}
-      </small>
-      <br />
-      <small>
-        <strong>Image Link: </strong>
-        {current?.image}
-      </small>
-      <br />
-      <Link to="/events">
-        <Button className="confirm-evt-btn-close">Close</Button>
-      </Link>
-      &nbsp;
-      <Link to="/add">
-        <Button className="confirm-evt-btn-add-more">Add Another Event</Button>
-      </Link>
-    </div>)}
+          <small>
+            <strong>Description: </strong> {current?.description}
+          </small>
+          <br />
+          <small>
+            <strong>Date & Time: </strong>
+            {moment(current?.start).format("dddd, MMMM Do YYYY h:mm a")}
+          </small>
+          <br />
+          <small>
+            <strong>Address: </strong> {current?.address}
+          </small>
+          <br />
+          <small>
+            <strong>Borough: </strong>
+            {current?.borough}
+          </small>
+          <br />
+          {current?.eventLink ? (
+            <>
+              <small>
+                <strong>More Info: </strong> {current?.eventLink}
+              </small>
+              <br />
+            </>
+          ) : null}
+          <small>
+            <strong>Event Tags: </strong> {current?.tag.join(", ")}
+          </small>
+          <br />
+          <small>
+            <strong>Image Link: </strong>
+            {current?.image}
+          </small>
+          <br />
+          <Link to="/events">
+            <Button className="confirm-evt-btn-close">Close</Button>
+          </Link>
+          &nbsp;
+          <Link to="/add">
+            <Button className="confirm-evt-btn-add-more">
+              Add Another Event
+            </Button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
