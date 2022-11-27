@@ -38,7 +38,7 @@ const Event = db.define("event", {
       notEmpty: true,
     },
   },
-  tag: {
+  tags: {
     type: Sequelize.ARRAY(Sequelize.STRING),
     validate: {
       notEmpty: true,

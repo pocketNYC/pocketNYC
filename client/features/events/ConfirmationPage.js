@@ -71,7 +71,7 @@ function ConfirmationPage({ user }) {
         </>
       ) : null}
       <small>
-        <strong>Event Tags: </strong> {current?.tag.join(", ")}
+        <strong>Event Tags: </strong> {current?.tags.join(", ")}
       </small>
       <br />
       <small>

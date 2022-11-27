@@ -11,7 +11,7 @@ function FeaturedEvents() {
       return new Date(a.start) - new Date(b.end);
     })
     ?.filter((event) => {
-      if (event.tag.includes("holidays") && event.status === "approved") {
+      if (event.tags.includes("holidays") && event.status === "approved") {
         return event;
       }
     })

@@ -5,17 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { Typeahead } from "react-bootstrap-typeahead";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
 import DateTimePicker from "./DateTimePicker";
 import { addEvent } from "./eventsSlice";
-import "react-bootstrap-typeahead/css/Typeahead.css";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const animated = makeAnimated();
   const userId = useSelector((state) => state.auth.me.id);
   const [validated, setValidated] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -37,7 +33,7 @@ const AddEvent = () => {
     const start = startVal;
     const end = endVal;
     const borough = evt.target.borough.value;
-    const tag = selectedOptions;
+    const tags = selectedOptions;
     const eventLink = evt.target.eventLink.value;
 
     if (!borough || borough === "Select") {
@@ -53,12 +49,11 @@ const AddEvent = () => {
         start,
         end,
         borough,
-        tag,
+        tags,
         eventLink,
         userId,
       })
     );
-
     setValidated(true);
 
     if (validated) {
@@ -137,25 +132,17 @@ const AddEvent = () => {
         </Form.Group>
         <Form.Group className="mb-6" controlId="tags">
           <Form.Label>Choose your event tags (select up to 3): </Form.Label>
-          {/* <Select
-            isMulti
-            options={formInterest}
-            components={animated}
-            closeMenuOnSelect={false}
-            onChange={handleChange}
-            isOptionDisabled={() => selectedOptions.length >= 3}
-          /> */}
           <Typeahead
             multiple
-            id="interests"
-            placeholder="Select an Interest"
-            name="interests"
+            id="tags"
+            placeholder="Select.."
+            name="tags"
             onChange={handleChange}
             inputProps={{ required: true }}
             options={formInterest}
           />
         </Form.Group>
-        <Button className="primary" type="submit">
+        <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>

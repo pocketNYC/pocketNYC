@@ -22,7 +22,7 @@ export default function Events() {
       {isLoggedIn && <AddIcon />}
       <h1 className="fw-light text-center text-lg-center p-4"> All Events </h1>
       <div className="row row-cols-1 row-cols-md-2 g-4">
-        {events?.map(({ id, image, title, start, tag }) => (
+        {events?.map(({ id, image, title, start, tags }) => (
           <div key={id}>
             <div className="card text-center h-100">
               <img
@@ -38,7 +38,7 @@ export default function Events() {
                   {moment(start).format("dddd, MMMM Do, YYYY")}
                 </h6>
                 <small className="card-subtitle mb-2 text-muted">
-                  Event Tags: {tag.join(", ")}
+                  Event tags: {tags.join(", ")}
                 </small>
                 <div>
                   <Button

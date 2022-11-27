@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Typeahead } from "react-bootstrap-typeahead";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
 import formInterest from "./formInterest";
-import { authenticate } from "../../app/store";
 import InputGroup from "react-bootstrap/InputGroup";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { authenticate } from "../../app/store";
 
 function Signup({ displayName, name }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [passwordShown, setPasswordShown] = useState(false);
@@ -58,7 +56,7 @@ function Signup({ displayName, name }) {
     setValidated(true);
 
     if (validated) {
-      navigate("/");
+      navigate("/home");
     }
   };
 
@@ -127,18 +125,18 @@ function Signup({ displayName, name }) {
           </Form.Select>
           <Form.Control.Feedback type="invalid">{errors}</Form.Control.Feedback>
         </Form.Group>
-        <br />
-        <label htmlFor="interest" style={{ padding: "10px" }}>
-          Choose your categories of interest (select up to 3):
-        </label>
-        <Select
-          isMulti
-          options={formInterest}
-          components={animated}
-          closeMenuOnSelect={false}
-          onChange={handleChange}
-          isOptionDisabled={() => selectedOptions.length >= 3}
-        />
+        <Form.Group className="mb-6" controlId="interests">
+          <Form.Label>Choose your categories of interest (select up to 3): </Form.Label>
+          <Typeahead
+            multiple
+            id="interests"
+            placeholder="Select.."
+            name="interests"
+            onChange={handleChange}
+            inputProps={{ required: true }}
+            options={formInterest}
+          />
+        </Form.Group>
         <Button variant="primary" type="submit">
           {displayName}
         </Button>
