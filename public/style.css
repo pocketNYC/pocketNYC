@@ -2,7 +2,6 @@ body {
   font-family: sans-serif;
   padding-bottom: 100px;
   /* background-image: url(https://i.imgur.com/CeobHln.png); */
-
 }
 
 a {
@@ -23,6 +22,40 @@ form div {
   display: inline-block;
 }
 
+.tempMain {
+  justify-content: center;
+  display: flex;
+  padding: 90px 0 90px 0;
+  background-color: rgb(252, 252, 252);
+}
+
+.tempSubMain {
+  display: flex;
+  height: 560px;
+  width: 28%;
+  box-shadow: 11px 12px 13px 12px rgb(207, 207, 207);
+  justify-content: center;
+  border-radius: 35px;
+  background-color: white;
+}
+
+.test {
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  padding: 14px 0 0 25px;
+}
+
+.show-hide-pw {
+  position: absolute;
+  margin: 15px 0 0 -15px;
+  padding: 70px;
+}
+
+.loginButton {
+  margin: 14px;
+}
+
 .underline {
   text-decoration: underline;
 }
@@ -32,7 +65,7 @@ form div {
   padding-top: 70px;
 }
 
-Button.scroll  {
+Button.scroll {
   opacity: 70%;
   size: 20%;
   background-color: gray;
@@ -76,14 +109,12 @@ Button.scroll  {
   margin-bottom: 10px;
 }
 
-
-.cards{
+.cards {
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
-
-.cards:hover{
+.cards:hover {
   transform: scale(1.05);
 }
 
@@ -92,8 +123,8 @@ Button.scroll  {
 }
 
 img.rounded-circle {
-justify-content: center;
-object-position: center;
+  justify-content: center;
+  object-position: center;
 }
 Button.scroll {
   opacity: 50%;
@@ -132,11 +163,9 @@ Button.scroll {
 .icon:hover {
   fill: #6f48eb;
 }
-.carousel-caption.d-none.d-md-block{
-  background-color:darkred;
+.carousel-caption.d-none.d-md-block {
+  background-color: darkred;
   opacity: 75%;
   border-radius: 1rem;
-  height:fit-content;
-  }
-  
-
+  height: fit-content;
+}

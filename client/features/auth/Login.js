@@ -3,10 +3,13 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { authenticate } from "../../app/store";
 import InputGroup from "react-bootstrap/InputGroup";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import FormContainer from "../forms/FormContainer";
+import { Row } from "react-bootstrap";
 
 function Login({ name, displayName }) {
   const dispatch = useDispatch();
@@ -34,38 +37,63 @@ function Login({ name, displayName }) {
   };
 
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit} name={name}>
-      <Form.Group className="mb-6" controlId="email">
-        <Form.Label>Email</Form.Label>
-        <Form.Control required type="text" placeholder="Enter Email" />
-        <Form.Control.Feedback type="invalid">
-          Please provide your email.
-        </Form.Control.Feedback>
-      </Form.Group>
+    <div className="tempMain">
+      <div className="tempSubMain">
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={handleSubmit}
+          name={name}
+          className="rounded p-4 p-sm-3"
+        >
+          <FloatingLabel
+            controlId="email"
+            label="Email Address"
+            className="mb-3"
+          >
+            <Form.Control required type="text" placeholder="Email" />
+            <Form.Control.Feedback type="invalid">
+              Please provide your email.
+            </Form.Control.Feedback>
+          </FloatingLabel>
+          <FloatingLabel controlId="password" label="Password">
+            <Form.Control
+              required
+              type={passwordShown ? "text" : "password"}
+              placeholder="Password"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a password.
+            </Form.Control.Feedback>
+          </FloatingLabel>
 
-      <Form.Group className="mb-6" controlId="password">
-        <Form.Label>Password</Form.Label>
-        <InputGroup className="mb-3">
-          <Form.Control
-            required
-            type={passwordShown ? "text" : "password"}
-            placeholder="Enter Password"
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a password.
-          </Form.Control.Feedback>
-          <InputGroup.Text id="basic-addon2">
-            <button onClick={togglePassword}>
-              {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
-            </button>
-          </InputGroup.Text>
-        </InputGroup>
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        {displayName}
-      </Button>
-    </Form>
+          <Button
+            variant="outline-primary"
+            onClick={togglePassword}
+            size="sm"
+            className="show-hide-pw"
+          >
+            {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
+          </Button>
+          <center>
+            <Button
+              variant="outline-primary"
+              type="submit"
+              className="loginButton"
+            >
+              {displayName}
+            </Button>
+          </center>
+        </Form>
+      </div>
+    </div>
   );
 }
 
+{
+  /* <InputGroup className="mb-3"> */
+}
+{
+  /* </InputGroup> */
+}
 export default Login;

@@ -81,12 +81,8 @@ export default function AccountMenu() {
               <Avatar />
               <Link to={`/users/${userId}`}>Profile</Link>
             </MenuItem>
-            {/* <MenuItem>
-              <FavoriteIcon />
-              <Link to={`/users/${userId}/favorites`}>Favorites</Link>
-            </MenuItem> */}
 
-            {isAdmin ? (
+            {isAdmin && (
               <div>
                 <MenuItem>
                   <PeopleAltIcon />
@@ -97,7 +93,7 @@ export default function AccountMenu() {
                   <Link to={`/admin`}>Events</Link>
                 </MenuItem>
               </div>
-            ) : null}
+            )}
 
             <MenuItem onClick={logoutAndRedirectHome}>
               <ListItemIcon>
