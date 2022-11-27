@@ -47,7 +47,7 @@ function Admin() {
               </tr>
             </thead>
             {events.length ? (
-              events.map(({ title, id, start }) => {
+              events.map(({ title, id, start, end }) => {
                 return (
                   <tbody key={id}>
                     <tr>
@@ -55,7 +55,8 @@ function Admin() {
                         <Link to={`/events/${id}`}>{title} </Link>
                       </td>
                       <td>
-                        {moment(start).format("dddd, MMMM Do YYYY, h:mm a")}
+                        {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
+                         {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
                       </td>
                       <td>
                         <IconButton onClick={(ev) => approveEventBtn(ev, id)}>

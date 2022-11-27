@@ -21,11 +21,11 @@ export default function TopNav() {
             PocketNYC
           </MDBNavbarBrand>
 
-          {isLoggedIn ? (
+          {isLoggedIn && (
             <MDBNavbarBrand href="/calendar">
               <CalendarMonthIcon />
             </MDBNavbarBrand>
-          ) : null}
+          )}
 
           <MDBNavbarBrand href="/faq">
             <HelpIcon />

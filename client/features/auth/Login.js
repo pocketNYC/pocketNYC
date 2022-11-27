@@ -27,6 +27,10 @@ function Login({ name, displayName }) {
 
     dispatch(authenticate({ email, password, method: formName }));
     setValidated(true);
+
+    if (validated) {
+      navigate("/home");
+    }
   };
 
   return (

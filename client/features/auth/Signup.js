@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Typeahead } from "react-bootstrap-typeahead";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
 import formInterest from "./formInterest";
-import { authenticate } from "../../app/store";
 import InputGroup from "react-bootstrap/InputGroup";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { authenticate } from "../../app/store";
 
 function Signup({ displayName, name }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const animated = makeAnimated();
   const [validated, setValidated] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [passwordShown, setPasswordShown] = useState(false);
+  const [errors, setErrors] = useState("");
 
   const togglePassword = (evt) => {
     evt.preventDefault();
@@ -25,8 +24,7 @@ function Signup({ displayName, name }) {
   };
 
   const handleChange = (formInterest) => {
-    let selections = [];
-    formInterest.map((interest) => selections.push(interest.value));
+    const selections = formInterest.map((interest) => interest.value);
     setSelectedOptions(selections);
   };
 
@@ -39,7 +37,10 @@ function Signup({ displayName, name }) {
     const interests = selectedOptions;
     const borough = evt.target.borough.value;
 
-    console.log("hi");
+    if (!borough || borough === "Select") {
+      setErrors("Please provide a borough.");
+    }
+
     dispatch(
       authenticate({
         firstName,
@@ -51,7 +52,12 @@ function Signup({ displayName, name }) {
         method: "signup",
       })
     );
+
     setValidated(true);
+
+    if (validated) {
+      navigate("/home");
+    }
   };
 
   return (
@@ -90,7 +96,7 @@ function Signup({ displayName, name }) {
 
         <Form.Group className="mb-6" controlId="password">
           <Form.Label>Password</Form.Label>
-          <InputGroup className="mb-3">
+          <InputGroup className="mb-6">
             <Form.Control
               required
               type={passwordShown ? "text" : "password"}
@@ -109,7 +115,7 @@ function Signup({ displayName, name }) {
 
         <Form.Group className="mb-6" controlId="borough">
           <Form.Label>Borough</Form.Label>
-          <Form.Select>
+          <Form.Select isInvalid={errors}>
             <option>Select</option>
             <option value="Bronx">Bronx</option>
             <option value="Brooklyn">Brooklyn</option>
@@ -117,22 +123,20 @@ function Signup({ displayName, name }) {
             <option value="Manhattan">Manhattan</option>
             <option value="Staten Island">Staten Island</option>
           </Form.Select>
-          <Form.Control.Feedback type="invalid">
-            Please select an interest.
-          </Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{errors}</Form.Control.Feedback>
         </Form.Group>
-        <br />
-        <label htmlFor="interest" style={{ padding: "10px" }}>
-          Choose your categories of interest (select up to 3):
-        </label>
-        <Select
-          isMulti
-          options={formInterest}
-          components={animated}
-          closeMenuOnSelect={false}
-          onChange={handleChange}
-          isOptionDisabled={() => selectedOptions.length >= 3}
-        />
+        <Form.Group className="mb-6" controlId="interests">
+          <Form.Label>Choose your categories of interest (select up to 3): </Form.Label>
+          <Typeahead
+            multiple
+            id="interests"
+            placeholder="Select.."
+            name="interests"
+            onChange={handleChange}
+            inputProps={{ required: true }}
+            options={formInterest}
+          />
+        </Form.Group>
         <Button variant="primary" type="submit">
           {displayName}
         </Button>

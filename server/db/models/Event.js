@@ -27,15 +27,18 @@ const Event = db.define("event", {
     },
   },
   start: {
-    type: Sequelize.STRING,
+    type: Sequelize.DATE,
     validate: {
       notEmpty: true,
     },
   },
   end: {
-    type: Sequelize.STRING,
+    type: Sequelize.DATE,
+    validate: {
+      notEmpty: true,
+    },
   },
-  tag: {
+  tags: {
     type: Sequelize.ARRAY(Sequelize.STRING),
     validate: {
       notEmpty: true,
