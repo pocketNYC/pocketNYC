@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-const TOKEN = "token";
 
 export const fetchAllEvents = createAsyncThunk("fetchAllEvents", async () => {
   const { data } = await axios.get("/api/events");

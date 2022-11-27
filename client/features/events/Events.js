@@ -3,11 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import { fetchAllApprovedEvents } from "./eventsSlice";
-import { me } from "../auth/authSlice";
-import { Button } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import AddIcon from "./AddIcon";
-import LoadingScreen from "../loading/LoadingScreen";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import Tab from "react-bootstrap/Tab";
@@ -18,14 +16,13 @@ export default function Events() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const events = useSelector((state) => state.events.events);
-  const loading = useSelector((state) => state.events.loading);
   let [eventList, setEventList] = useState([]);
   const [render, setRender] = useState(true);
   const [key, setKey] = useState("all");
 
   useEffect(() => {
     dispatch(fetchAllApprovedEvents());
-  }, [dispatch]);
+  }, []);
 
   const filterCategoryButton = (ev) => {
     const category = ev.target.dataset.rrUiEventKey;

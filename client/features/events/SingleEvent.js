@@ -18,16 +18,14 @@ import {
 import { Button } from "@mui/material";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import LoadingScreen from "../loading/LoadingScreen";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import EventIcon from "@mui/icons-material/Event";
 
 function SingleEvent() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { image, title, description, address, start, end, tag, eventLink } =
+  const { image, title, description, address, start, end, tags, eventLink } =
     useSelector((state) => state.events.event);
-  const loading = useSelector((state) => state.events.loading);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const favEvents = useSelector(selectFavoriteEvents);
   const calEvents = useSelector(selectCalendar);
@@ -105,11 +103,9 @@ function SingleEvent() {
                     Visit event page for more details
                   </a>
 
-                  <p className="card-text">
-                    <small className="text-muted">
-                      Tags: {tag?.join(", ")}
-                    </small>
-                  </p>
+              <p className="card-text">
+                <small className="text-muted">Tags: {tags?.join(", ")}</small>
+              </p>
 
                   {isLoggedIn ? (
                     <>

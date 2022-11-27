@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { IconButton } from "@mui/material";
+import moment from "moment";
+import DeleteIcon from "@mui/icons-material/Delete";
 import {
   fetchFavoriteEvents,
   removeFromFavEvents,
   selectFavoriteEvents,
 } from "./favoriteEventsSlice";
-import moment from "moment";
-import { IconButton } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
-import LoadingScreen from "../loading/LoadingScreen";
 
 const FavoriteEvents = () => {
   const dispatch = useDispatch();
@@ -19,7 +18,6 @@ const FavoriteEvents = () => {
   }, [dispatch]);
 
   const favEvents = useSelector(selectFavoriteEvents);
-  const eventsLoading = useSelector((state) => state.events.loading);
 
   const removeFavEvent = (ev, id) => {
     ev.preventDefault();
@@ -68,86 +66,82 @@ const FavoriteEvents = () => {
                           )}
                         </td>
 
-                        <td>
-                          <Link to={`/events/${event.id}`}>{event.title}</Link>
-                        </td>
-                        <td>
-                          <IconButton
-                            onClick={(ev) => {
-                              removeFavEvent(ev, event.id);
-                            }}
-                          >
-                            <DeleteIcon color="error" />
-                          </IconButton>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </>
-                );
-              })
-            ) : (
-              <tbody>
-                <tr>
-                  <td>No favorites to display</td>
-                </tr>
-              </tbody>
-            )}
-          </table>
-          <p
-            style={{
-              color: "red",
-              fontWeight: "bold",
-            }}
-          >
-            Past Events:
-          </p>
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Date</th>
-                <th scope="col"> Title</th>
-                <th scope="col">Remove </th>
-              </tr>
-            </thead>
+                  <td>
+                    {moment(event.start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
+                    {moment(event.end).format("dddd, MMMM Do YYYY, h:mm a")}
+                  </td>
 
-            {pastEvents.length ? (
-              pastEvents?.map(({ event }) => {
-                return (
-                  <>
-                    <tbody>
-                      <tr key={event.id}>
-                        <td>
-                          {moment(event.start).format(
-                            "dddd, MMMM Do YYYY, h:mm a"
-                          )}
-                        </td>
-                        <td>
-                          <Link to={`/events/${event.id}`}>{event.title}</Link>
-                        </td>
-                        <td>
-                          <IconButton
-                            onClick={(ev) => {
-                              removeFavEvent(ev, event.id);
-                            }}
-                          >
-                            <DeleteIcon color="error" />
-                          </IconButton>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </>
-                );
-              })
-            ) : (
-              <tbody>
-                <tr>
-                  <td>No favorites to display</td>
+                  <td>
+                    <IconButton
+                      onClick={(ev) => {
+                        removeFavEvent(ev, event.id);
+                      }}
+                    >
+                      <DeleteIcon color="error" />
+                    </IconButton>
+                  </td>
                 </tr>
               </tbody>
-            )}
-          </table>
-        </div>
-      )}
+            );
+          })
+        ) : (
+          <tbody>
+            <tr>
+              <td>No favorites to display</td>
+            </tr>
+          </tbody>
+        )}
+      </table>
+      <p
+        style={{
+          color: "red",
+          fontWeight: "bold",
+        }}
+      >
+        Past Events:
+      </p>
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Date</th>
+            <th scope="col">Remove </th>
+          </tr>
+        </thead>
+
+        {pastEvents.length ? (
+          pastEvents?.map(({ event }) => {
+            return (
+              <tbody>
+                <tr key={event.id}>
+                  <td>
+                    <Link to={`/events/${event.id}`}>{event.title}</Link>
+                  </td>
+                  <td>
+                    {moment(event.start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
+                    {moment(event.end).format("dddd, MMMM Do YYYY, h:mm a")}
+                  </td>
+                  <td>
+                    <IconButton
+                      onClick={(ev) => {
+                        removeFavEvent(ev, event.id);
+                      }}
+                    >
+                      <DeleteIcon color="error" />
+                    </IconButton>
+                  </td>
+                </tr>
+              </tbody>
+            );
+          })
+        ) : (
+          <tbody>
+            <tr>
+              <td>No favorites to display</td>
+            </tr>
+          </tbody>
+        )}
+      </table>
     </div>
   );
 };

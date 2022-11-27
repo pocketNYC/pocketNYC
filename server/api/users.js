@@ -1,32 +1,7 @@
 const router = require("express").Router();
 const {
-  models: { User, Event },
+  models: { User },
 } = require("../db");
-
-// GET api/users
-router.get("/", async (req, res, next) => {
-  try {
-    const user = await User.findByToken(req.headers.authorization);
-    if (user.isAdmin) {
-      const users = await User.findAll({
-        attributes: [
-          "id",
-          "email",
-          "firstName",
-          "lastName",
-          "borough",
-          "interests",
-          "isAdmin",
-        ],
-      });
-      res.json(users);
-    } else {
-      res.sendStatus(401);
-    }
-  } catch (err) {
-    next(err);
-  }
-});
 
 router.get("/:userId", async (req, res, next) => {
   try {

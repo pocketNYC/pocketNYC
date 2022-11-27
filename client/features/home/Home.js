@@ -3,18 +3,14 @@ import { useSelector } from "react-redux";
 import LoggedInUserFeed from "./LoggedInUserFeed";
 import GuestUserFeed from "./GuestUserFeed";
 import FeaturedEvents from "./FeaturedEvents";
-import LoadingScreen from "../loading/LoadingScreen";
 
 const Home = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const { id, interests, borough } = useSelector((state) => state.auth.me);
-  const loading = useSelector((state) => state.auth.loading);
-
 
   return (
     <div className="container-fluid">
-      {loading ? <LoadingScreen /> : 
-      (<div>
+      <div>
         {isLoggedIn ? (
           <>
             <FeaturedEvents />
@@ -24,12 +20,10 @@ const Home = () => {
         ) : (
           <>
             <FeaturedEvents />
-            <div className="p-2"> </div>
             <GuestUserFeed />
           </>
         )}
-        <div className="row p-2"></div>
-      </div>)}
+      </div>
     </div>
   );
 };
