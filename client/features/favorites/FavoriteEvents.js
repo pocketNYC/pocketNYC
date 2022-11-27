@@ -44,16 +44,16 @@ const FavoriteEvents = () => {
       <table className="table table-hover">
         <thead>
           <tr>
-            <th scope="col">Title</th>
+            <th scope="col"> Title</th>
             <th scope="col">Date</th>
-            <th scope="col">Remove</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         {futureEvents.length ? (
           futureEvents?.map(({ event }) => {
             return (
-              <tbody key={event.id}>
-                <tr>
+              <tbody>
+                <tr key={event.id}>
                   <td>
                     <Link to={`/events/${event.id}`}>{event.title}</Link>
                   </td>

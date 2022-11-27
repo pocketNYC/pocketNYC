@@ -11,8 +11,7 @@ import EditUserProfile from "../features/users/EditUserAccountDetails";
 import Error from "../features/error/Error";
 import Login from "../features/auth/Login";
 import Signup from "../features/auth/Signup";
-import AllResources from "../features/resources/AllResources";
-import ResourceCategory from "../features/resources/ResourceCategory";
+import Resources from "../features/resources/Resources";
 import SingleResource from "../features/resources/SingleResource";
 import SingleUserProfile from "../features/users/SingleUserProfile";
 import SingleEvent from "../features/events/SingleEvent";
@@ -55,9 +54,9 @@ const AppRoutes = () => {
             path="/add/success"
             element={<ConfirmationPage user={user} />}
           />
-          <Route path="/resources" element={<AllResources />} />
-          <Route path={`/r/:id`} element={<SingleResource />} />
-          <Route path="/resources/:category/" element={<ResourceCategory />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/resources/:id" element={<SingleResource />} />
+
           <Route
             path={`/users/${userId}/favoriteResources`}
             element={<FavoriteResources />}
@@ -95,8 +94,8 @@ const AppRoutes = () => {
           />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<SingleEvent />} />
-          <Route path="/resources" element={<AllResources />} />
-          <Route path="/resources/:category" element={<ResourceCategory />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/resources/:id" element={<SingleResource />} />
           <Route path="/map" element={<Map />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="*" element={<Error />} />

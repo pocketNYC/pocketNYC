@@ -3,16 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { Button } from "react-bootstrap";
-import { fetchAllEvents } from "../events/eventsSlice";
+import { fetchAllEvents, fetchUserPendingEvents } from "../events/eventsSlice";
 
 function ConfirmationPage({ user }) {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events.events);
+  console.log(events);
 
   const { firstName, id } = user;
 
   useEffect(() => {
-    dispatch(fetchAllEvents());
+    dispatch(fetchUserPendingEvents());
   }, [dispatch]);
 
   const myEvents = events

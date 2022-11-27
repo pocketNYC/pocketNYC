@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import formInterest from "../auth/formInterest";
 import DateTimePicker from "./DateTimePicker";
 import { addEvent } from "./eventsSlice";
+import Modal from "react-bootstrap/Modal";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,13 @@ const AddEvent = () => {
   const [startVal, setStartVal] = useState(new Date());
   const [endVal, setEndVal] = useState(new Date());
   const [errors, setErrors] = useState("");
+
+  const [show, setShow] = useState(false);
+  const addNewEventButton = () => {
+    setShow(false).then(navigate("/add"));
+  };
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
   const handleChange = (formInterest) => {
     const selections = formInterest.map((tag) => tag.value);
@@ -145,6 +153,28 @@ const AddEvent = () => {
         <Button variant="primary" type="submit">
           Submit
         </Button>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Woohoo, thanks for submitting an event to PocketNYC!
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Your event is currently under review. Once the PocketNYC Admins
+            approve the event, it will be listed on the{" "}
+            <a href="/events">Events</a> page.
+            <br />
+            <br /> Below is a summary of the event you submitted:
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={addNewEventButton}>
+              Add New Event
+            </Button>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Form>
     </>
   );

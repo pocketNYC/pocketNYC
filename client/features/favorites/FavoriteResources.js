@@ -39,7 +39,7 @@ const FavoriteResources = () => {
             <thead>
               <tr>
                 <th scope="col">Title</th>
-                <th scope="col">Remove</th>
+                <th scope="col">Delete</th>
               </tr>
             </thead>
             {favResources.length ? (
@@ -48,7 +48,9 @@ const FavoriteResources = () => {
                   <tbody key={resource.id}>
                     <tr>
                       <td>
-                        <Link to={`/r/${resource.id}`}>{resource.name}</Link>
+                        <Link to={`/resources/${resource.id}`}>
+                          {resource.name}
+                        </Link>
                       </td>
                       <td>
                         <Tooltip title="Remove from favorites">
