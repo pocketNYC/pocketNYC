@@ -24,10 +24,10 @@ function LoggedInUserFeed({ interests, borough }) {
       }
     })
     .filter((event) => {
-      for (let i = 0; i < event.tags.length; i++) {
+      for (let i = 0; i < event.tags?.length; i++) {
         let singleTag = event.tags[i];
 
-        if (!event.tags.includes("holidays")) {
+        if (!event.tags?.includes("holidays")) {
           if (interests.includes(singleTag)) {
             return event;
           }

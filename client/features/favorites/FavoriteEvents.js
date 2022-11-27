@@ -40,31 +40,23 @@ const FavoriteEvents = () => {
 
   return (
     <div>
-      {eventsLoading ? (
-        <LoadingScreen />
-      ) : (
-        <div>
-          <p style={{ fontWeight: "bold" }}>Upcoming Events:</p>
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Date</th>
-                <th scope="col"> Title</th>
-
-                <th scope="col">Delete</th>
-              </tr>
-            </thead>
-            {futureEvents.length ? (
-              futureEvents?.map(({ event }) => {
-                return (
-                  <>
-                    <tbody>
-                      <tr key={event.id}>
-                        <td>
-                          {moment(event.start).format(
-                            "dddd, MMMM Do YYYY, h:mm a"
-                          )}
-                        </td>
+      <p style={{ fontWeight: "bold" }}>Upcoming Events:</p>
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"> Title</th>
+            <th scope="col">Date</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        {futureEvents.length ? (
+          futureEvents?.map(({ event }) => {
+            return (
+              <tbody>
+                <tr key={event.id}>
+                  <td>
+                    <Link to={`/events/${event.id}`}>{event.title}</Link>
+                  </td>
 
                   <td>
                     {moment(event.start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}

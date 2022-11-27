@@ -75,87 +75,88 @@ function SingleEvent() {
 
   return (
     <div>
-      {loading ? (
+      {/* {loading ? (
         <LoadingScreen />
-      ) : (
-        <div className="container-fluid p-4">
-          <h1 className="text-center"> {title}</h1>
-          <div className="card border-secondary d-flex align-items-center h-100 ">
-            <div className="row g-1">
-              <div className="col-md-6">
-                <img
-                  src={image}
-                  className="img-fluid rounded-start h-100"
-                  alt="Image of event"
-                />
-              </div>
-              <div className="col-md-6">
-                <div className="card-body " style={{ verticalAlign: "middle" }}>
-                  <p className="card-text">{description}</p>
-                  <p className="card-text ">
-                    <strong>Date:</strong>{" "}
-                    {moment(start).format("dddd, MMMM Do YYYY h:mm a")}
-                  </p>
-                  <p className="card-text">
-                    <strong>Address: </strong> {address}
-                  </p>
-                  <a href={eventLink} className="card-text" target="_blank">
-                    Visit event page for more details
-                  </a>
+      ) : ( */}
+      <div className="container-fluid p-4">
+        <h1 className="text-center"> {title}</h1>
+        <div className="card border-light d-flex align-items-center h-100 ">
+          <div className="row g-1">
+            <div className="col-md-6">
+              <img
+                src={image}
+                className="img-fluid rounded-start h-100"
+                alt="Image of event"
+              />
+            </div>
+            <div className="col-md-6">
+              <div className="card-body " style={{ verticalAlign: "middle" }}>
+                <p className="card-text">{description}</p>
+                <p className="card-text ">
+                  <strong>Date:</strong>{" "}
+                  {moment(start).format("dddd, MMMM Do YYYY h:mm a")} -{" "}
+                  {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
+                </p>
 
-              <p className="card-text">
-                <small className="text-muted">Tags: {tags?.join(", ")}</small>
-              </p>
+                <p className="card-text">
+                  <strong>Address: </strong> {address}
+                </p>
+                <a href={eventLink} className="card-text" target="_blank">
+                  Visit event page for more details
+                </a>
 
-                  {isLoggedIn ? (
-                    <>
-                      {isItInMyFavs.length ? (
-                        <Button
-                          variant="outlined"
-                          onClick={(ev) => removeFromFavsButton(ev, id)}
-                          color="error"
-                          startIcon={<FavoriteIcon />}
-                        >
-                          Remove from Favorites
-                        </Button>
-                      ) : (
-                        <Button
-                          variant="outlined"
-                          onClick={(ev) => addToFavsButton(ev, id)}
-                          color="error"
-                          startIcon={<FavoriteBorderOutlinedIcon />}
-                        >
-                          Add to Favorites
-                        </Button>
-                      )}
-                      &nbsp;
-                      {isItOnMyCal.length ? (
-                        <Button
-                          variant="outlined"
-                          onClick={(ev) => removeFromCalButton(ev, id)}
-                          color="success"
-                          startIcon={<EventIcon />}
-                        >
-                          Remove from Calendar
-                        </Button>
-                      ) : (
-                        <Button
-                          variant="outlined"
-                          onClick={(ev) => addToCalButton(ev, id)}
-                          color="success"
-                          startIcon={<CalendarMonthIcon />}
-                        >
-                          Add to Calendar
-                        </Button>
-                      )}
-                    </>
-                  ) : null}
-                </div>
+                <p className="card-text">
+                  <small className="text-muted">Tags: {tags?.join(", ")}</small>
+                </p>
+
+                {isLoggedIn ? (
+                  <>
+                    {isItInMyFavs.length ? (
+                      <Button
+                        variant="outlined"
+                        onClick={(ev) => removeFromFavsButton(ev, id)}
+                        color="error"
+                        startIcon={<FavoriteIcon />}
+                      >
+                        Remove from Favorites
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="outlined"
+                        onClick={(ev) => addToFavsButton(ev, id)}
+                        color="error"
+                        startIcon={<FavoriteBorderOutlinedIcon />}
+                      >
+                        Add to Favorites
+                      </Button>
+                    )}
+                    &nbsp;
+                    {isItOnMyCal.length ? (
+                      <Button
+                        variant="outlined"
+                        onClick={(ev) => removeFromCalButton(ev, id)}
+                        color="success"
+                        startIcon={<EventIcon />}
+                      >
+                        Remove from Calendar
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="outlined"
+                        onClick={(ev) => addToCalButton(ev, id)}
+                        color="success"
+                        startIcon={<CalendarMonthIcon />}
+                      >
+                        Add to Calendar
+                      </Button>
+                    )}
+                  </>
+                ) : null}
               </div>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

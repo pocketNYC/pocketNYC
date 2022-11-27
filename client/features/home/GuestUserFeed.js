@@ -29,7 +29,7 @@ function GuestUserFeed() {
         date > start() &&
         date < end &&
         event.status === "approved" &&
-        !event.tags.includes("holidays")
+        !event.tags?.includes("holidays")
       ) {
         return event;
       }

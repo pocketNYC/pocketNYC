@@ -48,7 +48,9 @@ const FavoriteResources = () => {
                   <tbody key={resource.id}>
                     <tr>
                       <td>
-                        <Link to={`/r/${resource.id}`}>{resource.name}</Link>
+                        <Link to={`/resources/${resource.id}`}>
+                          {resource.name}
+                        </Link>
                       </td>
                       <td>
                         <Tooltip title="Remove from favorites">

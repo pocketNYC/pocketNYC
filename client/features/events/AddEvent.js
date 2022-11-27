@@ -27,34 +27,6 @@ const AddEvent = () => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
-  const [show, setShow] = useState(false);
-  const addNewEventButton = () => {
-    setShow(false).then(navigate("/add"));
-  };
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
-
-  const [show, setShow] = useState(false);
-  const addNewEventButton = () => {
-    setShow(false).then(navigate("/add"));
-  };
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
-
-  const [show, setShow] = useState(false);
-  const addNewEventButton = () => {
-    setShow(false).then(navigate("/add"));
-  };
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
-
-  const [show, setShow] = useState(false);
-  const addNewEventButton = () => {
-    setShow(false).then(navigate("/add"));
-  };
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
-
   const handleChange = (formInterest) => {
     const selections = formInterest.map((tag) => tag.value);
     setSelectedOptions(selections);
