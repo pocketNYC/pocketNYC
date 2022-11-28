@@ -15,11 +15,10 @@ export default function TopNav() {
       <Container>
         <Navbar.Brand href="/" className="position-absolute start-0">
           <img
-            src="
-          https://i.imgur.com/0wLXpHh.png"
+            src="LogoForNav.png"
             alt="PocketNYC logo"
-            width="50"
-            height="60"
+            width="auto"
+            height="55"
             className="d-inline-block align-top"
           />
         </Navbar.Brand>
