@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <div>
       <TopNav />
-      <BottomNav />
+      {/* <BottomNav /> */}
     </div>
   );
 };
