@@ -22,6 +22,8 @@ import Map from "../features/map/Map";
 import LoadingScreen from "../features/loading/LoadingScreen";
 import FavoriteResources from "../features/favorites/FavoriteResources";
 import FavoriteEvents from "../features/favorites/FavoriteEvents";
+import LaunchScreen from "../features/loading/launchScreen/LaunchScreen";
+
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -76,6 +78,7 @@ const AppRoutes = () => {
             <>
               <Route path="/users" element={<UserList />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/load" element={<LoadingScreen />} />
             </>
           )}
           <Route path="*" element={<Error />} />
@@ -98,6 +101,7 @@ const AppRoutes = () => {
           <Route path="/resources/:id" element={<SingleResource />} />
           <Route path="/map" element={<Map />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/load" element={<LoadingScreen />} />
           <Route path="*" element={<Error />} />
         </Routes>
       )}
