@@ -28,8 +28,8 @@ export default function TopNav() {
         {isLoggedIn && (
           <Navbar.Brand href="/calendar">
             <OverlayTrigger
-              key="top"
-              placement="top"
+              key="bottom"
+              placement="bottom"
               overlay={<Tooltip>My Calendar</Tooltip>}
             >
               <CalendarMonthIcon />
@@ -37,8 +37,8 @@ export default function TopNav() {
           </Navbar.Brand>
         )}
         <OverlayTrigger
-          key="top"
-          placement="top"
+          key="bottom"
+          placement="bottom"
           overlay={<Tooltip>FAQ</Tooltip>}
         >
           <Navbar.Brand href="/faq">

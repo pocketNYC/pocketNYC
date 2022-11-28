@@ -92,7 +92,7 @@ const Resources = () => {
                   />
                   <div className="card-body">
                     <h5 className="card-title">{name}</h5>
-                    <p className="card-text"> {borough}, NY</p>
+                    <p className="card-text"> {borough?.join(", ")}, NY</p>
                     <div>
                       <Button
                         size="small"
