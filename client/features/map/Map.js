@@ -47,8 +47,10 @@ const Map = () => {
   };
 
   return (
-    <div id="map" className="map, underline">
-      <h1 align="center">Map</h1>
+    <div className="container-fluid">
+      <div className="card ">
+        <div id="map" className="map, underline">
+          <h1 align="center">Map</h1>
       <div class="dropdown">
         <button
           class="btn btn-secondary dropdown-toggle"
@@ -68,29 +70,29 @@ const Map = () => {
         </ul>
       </div>
       <br />
-      <div className="d-flex justify-content-center">
-        <MapContainer center={[40.6782, -73.9442]} zoom={11}>
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+          <div className="d-flex justify-content-center">
+            <MapContainer center={[40.6782, -73.9442]} zoom={11}>
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
           dropdown-item.class === "Events" ? (
-          {events.map((event) => {
-            return (
-              <Marker
-                icon={eventIcon}
-                key={event.id}
-                position={[event.latitude, event.longitude]}
-              >
-                <Popup onClick={(ev) => navigateToEvent(ev, id)}>
-                  <Link to={`/events/${event.id}`}>
-                    {event.title} <br />
-                  </Link>
-                  {event.description}
-                </Popup>
-              </Marker>
-            );
-          })}
+              {events.map((event) => {
+                return (
+                  <Marker
+                    icon={eventIcon}
+                    key={event.id}
+                    position={[event.latitude, event.longitude]}
+                  >
+                    <Popup onClick={(ev) => navigateToEvent(ev, id)}>
+                      <Link to={`/events/${event.id}`}>
+                        {event.title} <br />
+                      </Link>
+                      {event.description}
+                    </Popup>
+                  </Marker>
+                );
+              })}
           ):(
           {filteredResources.map((resource) => {
             return (
@@ -109,7 +111,9 @@ const Map = () => {
             );
           })}
           )
-        </MapContainer>
+            </MapContainer>
+          </div>
+        </div>
       </div>
     </div>
   );
