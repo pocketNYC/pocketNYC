@@ -19,7 +19,7 @@
   stroke-miterlimit: 10;
   stroke-width: 5px;
   transform-origin: center center;
-  position: fixed;
+  position:absolute;
   top: -60%;
   right: -100%;
   left: -100%;
