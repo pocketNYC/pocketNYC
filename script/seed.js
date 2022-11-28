@@ -70,7 +70,7 @@ async function seed() {
     "  https://img.freepik.com/premium-vector/doctors-nurses-healthcare-workers-team_316839-602.jpg?w=2000",
   ];
 
-  console.log("heathData", health.data);
+  console.log("heathData", health);
 
   const healthFacilitiesSeed = await Promise.all(
     health.data.map((healthFacility) =>
