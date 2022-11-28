@@ -6,13 +6,11 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import { fetchCalendarEvents, selectCalendar } from "./calendarSlice";
 import { useNavigate } from "react-router-dom";
 import "./Calendar.css";
-import LoadingScreen from "../loading/LoadingScreen";
 
 const localizer = momentLocalizer(moment);
 
 const UserCalendar = () => {
   const calEvents = useSelector(selectCalendar);
-  const loading = useSelector((state) => state.calendar.loading);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,25 +38,19 @@ const UserCalendar = () => {
   };
 
   return (
-    <div>
-      {loading ? (
-        <LoadingScreen />
-      ) : (
-        <div className="container-fluid">
-          <div className="p-4">
-            <Calendar
-              selectable
-              localizer={localizer}
-              events={calendarEvents}
-              onSelectEvent={handleSelected}
-              startAccessor="start"
-              endAccessor="end"
-              popup
-              style={{ height: 500, padding: "10px" }}
-            />
-          </div>
-        </div>
-      )}
+    <div className="container-fluid">
+      <div className="p-4">
+        <Calendar
+          selectable
+          localizer={localizer}
+          events={calendarEvents}
+          onSelectEvent={handleSelected}
+          startAccessor="start"
+          endAccessor="end"
+          popup
+          style={{ height: 500, padding: "10px" }}
+        />
+      </div>
     </div>
   );
 };

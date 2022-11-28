@@ -11,23 +11,21 @@ export default function TopNav() {
       <MDBNavbar light bgColor="light">
         <MDBContainer fluid size="sm">
           <MDBNavbarBrand href="/">
-            {/* <><a> */}
-              <img
-                src="
+            <img
+              src="
           https://i.imgur.com/0wLXpHh.png"
-                alt="PocketNYC logo"
-                width="65"
-                height="70"
-              />
-              PocketNYC
-            {/* </a></> */}
+              alt="PocketNYC logo"
+              width="65"
+              height="70"
+            />
+            PocketNYC
           </MDBNavbarBrand>
 
-          {isLoggedIn ? (
+          {isLoggedIn && (
             <MDBNavbarBrand href="/calendar">
               <CalendarMonthIcon />
             </MDBNavbarBrand>
-          ) : null}
+          )}
 
           <MDBNavbarBrand href="/faq">
             <HelpIcon />

@@ -292,7 +292,7 @@ const resources = [
     description:
       "OnTrackNY is a mental health treatment program that empowers young people to make meaning of their experiences and to pursue their goals for school, work, and relationships. We support the well-being of young people across New York State who are impacted by unexpected changes in their thinking and perceptions. Equity, inclusion, rapid access, and self-determination are at the core of everything we do.",
     imageUrl:
-      "https://media.istockphoto.com/id/1270641282/vector/mental-health-or-chology-concept-with-flowering-human-head.jpg?s=612x612&w=0&k=20&c=-ZycQUvWskTvH_BoF1LoGJ3XpfrN7jVs8Nu3-NHjDZE=",
+      "https://heidelbergdistributing.com/wp-content/uploads/2020/05/mhm-web-banner.png",
     address: "1051 Riverside Dr, New York, NY 10032",
     borough: ["Manhattan"],
     tag: ["food", "health"],

@@ -6,13 +6,11 @@ import { editUser } from "./userSlice";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import formInterest from "../auth/formInterest";
-import LoadingScreen from "../loading/LoadingScreen";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function EditUserProfile({ user }) {
   const { id, firstName, lastName, email, interests, borough } = user;
-  const loading = useSelector((state) => state.auth.loading);
 
   const [userFirstName, setUserFirstName] = useState(firstName);
   const [userLastName, setUserLastName] = useState(lastName);
@@ -22,31 +20,34 @@ function EditUserProfile({ user }) {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const dispatch = useDispatch();
   const animated = makeAnimated();
-  
-  const notify = () => toast.success('Your changes have been submitted.', {
-    position: "top-right",
-    padding: '30px',
-    autoClose: 3200,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-  });
-  
+
+  const notify = () =>
+    toast.success("Your changes have been submitted.", {
+      position: "top-right",
+      padding: "30px",
+      autoClose: 3200,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
   const handleChange = (formInterest) => {
     let selections = [];
     formInterest.map((interest) => selections.push(interest.value));
     setSelectedOptions(selections);
   };
-  
-  const clearText = (evt) => {evt.target.value = ''}
-  
+
+  const clearText = (evt) => {
+    evt.target.value = "";
+  };
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    notify()
-    console.log(interests, "********")
+    notify();
+
     dispatch(
       editUser({
         id,
@@ -57,20 +58,19 @@ function EditUserProfile({ user }) {
         interests: selectedOptions,
       })
     );
+
+    setValidated(true);
   };
 
   return (
-    <div>
-      <div style={{ textAlign: "center" }}>
+    <div className="container-fluid p-4">
+      <div className="card p-2 text-center ">
         <h2>Edit Your Details Below</h2>
         <h6>
           Click on a field to edit your information. Please reselect your
-          interests
+          interests.
         </h6>
-      </div>
-      {loading ? (
-        <LoadingScreen />
-      ) : (
+
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Form.Group className="mb-6" controlId="firstName">
             <Form.Label>First Name</Form.Label>
@@ -82,9 +82,8 @@ function EditUserProfile({ user }) {
                 setUserFirstName(e.target.value);
               }}
               defaultValue={userFirstName}
-              onFocus={(e) => e.target.placeholder ="Enter Your First Name"}
-             onBlur= {(e) => e.target.placeholder = userFirstName}
-
+              onFocus={(e) => (e.target.placeholder = "Enter Your First Name")}
+              onBlur={(e) => (e.target.placeholder = userFirstName)}
             />
             <Form.Control.Feedback type="invalid">
               Please provide your first name.
@@ -101,9 +100,8 @@ function EditUserProfile({ user }) {
               onChange={(e) => {
                 setUserLastName(e.target.value);
               }}
-              onFocus={(e) => e.target.placeholder ="Enter Your Last Name"}
-              onBlur= {(e) => e.target.placeholder = userLastName}
-
+              onFocus={(e) => (e.target.placeholder = "Enter Your Last Name")}
+              onBlur={(e) => (e.target.placeholder = userLastName)}
             />
             <Form.Control.Feedback type="invalid">
               Please provide your last name.
@@ -119,9 +117,8 @@ function EditUserProfile({ user }) {
                 setUserEmail(e.target.value);
               }}
               defaultValue={userEmail}
-              onFocus={(e) => e.target.placeholder = "Enter Email"}
-              onBlur= {(e) => e.target.placeholder = userEmail}
-
+              onFocus={(e) => (e.target.placeholder = "Enter Email")}
+              onBlur={(e) => (e.target.placeholder = userEmail)}
             />
             <Form.Control.Feedback type="invalid">
               Please provide an email.
@@ -146,7 +143,8 @@ function EditUserProfile({ user }) {
           <label htmlFor="interest" style={{ padding: "10px" }}>
             Choose your categories of interest: (limit 3*)
           </label>
-          <Select {...interests}
+          <Select
+            {...interests}
             isMulti
             options={formInterest}
             components={animated}
@@ -156,13 +154,12 @@ function EditUserProfile({ user }) {
             className="interest-multi-select"
           />
           <Button variant="primary" type="submit">
-            SUBMIT
+            Submit
           </Button>
-          <ToastContainer  />
+          <ToastContainer />
         </Form>
-      )}
+      </div>
     </div>
   );
 }
-
 export default EditUserProfile;

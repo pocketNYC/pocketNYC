@@ -29,29 +29,28 @@ function Faq() {
             </div>
           </div>
         </div>
-        <div className="accordion accordion-flush" id="accordionFlushExample">
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="flush-headingOutsideTwo">
-              <button
-                className="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseOutsideTwo"
-                aria-expanded="false"
-                aria-controls="flush-collapseOutsideTwo"
-              >
-                About Us
-              </button>
-            </h2>
-            <div
-              id="flush-collapseOutsideTwo"
-              className="accordion-collapse collapse"
-              aria-labelledby="flush-headingOutsideTwo"
-              data-bs-parent="#accordionFlushExample"
+
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingOutsideTwo">
+            <button
+              className="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOutsideTwo"
+              aria-expanded="false"
+              aria-controls="flush-collapseOutsideTwo"
             >
-              <div className="accordion-body">
-                <AboutUs />
-              </div>
+              About Us
+            </button>
+          </h2>
+          <div
+            id="flush-collapseOutsideTwo"
+            className="accordion-collapse collapse"
+            aria-labelledby="flush-headingOutsideTwo"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div className="accordion-body">
+              <AboutUs />
             </div>
           </div>
         </div>

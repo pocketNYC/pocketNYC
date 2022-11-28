@@ -1,67 +1,130 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
-import { fetchAllApprovedEvents, fetchAllEvents } from "./eventsSlice";
-import { me } from "../auth/authSlice";
-import { Button, Tooltip } from "@mui/material";
+import { fetchAllApprovedEvents } from "./eventsSlice";
+import { Button } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import AddIcon from "./AddIcon";
-import LoadingScreen from "../loading/LoadingScreen";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
+import ListSubheader from "@mui/material/ListSubheader";
+import IconButton from "@mui/material/IconButton";
+import InfoIcon from "@mui/icons-material/Info";
 
 export default function Events() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const events = useSelector((state) => state.events.events);
-  const loading = useSelector((state) => state.events.loading);
+  let [eventList, setEventList] = useState([]);
+  const [render, setRender] = useState(true);
+  const [key, setKey] = useState("all");
 
   useEffect(() => {
     dispatch(fetchAllApprovedEvents());
-    // dispatch(me());
-  }, []);
+  }, [dispatch]);
 
+  const filterCategoryButton = (ev) => {
+    const category = ev.target.dataset.rrUiEventKey;
+
+    if (category === "All") {
+      setEventList(events);
+    } else {
+      setEventList(events?.filter((event) => event.tags?.includes(category)));
+    }
+    render ? setRender(false) : setRender(true);
+  };
+
+  eventList.length === 0 && events.length > 0 ? setEventList(events) : null;
+
+  const tags = [
+    "city services",
+    "education",
+    "employment",
+    "family-friendly",
+    "health",
+    "holidays",
+    "multicultural",
+    "arts",
+    "outdoors",
+    "sports",
+  ];
+
+  function capitalize(word) {
+    return word
+      .toLowerCase()
+      .replace(/(^\w)|([-\s]\w)/g, (firstLetter) => firstLetter.toUpperCase());
+  }
   return (
     <div className="container-fluid">
-      {loading ? (
+      {/* {loading ? (
         <LoadingScreen />
-      ) : (
-        <div className="container">
-          {isLoggedIn && <AddIcon />}
-          <h1 className="fw-light text-center text-lg-center p-4">
-            {" "}
-            All Events{" "}
-          </h1>
+      ) : ( */}
+      <div className="container-fluid">
+        {isLoggedIn && <AddIcon />}
+        <h1 className="fw-light text-center text-lg-center p-4"> Events </h1>
+
+        <Tabs
+          activeKey={key}
+          id="controlled-tab-example"
+          transition={false}
+          onSelect={(k) => setKey(k)}
+          className="mb-3 justify-content-center text-secondary"
+          onClick={(ev) => filterCategoryButton(ev)}
+        >
+          <Tab eventKey="all" title="All"></Tab>
+          {tags?.map((tag) => {
+            return <Tab key={tag} eventKey={tag} title={capitalize(tag)}></Tab>;
+          })}
+        </Tabs>
+
+        <div className="tab-content" id="nav-tabContent">
           <div className="row row-cols-1 row-cols-md-2 g-4">
-            {events?.map(({ id, image, title, start, tag }) => (
+            {eventList?.map(({ id, image, title, start, tags }) => (
               <div key={id}>
                 <div className="card text-center h-100">
                   <img
-                    className="card-img-top "
+                    className="card-img-top  "
                     src={image}
-                    alt={`Image of ${title}`}
+                    alt={`image of ${title}`}
                     onClick={() => navigate(`/events/${id}`)}
                   />
+
                   <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">
                       {moment(start).format("dddd, MMMM Do, YYYY")}
                     </h6>
-                    <small className="card-subtitle mb-2 text-muted">
-                      Tags: {tag.join(", ")}
-                    </small>
+
                     <div>
                       <Button
                         size="small"
                         onClick={() => navigate(`/events/${id}`)}
-                      />
-                    </div>{" "}
+                      >
+                        More Info
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="card-footer">
+                    <small className="card-subtitle mb-2 text-muted">
+                      Tags: {tags?.join(", ")}
+                    </small>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <Tooltip title="Scroll to Top">
+          <OverlayTrigger
+            key="top"
+            placement="top"
+            overlay={<Tooltip>Scroll to top</Tooltip>}
+          >
             <Button
               className="scroll"
               onClick={() => {
@@ -71,18 +134,18 @@ export default function Events() {
               size="small"
               style={{
                 position: "fixed",
-                borderRadius: "50%",
-                padding: "1rem 1rem",
                 bottom: "120px",
-                right: "10px",
+                right: "5px",
                 textAlign: "center",
               }}
             >
-              <KeyboardArrowUpIcon></KeyboardArrowUpIcon>
+              <KeyboardArrowUpIcon
+                style={{ color: "white" }}
+              ></KeyboardArrowUpIcon>
             </Button>
-          </Tooltip>
+          </OverlayTrigger>
         </div>
-      )}
+      </div>
     </div>
   );
 }

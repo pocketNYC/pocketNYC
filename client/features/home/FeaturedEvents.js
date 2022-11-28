@@ -11,7 +11,7 @@ function FeaturedEvents() {
       return new Date(a.start) - new Date(b.end);
     })
     ?.filter((event) => {
-      if (event.tag.includes("holidays") && event.status === "approved") {
+      if (event.tags?.includes("holidays") && event.status === "approved") {
         return event;
       }
     })
@@ -45,30 +45,40 @@ function FeaturedEvents() {
                 key={first?.id}
               >
                 <img className="d-block w-100" src={first?.image} alt="..." />
-
-                <div className="carousel-caption d-none d-md-block">
-                  <h5>{first?.title}</h5>
-                  <p>
-                    {moment(first?.start).format("dddd, MMMM Do YYYY, h:mm a")}{" "}
-                    - {moment(first?.end).format("dddd, MMMM Do YYYY, h:mm a")}
-                  </p>
+                <div className="cards">
+                  <a href={`/events/${first?.id}`}>
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>{first?.title}</h5>
+                      <p>
+                        {moment(first?.start).format(
+                          "dddd, MMMM Do YYYY, h:mm a"
+                        )}{" "}
+                        -{" "}
+                        {moment(first?.end).format(
+                          "dddd, MMMM Do YYYY, h:mm a"
+                        )}
+                      </p>
+                    </div>
+                  </a>
                 </div>
               </div>
               {exclude1?.map(({ id, image, title, start, end }) => (
                 <div key={id} className="carousel-item" data-bs-interval="4500">
                   <img className="d-block w-100" src={image} alt="..." />
-
-                  <div className="carousel-caption d-none d-md-block">
-                    <h5>{title}</h5>
-                    <p>
-                      {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
-                      {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
-                    </p>
+                  <div className="cards">
+                    <a href={`/events/${id}`}>
+                      <div className="carousel-caption d-none d-md-block">
+                        <h5>{title}</h5>
+                        <p>
+                          {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
+                          {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
+                        </p>
+                      </div>
+                    </a>
                   </div>
                 </div>
               ))}
             </div>
-
             <button
               className="carousel-control-prev"
               type="button"

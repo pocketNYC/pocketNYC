@@ -3,7 +3,8 @@ const {
   models: { User, Event },
 } = require("../db");
 
-// GET api/users
+const { getToken } = require("./adminAuth");
+
 router.get("/", async (req, res, next) => {
   try {
     const user = await User.findByToken(req.headers.authorization);
@@ -43,6 +44,29 @@ router.get("/:userId", async (req, res, next) => {
 
     if (user) {
       res.json(user);
+    } else {
+      res.sendStatus(400);
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get("/:userId/events", async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.userId);
+
+    const events = await Event.findAll({
+      where: {
+        userId: user.id,
+        status: "pending",
+      },
+      order: [["createdAt", "DESC"]],
+      limit: 1,
+    });
+
+    if (events) {
+      res.json(events);
     } else {
       res.sendStatus(400);
     }

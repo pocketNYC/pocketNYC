@@ -29,7 +29,7 @@ function GuestUserFeed() {
         date > start() &&
         date < end &&
         event.status === "approved" &&
-        !event.tag.includes("holidays")
+        !event.tags?.includes("holidays")
       ) {
         return event;
       }
@@ -46,8 +46,8 @@ function GuestUserFeed() {
     <div>
       {sortedApprovedEvents?.map(({ id, image, title, description }) => (
         <div className="card" key={id}>
-          <div className="row g-2">
-            <div className="col-md-6 mb-2">
+          <div className="row g-0">
+            <div className="col-md-6 ">
               <div
                 className="bg-image hover-overlay ripple shadow-2-strong rounded-5"
                 data-mdb-ripple-color="light"
@@ -88,6 +88,7 @@ function GuestUserFeed() {
           </div>
         </div>
       ))}
+      <div className="p-2"></div>
     </div>
   );
 }

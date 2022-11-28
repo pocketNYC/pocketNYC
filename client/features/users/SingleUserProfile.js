@@ -8,7 +8,9 @@ import { fetchAllEvents } from "../events/eventsSlice";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import LoadingScreen from "../loading/LoadingScreen";
-import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from "@mui/icons-material/Edit";
+import FavoriteResources from "../favorites/FavoriteResources";
+import FavoriteEvents from "../favorites/FavoriteEvents";
 
 function SingleUserProfile({ user }) {
   const dispatch = useDispatch();
@@ -32,100 +34,170 @@ function SingleUserProfile({ user }) {
 
   return (
     <div>
-      {loading ? <LoadingScreen /> : (
-      <div>
-      <h4> Welcome, {`${firstName} ${lastName}`}! </h4>
+      {loading ? (
+        <LoadingScreen />
+      ) : (
+        <div className="container-fluid">
+          <div className="row p-4">
+            <h1 className="text-center">User Dashboard</h1>
+            <div className="col-md-4">
+              <div
+                className="card text-center"
+                style={{ borderRadius: "15px" }}
+              >
+                <div className="card-body text-center">
+                  <div className="mt-3 mb-4">
+                    <img
+                      src="https://ih1.redbubble.net/image.348125876.6557/st,small,507x507-pad,600x600,f8f8f8.u2.jpg"
+                      className="rounded-circle mx-auto"
+                      style={{
+                        width: "200px",
+                      }}
+                    />
+                  </div>
 
-      <div className="accordion accordion-flush" id="accordionFlushExample">
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="flush-headingTwo">
-            <button
-              className="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#flush-collapseTwo"
-              aria-expanded="false"
-              aria-controls="flush-collapseTwo"
-            >
-              My User Information
-            </button>
-          </h2>
-          <div
-            id="flush-collapseTwo"
-            className="accordion-collapse collapse"
-            aria-labelledby="flush-headingTwo"
-            data-bs-parent="#accordionFlushExample"
-          >
-            <div className="accordion-body">
-              <h6>
-                <strong>Email:</strong> {email}
-              </h6>
-              <h6>
-                <strong>Interests: </strong>
-                {[interests].toString().split(",").join(", ")}
-              </h6>
-              <h6>
-                <strong>Borough: </strong>
-                {borough}
-              </h6>
+                  <h4 className="mb-2">
+                    {firstName} {lastName}
+                  </h4>
+                  <h6 className="text-muted mb-4">
+                    <strong>My Interests: </strong>
+                    {[interests].toString().split(",").join(", ")}
+                    <strong>
+                      <br />
+                      My Email:{" "}
+                    </strong>
+                    {email}
+                  </h6>
+                </div>
+                <Link to={`/users/${userId}/edit`}>
+                  <Button>
+                    <EditIcon /> Edit Profile
+                  </Button>
+                  <div className="p-2"></div>
+                </Link>
+              </div>
             </div>
-            <Link to={`/users/${userId}/edit`}>
-              <Button><EditIcon/> Edit Profile</Button>
-            </Link>
+
+            <div className="col-md-8">
+              <div className="card">
+                <div
+                  className="accordion accordion-flush"
+                  id="accordionFlushExample"
+                >
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="flush-headingOne">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseOne"
+                      >
+                        My Submitted Events
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseOne"
+                      className="accordion-collapse collapse"
+                      aria-labelledby="flush-headingOne"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div className="accordion-body">
+                        {myEvents.length ? (
+                          <table className="table table-borderless">
+                            <thead>
+                              <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col">Date(s)</th>
+                                <th scope="col">Status</th>
+                              </tr>
+                            </thead>
+                            {myEvents.map(
+                              ({ title, status, id, start, end }) => {
+                                return (
+                                  <tbody>
+                                    <tr>
+                                      <td>{title}</td>
+                                      <td>
+                                        {moment(start).format(
+                                          "dddd, MMMM Do YYYY, h:mm a"
+                                        )}{" "}
+                                        -{" "}
+                                        {moment(end).format(
+                                          "dddd, MMMM Do YYYY, h:mm a"
+                                        )}
+                                      </td>
+                                      <td>{status}</td>
+                                    </tr>
+                                  </tbody>
+                                );
+                              }
+                            )}
+                          </table>
+                        ) : (
+                          <small> No events to display</small>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="flush-headingTwo">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseTwo"
+                      >
+                        My Favorite Resources
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseTwo"
+                      className="accordion-collapse collapse"
+                      aria-labelledby="flush-headingTwo"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div className="accordion-body">
+                        <FavoriteResources />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="flush-headingThree">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseThree"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseThree"
+                      >
+                        My Favorite Events
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseThree"
+                      className="accordion-collapse collapse"
+                      aria-labelledby="flush-headingThree"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div className="accordion-body">
+                        <FavoriteEvents />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="flush-headingOne">
-            <button
-              className="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#flush-collapseOne"
-              aria-expanded="false"
-              aria-controls="flush-collapseOne"
-            >
-              My Submitted Events
-            </button>
-          </h2>
-          <div
-            id="flush-collapseOne"
-            className="accordion-collapse collapse"
-            aria-labelledby="flush-headingOne"
-            data-bs-parent="#accordionFlushExample"
-          >
-            <div className="accordion-body">
-              <ul>
-                {myEvents.length
-                  ? myEvents.map(({ title, status, id, start, end }) => {
-                      return (
-                        <li key={id}>
-                          <h6>
-                            {title}
-                            <ul>
-                              <li>
-                                {moment(start).format(
-                                  "dddd, MMMM Do YYYY, h:mm a"
-                                )}{" "}
-                                -{" "}
-                                {moment(end).format(
-                                  "dddd, MMMM Do YYYY, h:mm a"
-                                )}
-                              </li>
-                              <li> Status: {status}</li>
-                            </ul>
-                          </h6>
-                        </li>
-                      );
-                    })
-                  : "No events to display"}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      )}
     </div>
-    )}</div>
   );
 }
 

@@ -76,7 +76,6 @@ const Map = () => {
                   </Link>
                   {event.description}
                 </Popup>
-                {/* <button onClick={(ev) => navigateToEvent(ev, id)} /> */}
               </Marker>
             );
           })}
