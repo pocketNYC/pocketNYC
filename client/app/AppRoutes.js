@@ -35,22 +35,16 @@ const AppRoutes = () => {
 
   useEffect(() => {
     dispatch(me());
-    // const timer = setTimeout(
-    //   () =>
-    //  <LaunchScreen />,
-    //   3000
-    // );
-    // return () => clearTimeout(timer);
   }, []);
 
   return (
     <div>
       <div>
-        <div className="splash"></div>
+        {/* <div className="splash"></div>
         <Routes>
           <Route path="/" element={<LaunchScreen />} />
         </Routes>
-      </div>
+      </div> */}
       {loading && <LoadingScreen />}
       {isLoggedIn ? (
         <Routes>
