@@ -14,9 +14,9 @@ label {
 }
 
 nav a {
-  display: inline-block;
-  margin: 1em;
-}
+  /* display: inline-block; */
+  margin: 0.5em;
+} 
 
 a.ex2:hover, a.ex2:active {font-size: 120%;}
 

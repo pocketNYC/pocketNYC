@@ -29,7 +29,7 @@ export default function AccountMenu() {
     navigate("/home");
   };
   return (
-    <div>
+    <>
       <IconButton
         onClick={(evt) => setAnchorEl(evt.currentTarget)}
         size="small"
@@ -111,6 +111,6 @@ export default function AccountMenu() {
           </div>
         )}
       </Menu>
-    </div>
+    </>
   );
 }
