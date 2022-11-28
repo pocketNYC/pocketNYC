@@ -21,8 +21,8 @@ import Map from "../features/map/Map";
 import LoadingScreen from "../features/loading/LoadingScreen";
 import FavoriteResources from "../features/favorites/FavoriteResources";
 import FavoriteEvents from "../features/favorites/FavoriteEvents";
-import LaunchScreen from "../features/loading/launchScreen/LaunchScreen";
-
+import LaunchScreen from "../features/loading/LaunchScreen";
+import { Launch, RoundaboutLeft } from "@mui/icons-material";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -35,10 +35,22 @@ const AppRoutes = () => {
 
   useEffect(() => {
     dispatch(me());
+    // const timer = setTimeout(
+    //   () =>
+    //  <LaunchScreen />,
+    //   3000
+    // );
+    // return () => clearTimeout(timer);
   }, []);
 
   return (
     <div>
+      <div>
+        <div className="splash"></div>
+        <Routes>
+          <Route path="/" element={<LaunchScreen />} />
+        </Routes>
+      </div>
       {loading && <LoadingScreen />}
       {isLoggedIn ? (
         <Routes>
@@ -51,6 +63,7 @@ const AppRoutes = () => {
             element={<FavoriteEvents />}
           />
           <Route path="/add" element={<AddEvent />} />
+
           <Route
             path="/add/success"
             element={<ConfirmationPage user={user} />}
@@ -73,7 +86,7 @@ const AppRoutes = () => {
           />
           <Route path="/faq" element={<Faq />} />
           <Route path="/map" element={<Map />} />
-          
+
           {isAdmin && <Route path="/admin" element={<Admin />} />}
 
           <Route path="*" element={<Error />} />

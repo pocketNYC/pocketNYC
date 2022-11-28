@@ -18,13 +18,16 @@ async function seed() {
     "https://data.cityofnewyork.us/resource/ji82-xba5.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&facgroup=HEALTH%20CARE&$limit=12"
   );
 
+
+  
   const employment = await axios.get(
     "https://data.cityofnewyork.us/resource/ji82-xba5.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&$q=EMPLOYMENT&$limit=7"
-  );
-
-  const tax = await axios.get(
-    "https://data.cityofnewyork.us/resource/5kqf-fg3n.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&$q=TAX&$limit=12"
-  );
+    );
+    
+    const tax = await axios.get(
+      "https://data.cityofnewyork.us/resource/5kqf-fg3n.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&$q=TAX&$limit=12"
+      );
+    
 
   const financialEmpowermentCtr = await axios.get(
     "https://data.cityofnewyork.us/resource/dt2z-amuf.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&$limit=10"
@@ -59,6 +62,8 @@ async function seed() {
   const resource = await Promise.all(
     resources.map((resource) => Resource.create(resource))
   );
+  console.log(resource.length, 'working?')
+
 
   const event = await Promise.all(events.map((event) => Event.create(event)));
 
@@ -69,6 +74,72 @@ async function seed() {
     "https://media.istockphoto.com/id/1216870085/vector/doctors-and-nurses-characters-in-medical-masks-standing-together-vector-illustration.jpg?s=612x612&w=0&k=20&c=q3AfPmIwhwi1ySyDHXqZaT5JsDWHKZmp5BHQDjCoboU=",
     "  https://img.freepik.com/premium-vector/doctors-nurses-healthcare-workers-team_316839-602.jpg?w=2000",
   ];
+  const healthFacilitiesBuffer = await Promise.all(
+    health.data.map((healthFacility) =>
+      Resource.create({
+        name: healthFacility.facname
+          .split(" ")
+          .map((word) => {
+            if (
+              word == "OP" ||
+              word == "OMM" ||
+              word == "OTP" ||
+              word == "HH" ||
+              word == "CM" ||
+              word == "-"
+            ) {
+              return;
+            }
+            if (Number(word)) {
+              return;
+            }
+            if (word == "AT" || word === "TO") {
+              return word.toLowerCase();
+            }
+            if (word === "CO.") {
+              return "County";
+            }
+            if (word == "HOSP.") {
+              return "Hospital";
+            }
+            if (word === "NY") {
+              return word;
+            }
+            if (word == "WELLLIFE") {
+              return "WellLife";
+            }
+            return word[0] + word.slice(1).toLowerCase();
+          })
+          .join(" "),
+        description: healthFacility.factype
+          .split(" ")
+          .map((word) => word[0] + word.slice(1).toLowerCase())
+          .join(" "),
+        imageUrl: healthImages[Math.floor(Math.random() * healthImages.length)],
+
+        address: `${healthFacility.address
+          .split(" ")
+          .map((word) => {
+            if (Number(word)) {
+              return word;
+            }
+            return word[0] + word.slice(1).toLowerCase();
+          })
+          .join(" ")}, ${[
+          healthFacility.boro[0] + healthFacility.boro.slice(1).toLowerCase(),
+        ]}, NY ${healthFacility.zipcode}`,
+
+        borough: [
+          healthFacility.boro[0] + healthFacility.boro.slice(1).toLowerCase(),
+        ],
+        tag: ["health"],
+        hyperlink:
+          "https://data.cityofnewyork.us/City-Government/Facilities-Database/ji82-xba5/data",
+        latitude: healthFacility.latitude,
+        longitude: healthFacility.longitude,
+      })
+    )
+  );
 
   const healthFacilitiesSeed = await Promise.all(
     health.data.map((healthFacility) =>
@@ -533,7 +604,6 @@ async function seed() {
         })
       )
   );
-
   console.log(
     `seeded ${users.length} users, ${event.length} events, ${
       educationSeed.length +
