@@ -15,57 +15,58 @@ import {
 
 export default function BottomNav() {
   return (
-    <Box sx={{ pb: 7 }}>
+    <Box sx={{ pb: 5 }}>
       <CssBaseline />
       <Paper
         sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
         elevation={3}
       >
-        <BottomNavigation showLabels>
+        <BottomNavigation sx={{ marginTop: 1 }} showLabels>
           <BottomNavigationAction
             href="/home"
             label="Home"
             icon={
-              <Avatar sx={{ backgroundColor: "#0039A6" }}>
-                <HomeIcon />
-              </Avatar>
+              <>
+                <Avatar sx={{ backgroundColor: "#0039A6" }}>
+                  <HomeIcon />
+                </Avatar>
+              </>
             }
           />
           <BottomNavigationAction
             label="Events"
             href="/events"
             icon={
-              <Avatar sx={{ backgroundColor: "#FF6319" }}>
-                <EventAvailableIcon />
-              </Avatar>
+              <>
+                <Avatar sx={{ backgroundColor: "#FF6319" }}>
+                  <EventAvailableIcon />
+                </Avatar>
+              </>
             }
           />
           <BottomNavigationAction
             label="Map"
             href="/map"
             icon={
-              <Avatar sx={{ backgroundColor: "#808183" }}>
-                <MapIcon />
-              </Avatar>
+              <>
+                <Avatar sx={{ backgroundColor: "#808183" }}>
+                  <MapIcon />
+                </Avatar>
+              </>
             }
           />
           <BottomNavigationAction
             label="Resources"
             href="/resources"
             icon={
-              <Avatar sx={{ backgroundColor: "#EE352E" }}>
-                <Diversity1Icon />
-              </Avatar>
+              <>
+                <Avatar sx={{ backgroundColor: "#EE352E" }}>
+                  <Diversity1Icon />
+                </Avatar>
+              </>
             }
           />
-          <BottomNavigationAction
-            label="User"
-            icon={
-              <Avatar sx={{ backgroundColor: "#00933C" }}>
-                <AccountMenu />
-              </Avatar>
-            }
-          />
+          <BottomNavigationAction label="User" icon={<AccountMenu />} />
         </BottomNavigation>
       </Paper>
     </Box>

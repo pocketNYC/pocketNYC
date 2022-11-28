@@ -27,31 +27,35 @@ const Map = () => {
   };
 
   return (
-    <div id="map" className="map, underline">
-      <h1 align="center">Map</h1>
-      <div className="d-flex justify-content-center">
-        <MapContainer center={[40.6782, -73.9442]} zoom={11}>
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {events.map((event) => {
-            return (
-              <Marker
-                icon={ICON}
-                key={event.id}
-                position={[event.latitude, event.longitude]}
-              >
-                <Popup onClick={(ev) => navigateToEvent(ev, id)}>
-                  <Link to={`/events/${event.id}`}>
-                    {event.title} <br />
-                  </Link>
-                  {event.description}
-                </Popup>
-              </Marker>
-            );
-          })}
-        </MapContainer>
+    <div className="container-fluid">
+      <div className="card ">
+        <div id="map" className="map, underline">
+          <h1 align="center">Map</h1>
+          <div className="d-flex justify-content-center">
+            <MapContainer center={[40.6782, -73.9442]} zoom={11}>
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              {events.map((event) => {
+                return (
+                  <Marker
+                    icon={ICON}
+                    key={event.id}
+                    position={[event.latitude, event.longitude]}
+                  >
+                    <Popup onClick={(ev) => navigateToEvent(ev, id)}>
+                      <Link to={`/events/${event.id}`}>
+                        {event.title} <br />
+                      </Link>
+                      {event.description}
+                    </Popup>
+                  </Marker>
+                );
+              })}
+            </MapContainer>
+          </div>
+        </div>
       </div>
     </div>
   );

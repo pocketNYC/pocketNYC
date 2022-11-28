@@ -4,16 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../auth/authSlice";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import ListItemIcon from "@mui/material/ListItemIcon";
+import PersonIcon from "@mui/icons-material/Person";
 import Logout from "@mui/icons-material/Logout";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import BallotIcon from "@mui/icons-material/Ballot";
 import LoginIcon from "@mui/icons-material/Login";
-import EnhancedEncryptionIcon from "@mui/icons-material/EnhancedEncryption";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
+import Avatar from "@mui/material/Avatar";
 
 export default function AccountMenu() {
   const userId = useSelector((state) => state.auth.me.id);
@@ -30,16 +27,17 @@ export default function AccountMenu() {
   };
   return (
     <>
-      <IconButton
+      <Avatar
         onClick={(evt) => setAnchorEl(evt.currentTarget)}
         size="small"
-        sx={{ ml: 2 }}
         aria-controls={open ? "accountMenu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
+        sx={{ backgroundColor: "#00933C" }}
       >
-        <AccountBoxIcon />
-      </IconButton>
+        <PersonIcon sx={{ color: "white" }} />
+      </Avatar>
+
       <Menu
         anchorEl={anchorEl}
         name="accountMenu"
@@ -62,39 +60,35 @@ export default function AccountMenu() {
               content: '""',
               display: "block",
               position: "absolute",
-              top: 0,
+              top: 10,
               right: 14,
               width: 10,
               height: 10,
               bgcolor: "background.paper",
-              transform: "translateY(-50%) rotate(45deg)",
+              transform: "translateY(180%) rotate(45deg)",
               zIndex: 0,
             },
           },
         }}
-        transformOrigin={{ horizontal: "right", vertical: "top" }}
-        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        transformOrigin={{ horizontal: "left", vertical: "bottom" }}
+        anchorOrigin={{ horizontal: "right", vertical: "top" }}
       >
         {isLoggedIn ? (
           <div>
             <MenuItem>
-              <Avatar />
+              <PersonIcon />
               <Link to={`/users/${userId}`}>Profile</Link>
             </MenuItem>
 
             {isAdmin ? (
-              <div>
-                <MenuItem>
-                  <BallotIcon />
-                  <Link to={`/admin`}>Admin</Link>
-                </MenuItem>
-              </div>
+              <MenuItem>
+                <BallotIcon />
+                <Link to={`/admin`}>Admin</Link>
+              </MenuItem>
             ) : null}
 
             <MenuItem onClick={logoutAndRedirectHome}>
-              <ListItemIcon>
-                <Logout fontSize="small" />
-              </ListItemIcon>
+              <Logout />
               <Link to={"/home"}>Logout</Link>
             </MenuItem>
           </div>
@@ -105,7 +99,7 @@ export default function AccountMenu() {
               <Link to={"/login"}>Login</Link>
             </MenuItem>
             <MenuItem>
-              <EnhancedEncryptionIcon />
+              <LockOpenIcon />
               <Link to={"/signup"}>Sign Up</Link>
             </MenuItem>
           </div>
