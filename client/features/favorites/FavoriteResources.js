@@ -30,20 +30,20 @@ const FavoriteResources = () => {
   };
 
   return (
-    <div className="container-fluid">
+    <div>
       {favResourcesLoading ? (
         <LoadingScreen />
       ) : (
         <div>
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Delete</th>
-              </tr>
-            </thead>
-            {favResources.length ? (
-              favResources?.map(({ resource }) => {
+          {favResources.length ? (
+            <table className="table table-borderless">
+              <thead className="table-light">
+                <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              {favResources?.map(({ resource }) => {
                 return (
                   <tbody key={resource.id}>
                     <tr>
@@ -66,15 +66,11 @@ const FavoriteResources = () => {
                     </tr>
                   </tbody>
                 );
-              })
-            ) : (
-              <tbody>
-                <tr>
-                  <td>No favorites to display</td>
-                </tr>
-              </tbody>
-            )}
-          </table>
+              })}
+            </table>
+          ) : (
+            <small>No favorites to display</small>
+          )}
         </div>
       )}
     </div>

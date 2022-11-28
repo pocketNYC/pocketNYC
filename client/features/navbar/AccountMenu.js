@@ -81,20 +81,12 @@ export default function AccountMenu() {
               <Avatar />
               <Link to={`/users/${userId}`}>Profile</Link>
             </MenuItem>
-            {/* <MenuItem>
-              <FavoriteIcon />
-              <Link to={`/users/${userId}/favorites`}>Favorites</Link>
-            </MenuItem> */}
 
             {isAdmin ? (
               <div>
                 <MenuItem>
-                  <PeopleAltIcon />
-                  <Link to={`/users`}>Users</Link>
-                </MenuItem>
-                <MenuItem>
                   <BallotIcon />
-                  <Link to={`/admin`}>Events</Link>
+                  <Link to={`/admin`}>Admin</Link>
                 </MenuItem>
               </div>
             ) : null}

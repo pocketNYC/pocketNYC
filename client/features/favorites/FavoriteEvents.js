@@ -41,16 +41,16 @@ const FavoriteEvents = () => {
   return (
     <div>
       <p style={{ fontWeight: "bold" }}>Upcoming Events:</p>
-      <table className="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col"> Title</th>
-            <th scope="col">Date</th>
-            <th scope="col">Delete</th>
-          </tr>
-        </thead>
-        {futureEvents.length ? (
-          futureEvents?.map(({ event }) => {
+      {futureEvents.length ? (
+        <table className="table table-borderless">
+          <thead className="table-light">
+            <tr>
+              <th scope="col"> Title</th>
+              <th scope="col">Date</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          {futureEvents?.map(({ event }) => {
             return (
               <tbody>
                 <tr key={event.id}>
@@ -75,15 +75,12 @@ const FavoriteEvents = () => {
                 </tr>
               </tbody>
             );
-          })
-        ) : (
-          <tbody>
-            <tr>
-              <td>No favorites to display</td>
-            </tr>
-          </tbody>
-        )}
-      </table>
+          })}
+        </table>
+      ) : (
+        <small>No favorites to display</small>
+      )}
+      <div className="p-1"></div>
       <p
         style={{
           color: "red",
@@ -92,17 +89,16 @@ const FavoriteEvents = () => {
       >
         Past Events:
       </p>
-      <table className="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Date</th>
-            <th scope="col">Remove </th>
-          </tr>
-        </thead>
-
-        {pastEvents.length ? (
-          pastEvents?.map(({ event }) => {
+      {pastEvents.length ? (
+        <table className="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Date</th>
+              <th scope="col">Remove </th>
+            </tr>
+          </thead>
+          {pastEvents?.map(({ event }) => {
             return (
               <tbody>
                 <tr key={event.id}>
@@ -125,15 +121,11 @@ const FavoriteEvents = () => {
                 </tr>
               </tbody>
             );
-          })
-        ) : (
-          <tbody>
-            <tr>
-              <td>No favorites to display</td>
-            </tr>
-          </tbody>
-        )}
-      </table>
+          })}{" "}
+        </table>
+      ) : (
+        <small>No favorites to display</small>
+      )}
     </div>
   );
 };

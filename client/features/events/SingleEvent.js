@@ -79,9 +79,9 @@ function SingleEvent() {
         <LoadingScreen />
       ) : ( */}
       <div className="container-fluid p-4">
-        <h1 className="text-center"> {title}</h1>
         <div className="card border-light d-flex align-items-center h-100 ">
           <div className="row g-1">
+            <h1 className="card-title text-center"> {title}</h1>
             <div className="col-md-6">
               <img
                 src={image}

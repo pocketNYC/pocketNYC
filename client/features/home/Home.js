@@ -20,6 +20,7 @@ const Home = () => {
         ) : (
           <>
             <FeaturedEvents />
+            <div className="p-2"> </div>
             <GuestUserFeed />
           </>
         )}

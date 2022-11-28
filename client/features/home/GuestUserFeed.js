@@ -88,6 +88,7 @@ function GuestUserFeed() {
           </div>
         </div>
       ))}
+      <div className="p-2"></div>
     </div>
   );
 }

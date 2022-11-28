@@ -46,8 +46,8 @@ function LoggedInUserFeed({ interests, borough }) {
       {sortedApprovedEvents.length ? (
         sortedApprovedEvents?.map(({ id, image, title, description }) => (
           <div className="card" key={id}>
-            <div className="row g-0">
-              <div className="col-md-6 ">
+            <div className="row g-1">
+              <div className="col-md-6">
                 <div
                   className="bg-image hover-overlay ripple shadow-2-strong rounded-5"
                   data-mdb-ripple-color="light"
@@ -56,7 +56,7 @@ function LoggedInUserFeed({ interests, borough }) {
                     src={image}
                     className="img-fluid rounded-start"
                     alt={`Image of ${title}`}
-                    style={{ height: "400px", width: "600px" }}
+                    style={{ height: "400px", width: "700px" }}
                   />
                   <a>
                     <div
@@ -91,6 +91,7 @@ function LoggedInUserFeed({ interests, borough }) {
       ) : (
         <GuestUserFeed />
       )}
+      <div className="p-2"></div>
     </div>
   );
 }
