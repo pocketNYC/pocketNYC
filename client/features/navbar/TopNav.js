@@ -11,7 +11,7 @@ import { OverlayTrigger } from "react-bootstrap";
 export default function TopNav() {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   return (
-    <Navbar bg="light">
+    <Navbar style={{ backgroundColor: "black" }}>
       <Container>
         <Navbar.Brand href="/" className="position-absolute start-0">
           <img
@@ -31,7 +31,7 @@ export default function TopNav() {
               placement="bottom"
               overlay={<Tooltip>My Calendar</Tooltip>}
             >
-              <CalendarMonthIcon />
+              <CalendarMonthIcon sx={{ color: "white" }} />
             </OverlayTrigger>
           </Navbar.Brand>
         )}
@@ -41,7 +41,7 @@ export default function TopNav() {
           overlay={<Tooltip>FAQ</Tooltip>}
         >
           <Navbar.Brand href="/faq">
-            <HelpIcon />
+            <HelpIcon sx={{ color: "white" }} />
           </Navbar.Brand>
         </OverlayTrigger>
       </Container>

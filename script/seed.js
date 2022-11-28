@@ -69,6 +69,8 @@ async function seed() {
     "https://media.istockphoto.com/id/1216870085/vector/doctors-and-nurses-characters-in-medical-masks-standing-together-vector-illustration.jpg?s=612x612&w=0&k=20&c=q3AfPmIwhwi1ySyDHXqZaT5JsDWHKZmp5BHQDjCoboU=",
     "  https://img.freepik.com/premium-vector/doctors-nurses-healthcare-workers-team_316839-602.jpg?w=2000",
   ];
+  console.log(health.data);
+  console.log(typeof health.data);
 
   const healthFacilitiesSeed = await Promise.all(
     health.data.map((healthFacility) =>

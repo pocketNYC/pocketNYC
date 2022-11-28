@@ -18,13 +18,23 @@ export default function BottomNav() {
     <Box sx={{ pb: 5 }}>
       <CssBaseline />
       <Paper
-        sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
+        sx={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          backgroundColor: "black",
+        }}
         elevation={3}
       >
-        <BottomNavigation sx={{ marginTop: 1 }} showLabels>
+        <BottomNavigation
+          sx={{ marginTop: 1, backgroundColor: "black" }}
+          showLabels
+        >
           <BottomNavigationAction
             href="/home"
             label="Home"
+            sx={{ color: "white" }}
             icon={
               <>
                 <Avatar sx={{ backgroundColor: "#0039A6" }}>
@@ -36,6 +46,7 @@ export default function BottomNav() {
           <BottomNavigationAction
             label="Events"
             href="/events"
+            sx={{ color: "white" }}
             icon={
               <>
                 <Avatar sx={{ backgroundColor: "#FF6319" }}>
@@ -47,6 +58,7 @@ export default function BottomNav() {
           <BottomNavigationAction
             label="Map"
             href="/map"
+            sx={{ color: "white" }}
             icon={
               <>
                 <Avatar sx={{ backgroundColor: "#808183" }}>
@@ -58,6 +70,7 @@ export default function BottomNav() {
           <BottomNavigationAction
             label="Resources"
             href="/resources"
+            sx={{ color: "white" }}
             icon={
               <>
                 <Avatar sx={{ backgroundColor: "#EE352E" }}>
@@ -66,7 +79,11 @@ export default function BottomNav() {
               </>
             }
           />
-          <BottomNavigationAction label="User" icon={<AccountMenu />} />
+          <BottomNavigationAction
+            sx={{ color: "white" }}
+            label="User"
+            icon={<AccountMenu />}
+          />
         </BottomNavigation>
       </Paper>
     </Box>

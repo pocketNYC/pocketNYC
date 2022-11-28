@@ -1,7 +1,8 @@
 body {
   font-family: sans-serif;
   padding-bottom: 20px;
-  /* background-image: url(https://i.imgur.com/CeobHln.png); */
+  /* background-image:"mapbackground.png" */
+  background-image: url(https://i.imgur.com/i5N2VpD.png);
 }
 
 a {

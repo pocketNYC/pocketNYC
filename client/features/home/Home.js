@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <div className="container-fluid">
-      <div>
+      <div className="p-2">
         {isLoggedIn ? (
           <>
             <FeaturedEvents />
