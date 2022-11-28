@@ -49,12 +49,32 @@ const Map = () => {
   return (
     <div id="map" className="map, underline">
       <h1 align="center">Map</h1>
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Map Key
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item">Events</a>
+          </li>
+          <li>
+            <a class="dropdown-item">Resources</a>
+          </li>
+        </ul>
+      </div>
+      <br />
       <div className="d-flex justify-content-center">
         <MapContainer center={[40.6782, -73.9442]} zoom={11}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+          dropdown-item.class === "Events" ? (
           {events.map((event) => {
             return (
               <Marker
@@ -71,6 +91,7 @@ const Map = () => {
               </Marker>
             );
           })}
+          ):(
           {filteredResources.map((resource) => {
             return (
               <Marker
@@ -79,7 +100,7 @@ const Map = () => {
                 position={[resource.latitude, resource.longitude]}
               >
                 <Popup onClick={(ev) => navigateToResource(ev, id)}>
-                  <Link to={`/resources/:id}`}>
+                  <Link to={`/resources/${resource.id}`}>
                     {resource.name} <br />
                   </Link>
                   {resource.description}
@@ -87,6 +108,7 @@ const Map = () => {
               </Marker>
             );
           })}
+          )
         </MapContainer>
       </div>
     </div>
