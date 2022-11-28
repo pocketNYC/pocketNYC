@@ -1,88 +1,66 @@
 import React, { useEffect } from "react";
-import {
-  approveEvent,
-  rejectEvent,
-  fetchAllPendingEvents,
-} from "../events/eventsSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { IconButton } from "@mui/material";
-import DisabledByDefaultIcon from "@mui/icons-material/DisabledByDefault";
-import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import moment from "moment";
-import { Link } from "react-router-dom";
+import PendingEvents from "./PendingEvents";
+import UserList from "./UserList";
 
 function Admin() {
-  const dispatch = useDispatch();
-  const events = useSelector((state) => state.events.events);
-
-  useEffect(() => {
-    dispatch(fetchAllPendingEvents());
-  }, [dispatch]);
-
-  const approveEventBtn = (ev, id) => {
-    ev.preventDefault();
-    dispatch(approveEvent(id)).then(() => {
-      dispatch(fetchAllPendingEvents());
-    });
-  };
-
-  const rejectEventBtn = (ev, id) => {
-    ev.preventDefault();
-    dispatch(rejectEvent(id)).then(() => {
-      dispatch(fetchAllPendingEvents());
-    });
-  };
-
   return (
     <div className="container-fluid">
-      <div className="p-4">
-        <h1 className="text-center">Pending Events</h1>
+      <div className="row p-4">
+        <h1 className="text-center">Admin Dashboard</h1>
         <div className="card">
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Date(s)</th>
-                <th scope="col">Yes/No</th>
-              </tr>
-            </thead>
-            {events.length ? (
-              events.map(({ title, id, start, end }) => {
-                return (
-                  <tbody key={id}>
-                    <tr>
-                      <td>
-                        <Link to={`/events/${id}`}>{title} </Link>
-                      </td>
-                      <td>
-                        {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
-                         {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
-                      </td>
-                      <td>
-                        <IconButton onClick={(ev) => approveEventBtn(ev, id)}>
-                          <CheckBoxIcon color="success" />
-                        </IconButton>
-
-                        <IconButton onClick={(ev) => rejectEventBtn(ev, id)}>
-                          <DisabledByDefaultIcon color="error" />
-                        </IconButton>
-                      </td>
-                    </tr>
-                  </tbody>
-                );
-              })
-            ) : (
-              <tbody>
-                <tr>
-                  <td>No pending events to approve</td>
-                </tr>
-              </tbody>
-            )}
-          </table>
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseOne"
+                >
+                  Users List
+                </button>
+              </h2>
+              <div
+                id="flush-collapseOne"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div class="accordion-body">
+                  <UserList />
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseTwo"
+                >
+                  Pending Events
+                </button>
+              </h2>
+              <div
+                id="flush-collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingTwo"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div class="accordion-body">
+                  <PendingEvents />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
 export default Admin;

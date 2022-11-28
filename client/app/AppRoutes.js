@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { me } from "./store";
 import Home from "../features/home/Home";
-import UserList from "../features/admin/UserList";
 import Events from "../features/events/Events";
 import AddEvent from "../features/events/AddEvent";
 import Admin from "../features/admin/Admin";
@@ -72,12 +71,7 @@ const AppRoutes = () => {
           />
           <Route path="/faq" element={<Faq />} />
           <Route path="/map" element={<Map />} />
-          {isAdmin && (
-            <>
-              <Route path="/users" element={<UserList />} />
-              <Route path="/admin" element={<Admin />} />
-            </>
-          )}
+          {isAdmin && <Route path="/admin" element={<Admin />} />}
           <Route path="*" element={<Error />} />
         </Routes>
       ) : (

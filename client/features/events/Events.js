@@ -10,6 +10,12 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
+import ListSubheader from "@mui/material/ListSubheader";
+import IconButton from "@mui/material/IconButton";
+import InfoIcon from "@mui/icons-material/Info";
 
 export default function Events() {
   const navigate = useNavigate();
@@ -84,7 +90,7 @@ export default function Events() {
               <div key={id}>
                 <div className="card text-center h-100">
                   <img
-                    className="card-img-top "
+                    className="card-img-top  "
                     src={image}
                     alt={`image of ${title}`}
                     onClick={() => navigate(`/events/${id}`)}

@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Typeahead } from "react-bootstrap-typeahead";
-import Form from "react-bootstrap/Form";
+import { useRef } from "react";
+// import Form from "react-bootstrap/Form";
+import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import formInterest from "../auth/formInterest";
 import DateTimePicker from "./DateTimePicker";
@@ -20,13 +22,24 @@ const AddEvent = () => {
   const [endVal, setEndVal] = useState(new Date());
   const [errors, setErrors] = useState("");
 
-  const [show, setShow] = useState(false);
-  const addNewEventButton = () => {
-    setShow(false).then(navigate("/add"));
-  };
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+  // const [show, setShow] = useState(false);
+  // const addNewEventButton = () => {
+  //   setShow(false);
+  //   setValidated(false);
+  //   typeaheadRef.current.clear();
+  //   setStartVal(new Date());
+  //   setEndVal(new Date());
+  //   navigate("/add");
 
+  //   console.log(selectedOptions);
+  // };
+
+  // const handleClose = () => {
+  //   setShow(false);
+  //   setValidated(false);
+  //   navigate("/events");
+  // };
+  // const typeaheadRef = useRef(null);
   const handleChange = (formInterest) => {
     const selections = formInterest.map((tag) => tag.value);
     setSelectedOptions(selections);
@@ -62,11 +75,13 @@ const AddEvent = () => {
         userId,
       })
     );
-    setValidated(true);
 
-    if (validated) {
-      navigate("/add/success");
-    }
+    setValidated(true);
+    navigate("/add/success");
+
+    // if (title && description && address && image && start && end && eventLink)
+    //   setShow(true);
+    // evt.target.reset();
   };
 
   return (
@@ -138,11 +153,14 @@ const AddEvent = () => {
             onChange={(newValue) => setEndVal(newValue)}
           />
         </Form.Group>
+        <br />
+
         <Form.Group className="mb-6" controlId="tags">
           <Form.Label>Choose your event tags (select up to 3): </Form.Label>
           <Typeahead
             multiple
             id="tags"
+            // ref={typeaheadRef}
             placeholder="Select.."
             name="tags"
             onChange={handleChange}
@@ -153,18 +171,17 @@ const AddEvent = () => {
         <Button variant="primary" type="submit">
           Submit
         </Button>
-        <Modal show={show} onHide={handleClose}>
+        {/* <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>
               Woohoo, thanks for submitting an event to PocketNYC!
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Your event is currently under review. Once the PocketNYC Admins
-            approve the event, it will be listed on the{" "}
+            Your event is currently under review. Once the PocketNYC team
+            approves the event, it will be listed on the{" "}
             <a href="/events">Events</a> page.
             <br />
-            <br /> Below is a summary of the event you submitted:
           </Modal.Body>
           <Modal.Footer>
             <Button variant="primary" onClick={addNewEventButton}>
@@ -174,7 +191,7 @@ const AddEvent = () => {
               Close
             </Button>
           </Modal.Footer>
-        </Modal>
+        </Modal> */}
       </Form>
     </>
   );

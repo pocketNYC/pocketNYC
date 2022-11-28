@@ -20,6 +20,14 @@ export const fetchSingleUser = createAsyncThunk(
   }
 );
 
+export const fetchUserEvents = createAsyncThunk(
+  "fetchUserEvents",
+  async (userId) => {
+    const { data } = await axios.get(`/api/users/${userId}/events`);
+    return data;
+  }
+);
+
 export const editUser = createAsyncThunk(
   "editUser",
   async ({ id, firstName, lastName, email, borough, interests, isAdmin }) => {
@@ -48,6 +56,13 @@ const userSlice = createSlice({
     });
     builder.addCase(fetchAllUsers.fulfilled, (state, action) => {
       state.allUsers = action.payload;
+      state.loading = false;
+    });
+    builder.addCase(fetchUserEvents.pending, (state, action) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchUserEvents.fulfilled, (state, action) => {
+      state.singleUser = action.payload;
       state.loading = false;
     });
     builder.addCase(fetchSingleUser.pending, (state, action) => {
