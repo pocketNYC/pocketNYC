@@ -18,6 +18,9 @@ nav a {
   margin: 1em;
 }
 
+a.ex2:hover, a.ex2:active {font-size: 120%;}
+
+
 form div {
   margin: 1em;
   display: inline-block;
@@ -60,7 +63,7 @@ Button.scroll  {
 
 .d-block.w-100 {
   width: 100%;
-  height: 35vw;
+  height: 80vw;
   object-fit: cover;
 }
 
@@ -84,7 +87,7 @@ Button.scroll  {
 
 
 .cards:hover{
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .card-img-top {
@@ -95,6 +98,7 @@ img.rounded-circle {
 justify-content: center;
 object-position: center;
 }
+
 Button.scroll {
   opacity: 50%;
 }

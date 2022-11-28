@@ -62,25 +62,25 @@ router.get("/sortedAscendingPending", async (req, res, next) => {
 
 // get events associated with userId
 
-router.get("/userEvents", getToken, async (req, res, next) => {
-  const userId = req.user.id;
-  try {
-    console.log(userId);
-    const events = await Event.findAll({
-      where: [
-        {
-          status: "pending",
-        },
-        {
-          userId: userId,
-        },
-      ],
-    });
-    res.json(events);
-  } catch (error) {
-    next(error);
-  }
-});
+// router.get("/userEvents", getToken, async (req, res, next) => {
+//   const userId = req.user.id;
+//   try {
+//     console.log(userId);
+//     const events = await Event.findAll({
+//       where: [
+//         {
+//           status: "pending",
+//         },
+//         {
+//           userId: userId,
+//         },
+//       ],
+//     });
+//     res.json(events);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 // get events associated with userId
 

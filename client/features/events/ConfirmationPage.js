@@ -2,91 +2,97 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import { Button } from "react-bootstrap";
-import { fetchAllEvents, fetchUserPendingEvents } from "../events/eventsSlice";
+import { fetchUserEvents } from "../users/userSlice";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 function ConfirmationPage({ user }) {
   const dispatch = useDispatch();
-  const events = useSelector((state) => state.events.events);
-  console.log(events);
+  const events = useSelector((state) => state.user.singleUser);
 
-  const { firstName, id } = user;
+  const { id } = user;
 
   useEffect(() => {
-    dispatch(fetchUserPendingEvents());
+    dispatch(fetchUserEvents(id));
   }, [dispatch]);
 
-  const myEvents = events
-    .filter((event) => {
-      if (event.userId == id && event.status === "pending") {
-        return event;
-      }
-    })
-    .sort((a, b) => {
-      return new Date(b.createdAt) - new Date(a.createdAt);
-    });
-
-  const current = myEvents[0];
-
+  const event = events[0];
+  console.log(event);
   return (
-    <div>
-      <h2>{`Thank you, ${firstName}!`}</h2>
-      <h6>
-        Your event has been submitted for approval. Below is a summary of the
-        event details submitted:
-      </h6>
-      <small>
-        <strong>Title: </strong>
-        {current?.title}
-      </small>
-      <br />
-      <small>
-        <strong>Description: </strong> {current?.description}
-      </small>
-      <br />
-      <small>
-        <strong>Start: </strong>
-        {moment(current?.start).format("dddd, MMMM Do YYYY, h:mm a")}
-      </small>
-      <br />
-      <small>
-        <strong>End: </strong>
-        {moment(current?.end).format("dddd, MMMM Do YYYY, h:mm a")}
-      </small>
-      <br />
-      <small>
-        <strong>Address: </strong> {current?.address}
-      </small>
-      <br />
-      <small>
-        <strong>Borough: </strong>
-        {current?.borough}
-      </small>
-      <br />
-      {current?.eventLink ? (
-        <>
-          <small>
-            <strong>More Info: </strong> {current?.eventLink}
-          </small>
-          <br />
-        </>
-      ) : null}
-      <small>
-        <strong>Event Tags: </strong> {current?.tags.join(", ")}
-      </small>
-      <br />
-      <small>
-        <strong>Image Link: </strong>
-        {current?.image}
-      </small>
-      <br />
-      <Link to="/events">
-        <Button className="confirm-evt-btn-close">Close</Button>
-      </Link>
-      &nbsp;
-      <Link to="/add">
-        <Button className="confirm-evt-btn-add-more">Add Another Event</Button>
-      </Link>
+    <div className="container-fluid">
+      <div className=" p-4 justify-content-center align-items-center">
+        <div className="col-8 mx-auto">
+          <div className="border border-3 border-primary"></div>
+          <div className="card bg-white shadow p-5">
+            <div className="mb-4 text-center">
+              <CheckCircleIcon color="primary" sx={{ fontSize: 90 }} />
+            </div>
+            <div className="text-center">
+              <h1>Thank you for your submission!</h1>
+              <p>
+                Your event is being shared with the PocketNYC team for approval
+                and once approved, your event will apear on the{" "}
+                <a href="/events">Events</a> page.
+              </p>
+            </div>
+            <div className="text-center">
+              <small>
+                <strong>Title: </strong>
+                {event?.title}
+              </small>
+              <br />
+              <small>
+                <strong>Description: </strong> {event?.description}
+              </small>
+              <br />
+              <small>
+                <strong>Start: </strong>
+                {moment(event?.start).format("dddd, MMMM Do YYYY, h:mm a")}
+              </small>
+              <br />
+              <small>
+                <strong>End: </strong>
+                {moment(event?.end).format("dddd, MMMM Do YYYY, h:mm a")}
+              </small>
+              <br />
+              <small>
+                <strong>Address: </strong> {event?.address}
+              </small>
+              <br />
+              <small>
+                <strong>Borough: </strong>
+                {event?.borough}
+              </small>
+              <br />
+              {event?.eventLink ? (
+                <>
+                  <small>
+                    <strong>More Info: </strong> {event?.eventLink}
+                  </small>
+                  <br />
+                </>
+              ) : null}
+              <small>
+                <strong>Event Tags: </strong> {event?.tags?.join(", ")}
+              </small>
+              <br />
+              <small>
+                <strong>Image Link: </strong>
+                <a target="_blank" href={`${event?.image}`}>
+                  {event?.image}
+                </a>
+              </small>
+              <div className="p-2"></div>
+              <Link to="/events">
+                <button className="btn btn-primary">Close</button>
+              </Link>
+              &nbsp;
+              <Link to="/add">
+                <button className="btn btn-primary">Add Another Event</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

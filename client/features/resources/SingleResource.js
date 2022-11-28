@@ -50,9 +50,9 @@ const SingleResource = () => {
 
   return (
     <div className="container-fluid p-4">
-      <h1 className="text-center"> {name}</h1>
       <div className="card border-light d-flex align-items-center h-100 ">
         <div className="row g-1">
+          <h1 className="card-title text-center"> {name}</h1>
           <div className="col-md-6">
             <img
               src={imageUrl}
@@ -67,7 +67,7 @@ const SingleResource = () => {
                 <strong>Address: </strong> {address}
               </p>
               <a href={hyperlink} target="_blank">
-                Visit event page for more details
+                Visit resource page for more details
               </a>
 
               <p className="card-text">

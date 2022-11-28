@@ -39,6 +39,7 @@ function SingleUserProfile({ user }) {
       ) : (
         <div className="container-fluid">
           <div className="row p-4">
+            <h1 className="text-center">User Dashboard</h1>
             <div className="col-md-4">
               <div
                 className="card text-center"
@@ -103,33 +104,40 @@ function SingleUserProfile({ user }) {
                       data-bs-parent="#accordionFlushExample"
                     >
                       <div className="accordion-body">
-                        <ul>
-                          {myEvents.length
-                            ? myEvents.map(
-                                ({ title, status, id, start, end }) => {
-                                  return (
-                                    <li key={id}>
-                                      <h6>
-                                        {title}
-                                        <ul>
-                                          <li>
-                                            {moment(start).format(
-                                              "dddd, MMMM Do YYYY, h:mm a"
-                                            )}{" "}
-                                            -{" "}
-                                            {moment(end).format(
-                                              "dddd, MMMM Do YYYY, h:mm a"
-                                            )}
-                                          </li>
-                                          <li> Status: {status}</li>
-                                        </ul>
-                                      </h6>
-                                    </li>
-                                  );
-                                }
-                              )
-                            : "No events to display"}
-                        </ul>
+                        {myEvents.length ? (
+                          <table className="table table-borderless">
+                            <thead>
+                              <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col">Date(s)</th>
+                                <th scope="col">Status</th>
+                              </tr>
+                            </thead>
+                            {myEvents.map(
+                              ({ title, status, id, start, end }) => {
+                                return (
+                                  <tbody>
+                                    <tr>
+                                      <td>{title}</td>
+                                      <td>
+                                        {moment(start).format(
+                                          "dddd, MMMM Do YYYY, h:mm a"
+                                        )}{" "}
+                                        -{" "}
+                                        {moment(end).format(
+                                          "dddd, MMMM Do YYYY, h:mm a"
+                                        )}
+                                      </td>
+                                      <td>{status}</td>
+                                    </tr>
+                                  </tbody>
+                                );
+                              }
+                            )}
+                          </table>
+                        ) : (
+                          <small> No events to display</small>
+                        )}
                       </div>
                     </div>
                   </div>
