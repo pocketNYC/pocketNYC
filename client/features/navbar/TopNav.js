@@ -13,12 +13,12 @@ export default function TopNav() {
           <MDBNavbarBrand href="/">
             <img
               src="
-          https://i.imgur.com/0wLXpHh.png"
+          LogoForNav.png"
               alt="PocketNYC logo"
-              width="65"
+              width="auto"
               height="70"
             />
-            PocketNYC
+        
           </MDBNavbarBrand>
 
           {isLoggedIn && (
