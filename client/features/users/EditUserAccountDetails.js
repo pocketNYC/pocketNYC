@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Typeahead } from "react-bootstrap-typeahead";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { editUser } from "./userSlice";
@@ -64,7 +65,7 @@ function EditUserProfile({ user }) {
 
   return (
     <div className="container-fluid p-4">
-      <div className="card p-2 text-center ">
+      <div className="card p-2 text-center">
         <h2>Edit Your Details Below</h2>
         <h6>
           Click on a field to edit your information. Please reselect your
@@ -85,9 +86,6 @@ function EditUserProfile({ user }) {
               onFocus={(e) => (e.target.placeholder = "Enter Your First Name")}
               onBlur={(e) => (e.target.placeholder = userFirstName)}
             />
-            <Form.Control.Feedback type="invalid">
-              Please provide your first name.
-            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-6" controlId="lastName">
@@ -103,9 +101,6 @@ function EditUserProfile({ user }) {
               onFocus={(e) => (e.target.placeholder = "Enter Your Last Name")}
               onBlur={(e) => (e.target.placeholder = userLastName)}
             />
-            <Form.Control.Feedback type="invalid">
-              Please provide your last name.
-            </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-6" controlId="email">
             <Form.Label>Email</Form.Label>
@@ -120,9 +115,6 @@ function EditUserProfile({ user }) {
               onFocus={(e) => (e.target.placeholder = "Enter Email")}
               onBlur={(e) => (e.target.placeholder = userEmail)}
             />
-            <Form.Control.Feedback type="invalid">
-              Please provide an email.
-            </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-6" controlId="borough">
             <Form.Label>Borough</Form.Label>
@@ -140,19 +132,19 @@ function EditUserProfile({ user }) {
             </Form.Select>
           </Form.Group>
           <br />
-          <label htmlFor="interest" style={{ padding: "10px" }}>
-            Choose your categories of interest: (limit 3*)
-          </label>
-          <Select
-            {...interests}
-            isMulti
-            options={formInterest}
-            components={animated}
-            closeMenuOnSelect={false}
-            onChange={handleChange}
-            isOptionDisabled={() => selectedOptions.length >= 3}
-            className="interest-multi-select"
-          />
+          <Form.Group className="mb-6" controlId="interests">
+            <Form.Label>
+              Choose your categories of interest (select up to 3):{" "}
+            </Form.Label>
+            <Typeahead
+              multiple
+              id="interests"
+              placeholder="Select.."
+              name="interests"
+              onChange={handleChange}
+              options={formInterest}
+            />
+          </Form.Group>
           <Button variant="primary" type="submit">
             Submit
           </Button>

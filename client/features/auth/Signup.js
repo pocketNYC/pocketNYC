@@ -61,87 +61,96 @@ function Signup({ displayName, name }) {
   };
 
   return (
-    <>
-      <Form
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmit}
-        name={name}
-      >
-        <Form.Group className="mb-6" controlId="firstName">
-          <Form.Label>First Name</Form.Label>
-          <Form.Control required type="text" placeholder="Enter First Name" />
-          <Form.Control.Feedback type="invalid">
-            Please provide your first name.
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group className="mb-6" controlId="lastName">
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Enter Your Last Name"
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide your last name.
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group className="mb-6" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control required type="text" placeholder="Enter Email" />
-          <Form.Control.Feedback type="invalid">
-            Please provide an email.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group className="mb-6" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <InputGroup className="mb-6">
+    <div className="container-fluid">
+      <div>
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={handleSubmit}
+          name={name}
+        >
+          <h2 className="loginHeader">Sign Up</h2>
+          <hr />
+          <Form.Group className="mb-6" controlId="firstName">
+            <Form.Label>First Name</Form.Label>
+            <Form.Control required type="text" placeholder="Enter First Name" />
+            <Form.Control.Feedback type="invalid">
+              Please provide your first name.
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group className="mb-6" controlId="lastName">
+            <Form.Label>Last Name</Form.Label>
             <Form.Control
               required
-              type={passwordShown ? "text" : "password"}
-              placeholder="Enter Password"
+              type="text"
+              placeholder="Enter Your Last Name"
             />
             <Form.Control.Feedback type="invalid">
-              Please provide a password.
+              Please provide your last name.
             </Form.Control.Feedback>
-            <InputGroup.Text id="basic-addon2">
-              <button onClick={togglePassword}>
-                {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
-              </button>
-            </InputGroup.Text>
-          </InputGroup>
-        </Form.Group>
+          </Form.Group>
+          <Form.Group className="mb-6" controlId="email">
+            <Form.Label>Email</Form.Label>
+            <Form.Control required type="text" placeholder="Enter Email" />
+            <Form.Control.Feedback type="invalid">
+              Please provide an email.
+            </Form.Control.Feedback>
+          </Form.Group>
 
-        <Form.Group className="mb-6" controlId="borough">
-          <Form.Label>Borough</Form.Label>
-          <Form.Select isInvalid={errors}>
-            <option>Select</option>
-            <option value="Bronx">Bronx</option>
-            <option value="Brooklyn">Brooklyn</option>
-            <option value="Queens">Queens</option>
-            <option value="Manhattan">Manhattan</option>
-            <option value="Staten Island">Staten Island</option>
-          </Form.Select>
-          <Form.Control.Feedback type="invalid">{errors}</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group className="mb-6" controlId="interests">
-          <Form.Label>Choose your categories of interest (select up to 3): </Form.Label>
-          <Typeahead
-            multiple
-            id="interests"
-            placeholder="Select.."
-            name="interests"
-            onChange={handleChange}
-            inputProps={{ required: true }}
-            options={formInterest}
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          {displayName}
-        </Button>
-      </Form>
-    </>
+          <Form.Group className="mb-6" controlId="password">
+            <Form.Label>Password</Form.Label>
+            <InputGroup className="mb-6">
+              <Form.Control
+                required
+                type={passwordShown ? "text" : "password"}
+                placeholder="Enter Password"
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a password.
+              </Form.Control.Feedback>
+              <InputGroup.Text id="basic-addon2">
+                <button onClick={togglePassword}>
+                  {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
+                </button>
+              </InputGroup.Text>
+            </InputGroup>
+          </Form.Group>
+
+          <Form.Group className="mb-6" controlId="borough">
+            <Form.Label>Borough</Form.Label>
+            <Form.Select isInvalid={errors}>
+              <option>Select</option>
+              <option value="Bronx">Bronx</option>
+              <option value="Brooklyn">Brooklyn</option>
+              <option value="Queens">Queens</option>
+              <option value="Manhattan">Manhattan</option>
+              <option value="Staten Island">Staten Island</option>
+            </Form.Select>
+            <Form.Control.Feedback type="invalid">
+              {errors}
+            </Form.Control.Feedback>
+          </Form.Group>
+          <br />
+
+          <Form.Group controlId="interests">
+            <Form.Label>Categories of interest (select up to 3): </Form.Label>
+            <Typeahead
+              multiple
+              id="interests"
+              label="test"
+              placeholder="Select.."
+              name="interests"
+              onChange={handleChange}
+              inputProps={{ required: true }}
+              options={formInterest}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            {displayName}
+          </Button>
+        </Form>
+      </div>
+    </div>
   );
 }
 

@@ -5,11 +5,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { authenticate } from "../../app/store";
-import InputGroup from "react-bootstrap/InputGroup";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import FormContainer from "../forms/FormContainer";
-import { Row } from "react-bootstrap";
 
 function Login({ name, displayName }) {
   const dispatch = useDispatch();
@@ -30,10 +27,6 @@ function Login({ name, displayName }) {
 
     dispatch(authenticate({ email, password, method: formName }));
     setValidated(true);
-
-    if (validated) {
-      navigate("/home");
-    }
   };
 
   return (
@@ -46,6 +39,9 @@ function Login({ name, displayName }) {
           name={name}
           className="rounded p-4 p-sm-3"
         >
+          <h2 className="loginHeader">Login</h2>
+          <hr />
+
           <FloatingLabel
             controlId="email"
             label="Email Address"
@@ -67,14 +63,17 @@ function Login({ name, displayName }) {
             </Form.Control.Feedback>
           </FloatingLabel>
 
-          <Button
-            variant="outline-primary"
-            onClick={togglePassword}
-            size="sm"
-            className="show-hide-pw"
-          >
-            {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
-          </Button>
+          <center>
+            <Button
+              variant="outline-primary"
+              onClick={togglePassword}
+              size="sm"
+              className="show-hide-pw"
+            >
+              {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
+            </Button>
+          </center>
+
           <center>
             <Button
               variant="outline-primary"
