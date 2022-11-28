@@ -8,8 +8,8 @@ const resources = [
     borough: ["Queens"],
     tag: ["health"],
     hyperlink: "https://www.stmaryskids.org/",
-    latitude: "40.7765° N",
-    longitude: "73.7687° W",
+    latitude: "40.7765",
+    longitude: "-73.7687",
   },
   {
     name: "New York City Coalition Against Hunger",
@@ -55,8 +55,8 @@ const resources = [
     borough: ["Brooklyn"],
     tag: ["seniors", "education"],
     hyperlink: "https://www.raices.us/",
-    latitude: "40.6827202248",
-    longitude: "-73.9890473043",
+    latitude: "40.692720",
+    longitude: "-73.98904",
   },
   {
     name: "ICD - International Center for the Disabled",

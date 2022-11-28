@@ -31,11 +31,6 @@ const Map = () => {
     }
   });
 
-  const navigateCategory = ({ target }) => {
-    const category = target.id;
-    navigate(`/resources/${category}`);
-  };
-
   useEffect(() => {
     dispatch(fetchAllEvents());
     dispatch(fetchResources());
@@ -46,14 +41,11 @@ const Map = () => {
     navigate(`/events/${id}`);
   };
 
-  // const navigateToResource = (ev, id) => {
-  //   ev.preventDefault();
-  //   navigate(`/resources/${id}`);
-  // };
+  const navigateToResource = (ev, id) => {
+    ev.preventDefault();
+    navigate(`/resources/${id}`);
+  };
 
-  // const currentUser = useAuth();
-
-  // const userLocation = [currentUser.lat, currentUser.lng];
   return (
     <div id="map" className="map, underline">
       <h1 align="center">Map</h1>
@@ -70,7 +62,7 @@ const Map = () => {
                 key={event.id}
                 position={[event.latitude, event.longitude]}
               >
-                <Popup onClick={(ev) => navigateToResource(ev, id)}>
+                <Popup onClick={(ev) => navigateToEvent(ev, id)}>
                   <Link to={`/events/${event.id}`}>
                     {event.title} <br />
                   </Link>
@@ -87,12 +79,11 @@ const Map = () => {
                 position={[resource.latitude, resource.longitude]}
               >
                 <Popup onClick={(ev) => navigateToResource(ev, id)}>
-                  <Link to={navigateCategory}>
+                  <Link to={`/resources/:id}`}>
                     {resource.name} <br />
                   </Link>
                   {resource.description}
                 </Popup>
-                {/* <button onClick={(ev) => navigateToEvent(ev, id)} /> */}
               </Marker>
             );
           })}
