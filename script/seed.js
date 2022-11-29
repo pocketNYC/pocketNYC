@@ -101,6 +101,9 @@ async function seed() {
             if (word === "NY") {
               return word;
             }
+            if (word == "PSYCHOSISI") {
+              return "Psychosis";
+            }
             if (word == "WELLLIFE") {
               return "WellLife";
             }
