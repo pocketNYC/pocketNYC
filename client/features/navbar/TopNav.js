@@ -8,7 +8,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Tooltip from "react-bootstrap/Tooltip";
 import { OverlayTrigger } from "react-bootstrap";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import { AddCircle } from "@mui/icons-material";
 
 export default function TopNav() {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -26,7 +25,7 @@ export default function TopNav() {
       >
         <Navbar style={{ backgroundColor: "#F8F7EF" }}>
           <Container>
-            <Navbar.Brand href="/" className="position-absolute start-0">
+            <Navbar.Brand href="/home" className="position-absolute start-0">
               <img
                 src="LogoForNav.png"
                 alt="PocketNYC logo"

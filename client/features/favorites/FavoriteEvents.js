@@ -40,6 +40,7 @@ const FavoriteEvents = () => {
 
   return (
     <div>
+<<<<<<< HEAD
       <p
         style={{
           fontWeight: "bold",
@@ -64,29 +65,50 @@ const FavoriteEvents = () => {
                   <td>
                     <Link to={`/events/${event.id}`}>{event.title}</Link>
                   </td>
+=======
+      <p style={{ fontWeight: "bold" }}>Upcoming Events:</p>
+      <div className="table-responsive">
+        {futureEvents.length ? (
+          <table className="table table-hover">
+            <thead className="table-light">
+              <tr>
+                <th scope="col"> Title</th>
+                <th scope="col">Date</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            {futureEvents?.map(({ event }) => {
+              return (
+                <tbody key={event.id}>
+                  <tr>
+                    <td>
+                      <Link to={`/events/${event.id}`}>{event.title}</Link>
+                    </td>
+>>>>>>> main
 
-                  <td>
-                    {moment(event.start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
-                    {moment(event.end).format("dddd, MMMM Do YYYY, h:mm a")}
-                  </td>
+                    <td>
+                      {moment(event.start).format("dddd, MMMM Do YYYY, h:mm a")}{" "}
+                      - {moment(event.end).format("dddd, MMMM Do YYYY, h:mm a")}
+                    </td>
 
-                  <td>
-                    <IconButton
-                      onClick={(ev) => {
-                        removeFavEvent(ev, event.id);
-                      }}
-                    >
-                      <DeleteIcon color="error" />
-                    </IconButton>
-                  </td>
-                </tr>
-              </tbody>
-            );
-          })}
-        </table>
-      ) : (
-        <small>No favorites to display</small>
-      )}
+                    <td>
+                      <IconButton
+                        onClick={(ev) => {
+                          removeFavEvent(ev, event.id);
+                        }}
+                      >
+                        <DeleteIcon color="error" />
+                      </IconButton>
+                    </td>
+                  </tr>
+                </tbody>
+              );
+            })}
+          </table>
+        ) : (
+          <small>No favorites to display</small>
+        )}
+      </div>
       <div className="p-1"></div>
       <p
         style={{
