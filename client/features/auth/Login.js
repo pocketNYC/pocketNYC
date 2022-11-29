@@ -59,7 +59,7 @@ function Login({ name, displayName }) {
             name={name}
           >
             <center>
-              <h2>Login</h2>
+              <h1>Login</h1>
               <hr />
               <Row>
                 <Col sm>

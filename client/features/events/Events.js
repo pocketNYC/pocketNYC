@@ -60,27 +60,26 @@ export default function Events() {
     <div className="container-fluid">
       {loading && <LoadingScreen />}
       <div className="container-fluid">
-        {isLoggedIn && <AddIcon />}
-      <h1
-        className="fw-light text-center text-lg-center p-2"
-        style={{ fontSize: "50px" }}
-      >
-        {" "}
-        Events{" "}
-      </h1>
-      <Tabs
-        activeKey={key}
-        id="controlled-tab-example"
-        transition={false}
-        onSelect={(k) => setKey(k)}
-        className="mb-3 justify-content-center text-secondary"
-        onClick={(ev) => filterCategoryButton(ev)}
-      >
-        <Tab eventKey="all" title="All"></Tab>
-        {tags?.map((tag) => {
-          return <Tab key={tag} eventKey={tag} title={capitalize(tag)}></Tab>;
-        })}
-      </Tabs>
+        <h1
+          className="fw-light text-center text-lg-center p-2"
+          style={{ fontSize: "50px" }}
+        >
+          {" "}
+          Events{" "}
+        </h1>
+        <Tabs
+          activeKey={key}
+          id="controlled-tab-example"
+          transition={false}
+          onSelect={(k) => setKey(k)}
+          className="mb-3 justify-content-center text-secondary"
+          onClick={(ev) => filterCategoryButton(ev)}
+        >
+          <Tab eventKey="all" title="All"></Tab>
+          {tags?.map((tag) => {
+            return <Tab key={tag} eventKey={tag} title={capitalize(tag)}></Tab>;
+          })}
+        </Tabs>
 
         <div className="tab-content" id="nav-tabContent">
           <div className="row row-cols-1 row-cols-md-2 p-2 g-4">
