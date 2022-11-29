@@ -19,12 +19,6 @@ async function seed() {
  
   );
 
-<<<<<<< HEAD
-  // console.log(health, "HEALTH");
-=======
-  console.log(health, "<- HEALTH****");
->>>>>>> main
-
   const employment = await axios.get(
     "https://data.cityofnewyork.us/resource/ji82-xba5.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&$q=EMPLOYMENT&$limit=7"
   );
