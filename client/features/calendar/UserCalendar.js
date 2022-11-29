@@ -38,9 +38,16 @@ const UserCalendar = () => {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container">
       <div className="p-2">
-        <div className="card  mx-auto">
+        <h1 className="text-center" style={{ fontSize: "50px" }}>
+          PocketNYC Calendar
+        </h1>
+        <h6 className="text-center">
+          Browse events and add them directly to your calendar with a simple
+          click!
+        </h6>
+        <div className="card mx-auto">
           <Calendar
             selectable
             localizer={localizer}
@@ -49,10 +56,11 @@ const UserCalendar = () => {
             startAccessor="start"
             endAccessor="end"
             popup
-            style={{ height: 500, padding: "10px" }}
+            style={{ height: 400, padding: "10px" }}
           />
         </div>
       </div>
+      <div className="p-2"></div>
     </div>
   );
 };

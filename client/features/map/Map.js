@@ -53,7 +53,9 @@ const Map = () => {
     <div className="container-fluid ">
       <div className="card ">
         <div id="map" className="map">
-          <h1 align="center">Map</h1>
+          <h1 align="center" style={{ fontSize: "50px" }}>
+          PocketNYC Map
+        </h1>
           <div class="dropdown">
             <button
               class="btn btn-secondary dropdown-toggle"
@@ -114,7 +116,7 @@ const Map = () => {
           </div>
         </div>
       </div>
-      <div className="p-2"></div>
+      <div className="p-7"></div>
     </div>
   );
 };
