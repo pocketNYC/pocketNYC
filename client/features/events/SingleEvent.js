@@ -78,10 +78,7 @@ function SingleEvent() {
       {/* {loading ? (
         <LoadingScreen />
       ) : ( */}
-      <div
-        className="container p-2"
-        style={{ backgroundColor: "white" }}
-      >
+      <div className="container p-2" style={{ backgroundColor: "white" }}>
         <div className="card border-light d-flex align-items-center h-100 ">
           <div className="row g-1">
             <h1 className="card-title text-center"> {title}</h1>
@@ -160,6 +157,7 @@ function SingleEvent() {
           </div>
         </div>
       </div>
+      <div className="p-2"></div>
     </div>
   );
 }
