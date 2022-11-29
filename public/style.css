@@ -27,11 +27,17 @@ form div {
   display: inline-block;
 }
 
+.addEventContainer {
+  width: 100px;
+  color: "blue";
+}
+
 .test-select {
-  margin-bottom: 50px;
+  /* margin-bottom: 60px;
   position: relative;
   top: 35px;
-  right: 5px;
+  */
+  /* right: 90px; */
 }
 
 .underline {
