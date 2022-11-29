@@ -23,18 +23,18 @@ export default function BottomNav() {
           bottom: 0,
           left: 0,
           right: 0,
-          backgroundColor: "black",
+          backgroundColor: "#F8F7EF ",
         }}
         elevation={3}
       >
         <BottomNavigation
-          sx={{ marginTop: 1, backgroundColor: "black" }}
+          sx={{ marginTop: 1, backgroundColor: "#F8F7EF" }}
           showLabels
         >
           <BottomNavigationAction
             href="/home"
             label="Home"
-            sx={{ color: "white" }}
+            sx={{ color: "black" }}
             icon={
               <>
                 <Avatar sx={{ backgroundColor: "#0039A6" }}>
@@ -46,7 +46,7 @@ export default function BottomNav() {
           <BottomNavigationAction
             label="Events"
             href="/events"
-            sx={{ color: "white" }}
+            sx={{ color: "black" }}
             icon={
               <>
                 <Avatar sx={{ backgroundColor: "#FF6319" }}>
@@ -58,7 +58,7 @@ export default function BottomNav() {
           <BottomNavigationAction
             label="Map"
             href="/map"
-            sx={{ color: "white" }}
+            sx={{ color: "black" }}
             icon={
               <>
                 <Avatar sx={{ backgroundColor: "#808183" }}>
@@ -70,7 +70,7 @@ export default function BottomNav() {
           <BottomNavigationAction
             label="Resources"
             href="/resources"
-            sx={{ color: "white" }}
+            sx={{ color: "black" }}
             icon={
               <>
                 <Avatar sx={{ backgroundColor: "#EE352E" }}>
@@ -80,7 +80,7 @@ export default function BottomNav() {
             }
           />
           <BottomNavigationAction
-            sx={{ color: "white" }}
+            sx={{ color: "black" }}
             label="User"
             icon={<AccountMenu />}
           />

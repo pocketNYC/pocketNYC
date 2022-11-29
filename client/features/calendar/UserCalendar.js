@@ -39,7 +39,7 @@ const UserCalendar = () => {
 
   return (
     <div className="container-fluid">
-      <div className="p-4">
+      <div className="p-2">
         <div className="card  mx-auto">
           <Calendar
             selectable
