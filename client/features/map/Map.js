@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Dropdown } from "bootstrap";
 import { DropdownButton } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
+import DropdownContext from "react-bootstrap/esm/DropdownContext";
 
 const eventIcon = icon({
   iconUrl: "/geo-fill.svg",
@@ -54,8 +55,8 @@ const Map = () => {
       <div className="card ">
         <div id="map" className="map">
           <h1 align="center" style={{ fontSize: "50px" }}>
-          PocketNYC Map
-        </h1>
+            PocketNYC Map
+          </h1>
           <div class="dropdown">
             <button
               class="btn btn-secondary dropdown-toggle"
@@ -79,7 +80,7 @@ const Map = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              {Dropdown === "Events"
+              {DropdownContext === "Events"
                 ? events.map((event) => {
                     return (
                       <Marker
