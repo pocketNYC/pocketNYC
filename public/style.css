@@ -1,9 +1,55 @@
 body {
-  font-family: sans-serif;
-  padding-bottom: 20px;
+  font-family: "PoppinsReg";
+  padding-bottom: 40px;
   background-image: url("2.png");
 
 }
+
+@font-face {
+  font-family: 'Helvetica 65';
+  src: url('HelveticaNeue-Medium.woff2') format('woff2'),
+      url('HelveticaNeue-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica 65';
+  src: url('HelveticaNeue-Heavy.woff2') format('woff2'),
+      url('HelveticaNeue-Heavy.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PoppinsMed';
+  src: url('Poppins-Medium.woff2') format('woff2'),
+      url('Poppins-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PoppinsReg';
+  src: url('Poppins-Regular.woff2') format('woff2'),
+      url('Poppins-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PoppinsBold';
+  src: url('Poppins-Bold.woff2') format('woff2'),
+      url('Poppins-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 a {
   text-decoration: none;
@@ -105,7 +151,7 @@ Button.scroll {
     border: 0.5px solid black;
   border-radius: 5px;
   width: 90%;
-  height: 67vh;
+  height: 60vh;
   margin-bottom: 1rem;
 } 
 
@@ -121,3 +167,39 @@ Button.scroll {
   height: fit-content;
 }
 
+h1, strong, h2{
+  font-family: "PoppinsBold";
+}
+
+
+a, h4, h5{
+  font-family: "PoppinsMed"
+}
+
+p, span, small, h6 , th, td, label, input{
+  font-family: "PoppinsReg"
+}
+
+th, td {
+  font-size:12px
+}
+
+
+.text-muted {
+  font-size:14px
+}
+li{
+  font-family: "PoppinsReg";
+}
+
+.btn{
+  font-family: "PoppinsReg";
+}
+
+.accordion-button {
+  font-family: "PoppinsMed";
+}
+
+.accordion-body, .btn.btn-primary{
+  font-family: "PoppinsReg";
+}

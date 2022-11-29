@@ -45,48 +45,51 @@ function LoggedInUserFeed({ interests, borough }) {
     <div>
       {sortedApprovedEvents.length ? (
         sortedApprovedEvents?.map(({ id, image, title, description }) => (
-          <div className="card" key={id}>
-            <div className="row g-1">
-              <div className="col-md-6">
-                <div
-                  className="bg-image hover-overlay ripple shadow-2-strong rounded-5"
-                  data-mdb-ripple-color="light"
-                >
-                  <img
-                    src={image}
-                    className="img-fluid rounded-start"
-                    alt={`Image of ${title}`}
-                    style={{ height: "400px", width: "700px" }}
-                  />
-                  <a>
-                    <div
-                      className="mask"
-                      style={{ backgroundColor: "rgba(251, 251, 251, 0.15" }}
-                    ></div>
-                  </a>
-                </div>
-              </div>
-
-              <div className="col-md-6 mb-2 mx-auto ">
-                <div className="card-body">
-                  <span className="badge bg-danger px-2 py-1 shadow-1-strong mb-3">
-                    Personalized Recommendation
-                  </span>
-                  <h4>
-                    <strong>{title}</strong>
-                  </h4>
-                  <p className="text-muted">{description}</p>
-                  <button
-                    type="button"
-                    onClick={(ev) => navigateToEvent(ev, id)}
-                    className="btn btn-primary"
+          <>
+            <div className="card" key={id}>
+              <div className="row g-1">
+                <div className="col-md-6">
+                  <div
+                    className="bg-image hover-overlay ripple shadow-2-strong rounded-5"
+                    data-mdb-ripple-color="light"
                   >
-                    Read more
-                  </button>
+                    <img
+                      src={image}
+                      className="img-fluid rounded-start"
+                      alt={`Image of ${title}`}
+                      style={{ height: "400px", width: "700px" }}
+                    />
+                    <a>
+                      <div
+                        className="mask"
+                        style={{ backgroundColor: "rgba(251, 251, 251, 0.15" }}
+                      ></div>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="col-md-6 mb-2 mx-auto ">
+                  <div className="card-body">
+                    <span className="badge bg-danger px-2 py-1 shadow-1-strong mb-3">
+                      Personalized Recommendation
+                    </span>
+                    <h4>
+                      <strong>{title}</strong>
+                    </h4>
+                    <p className="text-muted">{description}</p>
+                    <button
+                      type="button"
+                      onClick={(ev) => navigateToEvent(ev, id)}
+                      className="btn btn-primary"
+                    >
+                      Read more
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+            <div className="p-1"></div>
+          </>
         ))
       ) : (
         <GuestUserFeed />

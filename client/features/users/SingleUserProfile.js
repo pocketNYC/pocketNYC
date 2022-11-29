@@ -38,8 +38,10 @@ function SingleUserProfile({ user }) {
         <LoadingScreen />
       ) : (
         <div className="container-fluid">
-          <div className="row p-4">
-            <h1 className="text-center">User Dashboard</h1>
+          <div className="row p-2">
+            <h1 className="text-center" style={{ fontSize: "50px" }}>
+              User Dashboard
+            </h1>
             <div className="col-md-4">
               <div
                 className="card text-center"
@@ -199,6 +201,7 @@ function SingleUserProfile({ user }) {
           </div>
         </div>
       )}
+      <div className="p-4"></div>
     </div>
   );
 }

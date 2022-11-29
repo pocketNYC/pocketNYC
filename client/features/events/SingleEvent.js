@@ -81,7 +81,15 @@ function SingleEvent() {
       <div className="container p-2" style={{ backgroundColor: "white" }}>
         <div className="card border-light d-flex align-items-center h-100 ">
           <div className="row g-1">
-            <h1 className="card-title text-center"> {title}</h1>
+            <h1
+              className="card-title text-center"
+              style={{
+                fontSize: "50px",
+              }}
+            >
+              {" "}
+              {title}
+            </h1>
             <div className="col-md-6">
               <img
                 src={image}

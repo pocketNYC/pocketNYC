@@ -29,7 +29,9 @@ const Map = () => {
   return (
     <div className="container-fluid ">
       <div className="card ">
-        <h1 align="center">Map</h1>
+        <h1 align="center" style={{ fontSize: "50px" }}>
+          PocketNYC Map
+        </h1>
         <div id="map" className="map, underline">
           <div className="d-flex justify-content-center">
             <MapContainer center={[40.6782, -73.9442]} zoom={11}>
@@ -57,7 +59,7 @@ const Map = () => {
           </div>
         </div>
       </div>
-      <div className="p-2"></div>
+      <div className="p-7"></div>
     </div>
   );
 };
