@@ -2,7 +2,6 @@ body {
   font-family: "PoppinsReg";
   padding-bottom: 40px;
   background-image: url("2.png");
-
 }
 
 @font-face {
@@ -60,18 +59,27 @@ label {
 }
 
 nav a {
- 
-  margin: 0.8em;
-} 
+  margin: 0.5em;
+}
 
-a.ex2:hover, a.ex2:active {font-size: 120%;}
+a.ex2:hover,
+a.ex2:active {
+  font-size: 120%;
+}
 
+a.ex2:hover,
+a.ex2:active {
+  font-size: 120%;
+}
 
 form div {
   margin: 1em;
   display: inline-block;
 }
 
+.underline {
+  text-decoration: underline;
+}
 
 .error-img {
   width: 700px;
@@ -106,7 +114,7 @@ Button.scroll {
 
 .d-block.w-100 {
   width: 100%;
-  height:30vw;
+  height: 30vw;
   object-fit: cover;
 }
 
@@ -127,9 +135,8 @@ Button.scroll {
   cursor: pointer;
 }
 
-.cards:hover{
+.cards:hover {
   transform: scale(1.02);
-
 }
 
 .card-img-top {
@@ -145,17 +152,14 @@ Button.scroll {
   opacity: 50%;
 }
 
-
 .leaflet-container {
   display: flex;
-    border: 0.5px solid black;
+  border: 0.5px solid black;
   border-radius: 5px;
   width: 90%;
   height: 60vh;
   margin-bottom: 1rem;
-} 
-
-
+}
 
 .icon:hover {
   fill: #6f48eb;

@@ -22,7 +22,6 @@ import LoadingScreen from "../features/loading/LoadingScreen";
 import FavoriteResources from "../features/favorites/FavoriteResources";
 import FavoriteEvents from "../features/favorites/FavoriteEvents";
 import LaunchScreen from "../features/loading/LaunchScreen";
-import { Launch, RoundaboutLeft } from "@mui/icons-material";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -33,7 +32,6 @@ const AppRoutes = () => {
 
   const dispatch = useDispatch();
   const [showLandingPage, setShowLandingPage] = useState(true);
-  // window.onload(showLandingPage=true)
   useEffect(() => {
     dispatch(me());
     const timer = setTimeout(() => {
@@ -45,13 +43,16 @@ const AppRoutes = () => {
   return (
     <div>
       <div>
-        {showLandingPage &&
+        {showLandingPage && (
           <>
             <Routes>
-              <Route path="/" element={showLandingPage ? <LaunchScreen /> :<Home/>} />
+              <Route
+                path="/"
+                element={showLandingPage ? <LaunchScreen /> : <Home />}
+              />
             </Routes>
           </>
-        } 
+        )}
       </div>
       {loading && <LoadingScreen />}
       {isLoggedIn ? (
@@ -111,7 +112,6 @@ const AppRoutes = () => {
           <Route path="/resources/:id" element={<SingleResource />} />
           <Route path="/map" element={<Map />} />
           <Route path="/faq" element={<Faq />} />
-          <Route path="/load" element={<LoadingScreen />} />
           <Route path="*" element={<Error />} />
         </Routes>
       )}

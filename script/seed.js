@@ -15,11 +15,8 @@ async function seed() {
   console.log("db synced!");
 
   const health = await axios.get(
-    "https://data.cityofnewyork.us/resource/ji82-xba5.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&facgroup=HEALTH%20CARE&$limit=12",
- 
+    "https://data.cityofnewyork.us/resource/ji82-xba5.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&facgroup=HEALTH%20CARE&$limit=12"
   );
-
-  console.log(health, "<- HEALTH****");
 
   const employment = await axios.get(
     "https://data.cityofnewyork.us/resource/ji82-xba5.json?$$app_token=LzDaPTC5Zu2IK2INj52pgYxOO&$q=EMPLOYMENT&$limit=7"
@@ -72,10 +69,6 @@ async function seed() {
     "https://media.istockphoto.com/id/1216870085/vector/doctors-and-nurses-characters-in-medical-masks-standing-together-vector-illustration.jpg?s=612x612&w=0&k=20&c=q3AfPmIwhwi1ySyDHXqZaT5JsDWHKZmp5BHQDjCoboU=",
     "  https://img.freepik.com/premium-vector/doctors-nurses-healthcare-workers-team_316839-602.jpg?w=2000",
   ];
-  console.log(health);
-  console.log(typeof health.data);
-
-  console.log("heathData", health);
 
   const healthFacilitiesSeed = await Promise.all(
     health.data.map((healthFacility) =>
@@ -107,6 +100,9 @@ async function seed() {
             }
             if (word === "NY") {
               return word;
+            }
+            if (word == "PSYCHOSISI") {
+              return "Psychosis";
             }
             if (word == "WELLLIFE") {
               return "WellLife";

@@ -117,7 +117,7 @@ export const eventsSlice = createSlice({
       state.loading = false;
       state.events = action.payload;
     });
-    //----------------- all events ⬆️
+    
     builder.addCase(fetchAllApprovedEvents.fulfilled, (state, action) => {
       state.loading = false;
       state.events = action.payload;
@@ -125,7 +125,7 @@ export const eventsSlice = createSlice({
     builder.addCase(fetchAllApprovedEvents.pending, (state, action) => {
       state.loading = true;
     });
-    // -------------------- approved events ⬆️ ------------
+
     builder.addCase(fetchAllPendingEvents.fulfilled, (state, action) => {
       state.events = action.payload;
     });
