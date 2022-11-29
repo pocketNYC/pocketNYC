@@ -6,7 +6,9 @@ function Admin() {
   return (
     <div className="container-fluid">
       <div className="row p-4">
-        <h1 className="text-center">Admin Dashboard</h1>
+        <h1 className="text-center" style={{ fontSize: "50px" }}>
+          Admin Dashboard
+        </h1>
         <div className="card">
           <div className="accordion accordion-flush" id="accordionFlushExample">
             <div className="accordion-item">

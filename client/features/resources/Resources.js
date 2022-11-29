@@ -63,7 +63,13 @@ const Resources = () => {
         <LoadingScreen />
       ) : ( */}
       <div className="container-fluid">
-        <h1 className="fw-light text-center text-lg-center p-2"> Resources </h1>
+        <h1
+          className="fw-light text-center text-lg-center p-2"
+          style={{ fontSize: "50px" }}
+        >
+          {" "}
+          Resources{" "}
+        </h1>
 
         <Tabs
           activeKey={key}
@@ -92,7 +98,7 @@ const Resources = () => {
                   />
                   <div className="card-body">
                     <h5 className="card-title">{name}</h5>
-                    <p className="card-text"> {borough.join(', ')}, NY</p>
+                    <p className="card-text"> {borough.join(", ")}, NY</p>
                     <div>
                       <Button
                         size="small"

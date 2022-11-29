@@ -86,7 +86,7 @@ const AddEvent = () => {
 
   return (
     <>
-      <h2 style={{ padding: "15px" }}>Create an Event</h2>
+      <h1 style={{ padding: "15px", fontSize: "50px" }}>Create an Event</h1>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group className="mb-6" controlId="title">
           <Form.Label>Title</Form.Label>
@@ -171,28 +171,8 @@ const AddEvent = () => {
         <Button variant="primary" type="submit">
           Submit
         </Button>
-        {/* <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>
-              Woohoo, thanks for submitting an event to PocketNYC!
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            Your event is currently under review. Once the PocketNYC team
-            approves the event, it will be listed on the{" "}
-            <a href="/events">Events</a> page.
-            <br />
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="primary" onClick={addNewEventButton}>
-              Add New Event
-            </Button>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal> */}
       </Form>
+      <div className="p-2"></div>
     </>
   );
 };
