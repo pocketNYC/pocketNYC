@@ -42,6 +42,7 @@ function Login({ name, displayName }) {
       p="2 rem"
       m="15rem auto"
       borderRadius="2rem"
+      boxShadow="10px 10px 10px 10px rgb(207, 207, 207)"
       backgroundColor="beige"
     >
       <Box

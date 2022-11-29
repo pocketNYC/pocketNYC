@@ -11,8 +11,6 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import { authenticate } from "../../app/store";
 
 function Signup({ displayName, name }) {
@@ -93,6 +91,7 @@ function Signup({ displayName, name }) {
             controlId="firstName"
             label="First Name"
             className="mb-3"
+
           >
             <Form.Control required type="text" placeholder="Enter First Name" />
             <Form.Control.Feedback type="invalid">
@@ -132,19 +131,10 @@ function Signup({ displayName, name }) {
             {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
           </Button>
 
-          <Form.Group className="mb-6" controlId="interests">
-            <label> Categories of interest (select up to 3): </label>
-            <Typeahead
-              multiple
-              className="test-select"
-              id="interests"
-              placeholder="Select.."
-              name="interests"
-              onChange={handleChange}
-              options={formInterest}
-            />
-          </Form.Group>
-          <FloatingLabel controlId="borough" label="Borough">
+          <FloatingLabel
+            controlId="borough"
+            label="Borough"
+          >
             <Form.Select isInvalid={errors}>
               <option>Select</option>
               <option value="Bronx">Bronx</option>
@@ -157,6 +147,19 @@ function Signup({ displayName, name }) {
               {errors}
             </Form.Control.Feedback>
           </FloatingLabel>
+
+          <Form.Group className="mb-6" controlId="interests">
+            <label> Categories of interest (select up to 3): </label>
+            <Typeahead
+              multiple
+              className="test-select"
+              id="interests"
+              placeholder="Select.."
+              name="interests"
+              onChange={handleChange}
+              options={formInterest}
+            />
+          </Form.Group>
 
           <Button variant="primary" type="submit">
             {displayName}
