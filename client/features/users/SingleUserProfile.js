@@ -104,40 +104,42 @@ function SingleUserProfile({ user }) {
                       data-bs-parent="#accordionFlushExample"
                     >
                       <div className="accordion-body">
-                        {myEvents.length ? (
-                          <table className="table table-borderless">
-                            <thead>
-                              <tr>
-                                <th scope="col">Title</th>
-                                <th scope="col">Date(s)</th>
-                                <th scope="col">Status</th>
-                              </tr>
-                            </thead>
-                            {myEvents.map(
-                              ({ title, status, id, start, end }) => {
-                                return (
-                                  <tbody>
-                                    <tr>
-                                      <td>{title}</td>
-                                      <td>
-                                        {moment(start).format(
-                                          "dddd, MMMM Do YYYY, h:mm a"
-                                        )}{" "}
-                                        -{" "}
-                                        {moment(end).format(
-                                          "dddd, MMMM Do YYYY, h:mm a"
-                                        )}
-                                      </td>
-                                      <td>{status}</td>
-                                    </tr>
-                                  </tbody>
-                                );
-                              }
-                            )}
-                          </table>
-                        ) : (
-                          <small> No events to display</small>
-                        )}
+                        <div className="table-responsive">
+                          {myEvents.length ? (
+                            <table className="table table-hover">
+                              <thead className="table-light">
+                                <tr>
+                                  <th scope="col">Title</th>
+                                  <th scope="col">Date(s)</th>
+                                  <th scope="col">Status</th>
+                                </tr>
+                              </thead>
+                              {myEvents.map(
+                                ({ title, status, id, start, end }) => {
+                                  return (
+                                    <tbody key={id}>
+                                      <tr>
+                                        <td>{title}</td>
+                                        <td>
+                                          {moment(start).format(
+                                            "dddd, MMMM Do YYYY, h:mm a"
+                                          )}{" "}
+                                          -{" "}
+                                          {moment(end).format(
+                                            "dddd, MMMM Do YYYY, h:mm a"
+                                          )}
+                                        </td>
+                                        <td>{status}</td>
+                                      </tr>
+                                    </tbody>
+                                  );
+                                }
+                              )}
+                            </table>
+                          ) : (
+                            <small> No events to display</small>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>

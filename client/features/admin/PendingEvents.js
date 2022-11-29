@@ -37,59 +37,64 @@ function PendingEvents() {
 
   return (
     <div className="container-fluid">
-      <div className="p-4">
-        {events.length ? (
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Date(s)</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
+      <div className="p-2">
+        <div className="table-responsive">
+          {events.length ? (
+            <table className="table table-hover">
+              <thead className="table-light">
+                <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Date(s)</th>
+                  <th scope="col">Approve Event</th>
+                  <th scope="col">Reject Event</th>
+                </tr>
+              </thead>
 
-            {events.map(({ title, id, start, end }) => {
-              return (
-                <tbody key={id}>
-                  <tr>
-                    <td>
-                      <Link to={`/events/${id}`}>{title} </Link>
-                    </td>
-                    <td>
-                      {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
-                      {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
-                    </td>
-                    <td>
-                      <OverlayTrigger
-                        key="top"
-                        placement="top"
-                        overlay={<Tooltip>Approve Event</Tooltip>}
-                      >
-                        <IconButton onClick={(ev) => approveEventBtn(ev, id)}>
-                          <CheckBoxIcon color="success" />
-                        </IconButton>
-                      </OverlayTrigger>
-                      <OverlayTrigger
-                        key="top"
-                        placement="top"
-                        overlay={<Tooltip>Reject Event</Tooltip>}
-                      >
-                        <IconButton onClick={(ev) => rejectEventBtn(ev, id)}>
-                          <DisabledByDefaultIcon color="error" />
-                        </IconButton>
-                      </OverlayTrigger>
-                    </td>
-                  </tr>
-                </tbody>
-              );
-            })}
-          </table>
-        ) : (
-          <>
-            <br />
-            <p className="text-center">No pending events to approve</p>
-          </>
-        )}
+              {events.map(({ title, id, start, end }) => {
+                return (
+                  <tbody key={id}>
+                    <tr>
+                      <td>
+                        <Link to={`/events/${id}`}>{title} </Link>
+                      </td>
+                      <td>
+                        {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}
+                        {moment(end).format("dddd, MMMM Do YYYY, h:mm a")}
+                      </td>
+                      <td>
+                        <OverlayTrigger
+                          key="event approval"
+                          placement="top"
+                          overlay={<Tooltip>Approve Event</Tooltip>}
+                        >
+                          <IconButton onClick={(ev) => approveEventBtn(ev, id)}>
+                            <CheckBoxIcon color="success" />
+                          </IconButton>
+                        </OverlayTrigger>
+                      </td>
+                      <td>
+                        <OverlayTrigger
+                          key="event rejection"
+                          placement="top"
+                          overlay={<Tooltip>Reject Event</Tooltip>}
+                        >
+                          <IconButton onClick={(ev) => rejectEventBtn(ev, id)}>
+                            <DisabledByDefaultIcon color="error" />
+                          </IconButton>
+                        </OverlayTrigger>
+                      </td>
+                    </tr>
+                  </tbody>
+                );
+              })}
+            </table>
+          ) : (
+            <>
+              <br />
+              <p className="text-center">No pending events to approve</p>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

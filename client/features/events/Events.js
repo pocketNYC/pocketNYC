@@ -135,7 +135,6 @@ export default function Events() {
           </Button>
         </OverlayTrigger>
       </div>
-
       <div className="p-2"></div>
     </div>
   );
