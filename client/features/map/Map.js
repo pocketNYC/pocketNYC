@@ -6,6 +6,9 @@ import { icon } from "leaflet";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { fetchResources, selectResources } from "../resources/resourcesSlice";
 import { useNavigate, useParams } from "react-router-dom";
+import { Dropdown } from "bootstrap";
+import { DropdownButton } from "react-bootstrap";
+import DropdownItem from "react-bootstrap/esm/DropdownItem";
 
 const eventIcon = icon({
   iconUrl: "/geo-fill.svg",
@@ -55,19 +58,17 @@ const Map = () => {
             <button
               class="btn btn-secondary dropdown-toggle"
               type="button"
-              data-bs-toggle="dropdown"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
               aria-expanded="false"
             >
               Map Key
             </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item">Events</a>
-              </li>
-              <li>
-                <a class="dropdown-item">Resources</a>
-              </li>
-            </ul>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item">Events</a>
+              <a class="dropdown-item">Resources</a>
+            </div>
           </div>
           <br />
           <div className="d-flex justify-content-center">
@@ -76,7 +77,7 @@ const Map = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              {dropdown - item.class === "Events"
+              {Dropdown === "Events"
                 ? events.map((event) => {
                     return (
                       <Marker
