@@ -47,8 +47,7 @@ function Login({ name, displayName }) {
             maxWidth: 600,
             padding: "20px 5px",
             margin: "0 auto",
-
-            backgroundColor: "#F1EFF1",
+            backgroundColor: "#F8F7EF",
             borderRadius: "2rem",
             boxShadow: "9px 9px 9px 9px rgb(207, 207, 207)",
           }}

@@ -73,7 +73,7 @@ function Signup({ displayName, name }) {
             padding: "20px 5px 10px",
             margin: "0 auto",
             mt: "50px",
-            backgroundColor: "#F1EFF1",
+            backgroundColor: "#F8F7EF",
             borderRadius: "2rem",
             boxShadow: "10px 10px 10px 10px rgb(207, 207, 207)",
           }}

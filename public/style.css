@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
   padding-bottom: 20px;
-  /* background-image: url(https://i.imgur.com/CeobHln.png); */
+  background-image: url("2.png");
 }
 
 a {
@@ -13,8 +13,12 @@ label {
 }
 
 nav a {
-  /* display: inline-block; */
   margin: 0.5em;
+}
+
+a.ex2:hover,
+a.ex2:active {
+  font-size: 120%;
 }
 
 a.ex2:hover,
@@ -25,19 +29,6 @@ a.ex2:active {
 form div {
   margin: 1em;
   display: inline-block;
-}
-
-.addEventContainer {
-  width: 100px;
-  color: "blue";
-}
-
-.test-select {
-  /* margin-bottom: 60px;
-  position: relative;
-  top: 35px;
-  */
-  /* right: 90px; */
 }
 
 .underline {
@@ -77,7 +68,7 @@ Button.scroll {
 
 .d-block.w-100 {
   width: 100%;
-  height: 40vw;
+  height: 30vw;
   object-fit: cover;
 }
 
@@ -115,20 +106,13 @@ Button.scroll {
   opacity: 50%;
 }
 
-.map {
-  /* height: 100px; */
-  width: 80px;
-}
-/* /* .leaflet-container {
-  display: flex;
-  width: 80%;
-  height: 120vh;
-} * */
-
 .leaflet-container {
   display: flex;
-  width: 80%;
-  height: 70vh;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  width: 90%;
+  height: 67vh;
+  margin-bottom: 1rem;
 }
 
 .icon:hover {

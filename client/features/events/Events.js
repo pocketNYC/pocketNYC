@@ -5,18 +5,11 @@ import moment from "moment";
 import { fetchAllApprovedEvents } from "./eventsSlice";
 import { Button } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import AddIcon from "./AddIcon";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import LoadingScreen from "../loading/LoadingScreen";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import ImageListItemBar from "@mui/material/ImageListItemBar";
-import ListSubheader from "@mui/material/ListSubheader";
-import IconButton from "@mui/material/IconButton";
-import InfoIcon from "@mui/icons-material/Info";
 
 export default function Events() {
   const navigate = useNavigate();
@@ -68,9 +61,7 @@ export default function Events() {
       {loading && <LoadingScreen />}
       <div className="container-fluid">
         {isLoggedIn && <AddIcon />}
-
-        <h1 className="fw-light text-center text-lg-center p-4"> Events </h1>
-
+        <h1 className="fw-light text-center text-lg-center p-2"> Events </h1>
         <Tabs
           activeKey={key}
           id="controlled-tab-example"
@@ -86,7 +77,7 @@ export default function Events() {
         </Tabs>
 
         <div className="tab-content" id="nav-tabContent">
-          <div className="row row-cols-1 row-cols-md-2 g-4">
+          <div className="row row-cols-1 row-cols-md-2 p-2 g-4">
             {eventList?.map(({ id, image, title, start, tags }) => (
               <div key={id}>
                 <div className="card text-center h-100">

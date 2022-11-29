@@ -44,10 +44,14 @@ function FeaturedEvents() {
                 data-bs-interval="4500"
                 key={first?.id}
               >
-                <img className="d-block w-100" src={first?.image} alt="..." />
+                <img
+                  className="d-block w-100"
+                  src={first?.image}
+                  alt={`image of ${first}?.title`}
+                />
                 <div className="cards">
                   <a href={`/events/${first?.id}`}>
-                    <div className="carousel-caption d-none d-md-block">
+                    <div className="carousel-caption d-none  d-md-block">
                       <h5>{first?.title}</h5>
                       <p>
                         {moment(first?.start).format(
@@ -64,10 +68,14 @@ function FeaturedEvents() {
               </div>
               {exclude1?.map(({ id, image, title, start, end }) => (
                 <div key={id} className="carousel-item" data-bs-interval="4500">
-                  <img className="d-block w-100" src={image} alt="..." />
+                  <img
+                    className="d-block w-100"
+                    src={image}
+                    alt={`image of ${title}`}
+                  />
                   <div className="cards">
                     <a href={`/events/${id}`}>
-                      <div className="carousel-caption d-none d-md-block">
+                      <div className="carousel-caption d-none  d-md-block">
                         <h5>{title}</h5>
                         <p>
                           {moment(start).format("dddd, MMMM Do YYYY, h:mm a")} -{" "}

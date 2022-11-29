@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { me } from "./store";
@@ -21,7 +21,7 @@ import Map from "../features/map/Map";
 import LoadingScreen from "../features/loading/LoadingScreen";
 import FavoriteResources from "../features/favorites/FavoriteResources";
 import FavoriteEvents from "../features/favorites/FavoriteEvents";
-import LaunchScreen from "../features/loading/launchScreen/LaunchScreen";
+import LaunchScreen from "../features/loading/LaunchScreen";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -31,13 +31,29 @@ const AppRoutes = () => {
   const loading = useSelector((state) => state.auth.loading);
 
   const dispatch = useDispatch();
-
+  const [showLandingPage, setShowLandingPage] = useState(true);
   useEffect(() => {
     dispatch(me());
+    const timer = setTimeout(() => {
+      setShowLandingPage(false);
+    }, 5000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div>
+      <div>
+        {showLandingPage && (
+          <>
+            <Routes>
+              <Route
+                path="/"
+                element={showLandingPage ? <LaunchScreen /> : <Home />}
+              />
+            </Routes>
+          </>
+        )}
+      </div>
       {loading && <LoadingScreen />}
       {isLoggedIn ? (
         <Routes>
@@ -50,6 +66,7 @@ const AppRoutes = () => {
             element={<FavoriteEvents />}
           />
           <Route path="/add" element={<AddEvent />} />
+
           <Route
             path="/add/success"
             element={<ConfirmationPage user={user} />}
