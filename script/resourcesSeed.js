@@ -22,6 +22,19 @@ const resources = [
     hyperlink: "https://www.hungerfreeamerica.org/en-us/nyc/",
   },
   {
+    name: "Future Code NYC at Fullstack Academy",
+    description:
+      "Future Code is a 31-plus-week immersive training program designed to prepare New Yorkers with no previous professional web development experience for careers in web development at salaries of $65,000 or more.",
+    imageUrl:
+      "https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/1459496/programming-clipart-xl.png",
+    address: "5 Hanover Square 11th floor, New York, NY 10004",
+    borough: ["Manhattan", "Queens", "Brooklyn", "Bronx", "Staten Island"],
+    tag: ["education", "employment", "city-services"],
+    hyperlink: "https://www.fullstackacademy.com/programs/future-code",
+    latitude: "40.70553126206771",
+    longitude: "-74.00937497672898",
+  },
+  {
     name: "Bronx EOC",
     description:
       "Tuition Free Programs - The career path and life that you deserve are easier to obtain. Get the right training and preparation at no cost to you.",
