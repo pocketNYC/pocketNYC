@@ -78,7 +78,10 @@ function SingleEvent() {
       {/* {loading ? (
         <LoadingScreen />
       ) : ( */}
-      <div className="container-fluid p-4">
+      <div
+        className="container p-2"
+        style={{ backgroundColor: "white" }}
+      >
         <div className="card border-light d-flex align-items-center h-100 ">
           <div className="row g-1">
             <h1 className="card-title text-center"> {title}</h1>

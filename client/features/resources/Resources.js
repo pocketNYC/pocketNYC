@@ -63,7 +63,7 @@ const Resources = () => {
         <LoadingScreen />
       ) : ( */}
       <div className="container-fluid">
-        <h1 className="fw-light text-center text-lg-center p-4"> Resources </h1>
+        <h1 className="fw-light text-center text-lg-center p-2"> Resources </h1>
 
         <Tabs
           activeKey={key}
@@ -80,7 +80,7 @@ const Resources = () => {
         </Tabs>
 
         <div className="tab-content" id="nav-tabContent">
-          <div className="row row-cols-1 row-cols-md-2 p-4 g-4">
+          <div className="row row-cols-1 row-cols-md-2 p-2 g-4">
             {resourcesList?.map(({ id, name, imageUrl, borough, tag }) => (
               <div key={id}>
                 <div className="card text-center h-100" key={id}>
