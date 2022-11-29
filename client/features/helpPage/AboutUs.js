@@ -6,8 +6,18 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 function AboutUs() {
   return (
     <div>
-      <h3>About Us</h3>
-      <p>
+      <h3
+        style={{
+          fontFamily: "Arial, Helvetica, sans-serif ",
+        }}
+      >
+        About Us
+      </h3>
+      <p
+        style={{
+          fontFamily: "Bodoni Moda', serif;",
+        }}
+      >
         PocketNYC is a Progressive Web App (PWA) developed by Breana, Corinna,
         Cynthia, and Noor as their Fullstack Academy Capstone Project. PocketNYC
         is an app for New Yorkers, by New Yorkers, with the goal of sharing

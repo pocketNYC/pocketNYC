@@ -40,7 +40,14 @@ const FavoriteEvents = () => {
 
   return (
     <div>
-      <p style={{ fontWeight: "bold" }}>Upcoming Events:</p>
+      <p
+        style={{
+          fontWeight: "bold",
+          fontFamily: "Arial, Helvetica, sans-serif ",
+        }}
+      >
+        Upcoming Events:
+      </p>
       {futureEvents.length ? (
         <table className="table table-borderless">
           <thead className="table-light">
@@ -85,6 +92,7 @@ const FavoriteEvents = () => {
         style={{
           color: "red",
           fontWeight: "bold",
+          fontFamily: "Arial, Helvetica, sans-serif "
         }}
       >
         Past Events:
