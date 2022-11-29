@@ -14,7 +14,6 @@ function Login({ name, displayName }) {
   const [validated, setValidated] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const { error } = useSelector((state) => state.auth);
-  const user = useSelector((state) => state.auth.me);
 
   const togglePassword = (evt) => {
     evt.preventDefault();
@@ -63,7 +62,6 @@ function Login({ name, displayName }) {
           </InputGroup.Text>
         </InputGroup>
       </Form.Group>
-      <div> {error && <div style={{ color: "red" }}> {error} </div>}</div>
       <Button variant="primary" type="submit">
         {displayName}
       </Button>

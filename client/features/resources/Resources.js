@@ -4,19 +4,18 @@ import { Button, Tooltip } from "@mui/material";
 import { fetchResources, selectResources } from "./resourcesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import LoadingScreen from "../loading/LoadingScreen";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import LoadingScreen from "../loading/LoadingScreen";
 
 const Resources = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const resources = useSelector(selectResources);
+  const loading = useSelector((state) => state.resources.loading);
   let [resourcesList, setResourcesList] = useState([]);
   const [render, setRender] = useState(true);
   const [key, setKey] = useState("all");
-  // const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  const loading = useSelector((state) => state.resources.loading);
 
   useEffect(() => {
     dispatch(fetchResources());
@@ -59,10 +58,8 @@ const Resources = () => {
 
   return (
     <div className="container-fluid">
-      {/* {loading ? (
-        <LoadingScreen />
-      ) : ( */}
       <div className="container-fluid">
+        {loading && <LoadingScreen />}
         <h1 className="fw-light text-center text-lg-center p-4"> Resources </h1>
 
         <Tabs

@@ -126,7 +126,9 @@ function Signup({ displayName, name }) {
           <Form.Control.Feedback type="invalid">{errors}</Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-6" controlId="interests">
-          <Form.Label>Choose your categories of interest (select up to 3): </Form.Label>
+          <Form.Label>
+            Choose your categories of interest (select up to 3):{" "}
+          </Form.Label>
           <Typeahead
             multiple
             id="interests"

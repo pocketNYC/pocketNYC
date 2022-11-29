@@ -10,6 +10,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import LoadingScreen from "../loading/LoadingScreen";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
@@ -21,6 +22,7 @@ export default function Events() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const loading = useSelector((state) => state.events.loading);
   const events = useSelector((state) => state.events.events);
   let [eventList, setEventList] = useState([]);
   const [render, setRender] = useState(true);
@@ -63,11 +65,10 @@ export default function Events() {
   }
   return (
     <div className="container-fluid">
-      {/* {loading ? (
-        <LoadingScreen />
-      ) : ( */}
+      {loading && <LoadingScreen />}
       <div className="container-fluid">
         {isLoggedIn && <AddIcon />}
+
         <h1 className="fw-light text-center text-lg-center p-4"> Events </h1>
 
         <Tabs
