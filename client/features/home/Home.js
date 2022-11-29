@@ -19,6 +19,7 @@ const Home = () => {
             <FeaturedEvents />
             <div className="p-2"> </div>
             {id && <LoggedInUserFeed interests={interests} borough={borough} />}
+            <div className="p-2"> </div>
           </>
         ) : (
           <>
@@ -27,6 +28,7 @@ const Home = () => {
             <GuestUserFeed />
           </>
         )}
+        <div className="p-2"> </div>
       </div>
     </div>
   );

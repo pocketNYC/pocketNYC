@@ -60,7 +60,14 @@ const Resources = () => {
     <div className="container-fluid">
       <div className="container-fluid">
         {loading && <LoadingScreen />}
-        <h1 className="fw-light text-center text-lg-center p-4"> Resources </h1>
+        <h1
+          className="fw-light text-center text-lg-center p-2"
+          style={{ fontSize: "50px" }}
+        >
+          {" "}
+          Resources{" "}
+        </h1>
+
         <Tabs
           activeKey={key}
           id="controlled-tab-example"
