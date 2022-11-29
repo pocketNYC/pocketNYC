@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { me } from "./store";
@@ -32,19 +32,27 @@ const AppRoutes = () => {
   const loading = useSelector((state) => state.auth.loading);
 
   const dispatch = useDispatch();
-
+  const [showLandingPage, setShowLandingPage] = useState(true);
+  // window.onload(showLandingPage=true)
   useEffect(() => {
     dispatch(me());
+    const timer = setTimeout(() => {
+      setShowLandingPage(false);
+    }, 5000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div>
       <div>
-        {/* <div className="splash"></div>
-        <Routes>
-          <Route path="/" element={<LaunchScreen />} />
-        </Routes>
-      </div> */}
+        {showLandingPage &&
+          <>
+            <Routes>
+              <Route path="/" element={showLandingPage ? <LaunchScreen /> :<Home/>} />
+            </Routes>
+          </>
+        } 
+      </div>
       {loading && <LoadingScreen />}
       {isLoggedIn ? (
         <Routes>

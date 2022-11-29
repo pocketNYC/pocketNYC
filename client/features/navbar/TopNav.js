@@ -10,7 +10,7 @@ export default function TopNav() {
     <div>
       <MDBNavbar light bgColor="light">
         <MDBContainer fluid size="sm">
-          <MDBNavbarBrand href="/">
+          <MDBNavbarBrand href="/home">
             <img
               src="
           LogoForNav.png"

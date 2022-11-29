@@ -10,7 +10,7 @@ export default function BottomNav() {
   return (
     <MDBNavbar fixed="bottom" light bgColor="light">
       <MDBContainer>
-        <MDBNavbarBrand href="/" label="Home">
+        <MDBNavbarBrand href="/home" label="Home">
           <HomeIcon />
         </MDBNavbarBrand>
 

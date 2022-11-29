@@ -38,5 +38,5 @@
 
 .fade-out {
   opacity: 0;
-  animation: fadeout 5s ease-in-out forwards;
+  animation: fadeout 5s ease-out forwards;
 }
