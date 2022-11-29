@@ -34,9 +34,9 @@ const FavoriteResources = () => {
       {favResourcesLoading ? (
         <LoadingScreen />
       ) : (
-        <div>
+        <div className="table-responsive">
           {favResources.length ? (
-            <table className="table table-borderless">
+            <table className="table table-hover">
               <thead className="table-light">
                 <tr>
                   <th scope="col">Title</th>

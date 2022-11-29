@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import InfoSharpIcon from "@mui/icons-material/InfoSharp";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import EventAvailableIcon from "@mui/icons-material/EventAvailable";
+import PersonIcon from "@mui/icons-material/Person";
+import Diversity1Icon from "@mui/icons-material/Diversity1";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 function Questions() {
   return (
@@ -28,7 +28,7 @@ function Questions() {
         >
           <div className="accordion-body">
             Resources can be found by clicking <Link to="/resources">here</Link>{" "}
-            or by clicking on <InfoSharpIcon /> in the navigation bar below.
+            or by clicking on <Diversity1Icon /> in the navigation bar below.
           </div>
         </div>
       </div>
@@ -53,11 +53,11 @@ function Questions() {
           data-bs-parent="#accordionFlushExample"
         >
           <div className="accordion-body">
-            Yes. Navigate to the <AccountBoxIcon /> section below and click on
-            "My Profile. From there, you can see your User Information and an
-            "Edit Profile" button. <br />
+            Yes. Navigate to the <PersonIcon /> section below and click on
+            "Profile. From there, you can see your User Information and an "Edit
+            Profile" button. <br />
             <strong>
-              <AccountBoxIcon /> > Profile > Edit Profile
+              <PersonIcon /> > Profile > Edit Profile
             </strong>
           </div>
         </div>
@@ -84,11 +84,12 @@ function Questions() {
         >
           <div className="accordion-body">
             Yes. You can add events and/or resources to your "Favorites" for
-            easy access. Your "Favorites" are located in the <AccountBoxIcon />{" "}
+            easy access. Your "Favorites" are located in the <PersonIcon />{" "}
             section of the navigation bar below.
             <br />
             <strong>
-              <AccountBoxIcon /> > Profile > My Favorite Resources | My Favorite Events
+              <PersonIcon /> > Profile > My Favorite Resources | My Favorite
+              Events
             </strong>
           </div>
         </div>
@@ -104,8 +105,8 @@ function Questions() {
             aria-expanded="false"
             aria-controls="flush-collapseFour"
           >
-            I have an event that I am planning, can I submit an event to be
-            featured?
+            I have an event that I am planning and would like to share it on
+            PocketNYC. Can I submit an event to be featured?
           </button>
         </h2>
         <div
@@ -115,11 +116,10 @@ function Questions() {
           data-bs-parent="#accordionFlushExample"
         >
           <div className="accordion-body">
-            Of course! You can always submit an event{" "}
-            <Link to="/add">here</Link> or by navigating to the Events page (
-            <EventAvailableIcon />) in the navigation bar below. Please be
-            advised that you <strong> must have an account</strong> to submit an
-            event.
+            Of course! You can always submit a <strong>free</strong> event{" "}
+            <Link to="/add">here</Link> or by navigating to the{" "}
+            <AddCircleIcon /> in the navigation bar. Please be advised that you{" "}
+            <strong> must have an account</strong> to submit an event.
           </div>
         </div>
       </div>
@@ -172,38 +172,12 @@ function Questions() {
           data-bs-parent="#accordionFlushExample"
         >
           <div className="accordion-body">
-            Navigate to the <AccountBoxIcon /> section of the navigation bar.
-            Then, click "Log out"
+            Navigate to the <PersonIcon /> section of the navigation bar. Then,
+            click "Log out"
             <br />
             <strong>
-              <AccountBoxIcon /> > Log out
+              <PersonIcon /> > Log out
             </strong>
-          </div>
-        </div>
-      </div>
-      <div className="accordion-item">
-        <h2 className="accordion-header" id="flush-headingSeven">
-          <button
-            className="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseSeven"
-            aria-expanded="false"
-            aria-controls="flush-collapseSeven"
-          >
-            How do I change the language of the app?
-          </button>
-        </h2>
-        <div
-          id="flush-collapseSeven"
-          className="accordion-collapse collapse"
-          aria-labelledby="flush-headingSeven"
-          data-bs-parent="#accordionFlushExample"
-        >
-          <div className="accordion-body">
-            We are currently in the process of making our app accessible to
-            people that speak languages other than English. Please check back
-            periodically.
           </div>
         </div>
       </div>

@@ -47,9 +47,11 @@ const Map = () => {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid ">
       <div className="card ">
+        <h1 align="center">Map</h1>
         <div id="map" className="map, underline">
+<<<<<<< HEAD
           <h1 align="center">Map</h1>
       <div class="dropdown">
         <button
@@ -70,6 +72,8 @@ const Map = () => {
         </ul>
       </div>
       <br />
+=======
+>>>>>>> main
           <div className="d-flex justify-content-center">
             <MapContainer center={[40.6782, -73.9442]} zoom={11}>
               <TileLayer
@@ -115,6 +119,7 @@ const Map = () => {
           </div>
         </div>
       </div>
+      <div className="p-2"></div>
     </div>
   );
 };

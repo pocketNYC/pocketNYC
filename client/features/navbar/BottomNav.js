@@ -18,13 +18,25 @@ export default function BottomNav() {
     <Box sx={{ pb: 5 }}>
       <CssBaseline />
       <Paper
-        sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
+        sx={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          pb: 2,
+          alignment: "center",
+          backgroundColor: "#F8F7EF ",
+        }}
         elevation={3}
       >
-        <BottomNavigation sx={{ marginTop: 1 }} showLabels>
+        <BottomNavigation
+          sx={{ marginTop: 2, backgroundColor: "#F8F7EF" }}
+          showLabels
+        >
           <BottomNavigationAction
             href="/home"
             label="Home"
+            sx={{ color: "black", padding: "8px" }}
             icon={
               <>
                 <Avatar sx={{ backgroundColor: "#0039A6" }}>
@@ -36,6 +48,7 @@ export default function BottomNav() {
           <BottomNavigationAction
             label="Events"
             href="/events"
+            sx={{ color: "black", padding: "8px" }}
             icon={
               <>
                 <Avatar sx={{ backgroundColor: "#FF6319" }}>
@@ -47,6 +60,7 @@ export default function BottomNav() {
           <BottomNavigationAction
             label="Map"
             href="/map"
+            sx={{ color: "black", padding: "8px" }}
             icon={
               <>
                 <Avatar sx={{ backgroundColor: "#808183" }}>
@@ -58,6 +72,7 @@ export default function BottomNav() {
           <BottomNavigationAction
             label="Resources"
             href="/resources"
+            sx={{ color: "black", padding: "8px" }}
             icon={
               <>
                 <Avatar sx={{ backgroundColor: "#EE352E" }}>
@@ -66,7 +81,11 @@ export default function BottomNav() {
               </>
             }
           />
-          <BottomNavigationAction label="User" icon={<AccountMenu />} />
+          <BottomNavigationAction
+            sx={{ color: "black", padding: "8px" }}
+            label="User"
+            icon={<AccountMenu />}
+          />
         </BottomNavigation>
       </Paper>
     </Box>
