@@ -10,21 +10,19 @@ const Home = () => {
 
   return (
     <div className="container-fluid">
-      <div>
-        {isLoggedIn ? (
-          <>
-            <FeaturedEvents />
-            <div className="p-2"> </div>
-            {id && <LoggedInUserFeed interests={interests} borough={borough} />}
-          </>
-        ) : (
-          <>
-            <FeaturedEvents />
-            <div className="p-2"> </div>
-            <GuestUserFeed />
-          </>
-        )}
-      </div>
+      {isLoggedIn ? (
+        <>
+          <FeaturedEvents />
+          <div className="p-2"> </div>
+          {id && <LoggedInUserFeed interests={interests} borough={borough} />}
+        </>
+      ) : (
+        <>
+          <FeaturedEvents />
+          <div className="p-2"> </div>
+          <GuestUserFeed />
+        </>
+      )}
     </div>
   );
 };
