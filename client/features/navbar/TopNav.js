@@ -25,7 +25,7 @@ export default function TopNav() {
       >
         <Navbar style={{ backgroundColor: "#F8F7EF" }}>
           <Container>
-            <Navbar.Brand href="/" className="position-absolute start-0">
+            <Navbar.Brand href="/home" className="position-absolute start-0">
               <img
                 src="LogoForNav.png"
                 alt="PocketNYC logo"
