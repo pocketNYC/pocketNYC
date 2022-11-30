@@ -107,6 +107,9 @@ async function seed() {
             if (word == "WELLLIFE") {
               return "WellLife";
             }
+            if (word == "PSYCHOSISI") {
+              return "Psychosis";
+            }
             return word[0] + word.slice(1).toLowerCase();
           })
           .join(" "),

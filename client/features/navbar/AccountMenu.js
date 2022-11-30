@@ -76,24 +76,24 @@ export default function AccountMenu() {
         {isLoggedIn ? (
           <div>
             <MenuItem>
-              <Link style={{ color: "black" }} to={`/users/${userId}`}>
-                <PersonIcon />
+              <Link to={`/users/${userId}`}>
+                <PersonIcon style={{ color: "black" }} />
                 Profile
               </Link>
             </MenuItem>
 
             {isAdmin ? (
               <MenuItem>
-                <Link style={{ color: "black" }} to={`/admin`}>
-                  <BallotIcon />
+                <Link to={`/admin`}>
+                  <BallotIcon style={{ color: "black" }} />
                   Admin
                 </Link>
               </MenuItem>
             ) : null}
 
             <MenuItem onClick={logoutAndRedirectHome}>
-              <Link style={{ color: "black" }} to={"/home"}>
-                <Logout />
+              <Link to={"/home"}>
+                <Logout style={{ color: "black" }} />
                 Logout
               </Link>
             </MenuItem>
@@ -101,14 +101,14 @@ export default function AccountMenu() {
         ) : (
           <div>
             <MenuItem>
-              <Link style={{ color: "black" }} to={"/login"}>
-                <LoginIcon />
+              <Link to={"/login"}>
+                <LoginIcon style={{ color: "black" }} />
                 Login
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link style={{ color: "black" }} to={"/signup"}>
-                <LockOpenIcon />
+              <Link to={"/signup"}>
+                <LockOpenIcon style={{ color: "black" }} />
                 Sign Up
               </Link>
             </MenuItem>

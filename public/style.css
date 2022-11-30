@@ -6,32 +6,31 @@ body {
 
 
 @font-face {
-  font-family: 'PoppinsMed';
-  src: url('Poppins-Medium.woff2') format('woff2'),
-      url('Poppins-Medium.woff') format('woff');
+  font-family: "PoppinsMed";
+  src: url("Poppins-Medium.woff2") format("woff2"),
+    url("Poppins-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'PoppinsReg';
-  src: url('Poppins-Regular.woff2') format('woff2'),
-      url('Poppins-Regular.woff') format('woff');
+  font-family: "PoppinsReg";
+  src: url("Poppins-Regular.woff2") format("woff2"),
+    url("Poppins-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'PoppinsBold';
-  src: url('Poppins-Bold.woff2') format('woff2'),
-      url('Poppins-Bold.woff') format('woff');
+  font-family: "PoppinsBold";
+  src: url("Poppins-Bold.woff2") format("woff2"),
+    url("Poppins-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
-
 
 a {
   text-decoration: none;
@@ -154,32 +153,42 @@ Button.scroll {
   height: fit-content;
 }
 
-h1, strong, h2{
+h1,
+strong,
+h2 {
   font-family: "PoppinsBold";
 }
 
-
-a, h4, h5{
-  font-family: "PoppinsMed"
+a,
+h4,
+h5 {
+  font-family: "PoppinsMed";
 }
 
-p, span, small, h6 , th, td, label, input{
-  font-family: "PoppinsReg"
-}
-
-th, td {
-  font-size:12px
-}
-
-
-.text-muted {
-  font-size:14px
-}
-li{
+p,
+span,
+small,
+h6,
+th,
+td,
+label,
+input {
   font-family: "PoppinsReg";
 }
 
-.btn{
+th,
+td {
+  font-size: 12px;
+}
+
+.text-muted {
+  font-size: 14px;
+}
+li {
+  font-family: "PoppinsReg";
+}
+
+.btn {
   font-family: "PoppinsReg";
 }
 
@@ -187,7 +196,8 @@ li{
   font-family: "PoppinsMed";
 }
 
-.accordion-body, .btn.btn-primary, .btn.btn-outline-primary.btn-md{
+.accordion-body,
+.btn.btn-primary,
+.btn.btn-outline-primary.btn-md {
   font-family: "PoppinsReg";
 }
-
