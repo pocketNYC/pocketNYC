@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { icon } from "leaflet";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { fetchResources, selectResources } from "../resources/resourcesSlice";
 import { useNavigate, useParams } from "react-router-dom";
-import { Dropdown } from "bootstrap";
+import { Button, Dropdown } from "bootstrap";
 import { DropdownButton } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import DropdownContext from "react-bootstrap/esm/DropdownContext";
@@ -28,12 +28,26 @@ const Map = () => {
   const events = useSelector((state) => state.events.events);
   const { id } = useParams();
   const resources = useSelector(selectResources);
+  const [displayed, setDisplayed] = useState([]);
 
   const filteredResources = resources.filter((resource) => {
     if (resource.latitude !== null && resource.longitude !== null) {
       return resource;
     }
   });
+
+  const filterCategoryButton = (ev) => {
+    const category = ev.target.text; // text would be Events or Resources , whatever is in the dropdown
+    if (category === "Events") {
+      setDisplayed(events);
+    }
+    if (category === "Resources") {
+      setDisplayed(resources); //however you're grabbing all res markers
+    }
+    if (category === "All") {
+      setDisplayed(both); //however both can be combined
+    }
+  };
 
   useEffect(() => {
     dispatch(fetchAllEvents());
@@ -80,7 +94,7 @@ const Map = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              {DropdownContext === "Events"
+              {filterCategoryButton === "Events"
                 ? events.map((event) => {
                     return (
                       <Marker
