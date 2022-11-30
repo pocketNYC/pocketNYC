@@ -29,7 +29,7 @@ const resources = [
       "https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/1459496/programming-clipart-xl.png",
     address: "5 Hanover Square 11th floor, New York, NY 10004",
     borough: ["Manhattan", "Queens", "Brooklyn", "Bronx", "Staten Island"],
-    tag: ["education", "employment", "city-services"],
+    tag: ["education", "employment", "city services"],
     hyperlink: "https://www.fullstackacademy.com/programs/future-code",
     latitude: "40.70553126206771",
     longitude: "-74.00937497672898",

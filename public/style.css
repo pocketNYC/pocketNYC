@@ -58,7 +58,12 @@ label {
 }
 
 nav a {
-  margin: 0.8em;
+  margin: 0.5em;
+}
+
+a.ex2:hover,
+a.ex2:active {
+  font-size: 120%;
 }
 
 a.ex2:hover,
@@ -69,6 +74,10 @@ a.ex2:active {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .error-img {
@@ -204,7 +213,7 @@ li {
   font-family: "PoppinsMed";
 }
 
-.accordion-body,
-.btn.btn-primary {
+.accordion-body, .btn.btn-primary, .btn.btn-outline-primary.btn-md{
   font-family: "PoppinsReg";
 }
+

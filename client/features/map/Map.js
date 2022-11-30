@@ -6,6 +6,7 @@ import { icon } from "leaflet";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { fetchResources, selectResources } from "../resources/resourcesSlice";
 import { useNavigate, useParams } from "react-router-dom";
+import LoadingScreen from "../loading/LoadingScreen";
 
 const eventIcon = icon({
   iconUrl: "/geo-fill.svg",
@@ -31,6 +32,7 @@ const Map = () => {
       return resource;
     }
   });
+  const loading = useSelector((state) => state.events.loading);
 
   useEffect(() => {
     dispatch(fetchAllEvents());
@@ -60,7 +62,8 @@ const Map = () => {
   };
 
   return (
-    <div className="container-fluid ">
+    <div className="container-fluid">
+      {loading && <LoadingScreen />}
       <div className="card ">
         <h1 align="center">Map</h1>
         <h6 className="text-center">

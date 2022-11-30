@@ -16,7 +16,6 @@ function ConfirmationPage({ user }) {
   }, [dispatch]);
 
   const event = events[0];
-  console.log(event);
   return (
     <div className="container-fluid">
       <div className=" p-4 justify-content-center align-items-center">

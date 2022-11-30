@@ -5,7 +5,6 @@ const {
 const { Op } = require("sequelize");
 
 const { getToken, checkForAdmin } = require("./adminAuth");
-// const { default: Events } = require("../../client/features/events/Events");
 
 // GET /api/events
 router.get("/", async (req, res, next) => {
@@ -19,7 +18,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//gets all approved events in ascending order [only if they take place after today's date]
 router.get("/sortedAscendingApproved", async (req, res, next) => {
   try {
     const events = await Event.findAll({
@@ -41,7 +39,6 @@ router.get("/sortedAscendingApproved", async (req, res, next) => {
   }
 });
 
-//gets all pending events in ascending order
 router.get("/sortedAscendingPending", async (req, res, next) => {
   try {
     const events = await Event.findAll({
@@ -60,34 +57,9 @@ router.get("/sortedAscendingPending", async (req, res, next) => {
   }
 });
 
-// get events associated with userId
-
-// router.get("/userEvents", getToken, async (req, res, next) => {
-//   const userId = req.user.id;
-//   try {
-//     console.log(userId);
-//     const events = await Event.findAll({
-//       where: [
-//         {
-//           status: "pending",
-//         },
-//         {
-//           userId: userId,
-//         },
-//       ],
-//     });
-//     res.json(events);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
-
-// get events associated with userId
-
 router.get("/userEvents", getToken, async (req, res, next) => {
   const userId = req.user.id;
   try {
-    console.log(userId);
     const events = await Event.findAll({
       where: [
         {
@@ -132,7 +104,7 @@ router.post("/", getToken, async (req, res, next) => {
   }
 });
 
-//PUT /api/events ADMIN ONLY
+//PUT /api/events
 router.put("/:id", getToken, checkForAdmin, async (req, res, next) => {
   try {
     const event = await Event.findByPk(req.params.id);
