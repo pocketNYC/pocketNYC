@@ -12,8 +12,8 @@ const events = [
     borough: "Manhattan",
     eventLink: "https://www.centralpark.com/tours",
     status: "approved",
-    latitude: 40.78163154967519,
-    longitude: -73.96667599082012,
+    latitude: "40.78163154967519",
+    longitude: "-73.96667599082012",
   },
   {
     title: "Bryant Park Winter Village Tree Lighting Ceremony",
@@ -28,8 +28,8 @@ const events = [
     borough: "Manhattan",
     eventLink: "https://bryantpark.org/",
     status: "pending",
-    latitude: 40.75361130200964,
-    longitude: -73.98318113600838,
+    latitude: "40.75361130200964",
+    longitude: "-73.98318113600838",
     userId: 2,
   },
   {
@@ -47,8 +47,8 @@ const events = [
     eventLink:
       "https://home.nps.gov/gate/learn/historyculture/jamaica-bay-wildlife-refuge.htm",
     status: "pending",
-    latitude: 40.61679384055135,
-    longitude: -73.82495690679576,
+    latitude: "40.61679384055135",
+    longitude: "-73.82495690679576",
     userId: 3,
   },
   {
@@ -81,8 +81,8 @@ const events = [
     borough: "Manhattan",
     eventLink: "https://www.thehighline.org/",
     status: "approved",
-    longitude: -74.0048936460346,
-    latitude: 40.7480534602401,
+    longitude: "-74.0048936460346",
+    latitude: "40.7480534602401",
     userId: 5,
   },
   {
@@ -99,8 +99,8 @@ const events = [
     eventLink:
       "https://www.nyc.gov/site/dycd/services/after-school/schools-out-new-york-city-sonyc.page",
     status: "approved",
-    latitude: 40.69803025985018,
-    longitude: -73.91866967089781,
+    latitude: "40.69803025985018",
+    longitude: "-73.91866967089781",
   },
   {
     title: "Bronx Sports Extravaganza: Flag Football and Softball",
@@ -116,8 +116,8 @@ const events = [
     eventLink:
       "https://www.nyc.gov/events/bronx-sports-extravaganza-street-hockey/12059/7",
     status: "pending",
-    latitude: 40.815130995747595,
-    longitude: -73.8890485869093,
+    latitude: "40.815130995747595",
+    longitude: "-73.8890485869093",
   },
   {
     title: "Latin American Cultural Fiesta",
@@ -148,8 +148,8 @@ const events = [
     borough: "Manhattan",
     eventLink: "https://www.nycpride.org/event/nyc-pride-march",
     status: "pending",
-    latitude: 40.74228682409983,
-    longitude: -73.98798057341881,
+    latitude: "40.74228682409983",
+    longitude: "-73.98798057341881",
   },
   {
     title: "Dauphinette's Holiday Flea Market in Dumbo",
@@ -165,8 +165,8 @@ const events = [
     eventLink:
       "https://www.eventbrite.com/e/dauphinettes-holiday-flea-market-in-dumbo-tickets-431279497587?aff=ebdssbdestsearch",
     status: "approved",
-    latitude: 40.70296041662417,
-    longitude: -73.98429778009917,
+    latitude: "40.70296041662417",
+    longitude: "-73.98429778009917",
   },
   {
     title: "Christmas Caroling at Staten Island Mall",
@@ -181,8 +181,8 @@ const events = [
     borough: "Staten-Island",
     eventLink: "https://www.mallscenters.com/malls/new-york/staten-island-mall",
     status: "approved",
-    latitude: 40.582024341911826,
-    longitude: -74.1657740714884,
+    latitude: "40.582024341911826",
+    longitude: "-74.1657740714884",
   },
   {
     title: "Lower East Side Holiday Parade 2022",
@@ -197,8 +197,8 @@ const events = [
     borough: "Manhattan",
     eventLink: "https://www.nyc.gov/events/les-holiday-parade-2022/430802/1",
     status: "approved",
-    latitude: 40.71545118502942,
-    longitude: -73.98455757996675,
+    latitude: "40.71545118502942",
+    longitude: "-73.98455757996675",
   },
   {
     title: "Forest Fitness",
@@ -213,8 +213,8 @@ const events = [
     borough: "Manhattan",
     eventLink: "https://www.nyc.gov/events/forest-fitness/331550/47",
     status: "pending",
-    latitude: 40.86181428562175,
-    longitude: -73.93291955642407,
+    latitude: "40.86181428562175",
+    longitude: "-73.93291955642407",
   },
   {
     title: "Queens Tech Night 2022 - Designing New York",
@@ -230,8 +230,8 @@ const events = [
     eventLink:
       "https://www.eventbrite.com/e/queens-tech-night-2022-designing-new-york-tickets-445165611327?aff=ebdssbdestsearch",
     status: "approved",
-    latitude: 40.74760623549599,
-    longitude: -73.95513383089151,
+    latitude: "40.74760623549599",
+    longitude: "-73.95513383089151",
   },
   {
     title: "Workforce1 Job Fair(In-Person): Brooklyn",
@@ -247,8 +247,8 @@ const events = [
     borough: "Brooklyn",
     eventLink: "https://www.nyc.gov/site/sbs/careers/recruitment-events.page",
     status: "approved",
-    latitude: 40.66285955593711,
-    longitude: -73.89626817708192,
+    latitude: "40.66285955593711",
+    longitude: "-73.89626817708192",
   },
   {
     title: "Puerto Rican Day Parade",
@@ -263,8 +263,8 @@ const events = [
     borough: "Manhattan",
     eventLink: "https://www.nprdpinc.org",
     status: "approved",
-    latitude: 40.7574893581487,
-    longitude: -73.97824346208284,
+    latitude: "40.7574893581487",
+    longitude: "-73.97824346208284",
   },
   {
     title: "Kwanzaa Crawl",
@@ -280,8 +280,8 @@ const events = [
     borough: "Brooklyn",
     eventLink: "https://www.kwanzaacrawl.com",
     status: "approved",
-    latitude: 40.69737502147545,
-    longitude: -73.97888485874641,
+    latitude: "40.69737502147545",
+    longitude: "-73.97888485874641",
   },
   {
     title: "Cedar Hill Sledding Extravaganza",
@@ -296,8 +296,8 @@ const events = [
     borough: "Manhattan",
     eventLink: "https://secretnyc.co/sledding-in-nyc/",
     status: "approved",
-    latitude: 40.777475637062985,
-    longitude: -73.96620708942594,
+    latitude: "40.777475637062985",
+    longitude: "-73.96620708942594",
   },
   {
     title: "Toys for Tots Distribution",
@@ -315,8 +315,8 @@ const events = [
     eventLink:
       "https://brooklyn-ny.toysfortots.org/local-coordinator-sites/lco-sites/default.aspx?nPageID=100&nPreviewInd=200&nRedirectInd=3",
     status: "approved",
-    latitude: 40.739672343419386,
-    longitude: -73.84941062842637,
+    latitude: "40.739672343419386",
+    longitude: "-73.84941062842637",
   },
   {
     title: "Roller-Skating Lessons at Pier 2",
@@ -332,8 +332,8 @@ const events = [
     borough: "Brooklyn",
     eventLink: "https://www.brooklynbridgeskating.com/",
     status: "approved",
-    latitude: 40.6997147822431,
-    longitude: -73.9987746181839,
+    latitude: "40.6997147822431",
+    longitude: "-73.9987746181839",
   },
   {
     title: "Girls Who Code",
@@ -348,8 +348,8 @@ const events = [
     borough: "Brooklyn",
     eventLink: "https://girlswhocode.com",
     status: "approved",
-    latitude: 40.574098173799875,
-    longitude: -74.11939145168874,
+    latitude: "40.574098173799875",
+    longitude: "-74.11939145168874",
   },
   {
     title: "Holiday Pictures With Santa in Brooklyn!",
@@ -365,8 +365,8 @@ const events = [
     eventLink:
       "https://www.eventbrite.com/e/pictures-with-santa-in-brooklyn-tickets-461541431847?aff=ebdssbdestsearch",
     status: "approved",
-    latitude: 40.714526269767596,
-    longitude: -73.96297397649256,
+    latitude: "40.714526269767596",
+    longitude: "-73.96297397649256",
   },
   {
     title: "Yule Ball: Harry Potter (Book) Trivia",
@@ -382,8 +382,8 @@ const events = [
     eventLink:
       "https://www.eventbrite.com/e/yule-ball-harry-potter-book-trivia-tickets-432257573037?aff=ebdssbdestsearch",
     status: "approved",
-    latitude: 40.75187070318369,
-    longitude: -73.97230586017716,
+    latitude: "40.75187070318369",
+    longitude: "-73.97230586017716",
   },
   {
     title: "Farmhouse Family Day: Festive Colors",
@@ -399,8 +399,8 @@ const events = [
     eventLink:
       "https://www.eventbrite.com/e/farmhouse-family-day-festive-colors-tickets-420604267687?aff=ebdssbdestsearch",
     status: "approved",
-    latitude: 40.68989098643826,
-    longitude: -73.92103898142189,
+    latitude: "40.68989098643826",
+    longitude: "-73.92103898142189",
   },
   {
     title: "Self-Defense Workshop with Jess Cassetta",
@@ -416,8 +416,8 @@ const events = [
     eventLink:
       "https://www.eventbrite.com/e/self-defense-workshop-with-jess-cassetta-tickets-468822981157?aff=ebdssbdestsearch",
     status: "approved",
-    latitude: 40.75790374285874,
-    longitude: -73.97753608903936,
+    latitude: "40.75790374285874",
+    longitude: "-73.97753608903936",
   },
 ];
 

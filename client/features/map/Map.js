@@ -1,14 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Link } from "react-router-dom";
 import { icon } from "leaflet";
 import { fetchAllEvents } from "../events/eventsSlice";
-import { useNavigate } from "react-router-dom";
+import { fetchResources, selectResources } from "../resources/resourcesSlice";
+import { useNavigate, useParams } from "react-router-dom";
 import LoadingScreen from "../loading/LoadingScreen";
 
-const ICON = icon({
+const eventIcon = icon({
   iconUrl: "/geo-fill.svg",
+  iconSize: [29, 29],
+  className: "icon",
+});
+const rescourceIcon = icon({
+  iconUrl: "/pin-map.svg",
   iconSize: [29, 29],
   className: "icon",
 });
@@ -17,10 +23,20 @@ const Map = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const events = useSelector((state) => state.events.events);
+  // const { id } = useParams();
+  const resources = useSelector(selectResources);
+
+  const [displayed, setDisplayed] = useState("");
+  const filteredResources = resources.filter((resource) => {
+    if (resource.latitude !== null && resource.longitude !== null) {
+      return resource;
+    }
+  });
   const loading = useSelector((state) => state.events.loading);
 
   useEffect(() => {
     dispatch(fetchAllEvents());
+    dispatch(fetchResources());
   }, [dispatch]);
 
   const navigateToEvent = (ev, id) => {
@@ -28,41 +44,99 @@ const Map = () => {
     navigate(`/events/${id}`);
   };
 
+  const navigateToResource = (ev, id) => {
+    ev.preventDefault();
+    navigate(`/resources/${id}`);
+  };
+
+  const handleCheck = (ev) => {
+    const category = ev.target.text;
+    console.log(ev.target.text);
+
+    if (category === "Events") {
+      setDisplayed("events");
+    }
+    if (category === "Resources") {
+      setDisplayed("resources");
+    }
+  };
+
   return (
     <div className="container-fluid">
       {loading && <LoadingScreen />}
       <div className="card ">
-        <h1 align="center" style={{ fontSize: "50px" }}>
-          PocketNYC Map
-        </h1>
-        <div id="map" className="map, underline">
+        <h1 align="center">Map</h1>
+        <h6 className="text-center">
+          Click on the dropdown to map over Events or Resources!
+        </h6>
+        <div id="map" className="map">
+          <div class="dropdown text-center">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Map Key
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" onClick={(ev) => handleCheck(ev)}>
+                  Events
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" onClick={(ev) => handleCheck(ev)}>
+                  Resources
+                </a>
+              </li>
+            </ul>
+          </div>
+          <br />
           <div className="d-flex justify-content-center">
             <MapContainer center={[40.6782, -73.9442]} zoom={11}>
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              {events.map((event) => {
-                return (
-                  <Marker
-                    icon={ICON}
-                    key={event.id}
-                    position={[event.latitude, event.longitude]}
-                  >
-                    <Popup onClick={(ev) => navigateToEvent(ev, id)}>
-                      <Link to={`/events/${event.id}`}>
-                        {event.title} <br />
-                      </Link>
-                      {event.description}
-                    </Popup>
-                  </Marker>
-                );
-              })}
+              {displayed == "events"
+                ? events?.map((event) => {
+                    return (
+                      <Marker
+                        icon={eventIcon}
+                        key={event.id}
+                        position={[event.latitude, event.longitude]}
+                      >
+                        <Popup onClick={(ev) => navigateToEvent(ev, id)}>
+                          <Link to={`/events/${event.id}`}>
+                            {event.title} <br />
+                          </Link>
+                          {event.description}
+                        </Popup>
+                      </Marker>
+                    );
+                  })
+                : filteredResources?.map((resource) => {
+                    return (
+                      <Marker
+                        icon={eventIcon}
+                        key={resource.id}
+                        position={[resource.latitude, resource.longitude]}
+                      >
+                        <Popup onClick={(ev) => navigateToResource(ev, id)}>
+                          <Link to={`/resources/${resource.id}`}>
+                            {resource.name} <br />
+                          </Link>
+                          {resource.description}
+                        </Popup>
+                      </Marker>
+                    );
+                  })}
             </MapContainer>
           </div>
         </div>
       </div>
-      <div className="p-7"></div>
+      <div className="p-2"></div>
     </div>
   );
 };
