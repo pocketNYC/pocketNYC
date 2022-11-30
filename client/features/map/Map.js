@@ -6,10 +6,6 @@ import { icon } from "leaflet";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { fetchResources, selectResources } from "../resources/resourcesSlice";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, Dropdown } from "bootstrap";
-import { DropdownButton } from "react-bootstrap";
-import DropdownItem from "react-bootstrap/esm/DropdownItem";
-import DropdownContext from "react-bootstrap/esm/DropdownContext";
 
 const eventIcon = icon({
   iconUrl: "/geo-fill.svg",
@@ -26,28 +22,15 @@ const Map = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const events = useSelector((state) => state.events.events);
-  const { id } = useParams();
+  // const { id } = useParams();
   const resources = useSelector(selectResources);
-  const [displayed, setDisplayed] = useState([]);
 
+  const [displayed, setDisplayed] = useState("");
   const filteredResources = resources.filter((resource) => {
     if (resource.latitude !== null && resource.longitude !== null) {
       return resource;
     }
   });
-
-  const filterCategoryButton = (ev) => {
-    const category = ev.target.text; // text would be Events or Resources , whatever is in the dropdown
-    if (category === "Events") {
-      setDisplayed(events);
-    }
-    if (category === "Resources") {
-      setDisplayed(resources); //however you're grabbing all res markers
-    }
-    if (category === "All") {
-      setDisplayed(both); //however both can be combined
-    }
-  };
 
   useEffect(() => {
     dispatch(fetchAllEvents());
@@ -64,28 +47,47 @@ const Map = () => {
     navigate(`/resources/${id}`);
   };
 
+  const handleCheck = (ev) => {
+    const category = ev.target.text;
+    console.log(ev.target.text);
+
+    if (category === "Events") {
+      setDisplayed("events");
+    }
+    if (category === "Resources") {
+      setDisplayed("resources");
+    }
+  };
+
   return (
     <div className="container-fluid ">
       <div className="card ">
+        <h1 align="center">Map</h1>
+        <h6 className="text-center">
+          Click on the dropdown to map over Events or Resources!
+        </h6>
         <div id="map" className="map">
-          <h1 align="center" style={{ fontSize: "50px" }}>
-            PocketNYC Map
-          </h1>
-          <div class="dropdown">
+          <div class="dropdown text-center">
             <button
               class="btn btn-secondary dropdown-toggle"
               type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
+              data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               Map Key
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item">Events</a>
-              <a class="dropdown-item">Resources</a>
-            </div>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" onClick={(ev) => handleCheck(ev)}>
+                  Events
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" onClick={(ev) => handleCheck(ev)}>
+                  Resources
+                </a>
+              </li>
+            </ul>
           </div>
           <br />
           <div className="d-flex justify-content-center">
@@ -94,8 +96,8 @@ const Map = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              {filterCategoryButton === "Events"
-                ? events.map((event) => {
+              {displayed == "events"
+                ? events?.map((event) => {
                     return (
                       <Marker
                         icon={eventIcon}
@@ -111,10 +113,10 @@ const Map = () => {
                       </Marker>
                     );
                   })
-                : filteredResources.map((resource) => {
+                : filteredResources?.map((resource) => {
                     return (
                       <Marker
-                        icon={rescourceIcon}
+                        icon={eventIcon}
                         key={resource.id}
                         position={[resource.latitude, resource.longitude]}
                       >
@@ -131,7 +133,7 @@ const Map = () => {
           </div>
         </div>
       </div>
-      <div className="p-7"></div>
+      <div className="p-2"></div>
     </div>
   );
 };

@@ -25,7 +25,7 @@ const SingleResource = () => {
 
   useEffect(() => {
     dispatch(fetchSingleResource(id));
-    dispatch(fetchFavoriteResources());
+    if (isLoggedIn) dispatch(fetchFavoriteResources());
   }, [dispatch]);
 
   const addToFavoritesButton = (ev, id) => {
