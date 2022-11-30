@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 function GuestUserFeed() {
   const dispatch = useDispatch();
@@ -45,8 +46,8 @@ function GuestUserFeed() {
   return (
     <div>
       {sortedApprovedEvents?.map(({ id, image, title, description }) => (
-        <>
-          <div className="card" key={id}>
+        <div key={uuidv4()}>
+          <div className="card">
             <div className="row g-0">
               <div className="col-md-6 ">
                 <div
@@ -71,7 +72,7 @@ function GuestUserFeed() {
               <div className="col-md-6 mb-2">
                 <div className="card-body">
                   <span className="badge bg-danger px-2 py-1 shadow-1-strong mb-3">
-                    New this week!
+                    New This Week!
                   </span>
                   <h4>
                     <strong>{title}</strong>
@@ -89,7 +90,7 @@ function GuestUserFeed() {
             </div>
           </div>
           <div className="p-1"></div>
-        </>
+        </div>
       ))}
       <div className="p-2"></div>
     </div>
