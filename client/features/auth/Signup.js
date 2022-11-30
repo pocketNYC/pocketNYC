@@ -65,7 +65,7 @@ function Signup({ displayName, name }) {
   };
 
   return (
-    <div className="container vh-100">
+    <div className="container h-100">
       <Grid>
         <Card
           style={{
@@ -197,6 +197,7 @@ function Signup({ displayName, name }) {
           </CardContent>
         </Card>
       </Grid>
+      <div className="p-4"></div>
     </div>
   );
 }
