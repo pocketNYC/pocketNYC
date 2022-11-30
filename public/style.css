@@ -4,23 +4,6 @@ body {
   background-image: url("2.png");
 }
 
-@font-face {
-  font-family: 'Helvetica 65';
-  src: url('HelveticaNeue-Medium.woff2') format('woff2'),
-      url('HelveticaNeue-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Helvetica 65';
-  src: url('HelveticaNeue-Heavy.woff2') format('woff2'),
-      url('HelveticaNeue-Heavy.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
 
 @font-face {
   font-family: 'PoppinsMed';
