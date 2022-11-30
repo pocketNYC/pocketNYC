@@ -60,7 +60,6 @@ router.get("/sortedAscendingPending", async (req, res, next) => {
 router.get("/userEvents", getToken, async (req, res, next) => {
   const userId = req.user.id;
   try {
-    console.log(userId);
     const events = await Event.findAll({
       where: [
         {

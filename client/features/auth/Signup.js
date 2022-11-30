@@ -65,7 +65,7 @@ function Signup({ displayName, name }) {
   };
 
   return (
-    <div>
+    <div className="container h-100">
       <Grid>
         <Card
           style={{
@@ -79,9 +79,9 @@ function Signup({ displayName, name }) {
           }}
         >
           <CardContent>
-            <Typography gutterBottom variant="h4" align="center">
-              Sign up
-            </Typography>
+            <h1 gutterBottom variant="h4" align="center">
+              Sign Up
+            </h1>
             <hr />
             <Grid container spacing={2}>
               <center>
@@ -197,6 +197,7 @@ function Signup({ displayName, name }) {
           </CardContent>
         </Card>
       </Grid>
+      <div className="p-4"></div>
     </div>
   );
 }
