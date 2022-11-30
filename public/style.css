@@ -213,7 +213,8 @@ li {
   font-family: "PoppinsMed";
 }
 
-.accordion-body, .btn.btn-primary, .btn.btn-outline-primary.btn-md{
+.accordion-body,
+.btn.btn-primary,
+.btn.btn-outline-primary.btn-md {
   font-family: "PoppinsReg";
 }
-
