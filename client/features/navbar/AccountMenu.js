@@ -101,14 +101,14 @@ export default function AccountMenu() {
         ) : (
           <div>
             <MenuItem>
-              <Link style={{ color: "black" }} to={"/login"}>
-                <LoginIcon />
+              <Link to={"/login"}>
+                <LoginIcon style={{ color: "black" }} />
                 Login
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link style={{ color: "black" }} to={"/signup"}>
-                <LockOpenIcon />
+              <Link to={"/signup"}>
+                <LockOpenIcon style={{ color: "black" }} />
                 Sign Up
               </Link>
             </MenuItem>
