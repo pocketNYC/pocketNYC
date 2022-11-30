@@ -5,16 +5,11 @@ import { Link } from "react-router-dom";
 import { icon } from "leaflet";
 import { fetchAllEvents } from "../events/eventsSlice";
 import { fetchResources, selectResources } from "../resources/resourcesSlice";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LoadingScreen from "../loading/LoadingScreen";
 
 const eventIcon = icon({
   iconUrl: "/geo-fill.svg",
-  iconSize: [29, 29],
-  className: "icon",
-});
-const rescourceIcon = icon({
-  iconUrl: "/pin-map.svg",
   iconSize: [29, 29],
   className: "icon",
 });
@@ -23,7 +18,6 @@ const Map = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const events = useSelector((state) => state.events.events);
-  // const { id } = useParams();
   const resources = useSelector(selectResources);
 
   const [displayed, setDisplayed] = useState("");
@@ -51,7 +45,6 @@ const Map = () => {
 
   const handleCheck = (ev) => {
     const category = ev.target.text;
-    console.log(ev.target.text);
 
     if (category === "Events") {
       setDisplayed("events");
@@ -65,30 +58,34 @@ const Map = () => {
     <div className="container-fluid">
       {loading && <LoadingScreen />}
       <div className="card ">
-        <h1 align="center">Map</h1>
-        <h6 className="text-center">
-          Click on the dropdown to map over Events or Resources!
-        </h6>
+        <h1 align="center">PocketNYC Map</h1>
+        <h6 className="text-center">Click to Select Events or Resources!</h6>
         <div id="map" className="map">
-          <div class="dropdown text-center">
+          <div className="dropdown text-center">
             <button
-              class="btn btn-secondary dropdown-toggle"
+              className="btn btn-secondary dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Map Key
+              Key
             </button>
-            <ul class="dropdown-menu">
+            <ul className="dropdown-menu">
               <li>
-                <a class="dropdown-item" onClick={(ev) => handleCheck(ev)}>
+                <Link
+                  className="dropdown-item"
+                  onClick={(ev) => handleCheck(ev)}
+                >
                   Events
-                </a>
+                </Link>
               </li>
               <li>
-                <a class="dropdown-item" onClick={(ev) => handleCheck(ev)}>
+                <Link
+                  className="dropdown-item"
+                  onClick={(ev) => handleCheck(ev)}
+                >
                   Resources
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
