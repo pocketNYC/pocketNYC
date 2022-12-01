@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Avatar from "@mui/material/Avatar";
 import MapIcon from "@mui/icons-material/Map";
 import HomeIcon from "@mui/icons-material/Home";
@@ -14,8 +14,12 @@ import {
 } from "@mui/material";
 
 export default function BottomNav() {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    ref.current.ownerDocument.body.scrollTop = 0;
+  }, []);
   return (
-    <Box sx={{ pb: 5 }}>
+    <Box sx={{ pb: 5 }} ref={ref}>
       <CssBaseline />
       <Paper
         sx={{

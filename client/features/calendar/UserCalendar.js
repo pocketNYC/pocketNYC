@@ -56,7 +56,7 @@ const UserCalendar = () => {
             startAccessor="start"
             endAccessor="end"
             popup
-            style={{ height: 400, padding: "10px" }}
+            style={{ height: 400, padding: "10px", zIndex: "0" }}
           />
         </div>
       </div>

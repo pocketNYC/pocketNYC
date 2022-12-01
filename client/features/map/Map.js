@@ -55,11 +55,11 @@ const Map = () => {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ backgroundColor: "white" }}>
       {loading && <LoadingScreen />}
       <div className="card ">
         <h1 align="center">PocketNYC Map</h1>
-        <h6 className="text-center">Click to Select Events or Resources!</h6>
+        <h6 className="text-center">Click to select Events or Resources!</h6>
         <div id="map" className="map">
           <div className="dropdown text-center">
             <button
@@ -90,50 +90,52 @@ const Map = () => {
             </ul>
           </div>
           <br />
-          <div className="d-flex justify-content-center">
-            <MapContainer center={[40.6782, -73.9442]} zoom={11}>
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              {displayed == "events"
-                ? events?.map((event) => {
-                    return (
-                      <Marker
-                        icon={eventIcon}
-                        key={event.id}
-                        position={[event.latitude, event.longitude]}
-                      >
-                        <Popup onClick={(ev) => navigateToEvent(ev, id)}>
-                          <Link to={`/events/${event.id}`}>
-                            {event.title} <br />
-                          </Link>
-                          {event.description}
-                        </Popup>
-                      </Marker>
-                    );
-                  })
-                : filteredResources?.map((resource) => {
-                    return (
-                      <Marker
-                        icon={eventIcon}
-                        key={resource.id}
-                        position={[resource.latitude, resource.longitude]}
-                      >
-                        <Popup onClick={(ev) => navigateToResource(ev, id)}>
-                          <Link to={`/resources/${resource.id}`}>
-                            {resource.name} <br />
-                          </Link>
-                          {resource.description}
-                        </Popup>
-                      </Marker>
-                    );
-                  })}
-            </MapContainer>
+          <div className="card-body">
+            <div className="d-flex justify-content-center">
+              <MapContainer center={[40.6782, -73.9442]} zoom={11}>
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                {displayed == "events"
+                  ? events?.map((event) => {
+                      return (
+                        <Marker
+                          icon={eventIcon}
+                          key={event.id}
+                          position={[event.latitude, event.longitude]}
+                        >
+                          <Popup onClick={(ev) => navigateToEvent(ev, id)}>
+                            <Link to={`/events/${event.id}`}>
+                              {event.title} <br />
+                            </Link>
+                            {event.description}
+                          </Popup>
+                        </Marker>
+                      );
+                    })
+                  : filteredResources?.map((resource) => {
+                      return (
+                        <Marker
+                          icon={eventIcon}
+                          key={resource.id}
+                          position={[resource.latitude, resource.longitude]}
+                        >
+                          <Popup onClick={(ev) => navigateToResource(ev, id)}>
+                            <Link to={`/resources/${resource.id}`}>
+                              {resource.name} <br />
+                            </Link>
+                            {resource.description}
+                          </Popup>
+                        </Marker>
+                      );
+                    })}
+              </MapContainer>
+            </div>
           </div>
         </div>
       </div>
-      <div className="p-2"></div>
+      {/* <div className="p-2"></div> */}
     </div>
   );
 };

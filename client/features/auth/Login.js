@@ -3,16 +3,11 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
+
 import { authenticate } from "../../app/store";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Typography from "@mui/material/Typography";
+
 import { InputGroup } from "react-bootstrap";
 
 function Login({ name, displayName }) {
@@ -41,8 +36,87 @@ function Login({ name, displayName }) {
   };
 
   return (
-    <div>
-      <Grid>
+    <div className="container-fluid">
+      <div className="p-2">
+        <center>
+          <div className="col-md-6">
+            <div className="card mx-auto text-center">
+              <div className="p-2">
+                <img
+                  src="https://i.imgur.com/yzhTwq7.png"
+                  className="card-img-top"
+                  style={{ height: "200px", maxWidth: "660px" }}
+                />
+              </div>
+              <div className="card-body text-center" style={{ size: 45 }}>
+                <h3>Login</h3>
+                <Form
+                  noValidate
+                  validated={validated}
+                  onSubmit={handleSubmit}
+                  name={name}
+                >
+                  <Form.Group
+                    // className="mb-3"
+                    controlId="email"
+                    label="Email Address"
+                  >
+                    <Form.Label>E-mail Address</Form.Label>
+                    <InputGroup>
+                      <Form.Control
+                        required
+                        type="text"
+                        placeholder="E-mail Address"
+                      />
+                    </InputGroup>
+                    <Form.Control.Feedback type="invalid">
+                      Please provide your email.
+                    </Form.Control.Feedback>
+                  </Form.Group>
+
+                  <Form.Group className="" controlId="password">
+                    <Form.Label>Password</Form.Label>
+                    <InputGroup>
+                      <Form.Control
+                        required
+                        style={{ paddingRight: "0px" }}
+                        type={passwordShown ? "text" : "password"}
+                        placeholder="Password"
+                        aria-describedby="basic-addon2"
+                      />
+                      <Button
+                        variant="outline-primary"
+                        onClick={togglePassword}
+                        size="md"
+                      >
+                        {passwordShown ? (
+                          <VisibilityOffIcon />
+                        ) : (
+                          <RemoveRedEyeIcon />
+                        )}
+                      </Button>{" "}
+                    </InputGroup>
+                    <Form.Control.Feedback type="invalid">
+                      Please provide a password.
+                    </Form.Control.Feedback>{" "}
+                  </Form.Group>
+                  <div className="row"></div>
+                  <Button
+                    variant="outline-primary"
+                    className="center"
+                    type="submit"
+                    size="md"
+                  >
+                    {displayName}
+                  </Button>
+                </Form>{" "}
+              </div>
+            </div>
+          </div>
+        </center>
+        <div className="p-4"></div>
+      </div>
+      {/* <Grid>
         <Card
           style={{
             maxWidth: 600,
@@ -110,7 +184,7 @@ function Login({ name, displayName }) {
             </center>
           </Form>
         </Card>
-      </Grid>
+      </Grid> */}
     </div>
   );
 }
