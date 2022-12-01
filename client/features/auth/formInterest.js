@@ -2,7 +2,7 @@ const formInterest = [
   { value: "holidays", label: "Holidays" },
   { value: "multicultural", label: "Multicultural" },
   { value: "family-friendly", label: "Family-Friendly" },
-  { value: "music/arts", label: "Music/Arts" },
+  { value: "arts", label: "Arts" },
   { value: "outdoors", label: "Outdoors" },
   { value: "sports", label: "Sports" },
   { value: "clothes", label: "Clothes" },

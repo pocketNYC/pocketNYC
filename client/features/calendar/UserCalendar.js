@@ -47,7 +47,7 @@ const UserCalendar = () => {
           Browse events and add them directly to your calendar with a simple
           click!
         </h6>
-        <div className="card mx-auto">
+        <div className="card vh-100 mx-auto">
           <Calendar
             selectable
             localizer={localizer}
@@ -56,7 +56,7 @@ const UserCalendar = () => {
             startAccessor="start"
             endAccessor="end"
             popup
-            style={{ height: 400, padding: "10px" }}
+            style={{ padding: "10px", zIndex: 0 }}
           />
         </div>
       </div>

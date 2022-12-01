@@ -59,7 +59,7 @@ const Map = () => {
       {loading && <LoadingScreen />}
       <div className="card ">
         <h1 align="center">PocketNYC Map</h1>
-        <h6 className="text-center">Click to Select Events or Resources!</h6>
+        <h6 className="text-center">Display Events or Resources!</h6>
         <div id="map" className="map">
           <div className="dropdown text-center">
             <button
@@ -91,7 +91,11 @@ const Map = () => {
           </div>
           <br />
           <div className="d-flex justify-content-center">
-            <MapContainer center={[40.6782, -73.9442]} zoom={11}>
+            <MapContainer
+              style={{ zIndex: 0 }}
+              center={[40.6782, -73.9442]}
+              zoom={11}
+            >
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
