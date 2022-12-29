@@ -419,6 +419,106 @@ const events = [
     latitude: "40.75790374285874",
     longitude: "-73.97753608903936",
   },
+  {
+    title: "Hands on History: Victorian Valentines",
+    address: "King Manor Museum 150-03 Jamaica Avenue Queens, NY 11432",
+    description:
+      "Happy Valentine’s Day! Kick off the Season of Love with Victorian valentine making using reproductions of historic patterns and ephemera. Mean valentines, known as Vinegar Valentines, were also popular during this period, so broken hearts are welcome!",
+    image:
+      "https://images.squarespace-cdn.com/content/v1/5ef3ad9e35f57066d6bf11b9/a689d954-551f-4692-9c8c-f1802488e3ed/PXL_20210323_185106887.jpg?format=2500w",
+    start: "2023-02-04 13:00",
+    end: "2023-02-04 16:00",
+    tags: ["family-friendly", "holidays"],
+    borough: "Queens",
+    eventLink:
+      "https://www.eventbrite.com/e/hands-on-history-victorian-valentines-tickets-435732968037?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.703229750788005",
+    longitude: "-73.80343413701542",
+  },
+  {
+    title: "Lunar New Year Celebration",
+    address: "Queens Place Mall 8801 Queens Boulevard Queens, NY 11373",
+    description:
+      "Celebrate Lunar New Year and the Year of the Rabbit with Queens Place + New York Chinese Cultural Center! Traditional Chinese and Lion Dance Performances, Sugar Painting Demonstration + Giveaway, Festive Music, Raffles & More.",
+    image:
+      "https://imgs.6sqft.com/wp-content/uploads/2022/01/28131619/lion-dancers-on-CM-main-concourse.jpg",
+    start: "2023-01-24 15:00",
+    end: "2023-01-24 17:00",
+    tags: ["family-friendly", "holidays"],
+    borough: "Queens",
+    eventLink:
+      "https://www.eventbrite.com/e/lunar-new-year-celebration-tickets-498749893357?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.73599424671328",
+    longitude: "-73.87374398539173",
+  },
+  {
+    title: "Lunar New Year Celebration at Queens Museum",
+    address: "Queens Place Mall 8801 Queens Boulevard Queens, NY 11373",
+    description:
+      "Please join us to celebrate Lunar New Year 2023 as the New York Chinese Cultural Center (NYCCC) returns to Queens Museum with its signature program. Together we will be celebrating the year of the rabbit with folk dances, Lion Dance, Kung fu demonstrations, and traditional arts and crafts. The event will showcase a 45-minute performance program featuring professional artists and students of NYCCC’s School of the Arts, as well as a hands-on Chinese calligraphy and ink brush painting workshop for kids and adults. The Queens Museum’s education programs will offer an all-ages art-making workshop offered in English, Spanish and Mandarin.",
+    image:
+      "https://queensmuseum.org/wp-content/uploads/2022/12/4k1a7022_edit.jpg",
+    start: "2023-01-29 13:00",
+    end: "2023-01-29 16:00",
+    tags: ["family-friendly", "holidays"],
+    borough: "Queens",
+    eventLink: "https://queensmuseum.org/event/lunar-new-year-celebration/",
+    status: "approved",
+    latitude: "40.74597494147367",
+    longitude: "-73.84600587019669",
+  },
+  {
+    title: "Lunar New Year Family Festival",
+    address: "Museum of Chinese in America, 215 Centre St, New York, NY 10013",
+    description:
+      "It’s almost time tù (兔) celebrate! Ring in the Year of the Rabbit with an afternoon of festivities for the whole family— hop, skip, or jump on over! Performances, Demonstrations, and More!",
+    image: "https://media.timeout.com/images/103114120/750/422/image.jpg",
+    start: "2023-01-21 14:30",
+    end: "2023-01-21 17:30",
+    tags: ["family-friendly", "holidays"],
+    borough: "Queens",
+    eventLink:
+      "https://www.mocanyc.org/event/lunar-new-year-family-festival-2/",
+    status: "approved",
+    latitude: "40.719569570061516",
+    longitude: "-73.99902914449947",
+  },
+  {
+    title: "The Office Trivia: Valentine's Day Edition",
+    address: "McCarren Parkhouse, 855 Lorimer Street, Brooklyn, New York",
+    description:
+      "Roses are red, violets are blue, come down to Overlook NYC to find your first clue! Celebrate the anniversary of Ryan and Kelly's first hookup by joining us for The Office Trivia: Valentine's Day Edition at McCarren Park House on Valentine's Day, Tuesday, February 14 at 8pm! Bring your special someone (and the bobblehead you had made for them) or assemble your own Lonely Hearts Party. Hugging, kissing, booby honking and blood donations are optional.",
+    image: "https://i.ytimg.com/vi/Iv22Ko4LQEQ/maxresdefault.jpg",
+    start: "2023-02-14 20:00",
+    end: "2023-02-14 22:00",
+    tags: ["holidays"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.unation.com/event/the-office-trivia-valentines-day-edition-13532916",
+    status: "approved",
+    latitude: "40.722231718465935",
+    longitude: "-73.95142763341207",
+  },
+  {
+    title: "Black History Month Concert at the Brooklyn Public Library",
+    address:
+      "Brooklyn Public Library - Central Library, 10 Grand Army Plaza Brooklyn, NY 11238",
+    description:
+      "From the Brooklyn Public Library: We are very excited to have you back at our events and would like to remind you that we are still in the midst of the pandemic. Please be considerate of your fellow guests and stay home if you’re feeling unwell. Also, consider wearing a mask when attending indoor BPL Presents events. You’ll be doing your part to help keep yourself and everyone healthy and safe.",
+    image:
+      "https://images.squarespace-cdn.com/content/v1/5fc4f9b65bcb0228a29c94e8/c0b764a7-363d-4c18-a217-bb885caedb76/BPL-Black+History+Month+Concert-2023.png?format=750wg",
+    start: "2023-02-12 16:00",
+    end: "2023-02-12 17:45",
+    tags: ["holidays"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.harlemchamberplayers.org/event/black-history-month-concert-at-the-brooklyn-public-library2023",
+    status: "approved",
+    latitude: "40.722231718465935",
+    longitude: "-73.95142763341207",
+  },
 ];
 
 module.exports = events;
