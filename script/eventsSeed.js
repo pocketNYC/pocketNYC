@@ -489,7 +489,7 @@ const events = [
     title: "The Office Trivia: Valentine's Day Edition",
     address: "McCarren Parkhouse, 855 Lorimer Street, Brooklyn, New York",
     description:
-      "Roses are red, violets are blue, come down to Overlook NYC to find your first clue! Celebrate the anniversary of Ryan and Kelly's first hookup by joining us for The Office Trivia: Valentine's Day Edition at McCarren Park House on Valentine's Day, Tuesday, February 14 at 8pm! Bring your special someone (and the bobblehead you had made for them) or assemble your own Lonely Hearts Party. Hugging, kissing, booby honking and blood donations are optional.",
+      "Roses are red, violets are blue, come down to Overlook NYC to find your first clue! Celebrate the anniversary of Ryan and Kelly's first hookup by joining us for The Office Trivia: Valentine's Day Edition at McCarren Park House on Valentine's Day, Tuesday, February 14 at 8pm! Bring your special someone (and the bobblehead you had made for them) or assemble your own Lonely Hearts Party.",
     image: "https://i.ytimg.com/vi/Iv22Ko4LQEQ/maxresdefault.jpg",
     start: "2023-02-14 20:00",
     end: "2023-02-14 22:00",
@@ -511,7 +511,7 @@ const events = [
       "https://images.squarespace-cdn.com/content/v1/5fc4f9b65bcb0228a29c94e8/c0b764a7-363d-4c18-a217-bb885caedb76/BPL-Black+History+Month+Concert-2023.png?format=750wg",
     start: "2023-02-12 16:00",
     end: "2023-02-12 17:45",
-    tags: ["holidays"],
+    tags: ["holidays", "arts"],
     borough: "Brooklyn",
     eventLink:
       "https://www.harlemchamberplayers.org/event/black-history-month-concert-at-the-brooklyn-public-library2023",

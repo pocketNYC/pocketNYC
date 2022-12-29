@@ -39,6 +39,7 @@ export default function Events() {
   eventList.length === 0 && events.length > 0 ? setEventList(events) : null;
 
   const tags = [
+    "arts",
     "city services",
     "education",
     "employment",
@@ -46,7 +47,6 @@ export default function Events() {
     "health",
     "holidays",
     "multicultural",
-    "arts",
     "outdoors",
     "sports",
   ];
