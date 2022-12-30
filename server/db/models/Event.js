@@ -50,7 +50,8 @@ const Event = db.define("event", {
       "Brooklyn",
       "Queens",
       "Manhattan",
-      "Staten-Island"
+      "Staten-Island",
+      "Virtual"
     ),
     validate: {
       notEmpty: true,
