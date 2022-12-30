@@ -420,6 +420,261 @@ const events = [
     longitude: "-73.97753608903936",
   },
   {
+    title: "New York Tech Career Fair: Exclusive Tech Hiring Event",
+    address: "Virtual",
+    description:
+      "Tech Career Fair focus on helping companies achieve their diversity and inclusivity initiative with more diverse non-traditional candidates",
+    image:
+      "https://cdn.uconnectlabs.com/wp-content/uploads/sites/25/2020/10/vitual-fair-image.jpg",
+    start: "2023-01-13 12:00",
+    end: "2022-12-10 15:00",
+    tags: ["employment"],
+    borough: "Virtual",
+    eventLink:
+      "https://www.eventbrite.com/e/new-york-tech-career-fair-exclusive-tech-hiring-event-tickets-146584912419?aff=ebdssbcitybrowse",
+    status: "approved",
+    latitude: "40.68942021855546",
+    longitude: "-74.04442530020495",
+  },
+  {
+    title: "Free Fashion NYC Week Runway Show",
+    address: "347 W 34th St. 347 West 34th Street New York, NY 10001",
+    description:
+      "Free NYC Fashion Week runway show for those looking to get a sneak peek at new fashion trends!",
+    image:
+      "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F387440129%2F555841001127%2F1%2Foriginal.20221105-004831?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=252%2C809%2C3846%2C1923&s=7eee74fb5e504c8516b1ce81b628b33e",
+    start: "2023-02-11 19:00",
+    end: "2023-02-11 22:00",
+    tags: ["health", "sports"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/free-fashion-nyc-week-runway-show-tickets-462044025117?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.75344819604527",
+    longitude: "-73.99523591741003",
+  },
+  {
+    title: "New York Career Fair",
+    address: "Hilton Doubletree Hotel 525 8th Ave New York City, NY 10018",
+    description:
+      "Meet live with New York City Employers on Friday, March 3, 2023",
+    image:
+      "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F394575169%2F316131771624%2F1%2Foriginal.20221116-141434?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2000%2C1000&s=b726e56e4f6863186083a19b7e130e81",
+    start: "2023-03-03 09:30",
+    end: "2023-03-03 12:30",
+    tags: ["employment"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/new-york-career-fair-tickets-469118434867?aff=ebdssbdestsearch",
+    status: "pending",
+    latitude: "40.75397385294336",
+    longitude: "-73.99263607136704",
+  },
+  {
+    title: "Live Jazz at Nook",
+    address: "Nook 45 Irving Avenue #Unit 1 Brooklyn, NY 11237",
+    description:
+      "Free Live Jazz at Nook in Brooklyn!",
+    image:
+      "https://images.pexels.com/photos/733767/pexels-photo-733767.jpeg?auto=compress&cs=tinysrgb&w=800",
+    start: "2023-03-18 20:00",
+    end: "2023-03-19 00:00",
+    tags: ["music"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.eventbrite.com/e/live-jazz-at-nook-tickets-205149606997?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.70540857713098",
+    longitude: "-73.92452754439564",
+  },
+  {
+    title: "Serious/Long-Term Relationship New York City Virtual Speed Dating",
+    address: "Virtual",
+    description:
+      "Meet singles online! Single and Ready to Mingle? Then make yourself known and register today for Speed Dating for Professional Singles.",
+    image:
+      "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F203778769%2F440079347442%2F1%2Foriginal.20211221-211745?w=720&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C9%2C1226%2C613&s=c160feaa579192e40ba2c9ebcc6992a9",
+    start: "2023-02-03 19:00",
+    end: "2023-02-03 20:00",
+    tags: ["social"],
+    borough: "Virtual",
+    eventLink:
+      "https://www.eventbrite.com/e/seriouslong-term-relationship-new-york-city-virtual-speed-dating-tickets-231302541127?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.68945275930983",
+    longitude: "-74.04451113090403",
+  },
+  {
+    title: "Nutrition 101 Webinar: Increase Your Metabolism and Burn Fat Naturally",
+    address: "Virtual",
+    description:
+      "Join Dr. Kevin to learn how to increase your metabolism and burn fat! Don't get confused with all the nutrition information overload online.",
+    image:
+      "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F156221439%2F158727551274%2F1%2Foriginal.20210926-173426?w=720&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C163%2C1200%2C600&s=bf0ef96a0216ecc41900987160d90f74",
+    start: "2023-03-06 19:00",
+    end: "2023-03-06 20:00",
+    tags: ["health"],
+    borough: "Virtual",
+    eventLink:
+      "https://www.eventbrite.com/e/nutrition-101-webinar-increase-your-metabolism-and-burn-fat-naturally-tickets-75905903601?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.68945275930983",
+    longitude: "-74.04451113090403",
+  },
+  {
+    title: "Stand-Up Comedy",
+    address: "Postmark Cafe 326 6th Street Brooklyn, NY 11215",
+    description:
+      "The longest running stand-up comedy show in Brooklyn presented by Turner Sparks and Aaron Kominos-Smith (now in it’s 15th year)!",
+    image:
+      "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F104189980%2F57237649397%2F1%2Foriginal.jpg?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C112%2C960%2C480&s=42cccd93ae72f091bc0ec81ca9aa051c",
+    start: "2023-02-22 20:00",
+    end: "2023-02-22 21:15",
+    tags: ["social"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.eventbrite.com/e/free-standup-comedy-in-brooklyn-with-top-comics-from-nyc-tickets-44540055505?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.67126471481234",
+    longitude: "-73.98518887323263",
+  },
+  {
+    title: "ArtAccess: Open Studio at Queens Museum",
+    address: "Queens Museum Meridian Road Queens, NY 11368",
+    description:
+      "The Queens Museum welcomes teens (ages 13+) and adults with disabilities to join us at the museum for art-making and exhibition exploration.",
+    image:
+      "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F336569939%2F686900417773%2F1%2Foriginal.20220209-174018?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C251%2C3000%2C1500&s=14d6b5212d97b1e1ab9b6910f9d886e8",
+    start: "2023-04-01 14:00",
+    end: "2023-12-10 16:00",
+    tags: ["disability services", "family-friendly", "arts"],
+    borough: "Queens",
+    eventLink:
+      "https://www.eventbrite.com/e/artaccess-open-studio-teensadults-registration-403646105367?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.746052160111056",
+    longitude: "-73.8466710578864",
+  },
+  {
+    title: "Poetry Writing Workshop",
+    address: "Hudson Park Library 66 Leroy Street New York, NY 10014",
+    description:
+      "Free IN-PERSON poetry writing workshop for all levels focusing on generating new work and sharing in a welcoming environment.",
+    image:
+      "https://images.pexels.com/photos/1925536/pexels-photo-1925536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-01-17 16:00",
+    end: "2023-01-17 17:30",
+    tags: ["education, social"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/poetry-writing-workshop-tickets-412311584047?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.7302469836151",
+    longitude: "-74.0052027290396",
+  },
+  {
+    title: "Harlem Car Seat Safety Training",
+    address: "East Harlem Neighborhood Health Action Center 158 East 115th Street New York, NY 10029",
+    description:
+      "NYC Department of Transportation’s Office of Safety Education and Outreach offers vibrant workshops, publications and trainings. Helping parents, families and caregivers reduce injuries and keep children safe in New York City's traffic environment and at home.",
+    image:
+      "https://images.pexels.com/photos/6182086/pexels-photo-6182086.jpeg?auto=compress&cs=tinysrgb&w=800",
+    start: "2023-01-17 13:30",
+    end: "2023-01-17 15:40",
+    tags: ["city services", "education"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/harlem-car-seat-safety-training-tickets-466478438567?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.797845581495025",
+    longitude: " -73.9419633878003",
+  },
+  {
+    title: "Newborn Care Course",
+    address: "1826 Arthur Avenue The Bronx, NY 10457",
+    description:
+      "Newborn Care Course hosted by the Tremont Neighborhood Health Action Center.",
+    image:
+      "https://medlineplus.gov/images/InfantandNewbornCare_share.jpg",
+    start: "2023-03-01 18:00",
+    end: "2023-03-01 20:00",
+    tags: ["family-friendly", "education"],
+    borough: "Bronx",
+    eventLink:
+      "https://www.eventbrite.com/e/free-newborn-care-course-tremont-tickets-469593856867?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.844283504615426",
+    longitude: "-73.89408685788342",
+  },
+  {
+    title: "English Conversation Club",
+    address: "2147 Barnes Avenue Bronx, NY 10462",
+    description:
+      "Come to the Pelham Parkway-Van Nest Library and meet other people who are practicing English, just like you!",
+    image:
+      "https://media.istockphoto.com/id/1191628351/photo/share-your-vision-with-people-wholl-work-to-achieve-it.jpg?s=612x612&w=0&k=20&c=CpcQX_NhQ_k9mNlY01N3lOZmHimsSdwVFrJD8YZlpKo=",
+    start: "2023-02-10 15:00",
+    end: "2023-02-10 16:30",
+    tags: ["education", "social"],
+    borough: "Bronx",
+    eventLink:
+      "https://www.eventbrite.com/e/english-conversation-club-tickets-490945470117?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.85513598736674",
+    longitude: "-73.86414618671903",
+  },
+  {
+    title: "Hashtag Lunchbag Queens",
+    address: "233-10 Linden Boulevard Queens, NY 11411",
+    description:
+      "Come join us at Cambria Center for the Gifted Child for #HashtagLunchbag Queens and help us end world hunger one lunch bag at a time!",
+    image:
+      "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F412984529%2F2452504192%2F1%2Foriginal.20221221-162006?w=720&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C76%2C1080%2C540&s=837404aecc4ba7fc95f6eb08027887f6",
+    start: "2023-02-05 12:00",
+    end: "2022-02-05 14:00",
+    tags: ["family-friendly", "social"],
+    borough: "Queens",
+    eventLink:
+      "https://www.eventbrite.com/e/hashtag-lunchbag-queens-tickets-493903547807?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.691133449430026",
+    longitude: "-73.728643873232",
+  },
+  {
+    title: "H.E.A.L.T.H for Youths Pop-up Pantry Drop Off Site",
+    address: "1 Clyde Place Staten Island, NY 10301",
+    description:
+      "Join us in feeding our community by dropping off food/non-perishable goods!",
+    image:
+      "https://summitlife.org/wp-content/uploads/2016/01/Second-Harvest-Items.jpg",
+    start: "2023-02-19 09:00",
+    end: "2023-02-19 11:00",
+    tags: ["food"],
+    borough: "Staten-Island",
+    eventLink:
+      "https://www.eventbrite.com/e/health-for-youths-pop-up-pantry-program-tickets-459702240777?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.64007808622913",
+    longitude: "-74.09030263090557",
+  },
+  {
+    title: "Tree Care and Pruning by NYC Parks GreenThumb",
+    address: "College Avenue Community Garden 1420 College Ave. Bronx, NY 10456",
+    description:
+      "In this workshop participants will learn some of the basic biology around pruning (stem structure, vascular tissue), the function of pruning, some of the primary types of pruning (thinning cuts, reduction cuts, heading cuts), and how to identify healthy tree structure.",
+    image:
+      "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F382254859%2F234449876952%2F1%2Foriginal.20221028-144744?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C303%2C3024%2C1512&s=5a4d4d99fbae291db5e5f5e5ff1cb4a8",
+    start: "2022-02-25 11:00",
+    end: "2022-02-25 13:00",
+    tags: ["city services", "education", "outdoors"],
+    borough: "Bronx",
+    eventLink:
+      "https://www.eventbrite.com/e/tree-care-and-pruning-tickets-453898301037?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.83820293652829",
+    longitude: "-73.90990877322749",
+  },
+  {
     title: "Hands on History: Victorian Valentines",
     address: "King Manor Museum 150-03 Jamaica Avenue Queens, NY 11432",
     description:
