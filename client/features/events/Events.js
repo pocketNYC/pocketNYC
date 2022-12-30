@@ -47,6 +47,7 @@ export default function Events() {
     "health",
     "holidays",
     "multicultural",
+
     "outdoors",
     "sports",
   ];
