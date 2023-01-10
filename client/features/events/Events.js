@@ -27,7 +27,7 @@ export default function Events() {
 
   const filterCategoryButton = (ev) => {
     const category = ev.target.dataset.rrUiEventKey;
-
+    console.log(category);
     if (category === "All") {
       setEventList(events);
     } else {
@@ -37,6 +37,7 @@ export default function Events() {
   };
 
   eventList.length === 0 && events.length > 0 ? setEventList(events) : null;
+  console.log(eventList);
 
   const tags = [
     "arts",
@@ -47,7 +48,6 @@ export default function Events() {
     "health",
     "holidays",
     "multicultural",
-
     "outdoors",
     "sports",
   ];

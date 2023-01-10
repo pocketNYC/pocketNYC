@@ -7,9 +7,8 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { authenticate } from "../../app/store";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Typography from "@mui/material/Typography";
@@ -41,77 +40,87 @@ function Login({ name, displayName }) {
   };
 
   return (
-    <div>
-      <Grid>
-        <Card
-          style={{
-            maxWidth: 600,
-            padding: "20px 5px",
-            margin: "0 auto",
-            backgroundColor: "#F8F7EF",
-            borderRadius: "2rem",
-            boxShadow: "9px 9px 9px 9px rgb(207, 207, 207)",
-          }}
-        >
-          <Form
-            noValidate
-            validated={validated}
-            onSubmit={handleSubmit}
-            name={name}
-          >
-            <center>
-              <h1>Login</h1>
+    <Container>
+      <Col sm={6} className="mx-auto">
+        <Card className="mx-auto">
+          <center>
+            <h1>Login</h1>
+            <Form
+              noValidate
+              validated={validated}
+              onSubmit={handleSubmit}
+              name={name}
+            >
               <hr />
-              <Row>
-                <Col sm>
-                  <FloatingLabel
-                    controlId="email"
-                    label="Email Address"
-                    className="mb-3"
-                  >
-                    <Form.Control required type="text" placeholder="Email" />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide your email.
-                    </Form.Control.Feedback>
-                  </FloatingLabel>
-                </Col>
+              <Row style={{ margin: "0px", padding: "0px" }}>
+                <Form.Group controlId="email">
+                  <Row style={{ margin: "0px", padding: "0px" }}>
+                    <Form.Label
+                      label="Email Address"
+                      style={{ paddingLeft: "16px" }}
+                    >
+                      Email Address
+                    </Form.Label>
+                  </Row>
+                  <Col sm={6}>
+                    <InputGroup>
+                      <Form.Control
+                        required
+                        type="text"
+                        placeholder="Enter email"
+                      />
+                      <Form.Control.Feedback type="invalid">
+                        Please provide your email.
+                      </Form.Control.Feedback>
+                    </InputGroup>
+                  </Col>
+                </Form.Group>
               </Row>
-
-              <Row>
-                <Col sm>
-                  <FloatingLabel controlId="password" label="Password">
-                    <Form.Control
-                      required
-                      type={passwordShown ? "text" : "password"}
-                      placeholder="Password"
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide a password.
-                    </Form.Control.Feedback>
-                  </FloatingLabel>
-
-                  <Button
-                    variant="outline-primary"
-                    onClick={togglePassword}
-                    size="md"
-                  >
-                    {passwordShown ? (
-                      <VisibilityOffIcon />
-                    ) : (
-                      <RemoveRedEyeIcon />
-                    )}
-                  </Button>
-                </Col>
+              <Row style={{ margin: "0px", padding: "0px" }}>
+                <Form.Group controlId="password">
+                  <Row style={{ margin: "0px", padding: "0px" }}>
+                    <Form.Label
+                      label="Password"
+                      style={{ paddingLeft: "16px" }}
+                    >
+                      Password
+                    </Form.Label>
+                  </Row>
+                  <Col sm={6}>
+                    <InputGroup>
+                      <Form.Control
+                        required
+                        type={passwordShown ? "text" : "password"}
+                        placeholder="Enter Password"
+                      />
+                      <Button
+                        variant="outline-primary"
+                        onClick={togglePassword}
+                        size="md"
+                      >
+                        {passwordShown ? (
+                          <VisibilityOffIcon />
+                        ) : (
+                          <RemoveRedEyeIcon />
+                        )}
+                      </Button>
+                      <Form.Control.Feedback type="invalid">
+                        Please provide a password.
+                      </Form.Control.Feedback>
+                    </InputGroup>
+                  </Col>
+                </Form.Group>
               </Row>
 
               <Button variant="outline-primary" type="submit" size="md">
                 {displayName}
               </Button>
-            </center>
-          </Form>
+            </Form>
+            <div className="p-3"></div>
+          </center>
         </Card>
-      </Grid>
-    </div>
+      </Col>
+    </Container>
   );
 }
 export default Login;
