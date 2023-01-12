@@ -41,85 +41,83 @@ function Login({ name, displayName }) {
 
   return (
     <Container>
-      <Col sm={6} className="mx-auto">
-        <Card className="mx-auto">
-          <center>
-            <h1>Login</h1>
-            <Form
-              noValidate
-              validated={validated}
-              onSubmit={handleSubmit}
-              name={name}
-            >
-              <hr />
-              <Row style={{ margin: "0px", padding: "0px" }}>
-                <Form.Group controlId="email">
-                  <Row style={{ margin: "0px", padding: "0px" }}>
-                    <Form.Label
-                      label="Email Address"
-                      style={{ paddingLeft: "16px" }}
-                    >
-                      Email Address
-                    </Form.Label>
-                  </Row>
-                  <Col sm={6}>
-                    <InputGroup>
-                      <Form.Control
-                        required
-                        type="text"
-                        placeholder="Enter email"
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        Please provide your email.
-                      </Form.Control.Feedback>
-                    </InputGroup>
-                  </Col>
-                </Form.Group>
-              </Row>
-              <Row style={{ margin: "0px", padding: "0px" }}>
-                <Form.Group controlId="password">
-                  <Row style={{ margin: "0px", padding: "0px" }}>
-                    <Form.Label
-                      label="Password"
-                      style={{ paddingLeft: "16px" }}
-                    >
-                      Password
-                    </Form.Label>
-                  </Row>
-                  <Col sm={6}>
-                    <InputGroup>
-                      <Form.Control
-                        required
-                        type={passwordShown ? "text" : "password"}
-                        placeholder="Enter Password"
-                      />
-                      <Button
-                        variant="outline-primary"
-                        onClick={togglePassword}
-                        size="md"
-                      >
-                        {passwordShown ? (
-                          <VisibilityOffIcon />
-                        ) : (
-                          <RemoveRedEyeIcon />
-                        )}
-                      </Button>
-                      <Form.Control.Feedback type="invalid">
-                        Please provide a password.
-                      </Form.Control.Feedback>
-                    </InputGroup>
-                  </Col>
-                </Form.Group>
-              </Row>
+      {/* <Col sm={6} className="mx-auto"> */}
+      <Card className="mx-auto">
+        <center>
+          <h1>Login</h1>
+          <Form
+            noValidate
+            validated={validated}
+            onSubmit={handleSubmit}
+            name={name}
+          >
+            <hr />
+            <Row style={{ margin: "0px", padding: "0px" }}>
+              <Form.Group controlId="email">
+                <Row style={{ margin: "0px", padding: "0px" }}>
+                  <Form.Label
+                    label="Email Address"
+                    style={{ paddingLeft: "16px" }}
+                  >
+                    Email Address
+                  </Form.Label>
+                </Row>
 
-              <Button variant="outline-primary" type="submit" size="md">
-                {displayName}
-              </Button>
-            </Form>
-            <div className="p-3"></div>
-          </center>
-        </Card>
-      </Col>
+                <Col sm={6}>
+                  <InputGroup>
+                    <Form.Control
+                      required
+                      type="text"
+                      placeholder="Enter email"
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      Please provide your email.
+                    </Form.Control.Feedback>
+                  </InputGroup>
+                </Col>
+              </Form.Group>
+            </Row>
+            <Row style={{ margin: "0px", padding: "0px" }}>
+              <Form.Group controlId="password">
+                <Row style={{ margin: "0px", padding: "0px" }}>
+                  <Form.Label label="Password" style={{ paddingLeft: "16px" }}>
+                    Password
+                  </Form.Label>
+                </Row>
+                <Col sm={6}>
+                  <InputGroup>
+                    <Form.Control
+                      required
+                      type={passwordShown ? "text" : "password"}
+                      placeholder="Enter Password"
+                    />
+                    <Button
+                      variant="outline-primary"
+                      onClick={togglePassword}
+                      size="md"
+                    >
+                      {passwordShown ? (
+                        <VisibilityOffIcon />
+                      ) : (
+                        <RemoveRedEyeIcon />
+                      )}
+                    </Button>
+                    <Form.Control.Feedback type="invalid">
+                      Please provide a password.
+                    </Form.Control.Feedback>
+                  </InputGroup>
+                </Col>
+              </Form.Group>
+            </Row>
+
+            <Button variant="outline-primary" type="submit" size="md">
+              {displayName}
+            </Button>
+          </Form>
+          <div className="p-3"></div>
+        </center>
+      </Card>
+      {/* </Col> */}
     </Container>
   );
 }

@@ -72,18 +72,27 @@ const AddEvent = () => {
             maxWidth: 650,
             padding: "20px 5px 10px",
             margin: "0 auto",
-            backgroundColor: "#F8F7EF",
+            // backgroundColor: "#F8F7EF",
             borderRadius: "2rem",
             boxShadow: "10px 10px 10px 10px rgb(207, 207, 207)",
           }}
         >
-          <center>
-            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+          <Form
+            className="event"
+            noValidate
+            validated={validated}
+            onSubmit={handleSubmit}
+          >
+            <center>
               <h2>Create an Event</h2>
               <hr />
               <Row>
                 <Col sm>
-                  <FloatingLabel controlId="title" label="Title">
+                  <FloatingLabel
+                    controlId="title"
+                    label="Title"
+                    className="mb-3"
+                  >
                     <Form.Control
                       required
                       type="text"
@@ -93,6 +102,11 @@ const AddEvent = () => {
                       Please provide a title.
                     </Form.Control.Feedback>
                   </FloatingLabel>
+                </Col>
+              </Row>
+
+              <Row>
+                <Col sm>
                   <FloatingLabel
                     controlId="description"
                     label="Description"
@@ -129,7 +143,7 @@ const AddEvent = () => {
 
                   <FloatingLabel
                     controlId="image"
-                    label="Image"
+                    label="Image URL"
                     className="mb-3"
                   >
                     <Form.Control
@@ -157,7 +171,11 @@ const AddEvent = () => {
                       placeholder="Enter Event Link"
                     />
                   </FloatingLabel>
-                  <FloatingLabel controlId="borough" label="Borough">
+                  <FloatingLabel
+                    controlId="borough"
+                    label="Borough"
+                    className="mb-3"
+                  >
                     <Form.Select isInvalid={errors}>
                       <option>Select</option>
                       <option value="Bronx">Bronx</option>
@@ -179,7 +197,7 @@ const AddEvent = () => {
                     <label> Categories of interest (select up to 3): </label>
                     <Typeahead
                       multiple
-                      className="test-select"
+                      className="test-select mb-3"
                       id="tags"
                       placeholder="Select.."
                       name="tags"
@@ -189,16 +207,19 @@ const AddEvent = () => {
                   </Form.Group>
                 </Col>
               </Row>
+
               <Row>
                 <Col sm>
-                  <Form.Group className="mb-6" controlId="start" required>
+                  <Form.Group controlId="start" className="mb-3" required>
                     <DateTimePicker
                       label="Starting Date and Time"
                       value={startVal}
                       onChange={(newValue) => setStartVal(newValue)}
                     />
                   </Form.Group>
-                  <Form.Group className="mb-6" controlId="end">
+                </Col>
+                <Col sm>
+                  <Form.Group controlId="end" className="mb-3" required>
                     <DateTimePicker
                       label="Ending Date and Time"
                       value={endVal}
@@ -210,8 +231,8 @@ const AddEvent = () => {
               <Button variant="primary" type="submit">
                 Submit
               </Button>
-            </Form>
-          </center>
+            </center>
+          </Form>
         </Card>
       </Grid>
       <div className="p-4"></div>
