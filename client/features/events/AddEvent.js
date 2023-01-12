@@ -230,6 +230,7 @@ const AddEvent = () => {
                         </label>
                         <Typeahead
                           multiple
+                          dropup
                           className="test-select mb-3"
                           id="tags"
                           placeholder="Select.."
