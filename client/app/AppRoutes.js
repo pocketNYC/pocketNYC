@@ -22,6 +22,7 @@ import LoadingScreen from "../features/loading/LoadingScreen";
 import FavoriteResources from "../features/favorites/FavoriteResources";
 import FavoriteEvents from "../features/favorites/FavoriteEvents";
 import LaunchScreen from "../features/loading/LaunchScreen";
+import LoginOrSignup from "../features/auth/LoginOrSignup";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -98,10 +99,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route
-            path="/login"
-            element={<Login name="login" displayName="Login" />}
-          />
+          <Route path="/login" element={<LoginOrSignup />} />
           <Route
             path="/signup"
             element={<Signup name="signup" displayName="Sign Up" />}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -13,8 +14,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Typography from "@mui/material/Typography";
 import { InputGroup } from "react-bootstrap";
+import Signup from "./Signup";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
 
-function Login({ name, displayName }) {
+function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
@@ -41,83 +45,67 @@ function Login({ name, displayName }) {
 
   return (
     <Container>
-      {/* <Col sm={6} className="mx-auto"> */}
-      <Card className="mx-auto">
-        <center>
-          <h1>Login</h1>
-          <Form
-            noValidate
-            validated={validated}
-            onSubmit={handleSubmit}
-            name={name}
-          >
-            <hr />
+      <Form
+        noValidate
+        validated={validated}
+        onSubmit={handleSubmit}
+        name="login"
+      >
+        <hr />
+        <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
+          <Form.Group controlId="email">
             <Row style={{ margin: "0px", padding: "0px" }}>
-              <Form.Group controlId="email">
-                <Row style={{ margin: "0px", padding: "0px" }}>
-                  <Form.Label
-                    label="Email Address"
-                    style={{ paddingLeft: "16px" }}
-                  >
-                    Email Address
-                  </Form.Label>
-                </Row>
-
-                <Col sm={6}>
-                  <InputGroup>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder="Enter email"
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide your email.
-                    </Form.Control.Feedback>
-                  </InputGroup>
-                </Col>
-              </Form.Group>
-            </Row>
-            <Row style={{ margin: "0px", padding: "0px" }}>
-              <Form.Group controlId="password">
-                <Row style={{ margin: "0px", padding: "0px" }}>
-                  <Form.Label label="Password" style={{ paddingLeft: "16px" }}>
-                    Password
-                  </Form.Label>
-                </Row>
-                <Col sm={6}>
-                  <InputGroup>
-                    <Form.Control
-                      required
-                      type={passwordShown ? "text" : "password"}
-                      placeholder="Enter Password"
-                    />
-                    <Button
-                      variant="outline-primary"
-                      onClick={togglePassword}
-                      size="md"
-                    >
-                      {passwordShown ? (
-                        <VisibilityOffIcon />
-                      ) : (
-                        <RemoveRedEyeIcon />
-                      )}
-                    </Button>
-                    <Form.Control.Feedback type="invalid">
-                      Please provide a password.
-                    </Form.Control.Feedback>
-                  </InputGroup>
-                </Col>
-              </Form.Group>
+              <Form.Label label="Email Address" style={{ paddingLeft: "16px" }}>
+                Email Address
+              </Form.Label>
             </Row>
 
-            <Button variant="outline-primary" type="submit" size="md">
-              {displayName}
-            </Button>
-          </Form>
-          <div className="p-3"></div>
-        </center>
-      </Card>
-      {/* </Col> */}
+            <Col sm={6}>
+              <InputGroup>
+                <Form.Control required type="text" placeholder="Enter email" />
+                <Form.Control.Feedback type="invalid">
+                  Please provide your email.
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Col>
+          </Form.Group>
+        </Row>
+        <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
+          <Form.Group controlId="password">
+            <Row style={{ margin: "0px", padding: "0px" }}>
+              <Form.Label label="Password" style={{ paddingLeft: "16px" }}>
+                Password
+              </Form.Label>
+            </Row>
+
+            <Col sm={6}>
+              <InputGroup>
+                <Form.Control
+                  required
+                  type={passwordShown ? "text" : "password"}
+                  placeholder="Enter Password"
+                />
+                <Button
+                  variant="outline-primary"
+                  onClick={togglePassword}
+                  size="md"
+                >
+                  {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
+                </Button>
+                <Form.Control.Feedback type="invalid">
+                  Please provide a password.
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Col>
+          </Form.Group>
+        </Row>
+
+        <Button variant="primary" type="submit" size="md">
+          Login
+        </Button>
+        <br />
+      </Form>
+      <div className="p-3"></div>
     </Container>
   );
 }

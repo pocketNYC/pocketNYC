@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Typeahead } from "react-bootstrap-typeahead";
+import { Input, Typeahead } from "react-bootstrap-typeahead";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import formInterest from "./formInterest";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import { Row, Col } from "react-bootstrap";
+import { InputGroup } from "react-bootstrap";
+
 import Typography from "@mui/material/Typography";
 import { authenticate } from "../../app/store";
 
@@ -66,138 +68,162 @@ function Signup({ displayName, name }) {
 
   return (
     <div className="container h-100">
-      <Grid>
-        <Card
-          style={{
-            maxWidth: 600,
-            padding: "20px 5px 10px",
-            margin: "0 auto",
-            mt: "50px",
-            backgroundColor: "#F8F7EF",
-            borderRadius: "2rem",
-            boxShadow: "10px 10px 10px 10px rgb(207, 207, 207)",
-          }}
+      <Container>
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={handleSubmit}
+          name="signup"
         >
-          <CardContent>
-            <h1 gutterBottom variant="h4" align="center">
-              Sign Up
-            </h1>
-            <hr />
-            <Grid container spacing={2}>
-              <center>
-                <Form
-                  noValidate
-                  validated={validated}
-                  onSubmit={handleSubmit}
-                  name={name}
-                >
-                  <Grid item xs={6} md={6}>
-                    <FloatingLabel
-                      controlId="firstName"
-                      label="First Name"
-                      className="mb-3"
-                    >
-                      <Form.Control
-                        required
-                        type="text"
-                        placeholder="Enter First Name"
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        Please provide your first name.
-                      </Form.Control.Feedback>
-                    </FloatingLabel>
+          <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
+            <Form.Group controlId="firstName">
+              <Row style={{ margin: "0px" }}>
+                <Form.Label label="First Name">First Name</Form.Label>
+              </Row>
 
-                    <FloatingLabel
-                      controlId="lastName"
-                      label="Last Name"
-                      className="mb-3"
-                    >
-                      <Form.Control
-                        required
-                        type="text"
-                        placeholder="Enter Last Name"
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        Please provide your last name.
-                      </Form.Control.Feedback>
-                    </FloatingLabel>
+              <Col sm={6}>
+                <InputGroup>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Enter First Name"
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide your first name.
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Col>
+            </Form.Group>
+          </Row>
 
-                    <Form.Group className="mb-6" controlId="interests">
-                      <Form.Label>
-                        Categories of interest (select up to 3):{" "}
-                      </Form.Label>
-                      <Typeahead
-                        multiple
-                        className="test-select"
-                        id="interests"
-                        placeholder="Select.."
-                        name="interests"
-                        onChange={handleChange}
-                        options={formInterest}
-                      />
-                    </Form.Group>
+          <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
+            <Form.Group controlId="lastName">
+              <Row style={{ margin: "0px", padding: "0px" }}>
+                <Form.Label label="Last Name">Last Name</Form.Label>
+              </Row>
+              <Col sm={6}>
+                <InputGroup>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Enter Last Name"
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide your last name.
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Col>
+            </Form.Group>
+          </Row>
 
-                    <FloatingLabel
-                      controlId="email"
-                      label="Email"
-                      className="mb-3"
-                    >
-                      <Form.Control
-                        required
-                        type="text"
-                        placeholder="Enter Email"
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        Please provide your email.
-                      </Form.Control.Feedback>
-                    </FloatingLabel>
+          <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
+            <Form.Group className="mb-6" controlId="interests">
+              <Row style={{ margin: "0px", padding: "0px" }}>
+                <Form.Label>
+                  Categories of interest (select up to 3):{" "}
+                </Form.Label>{" "}
+              </Row>
+              <Col sm={6}>
+                <InputGroup>
+                  <Typeahead
+                    multiple
+                    className="test-select"
+                    id="interests"
+                    placeholder="Select.."
+                    name="interests"
+                    onChange={handleChange}
+                    options={formInterest}
+                  />
+                </InputGroup>
+              </Col>
+            </Form.Group>
+          </Row>
 
-                    <FloatingLabel controlId="password" label="Password">
-                      <Form.Control
-                        required
-                        type={passwordShown ? "text" : "password"}
-                        placeholder="Password"
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        Please provide a password.
-                      </Form.Control.Feedback>
-                    </FloatingLabel>
-                    <Button
-                      variant="outline-primary"
-                      onClick={togglePassword}
-                      size="sm"
-                    >
-                      {passwordShown ? (
-                        <VisibilityOffIcon />
-                      ) : (
-                        <RemoveRedEyeIcon />
-                      )}
-                    </Button>
-                    <FloatingLabel controlId="borough" label="Borough">
-                      <Form.Select isInvalid={errors}>
-                        <option>Select</option>
-                        <option value="Bronx">Bronx</option>
-                        <option value="Brooklyn">Brooklyn</option>
-                        <option value="Queens">Queens</option>
-                        <option value="Manhattan">Manhattan</option>
-                        <option value="Staten Island">Staten Island</option>
-                      </Form.Select>
-                      <Form.Control.Feedback type="invalid">
-                        {errors}
-                      </Form.Control.Feedback>
-                    </FloatingLabel>
+          <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
+            <Form.Group controlId="email">
+              <Row style={{ margin: "0px", padding: "0px" }}>
+                <Form.Label label="Email Address">Email Address</Form.Label>
+              </Row>
+              <Col sm={6}>
+                <InputGroup>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Enter email"
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide your email.
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Col>
+            </Form.Group>
+          </Row>
 
-                    <Button variant="primary" type="submit">
-                      {displayName}
-                    </Button>
-                  </Grid>
-                </Form>
-              </center>
-            </Grid>
-          </CardContent>
-        </Card>
-      </Grid>
-      <div className="p-4"></div>
+          <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
+            <Form.Group controlId="password">
+              <Row style={{ margin: "0px", padding: "0px" }}>
+                <Form.Label label="Password" style={{ paddingLeft: "16px" }}>
+                  Password
+                </Form.Label>
+              </Row>
+
+              <Col sm={6}>
+                <InputGroup>
+                  <Form.Control
+                    required
+                    type={passwordShown ? "text" : "password"}
+                    placeholder="Enter Password"
+                  />
+                  <Button
+                    variant="outline-primary"
+                    onClick={togglePassword}
+                    size="md"
+                  >
+                    {passwordShown ? (
+                      <VisibilityOffIcon />
+                    ) : (
+                      <RemoveRedEyeIcon />
+                    )}
+                  </Button>
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a password.
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Col>
+            </Form.Group>
+          </Row>
+
+          <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
+            <Form.Group controlId="borough">
+              <Row style={{ margin: "0px", padding: "0px" }}>
+                <Form.Label label="Borough" style={{ paddingLeft: "16px" }}>
+                  Borough
+                </Form.Label>
+              </Row>
+              <Col sm={6}>
+                <InputGroup>
+                  <Form.Select isInvalid={errors}>
+                    <option>Select</option>
+                    <option value="Bronx">Bronx</option>
+                    <option value="Brooklyn">Brooklyn</option>
+                    <option value="Queens">Queens</option>
+                    <option value="Manhattan">Manhattan</option>
+                    <option value="Staten Island">Staten Island</option>
+                  </Form.Select>
+                  <Form.Control.Feedback type="invalid">
+                    {errors}
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Col>
+            </Form.Group>
+          </Row>
+
+          <Button variant="primary" type="submit">
+            Sign Up
+          </Button>
+        </Form>
+        <div className="p-4"></div>
+      </Container>
     </div>
   );
 }
