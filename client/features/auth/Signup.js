@@ -78,7 +78,9 @@ function Signup({ displayName, name }) {
           <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
             <Form.Group controlId="firstName">
               <Row style={{ margin: "0px" }}>
-                <Form.Label label="First Name">First Name</Form.Label>
+                <Form.Label className="fw-bold" label="First Name">
+                  First Name
+                </Form.Label>
               </Row>
 
               <Col sm={6}>
@@ -99,7 +101,9 @@ function Signup({ displayName, name }) {
           <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
             <Form.Group controlId="lastName">
               <Row style={{ margin: "0px", padding: "0px" }}>
-                <Form.Label label="Last Name">Last Name</Form.Label>
+                <Form.Label className="fw-bold" label="Last Name">
+                  Last Name
+                </Form.Label>
               </Row>
               <Col sm={6}>
                 <InputGroup>
@@ -119,7 +123,7 @@ function Signup({ displayName, name }) {
           <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
             <Form.Group className="mb-6" controlId="interests">
               <Row style={{ margin: "0px", padding: "0px" }}>
-                <Form.Label>
+                <Form.Label className="fw-bold">
                   Categories of interest (select up to 3):{" "}
                 </Form.Label>{" "}
               </Row>
@@ -142,7 +146,9 @@ function Signup({ displayName, name }) {
           <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
             <Form.Group controlId="email">
               <Row style={{ margin: "0px", padding: "0px" }}>
-                <Form.Label label="Email Address">Email Address</Form.Label>
+                <Form.Label className="fw-bold" label="Email Address">
+                  Email Address
+                </Form.Label>
               </Row>
               <Col sm={6}>
                 <InputGroup>
@@ -162,7 +168,11 @@ function Signup({ displayName, name }) {
           <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
             <Form.Group controlId="password">
               <Row style={{ margin: "0px", padding: "0px" }}>
-                <Form.Label label="Password" style={{ paddingLeft: "16px" }}>
+                <Form.Label
+                  className="fw-bold"
+                  label="Password"
+                  style={{ paddingLeft: "16px" }}
+                >
                   Password
                 </Form.Label>
               </Row>
@@ -196,7 +206,11 @@ function Signup({ displayName, name }) {
           <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
             <Form.Group controlId="borough">
               <Row style={{ margin: "0px", padding: "0px" }}>
-                <Form.Label label="Borough" style={{ paddingLeft: "16px" }}>
+                <Form.Label
+                  className="fw-bold"
+                  label="Borough"
+                  style={{ paddingLeft: "16px" }}
+                >
                   Borough
                 </Form.Label>
               </Row>
@@ -222,7 +236,7 @@ function Signup({ displayName, name }) {
             Sign Up
           </Button>
         </Form>
-        <div className="p-4"></div>
+        <div className="p-1"></div>
       </Container>
     </div>
   );

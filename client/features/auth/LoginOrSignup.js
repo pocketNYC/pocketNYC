@@ -65,7 +65,7 @@ function LoginOrSignup({ name, displayName }) {
           </center>
         </Col>
       </Card>
-      <div className="p-3"></div>
+      <div className="p-2"></div>
     </Container>
   );
 }
