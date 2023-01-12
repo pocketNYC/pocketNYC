@@ -132,23 +132,25 @@ const AddEvent = () => {
                   </Row>
 
                   <Row>
-                    <Col sm>
-                      <Form.Group controlId="start" className="mb-3" required>
-                        <DateTimePicker
-                          label="Starting Date and Time"
-                          value={startVal}
-                          onChange={(newValue) => setStartVal(newValue)}
-                        />
-                      </Form.Group>
-                    </Col>
-                    <Col sm>
-                      <Form.Group controlId="end" className="mb-3" required>
-                        <DateTimePicker
-                          label="Ending Date and Time"
-                          value={endVal}
-                          onChange={(newValue) => setEndVal(newValue)}
-                        />
-                      </Form.Group>
+                    <Col className="d-flex justify-content-between">
+                      <Col sm className="d-flex justify-content-start">
+                        <Form.Group controlId="start" className="mb-3" required>
+                          <DateTimePicker
+                            label="Starting Date and Time"
+                            value={startVal}
+                            onChange={(newValue) => setStartVal(newValue)}
+                          />
+                        </Form.Group>
+                      </Col>
+                      <Col sm className="d-flex justify-content-end">
+                        <Form.Group controlId="end" className="mb-3" required>
+                          <DateTimePicker
+                            label="Ending Date and Time"
+                            value={endVal}
+                            onChange={(newValue) => setEndVal(newValue)}
+                          />
+                        </Form.Group>
+                      </Col>
                     </Col>
                   </Row>
 
