@@ -65,20 +65,23 @@ function ConfirmationPage({ user }) {
               {event?.eventLink ? (
                 <>
                   <small>
-                    <strong>More Info: </strong> {event?.eventLink}
+                    <strong>More Info: </strong>
+                    <a target="_blank" href={`${event?.eventLink}`}>
+                      {event?.eventLink}
+                    </a>
                   </small>
                   <br />
                 </>
               ) : null}
               <small>
-                <strong>Event Tags: </strong> {event?.tags?.join(", ")}
-              </small>
-              <br />
-              <small>
                 <strong>Image Link: </strong>
                 <a target="_blank" href={`${event?.image}`}>
                   {event?.image}
                 </a>
+              </small>
+              <br />
+              <small>
+                <strong>Event Tags: </strong> {event?.tags?.join(", ")}
               </small>
               <div className="p-2"></div>
               <Link to="/events">

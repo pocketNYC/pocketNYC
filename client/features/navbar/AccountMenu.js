@@ -8,13 +8,10 @@ import IconButton from "@mui/material/IconButton";
 import PersonIcon from "@mui/icons-material/Person";
 import Logout from "@mui/icons-material/Logout";
 import BallotIcon from "@mui/icons-material/Ballot";
-import LoginIcon from "@mui/icons-material/Login";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
 import Avatar from "@mui/material/Avatar";
 
 export default function AccountMenu() {
   const userId = useSelector((state) => state.auth.me.id);
-  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -73,47 +70,30 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: "left", vertical: "bottom" }}
         anchorOrigin={{ horizontal: "right", vertical: "top" }}
       >
-        {isLoggedIn ? (
-          <div>
-            <MenuItem>
-              <Link to={`/users/${userId}`}>
-                <PersonIcon style={{ color: "black" }} />
-                Profile
-              </Link>
-            </MenuItem>
+        <div>
+          <MenuItem>
+            <Link to={`/users/${userId}`}>
+              <PersonIcon style={{ color: "black" }} />
+              Profile
+            </Link>
+          </MenuItem>
 
-            {isAdmin ? (
-              <MenuItem>
-                <Link to={`/admin`}>
-                  <BallotIcon style={{ color: "black" }} />
-                  Admin
-                </Link>
-              </MenuItem>
-            ) : null}
+          {isAdmin ? (
+            <MenuItem>
+              <Link to={`/admin`}>
+                <BallotIcon style={{ color: "black" }} />
+                Admin
+              </Link>
+            </MenuItem>
+          ) : null}
 
-            <MenuItem onClick={logoutAndRedirectHome}>
-              <Link to={"/home"}>
-                <Logout style={{ color: "black" }} />
-                Logout
-              </Link>
-            </MenuItem>
-          </div>
-        ) : (
-          <div>
-            <MenuItem>
-              <Link to={"/login"}>
-                <LoginIcon style={{ color: "black" }} />
-                Login
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={"/signup"}>
-                <LockOpenIcon style={{ color: "black" }} />
-                Sign Up
-              </Link>
-            </MenuItem>
-          </div>
-        )}
+          <MenuItem onClick={logoutAndRedirectHome}>
+            <Link to={"/home"}>
+              <Logout style={{ color: "black" }} />
+              Logout
+            </Link>
+          </MenuItem>
+        </div>
       </Menu>
     </>
   );

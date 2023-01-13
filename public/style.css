@@ -71,10 +71,10 @@ a.ex2:active {
   font-size: 120%;
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
-}
+/* form div {
+  /* margin: 1em; */
+  /* display: inline-block; */
+} */
 
 .underline {
   text-decoration: underline;

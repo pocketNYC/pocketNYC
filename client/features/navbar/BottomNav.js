@@ -1,5 +1,7 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Avatar from "@mui/material/Avatar";
+import PersonIcon from "@mui/icons-material/Person";
 import MapIcon from "@mui/icons-material/Map";
 import HomeIcon from "@mui/icons-material/Home";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
@@ -14,6 +16,7 @@ import {
 } from "@mui/material";
 
 export default function BottomNav() {
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   return (
     <Box sx={{ pb: 5 }}>
       <CssBaseline />
@@ -81,11 +84,25 @@ export default function BottomNav() {
               </>
             }
           />
-          <BottomNavigationAction
-            sx={{ color: "black", padding: "8px" }}
-            label="User"
-            icon={<AccountMenu />}
-          />
+
+          {isLoggedIn ? (
+            <BottomNavigationAction
+              sx={{ color: "black", padding: "8px" }}
+              label="User"
+              icon={<AccountMenu />}
+            />
+          ) : (
+            <BottomNavigationAction
+              label="User"
+              href="/login"
+              sx={{ color: "black", padding: "8px" }}
+              icon={
+                <Avatar sx={{ backgroundColor: "#00933C" }}>
+                  <PersonIcon sx={{ color: "white" }} />{" "}
+                </Avatar>
+              }
+            />
+          )}
         </BottomNavigation>
       </Paper>
     </Box>

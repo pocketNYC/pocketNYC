@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Typeahead } from "react-bootstrap-typeahead";
-import { Form } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Button from "react-bootstrap/Button";
 import formInterest from "../auth/formInterest";
@@ -66,155 +66,202 @@ const AddEvent = () => {
 
   return (
     <div>
-      <Grid>
+      <Container>
         <Card
+          className="mb-3"
           style={{
-            maxWidth: 650,
-            padding: "20px 5px 10px",
+            maxWidth: "1200px",
+            padding: "10px",
             margin: "0 auto",
-            backgroundColor: "#F8F7EF",
-            borderRadius: "2rem",
             boxShadow: "10px 10px 10px 10px rgb(207, 207, 207)",
           }}
         >
-          <center>
-            <Form noValidate validated={validated} onSubmit={handleSubmit}>
-              <h2>Create an Event</h2>
-              <hr />
-              <Row>
-                <Col sm>
-                  <FloatingLabel controlId="title" label="Title">
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder="Enter Title"
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide a title.
-                    </Form.Control.Feedback>
-                  </FloatingLabel>
-                  <FloatingLabel
-                    controlId="description"
-                    label="Description"
-                    className="mb-3"
-                  >
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder="Enter Description"
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide a description of the event.
-                    </Form.Control.Feedback>
-                  </FloatingLabel>
-                </Col>
-              </Row>
+          <Row className="g-1">
+            <Col xs>
+              <img
+                src="https://i.imgur.com/KY2tiV1.jpg"
+                className="img-fluid h-100"
+              ></img>
+            </Col>
+            <Col md>
+              <Form
+                className="event"
+                noValidate
+                validated={validated}
+                onSubmit={handleSubmit}
+              >
+                <center>
+                  <h2>Create an Event</h2>
+                  <hr />
+                  <Row>
+                    <Col md>
+                      <FloatingLabel
+                        controlId="title"
+                        label="Title"
+                        className="mb-3"
+                      >
+                        <Form.Control
+                          required
+                          type="text"
+                          placeholder="Enter Title"
+                        />
+                        <Form.Control.Feedback type="invalid">
+                          Please provide a title.
+                        </Form.Control.Feedback>
+                      </FloatingLabel>
+                    </Col>
+                  </Row>
 
-              <Row>
-                <Col sm>
-                  <FloatingLabel
-                    controlId="address"
-                    label="Address"
-                    className="mb-3"
-                  >
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder="Enter Address"
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide an address.
-                    </Form.Control.Feedback>
-                  </FloatingLabel>
+                  <Row>
+                    <Col sm>
+                      <FloatingLabel
+                        controlId="description"
+                        label="Description"
+                        className="mb-3"
+                      >
+                        <Form.Control
+                          required
+                          type="text"
+                          placeholder="Enter Description"
+                        />
+                        <Form.Control.Feedback type="invalid">
+                          Please provide a description of the event.
+                        </Form.Control.Feedback>
+                      </FloatingLabel>
+                    </Col>
+                  </Row>
 
-                  <FloatingLabel
-                    controlId="image"
-                    label="Image"
-                    className="mb-3"
-                  >
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder="Enter Image"
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide an image.
-                    </Form.Control.Feedback>
-                  </FloatingLabel>
-                </Col>
-              </Row>
+                  <Row>
+                    <Col className="d-flex justify-content-between">
+                      <Col sm className="d-flex justify-content-start">
+                        <Form.Group
+                          style={{ zIndex: 0 }}
+                          controlId="start"
+                          className="mb-3"
+                          required
+                        >
+                          <DateTimePicker
+                            label="Starting Date and Time"
+                            value={startVal}
+                            onChange={(newValue) => setStartVal(newValue)}
+                          />
+                        </Form.Group>
+                      </Col>
+                      <Col sm className="d-flex justify-content-end">
+                        <Form.Group
+                          style={{ zIndex: 0 }}
+                          controlId="end"
+                          className="mb-3"
+                          required
+                        >
+                          <DateTimePicker
+                            label="Ending Date and Time"
+                            value={endVal}
+                            onChange={(newValue) => setEndVal(newValue)}
+                          />
+                        </Form.Group>
+                      </Col>
+                    </Col>
+                  </Row>
 
-              <Row>
-                <Col sm>
-                  <FloatingLabel
-                    controlId="eventLink"
-                    label="Event Link"
-                    className="mb-3"
-                  >
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder="Enter Event Link"
-                    />
-                  </FloatingLabel>
-                  <FloatingLabel controlId="borough" label="Borough">
-                    <Form.Select isInvalid={errors}>
-                      <option>Select</option>
-                      <option value="Bronx">Bronx</option>
-                      <option value="Brooklyn">Brooklyn</option>
-                      <option value="Queens">Queens</option>
-                      <option value="Manhattan">Manhattan</option>
-                      <option value="Staten Island">Staten Island</option>
-                    </Form.Select>
-                    <Form.Control.Feedback type="invalid">
-                      {errors}
-                    </Form.Control.Feedback>
-                  </FloatingLabel>
-                </Col>
-              </Row>
+                  <Row>
+                    <Col sm>
+                      <FloatingLabel
+                        controlId="address"
+                        label="Address"
+                        className="mb-3"
+                      >
+                        <Form.Control
+                          required
+                          type="text"
+                          placeholder="Enter Address"
+                        />
+                        <Form.Control.Feedback type="invalid">
+                          Please provide an address.
+                        </Form.Control.Feedback>
+                      </FloatingLabel>
 
-              <Row>
-                <Col sm>
-                  <Form.Group className="mb-6" controlId="tags">
-                    <label> Categories of interest (select up to 3): </label>
-                    <Typeahead
-                      multiple
-                      className="test-select"
-                      id="tags"
-                      placeholder="Select.."
-                      name="tags"
-                      onChange={handleChange}
-                      options={formInterest}
-                    />
-                  </Form.Group>
-                </Col>
-              </Row>
-              <Row>
-                <Col sm>
-                  <Form.Group className="mb-6" controlId="start" required>
-                    <DateTimePicker
-                      label="Starting Date and Time"
-                      value={startVal}
-                      onChange={(newValue) => setStartVal(newValue)}
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-6" controlId="end">
-                    <DateTimePicker
-                      label="Ending Date and Time"
-                      value={endVal}
-                      onChange={(newValue) => setEndVal(newValue)}
-                    />
-                  </Form.Group>
-                </Col>
-              </Row>
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
-            </Form>
-          </center>
+                      <FloatingLabel
+                        controlId="image"
+                        label="Image URL"
+                        className="mb-3"
+                      >
+                        <Form.Control
+                          required
+                          type="text"
+                          placeholder="Enter Image"
+                        />
+                        <Form.Control.Feedback type="invalid">
+                          Please provide an image.
+                        </Form.Control.Feedback>
+                      </FloatingLabel>
+                    </Col>
+                  </Row>
+
+                  <Row>
+                    <Col sm>
+                      <FloatingLabel
+                        controlId="eventLink"
+                        label="Event Link"
+                        className="mb-3"
+                      >
+                        <Form.Control
+                          required
+                          type="text"
+                          placeholder="Enter Event Link"
+                        />
+                      </FloatingLabel>
+                      <FloatingLabel
+                        controlId="borough"
+                        label="Borough"
+                        className="mb-3"
+                      >
+                        <Form.Select isInvalid={errors}>
+                          <option>Select</option>
+                          <option value="Bronx">Bronx</option>
+                          <option value="Brooklyn">Brooklyn</option>
+                          <option value="Queens">Queens</option>
+                          <option value="Manhattan">Manhattan</option>
+                          <option value="Staten Island">Staten Island</option>
+                        </Form.Select>
+                        <Form.Control.Feedback type="invalid">
+                          {errors}
+                        </Form.Control.Feedback>
+                      </FloatingLabel>
+                    </Col>
+                  </Row>
+
+                  <Row>
+                    <Col sm>
+                      <Form.Group className="mb-6" controlId="tags">
+                        <label>Categories of interest (select up to 3): </label>
+                        <Typeahead
+                          style={{ zIndex: 0 }}
+                          multiple
+                          dropup
+                          className="test-select mb-3"
+                          id="tags"
+                          placeholder="Select.."
+                          name="tags"
+                          onChange={handleChange}
+                          options={formInterest}
+                        />
+                      </Form.Group>
+                    </Col>
+                  </Row>
+
+                  <div className="d-grid gap-2">
+                    <Button variant="primary" type="submit" size="lg">
+                      Submit
+                    </Button>
+                  </div>
+                </center>
+              </Form>
+            </Col>
+          </Row>
         </Card>
-      </Grid>
-      <div className="p-4"></div>
+      </Container>
+      <div className="p-2"></div>
     </div>
   );
 };

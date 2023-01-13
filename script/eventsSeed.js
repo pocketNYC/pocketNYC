@@ -102,23 +102,23 @@ const events = [
     latitude: "40.69803025985018",
     longitude: "-73.91866967089781",
   },
-  {
-    title: "Bronx Sports Extravaganza: Flag Football and Softball",
-    address: "765 Manida Street Bronx, New York, NY, 10474",
-    description:
-      "Kids ages 6-12 are invited for free sports instruction at Hunts Point Recreation Center!",
-    image:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.bxtimes.com%2Fwp-content%2Fuploads%2F2018%2F08%2F32-a-palsportsday-2018-08-10-bx01_z-768x512.jpg&f=1&nofb=1&ipt=2512493b9c86cf516bf9fcb87401d01bdbbb3dd25f37b2775ee51038833967c5&ipo=images",
-    start: "2023-05-15 17:00",
-    end: "2023-05-15 19:00",
-    tags: ["sports", "multicultural", "family-friendly"],
-    borough: "Bronx",
-    eventLink:
-      "https://www.nyc.gov/events/bronx-sports-extravaganza-street-hockey/12059/7",
-    status: "approved",
-    latitude: "40.815130995747595",
-    longitude: "-73.8890485869093",
-  },
+  // {
+  //   title: "Bronx Sports Extravaganza: Flag Football and Softball",
+  //   address: "765 Manida Street Bronx, New York, NY, 10474",
+  //   description:
+  //     "Kids ages 6-12 are invited for free sports instruction at Hunts Point Recreation Center!",
+  //   image:
+  //     "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.bxtimes.com%2Fwp-content%2Fuploads%2F2018%2F08%2F32-a-palsportsday-2018-08-10-bx01_z-768x512.jpg&f=1&nofb=1&ipt=2512493b9c86cf516bf9fcb87401d01bdbbb3dd25f37b2775ee51038833967c5&ipo=images",
+  //   start: "2023-05-15 17:00",
+  //   end: "2023-05-15 19:00",
+  //   tags: ["sports", "multicultural", "family-friendly"],
+  //   borough: "Bronx",
+  //   eventLink:
+  //     "https://www.nyc.gov/events/bronx-sports-extravaganza-street-hockey/12059/7",
+  //   status: "approved",
+  //   latitude: "40.815130995747595",
+  //   longitude: "-73.8890485869093",
+  // },
   {
     title: "Latin American Cultural Fiesta",
     address: "West 34th Street, New York, NY, 10001",
@@ -250,22 +250,22 @@ const events = [
     latitude: "40.66285955593711",
     longitude: "-73.89626817708192",
   },
-  {
-    title: "Puerto Rican Day Parade",
-    address: "598 5th Ave, New York, NY 10036",
-    description:
-      "A parade designed to celebrate and advance Art, Culture and Education in the Puerto Rican community, both in Puerto Rico and the mainland U.S.",
-    image:
-      "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2017_21/2013061/puerto-rican-day-parade.jpg",
-    start: "2023-06-11 11:00",
-    end: "2023-06-11 16:00",
-    tags: ["multicultural", "city services", "outdoors"],
-    borough: "Manhattan",
-    eventLink: "https://www.nprdpinc.org",
-    status: "approved",
-    latitude: "40.7574893581487",
-    longitude: "-73.97824346208284",
-  },
+  // {
+  //   title: "Puerto Rican Day Parade",
+  //   address: "598 5th Ave, New York, NY 10036",
+  //   description:
+  //     "A parade designed to celebrate and advance Art, Culture and Education in the Puerto Rican community, both in Puerto Rico and the mainland U.S.",
+  //   image:
+  //     "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2017_21/2013061/puerto-rican-day-parade.jpg",
+  //   start: "2023-06-11 11:00",
+  //   end: "2023-06-11 16:00",
+  //   tags: ["multicultural", "city services", "outdoors"],
+  //   borough: "Manhattan",
+  //   eventLink: "https://www.nprdpinc.org",
+  //   status: "approved",
+  //   latitude: "40.7574893581487",
+  //   longitude: "-73.97824346208284",
+  // },
   {
     title: "Kwanzaa Crawl",
     address: "Commodore Barry Park, Flushing Ave, Brooklyn, NY 11201",
@@ -473,8 +473,7 @@ const events = [
   {
     title: "Live Jazz at Nook",
     address: "Nook 45 Irving Avenue #Unit 1 Brooklyn, NY 11237",
-    description:
-      "Free Live Jazz at Nook in Brooklyn!",
+    description: "Free Live Jazz at Nook in Brooklyn!",
     image:
       "https://images.pexels.com/photos/733767/pexels-photo-733767.jpeg?auto=compress&cs=tinysrgb&w=800",
     start: "2023-03-18 20:00",
@@ -505,7 +504,8 @@ const events = [
     longitude: "-74.04451113090403",
   },
   {
-    title: "Nutrition 101 Webinar: Increase Your Metabolism and Burn Fat Naturally",
+    title:
+      "Nutrition 101 Webinar: Increase Your Metabolism and Burn Fat Naturally",
     address: "Virtual",
     description:
       "Join Dr. Kevin to learn how to increase your metabolism and burn fat! Don't get confused with all the nutrition information overload online.",
@@ -574,7 +574,8 @@ const events = [
   },
   {
     title: "Harlem Car Seat Safety Training",
-    address: "East Harlem Neighborhood Health Action Center 158 East 115th Street New York, NY 10029",
+    address:
+      "East Harlem Neighborhood Health Action Center 158 East 115th Street New York, NY 10029",
     description:
       "NYC Department of Transportation’s Office of Safety Education and Outreach offers vibrant workshops, publications and trainings. Helping parents, families and caregivers reduce injuries and keep children safe in New York City's traffic environment and at home.",
     image:
@@ -594,8 +595,7 @@ const events = [
     address: "1826 Arthur Avenue The Bronx, NY 10457",
     description:
       "Newborn Care Course hosted by the Tremont Neighborhood Health Action Center.",
-    image:
-      "https://medlineplus.gov/images/InfantandNewbornCare_share.jpg",
+    image: "https://medlineplus.gov/images/InfantandNewbornCare_share.jpg",
     start: "2023-03-01 18:00",
     end: "2023-03-01 20:00",
     tags: ["family-friendly", "education"],
@@ -659,7 +659,8 @@ const events = [
   },
   {
     title: "Tree Care and Pruning by NYC Parks GreenThumb",
-    address: "College Avenue Community Garden 1420 College Ave. Bronx, NY 10456",
+    address:
+      "College Avenue Community Garden 1420 College Ave. Bronx, NY 10456",
     description:
       "In this workshop participants will learn some of the basic biology around pruning (stem structure, vascular tissue), the function of pruning, some of the primary types of pruning (thinning cuts, reduction cuts, heading cuts), and how to identify healthy tree structure.",
     image:
