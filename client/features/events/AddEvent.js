@@ -134,7 +134,12 @@ const AddEvent = () => {
                   <Row>
                     <Col className="d-flex justify-content-between">
                       <Col sm className="d-flex justify-content-start">
-                        <Form.Group controlId="start" className="mb-3" required>
+                        <Form.Group
+                          style={{ zIndex: 0 }}
+                          controlId="start"
+                          className="mb-3"
+                          required
+                        >
                           <DateTimePicker
                             label="Starting Date and Time"
                             value={startVal}
@@ -143,7 +148,12 @@ const AddEvent = () => {
                         </Form.Group>
                       </Col>
                       <Col sm className="d-flex justify-content-end">
-                        <Form.Group controlId="end" className="mb-3" required>
+                        <Form.Group
+                          style={{ zIndex: 0 }}
+                          controlId="end"
+                          className="mb-3"
+                          required
+                        >
                           <DateTimePicker
                             label="Ending Date and Time"
                             value={endVal}
@@ -224,11 +234,9 @@ const AddEvent = () => {
                   <Row>
                     <Col sm>
                       <Form.Group className="mb-6" controlId="tags">
-                        <label>
-                          {" "}
-                          Categories of interest (select up to 3):{" "}
-                        </label>
+                        <label>Categories of interest (select up to 3): </label>
                         <Typeahead
+                          style={{ zIndex: 0 }}
                           multiple
                           dropup
                           className="test-select mb-3"

@@ -55,11 +55,7 @@ function Login() {
         <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
           <Form.Group controlId="email">
             <Row style={{ margin: "0px", padding: "0px" }}>
-              <Form.Label
-                className="fw-bold"
-                label="Email Address"
-                style={{ paddingLeft: "16px" }}
-              >
+              <Form.Label label="Email Address" style={{ paddingLeft: "16px" }}>
                 Email Address
               </Form.Label>
             </Row>
@@ -77,11 +73,7 @@ function Login() {
         <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
           <Form.Group controlId="password">
             <Row style={{ margin: "0px", padding: "0px" }}>
-              <Form.Label
-                className="fw-bold"
-                label="Password"
-                style={{ paddingLeft: "16px" }}
-              >
+              <Form.Label label="Password" style={{ paddingLeft: "16px" }}>
                 Password
               </Form.Label>
             </Row>
@@ -97,6 +89,7 @@ function Login() {
                   variant="outline-primary"
                   onClick={togglePassword}
                   size="md"
+                  style={{ zIndex: 0 }}
                 >
                   {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
                 </Button>
