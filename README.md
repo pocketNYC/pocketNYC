@@ -19,7 +19,7 @@ Take a look at some sneak-peeks of our full-stack application:</b>
 <h2 align="center">What's going on "behind the scenes"?</h2>
 
 <img src='public/Schema.png' alt='PocketNYC Schema'/>
-<br>
+
 This schema was used to create associations in a SQL relational database. We leveraged PostgreSQL, Sequelize, NodeJS, and other back-end technologies to maintain data and enhance our user's experience. 
 <br/>
 <hr/>
