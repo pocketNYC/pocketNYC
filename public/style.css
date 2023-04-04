@@ -1,7 +1,7 @@
 body {
   font-family: "PoppinsReg";
   padding-bottom: 40px;
-  background-image: url("2.png");
+  background-image: url("transparentBG.png");
 }
 
 @font-face {
@@ -71,10 +71,6 @@ a.ex2:active {
   font-size: 120%;
 }
 
-/* form div {
-  /* margin: 1em; */
-  /* display: inline-block; */
-} */
 
 .underline {
   text-decoration: underline;
@@ -156,7 +152,7 @@ Button.scroll {
   border: 0.5px solid black;
   border-radius: 5px;
   width: 90%;
-  height: 100vh;
+  height: 80vh;
   margin-bottom: 1rem;
 }
 
@@ -164,10 +160,11 @@ Button.scroll {
   fill: #6f48eb;
 }
 .carousel-caption.d-none.d-md-block {
-  background-color: darkred;
-  opacity: 75%;
+  background-color: rgb(84, 84, 84);
+  opacity: 70%;
   border-radius: 1rem;
   height: fit-content;
+  color: white;
 }
 
 h1,

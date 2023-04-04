@@ -5,7 +5,7 @@ import TopNav from "./TopNav";
 const Navbar = () => {
   return (
     <div>
-      <TopNav />
+      {/* <TopNav /> */}
       {/* <BottomNav /> */}
     </div>
   );
