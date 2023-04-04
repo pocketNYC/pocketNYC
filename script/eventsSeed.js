@@ -6,8 +6,8 @@ const events = [
       "Take our signature tour, and let Central Park Conservancy guides give you an insider's look at some of the most iconic features of the world's greatest urban park.",
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg-vimbly-com-images.imgix.net%2Ffull_photos%2Fcentral-park-pedicab-tour-4.jpg%3Fauto%3Dcompress%26fit%3Dcrop%26h%3D490%26ixlib%3Dphp-1.2.1%26w%3D730&f=1&nofb=1&ipt=121f8762a9b462ccc9560bc64fa9397b9a8896f113384fb0be15072b8efd100c&ipo=images",
-    start: "2022-12-30 13:00",
-    end: "2022-12-30 15:00",
+    start: "2023-10-11 13:00",
+    end: "2023-10-11 15:00",
     tags: ["outdoors", "family-friendly"],
     borough: "Manhattan",
     eventLink: "https://www.centralpark.com/tours",
@@ -22,8 +22,8 @@ const events = [
       "This year's tree is a 50-foot Norway spruce that will be lit during a fireworks display. Olympic-medalist Johnny Weir will be among the talented skaters to hit the ice rink for a special performance that will include live music.",
     image:
       "https://secretnyc.co/wp-content/uploads/2017/11/bryparktree4-1024x710.jpg",
-    start: "2022-12-20 17:00",
-    end: "2022-12-20 22:00",
+    start: "2023-12-20 17:00",
+    end: "2023-12-20 22:00",
     tags: ["outdoors", "family-friendly", "arts"],
     borough: "Manhattan",
     eventLink: "https://bryantpark.org/",
@@ -40,8 +40,8 @@ const events = [
       "New York City is home to an amazing abundance of wildlife. Our Urban Park Rangers will guide you to the best wildlife viewing spots in the urban jungle.",
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.allaboutbirds.org%2Fnews%2Fwp-content%2Fuploads%2F2019%2F05%2FNYC-birds-Riepe.jpg&f=1&nofb=1&ipt=d859b3c5d5e170c8755c97eafe04b8c7aa8bde1d78b85734dc5294935341fe66&ipo=images",
-    start: "2022-12-01 12:00",
-    end: "2022-12-01 18:00",
+    start: "2023-07-01 12:00",
+    end: "2023-07-01 18:00",
     tags: ["outdoors", "family-friendly"],
     borough: "Queens",
     eventLink:
@@ -75,8 +75,8 @@ const events = [
       "Head to the High Line each Tuesday night for a romantic walk along the park and a chance to take a closer look at the stars.",
     image:
       "https://www.nps.gov/articles/000/images/ARCH_stargazing.jpeg?maxwidth=650&autorotate=false",
-    start: "2022-12-27 17:00",
-    end: "2022-12-27 21:00",
+    start: "2023-08-27 17:00",
+    end: "2023-08-27 21:00",
     tags: ["family-friendly"],
     borough: "Manhattan",
     eventLink: "https://www.thehighline.org/",
@@ -102,23 +102,23 @@ const events = [
     latitude: "40.69803025985018",
     longitude: "-73.91866967089781",
   },
-  // {
-  //   title: "Bronx Sports Extravaganza: Flag Football and Softball",
-  //   address: "765 Manida Street Bronx, New York, NY, 10474",
-  //   description:
-  //     "Kids ages 6-12 are invited for free sports instruction at Hunts Point Recreation Center!",
-  //   image:
-  //     "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.bxtimes.com%2Fwp-content%2Fuploads%2F2018%2F08%2F32-a-palsportsday-2018-08-10-bx01_z-768x512.jpg&f=1&nofb=1&ipt=2512493b9c86cf516bf9fcb87401d01bdbbb3dd25f37b2775ee51038833967c5&ipo=images",
-  //   start: "2023-05-15 17:00",
-  //   end: "2023-05-15 19:00",
-  //   tags: ["sports", "multicultural", "family-friendly"],
-  //   borough: "Bronx",
-  //   eventLink:
-  //     "https://www.nyc.gov/events/bronx-sports-extravaganza-street-hockey/12059/7",
-  //   status: "approved",
-  //   latitude: "40.815130995747595",
-  //   longitude: "-73.8890485869093",
-  // },
+  {
+    title: "Bronx Summer Sports Extravaganza: Flag Football and Softball",
+    address: "765 Manida Street Bronx, New York, NY, 10474",
+    description:
+      "Kids ages 6-12 are invited for free sports instruction starting the first day of summer at Hunts Point Recreation Center!",
+    image:
+      "https://images.squarespace-cdn.com/content/v1/549af14be4b038053fe035c4/1427141796113-VJZCNS4GPZVJ5DI0QJEO/web02.JPG?format=1500w",
+    start: "2023-06-21 17:00",
+    end: "2023-06-21 19:00",
+    tags: ["sports", "holidays", "family-friendly"],
+    borough: "Bronx",
+    eventLink:
+      "https://www.nyc.gov/events/bronx-sports-extravaganza-street-hockey/12059/7",
+    status: "approved",
+    latitude: "40.815130995747595",
+    longitude: "-73.8890485869093",
+  },
   {
     title: "Latin American Cultural Fiesta",
     address: "West 34th Street, New York, NY, 10001",
@@ -131,7 +131,7 @@ const events = [
     tags: ["multicultural", "arts", "family-friendly"],
     borough: "Manhattan",
     eventLink: "https://lacw.net/",
-    status: "pending",
+    status: "approved",
     longitude: "-74.19256591796875",
     latitude: "40.521690368652344",
   },
@@ -147,7 +147,7 @@ const events = [
     tags: ["outdoors"],
     borough: "Manhattan",
     eventLink: "https://www.nycpride.org/event/nyc-pride-march",
-    status: "pending",
+    status: "approved",
     latitude: "40.74228682409983",
     longitude: "-73.98798057341881",
   },
@@ -175,9 +175,9 @@ const events = [
       "Spread holiday cheer throughout the community with Christmas carols, festive crafts, sips and snacks, and more.",
     image:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.nydailynews.com%2Fresizer%2Fwo_PpwUJsRuDhBm2uM2umWOmfkw%3D%2F1400x0%2Ftop%2Farc-anglerfish-arc2-prod-tronc.s3.amazonaws.com%2Fpublic%2FGD2U6JJ2G52EVGWI7IIEPRUTT4.jpg&f=1&nofb=1&ipt=de700b91c813bf4091a8f54354da3e6722cb488714bb85985120a12caed79a42&ipo=images",
-    start: "2022-12-17 13:00",
-    end: "2022-12-17 18:00",
-    tags: ["holidays", "family-friendly", "outdoors"],
+    start: "2023-12-17 13:00",
+    end: "2023-12-17 18:00",
+    tags: ["holidays", "family-friendly"],
     borough: "Staten-Island",
     eventLink: "https://www.mallscenters.com/malls/new-york/staten-island-mall",
     status: "approved",
@@ -250,22 +250,6 @@ const events = [
     latitude: "40.66285955593711",
     longitude: "-73.89626817708192",
   },
-  // {
-  //   title: "Puerto Rican Day Parade",
-  //   address: "598 5th Ave, New York, NY 10036",
-  //   description:
-  //     "A parade designed to celebrate and advance Art, Culture and Education in the Puerto Rican community, both in Puerto Rico and the mainland U.S.",
-  //   image:
-  //     "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2017_21/2013061/puerto-rican-day-parade.jpg",
-  //   start: "2023-06-11 11:00",
-  //   end: "2023-06-11 16:00",
-  //   tags: ["multicultural", "city services", "outdoors"],
-  //   borough: "Manhattan",
-  //   eventLink: "https://www.nprdpinc.org",
-  //   status: "approved",
-  //   latitude: "40.7574893581487",
-  //   longitude: "-73.97824346208284",
-  // },
   {
     title: "Kwanzaa Crawl",
     address: "Commodore Barry Park, Flushing Ave, Brooklyn, NY 11201",
@@ -274,8 +258,8 @@ const events = [
 
     image:
       "https://www.essence.com/wp-content/uploads/2019/12/Kwanzaa-Crawl-1832x1374.jpg",
-    start: "2022-12-26 18:00",
-    end: "2022-12-26 23:00",
+    start: "2023-12-26 18:00",
+    end: "2023-12-26 23:00",
     tags: ["multicultural", "holidays"],
     borough: "Brooklyn",
     eventLink: "https://www.kwanzaacrawl.com",
@@ -358,8 +342,8 @@ const events = [
       "Get your picture taken with Santa, right here in Brooklyn! Bring the kids, and make sure to dress up in your best holiday outfit.",
     image:
       "https://www.gannett-cdn.com/presto/2018/11/06/PNJM/c8666c42-8d45-4480-89e1-d5d6a7825bd2-Black_Friday_Willowbrook_Mall.JPG",
-    start: "2022-12-18 12:00",
-    end: "2022-12-18 16:00",
+    start: "2023-12-18 12:00",
+    end: "2023-12-18 16:00",
     tags: ["holidays", "family-friendly"],
     borough: "Brooklyn",
     eventLink:
@@ -460,13 +444,13 @@ const events = [
       "Meet live with New York City Employers on Friday, March 3, 2023",
     image:
       "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F394575169%2F316131771624%2F1%2Foriginal.20221116-141434?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2000%2C1000&s=b726e56e4f6863186083a19b7e130e81",
-    start: "2023-03-03 09:30",
-    end: "2023-03-03 12:30",
+    start: "2023-07-11 09:30",
+    end: "2023-07-11 12:30",
     tags: ["employment"],
     borough: "Manhattan",
     eventLink:
       "https://www.eventbrite.com/e/new-york-career-fair-tickets-469118434867?aff=ebdssbdestsearch",
-    status: "pending",
+    status: "approved",
     latitude: "40.75397385294336",
     longitude: "-73.99263607136704",
   },
@@ -476,8 +460,8 @@ const events = [
     description: "Free Live Jazz at Nook in Brooklyn!",
     image:
       "https://images.pexels.com/photos/733767/pexels-photo-733767.jpeg?auto=compress&cs=tinysrgb&w=800",
-    start: "2023-03-18 20:00",
-    end: "2023-03-19 00:00",
+    start: "2023-08-19 20:00",
+    end: "2023-08-19 00:00",
     tags: ["music"],
     borough: "Brooklyn",
     eventLink:
@@ -493,8 +477,8 @@ const events = [
       "Meet singles online! Single and Ready to Mingle? Then make yourself known and register today for Speed Dating for Professional Singles.",
     image:
       "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F203778769%2F440079347442%2F1%2Foriginal.20211221-211745?w=720&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C9%2C1226%2C613&s=c160feaa579192e40ba2c9ebcc6992a9",
-    start: "2023-02-03 19:00",
-    end: "2023-02-03 20:00",
+    start: "2023-07-31 19:00",
+    end: "2023-07-31 20:00",
     tags: ["social"],
     borough: "Virtual",
     eventLink:
@@ -528,8 +512,8 @@ const events = [
       "The longest running stand-up comedy show in Brooklyn presented by Turner Sparks and Aaron Kominos-Smith (now in it’s 15th year)!",
     image:
       "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F104189980%2F57237649397%2F1%2Foriginal.jpg?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C112%2C960%2C480&s=42cccd93ae72f091bc0ec81ca9aa051c",
-    start: "2023-02-22 20:00",
-    end: "2023-02-22 21:15",
+    start: "2023-10-22 20:00",
+    end: "2023-10-22 21:15",
     tags: ["social"],
     borough: "Brooklyn",
     eventLink:
@@ -545,8 +529,8 @@ const events = [
       "The Queens Museum welcomes teens (ages 13+) and adults with disabilities to join us at the museum for art-making and exhibition exploration.",
     image:
       "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F336569939%2F686900417773%2F1%2Foriginal.20220209-174018?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C251%2C3000%2C1500&s=14d6b5212d97b1e1ab9b6910f9d886e8",
-    start: "2023-04-01 14:00",
-    end: "2023-12-10 16:00",
+    start: "2023-06-02 14:00",
+    end: "2023-06-02 16:00",
     tags: ["disability services", "family-friendly", "arts"],
     borough: "Queens",
     eventLink:
@@ -562,8 +546,8 @@ const events = [
       "Free IN-PERSON poetry writing workshop for all levels focusing on generating new work and sharing in a welcoming environment.",
     image:
       "https://images.pexels.com/photos/1925536/pexels-photo-1925536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    start: "2023-01-17 16:00",
-    end: "2023-01-17 17:30",
+    start: "2023-04-18 16:00",
+    end: "2023-04-18 17:30",
     tags: ["education, social"],
     borough: "Manhattan",
     eventLink:
@@ -580,8 +564,8 @@ const events = [
       "NYC Department of Transportation’s Office of Safety Education and Outreach offers vibrant workshops, publications and trainings. Helping parents, families and caregivers reduce injuries and keep children safe in New York City's traffic environment and at home.",
     image:
       "https://images.pexels.com/photos/6182086/pexels-photo-6182086.jpeg?auto=compress&cs=tinysrgb&w=800",
-    start: "2023-01-17 13:30",
-    end: "2023-01-17 15:40",
+    start: "2023-05-23 13:30",
+    end: "2023-05-23 15:40",
     tags: ["city services", "education"],
     borough: "Manhattan",
     eventLink:
@@ -613,8 +597,8 @@ const events = [
       "Come to the Pelham Parkway-Van Nest Library and meet other people who are practicing English, just like you!",
     image:
       "https://media.istockphoto.com/id/1191628351/photo/share-your-vision-with-people-wholl-work-to-achieve-it.jpg?s=612x612&w=0&k=20&c=CpcQX_NhQ_k9mNlY01N3lOZmHimsSdwVFrJD8YZlpKo=",
-    start: "2023-02-10 15:00",
-    end: "2023-02-10 16:30",
+    start: "2023-08-10 15:00",
+    end: "2023-08-10 16:30",
     tags: ["education", "social"],
     borough: "Bronx",
     eventLink:
@@ -630,8 +614,8 @@ const events = [
       "Come join us at Cambria Center for the Gifted Child for #HashtagLunchbag Queens and help us end world hunger one lunch bag at a time!",
     image:
       "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F412984529%2F2452504192%2F1%2Foriginal.20221221-162006?w=720&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C76%2C1080%2C540&s=837404aecc4ba7fc95f6eb08027887f6",
-    start: "2023-02-05 12:00",
-    end: "2022-02-05 14:00",
+    start: "2024-02-05 12:00",
+    end: "2024-02-05 14:00",
     tags: ["family-friendly", "social"],
     borough: "Queens",
     eventLink:
@@ -647,8 +631,8 @@ const events = [
       "Join us in feeding our community by dropping off food/non-perishable goods!",
     image:
       "https://summitlife.org/wp-content/uploads/2016/01/Second-Harvest-Items.jpg",
-    start: "2023-02-19 09:00",
-    end: "2023-02-19 11:00",
+    start: "2023-11-19 09:00",
+    end: "2023-11-19 11:00",
     tags: ["food"],
     borough: "Staten-Island",
     eventLink:
@@ -665,8 +649,8 @@ const events = [
       "In this workshop participants will learn some of the basic biology around pruning (stem structure, vascular tissue), the function of pruning, some of the primary types of pruning (thinning cuts, reduction cuts, heading cuts), and how to identify healthy tree structure.",
     image:
       "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F382254859%2F234449876952%2F1%2Foriginal.20221028-144744?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C303%2C3024%2C1512&s=5a4d4d99fbae291db5e5f5e5ff1cb4a8",
-    start: "2022-02-25 11:00",
-    end: "2022-02-25 13:00",
+    start: "2024-02-25 11:00",
+    end: "2024-02-25 13:00",
     tags: ["city services", "education", "outdoors"],
     borough: "Bronx",
     eventLink:
@@ -774,6 +758,375 @@ const events = [
     status: "approved",
     latitude: "40.722231718465935",
     longitude: "-73.95142763341207",
+  },
+  {
+    title: "Spring Fest Easter Egg Hunt",
+    address: "111-65 Merrick Blvd Jamaica, NY 11413",
+    description:
+      "FREE Egg Hunt! Huge Circus Show, Egg Decorating, Pony Rides, Face Painting, Bouncy Houses, Relay Race, Carnival Games, Music, Talent Show!",
+    image:
+      "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F462774799%2F264197872401%2F1%2Foriginal.20230307-132114?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C105%2C860%2C430&s=c5b6032b6945c53eaaadf6cfa301d193",
+    start: "2023-04-09 12:45",
+    end: "2023-04-09 15:45",
+    tags: ["holidays", "family-friendly"],
+    borough: "Queens",
+    eventLink:
+      "https://www.eventbrite.com/e/the-circus-comes-to-our-egg-hunt-2nd-free-spring-fest-event-queens-ny-tickets-574877212217?aff=ebdssbcitybrowse",
+    status: "approved",
+    latitude: "40.692976739884394",
+    longitude: " -73.77918415981755",
+  },
+  {
+    title: "Mommy & Me: Painting Class",
+    address: "177-01 Baisley Blvd, Queens, NY 11434",
+    description:
+      "A fun bonding experience for you and your little one! Come paint with us.",
+    image:
+      "https://images.pexels.com/photos/6999313/pexels-photo-6999313.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-05-09 18:00",
+    end: "2023-05-09 19:00",
+    tags: ["family-friendly", "arts", 'holidays'],
+    borough: "Queens",
+    eventLink: "https://tinybeans.com/new-york/paint-and-wine-studios-nyc/",
+    status: "approved",
+    latitude: "40.68813504063366",
+    longitude: "-73.76980728735651",
+  },
+  {
+    title: "Daddy & Me: Painting Class",
+    address: "177-01 Baisley Blvd, Queens, NY 11434",
+    description:
+      "A fun bonding experience for you and your little one! Come paint with us.",
+    image:
+      "https://images.pexels.com/photos/14380160/pexels-photo-14380160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-06-19 18:00",
+    end: "2023-06-19 19:00",
+    tags: ["family-friendly", "arts", "holidays"],
+    borough: "Queens",
+    eventLink: "https://tinybeans.com/new-york/paint-and-wine-studios-nyc/",
+    status: "approved",
+    latitude: "40.68813504063366",
+    longitude: "-73.76980728735651",
+  },
+  {
+    title: "Chelsea Piers Fitness Yoga Class",
+    address: "450 West 16th St",
+    description:
+      "Interested in trying something new this year or improving your yoga practice? Join Chelsea Piers Fitness on Thursday mornings at 7:00am for an all-level 60-minute Vinyasa Flow. The class will be hosted in the Maker's Room at Chelsea Market.",
+    image:
+      "https://www.pexels.com/photo/women-performing-yoga-on-green-grass-near-trees-1472887/",
+    end: "2023-04-27 07:00",
+    tags: ["outdoors", "health"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/chelsea-piers-fitness-yoga-class-tickets-499625462207?aff=ebdssbcitybrowse",
+    status: "approved",
+    latitude: "40.74259151619726",
+    longitude: "-74.0062010751583",
+  },
+  {
+    title: "Chelsea Piers Fitness Yoga Class",
+    address: "450 West 16th St",
+    description:
+      "Interested in trying something new this year or improving your yoga practice? Join Chelsea Piers Fitness on Thursday mornings at 7:00am for an all-level 60-minute Vinyasa Flow. The class will be hosted in the Maker's Room at Chelsea Market.",
+    image:
+      "https://images.pexels.com/photos/8436741/pexels-photo-8436741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-06-01 07:00",
+    end: "2023-06-01 08:00",
+    tags: ["sports", "health"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/chelsea-piers-fitness-yoga-class-tickets-499625462207?aff=ebdssbcitybrowse",
+    status: "approved",
+    latitude: "40.74259151619726",
+    longitude: "-74.0062010751583",
+  },
+  {
+    title: "Chelsea Piers Fitness Yoga Class",
+    address: "450 West 16th St",
+    description:
+      "Interested in trying something new this year or improving your yoga practice? Join Chelsea Piers Fitness on Thursday mornings at 7:00am for an all-level 60-minute Vinyasa Flow. The class will be hosted in the Maker's Room at Chelsea Market.",
+    image:
+      "https://images.pexels.com/photos/8436581/pexels-photo-8436581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-07-13 07:00",
+    end: "2023-07-13 08:00",
+    tags: ["sports", "health"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/chelsea-piers-fitness-yoga-class-tickets-499625462207?aff=ebdssbcitybrowse",
+    status: "approved",
+    latitude: "40.74259151619726",
+    longitude: "-74.0062010751583",
+  },
+  {
+    title: "Chelsea Piers Fitness Yoga Class",
+    address: "450 West 16th St",
+    description:
+      "Interested in trying something new this year or improving your yoga practice? Join Chelsea Piers Fitness on Thursday mornings at 7:00am for an all-level 60-minute Vinyasa Flow. The class will be hosted in the Maker's Room at Chelsea Market.",
+    image:
+      "https://images.pexels.com/photos/1375883/pexels-photo-1375883.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-06-15 07:00",
+    end: "2023-06-15 08:00",
+    tags: ["sports", "health"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/chelsea-piers-fitness-yoga-class-tickets-499625462207?aff=ebdssbcitybrowse",
+    status: "approved",
+    latitude: "40.74259151619726",
+    longitude: "-74.0062010751583",
+  },
+  {
+    title: "Chelsea Piers Fitness Yoga Class",
+    address: "450 West 16th St",
+    description:
+      "Interested in trying something new this year or improving your yoga practice? Join Chelsea Piers Fitness on Thursday mornings at 7:00am for an all-level 60-minute Vinyasa Flow. The class will be hosted in the Maker's Room at Chelsea Market.",
+    image:
+      "https://images.pexels.com/photos/8437076/pexels-photo-8437076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-05-25 07:00",
+    end: "2023-05-25 08:00",
+    tags: ["sports", "health"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/chelsea-piers-fitness-yoga-class-tickets-499625462207?aff=ebdssbcitybrowse",
+    status: "pending",
+    latitude: "40.74259151619726",
+    longitude: "-74.0062010751583",
+  },
+  {
+    title: "Bushwick’s Got Talent: Variety Show!",
+    address: "2 Wyckoff Avenue Brooklyn, NY 11237",
+    description:
+      "Bushwick’s Got Talent is our monthly FREE spectacle of outrageous entertainment, showcasing fresh talent and never-before-seen acts at their boldest, brightest and messiest- all for your pleasure.",
+    image:
+      "https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+
+    start: "2023-08-09 19:00",
+    end: "2023-08-09 21:00",
+    tags: ["multicultural", "arts"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.eventbrite.com/e/bushwicks-got-talent-variety-show-tickets-548004134117?aff=ebdssbcitybrowse",
+    status: "approved",
+    latitude: "40.7069951933569",
+    longitude: "-73.92364291534236",
+  },
+  {
+    title: "Bushwick’s Got Talent: Variety Show!",
+    address: "2 Wyckoff Avenue Brooklyn, NY 11237",
+    description:
+      "Bushwick’s Got Talent is our monthly FREE spectacle of outrageous entertainment, showcasing fresh talent and never-before-seen acts at their boldest, brightest and messiest- all for your pleasure.",
+    image:
+      "https://images.pexels.com/photos/9419224/pexels-photo-9419224.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    end: "2023-05-05 19:00",
+    tags: ["multicultural", "arts"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.eventbrite.com/e/bushwicks-got-talent-variety-show-tickets-548004134117?aff=ebdssbcitybrowse",
+    status: "approved",
+    latitude: "40.7069951933569",
+    longitude: "-73.92364291534236",
+  },
+  {
+    title: "Bushwick’s Got Talent: Variety Show!",
+    address: "2 Wyckoff Avenue Brooklyn, NY 11237",
+    description:
+      "Bushwick’s Got Talent is our monthly FREE spectacle of outrageous entertainment, showcasing fresh talent and never-before-seen acts at their boldest, brightest and messiest- all for your pleasure.",
+    image:
+      "https://images.pexels.com/photos/7097470/pexels-photo-7097470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-07-12 19:00",
+    end: "2023-07-12 21:00",
+    tags: ["multicultural", "arts"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.eventbrite.com/e/bushwicks-got-talent-variety-show-tickets-548004134117?aff=ebdssbcitybrowse",
+    status: "approved",
+    latitude: "40.7069951933569",
+    longitude: "-73.92364291534236",
+  },
+  {
+    title: "Bushwick’s Got Talent: Variety Show!",
+    address: "2 Wyckoff Avenue Brooklyn, NY 11237",
+    description:
+      "Bushwick’s Got Talent is our monthly FREE spectacle of outrageous entertainment, showcasing fresh talent and never-before-seen acts at their boldest, brightest and messiest- all for your pleasure.",
+    image:
+      "https://images.pexels.com/photos/1751731/pexels-photo-1751731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-04-05 19:00",
+    end: "2023-04-05 21:00",
+    tags: ["multicultural", "arts"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.eventbrite.com/e/bushwicks-got-talent-variety-show-tickets-548004134117?aff=ebdssbcitybrowse",
+    status: "approved",
+    latitude: "40.7069951933569",
+    longitude: "-73.92364291534236",
+  },
+  {
+    title: "Bushwick’s Got Talent: Variety Show!",
+    address: "2 Wyckoff Avenue Brooklyn, NY 11237",
+    description:
+      "Bushwick’s Got Talent is our monthly FREE spectacle of outrageous entertainment, showcasing fresh talent and never-before-seen acts at their boldest, brightest and messiest- all for your pleasure.",
+    image:
+      "https://images.pexels.com/photos/730656/pexels-photo-730656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-10-04 19:00",
+    end: "2023-10-04 21:00",
+    tags: ["multicultural", "arts"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.eventbrite.com/e/bushwicks-got-talent-variety-show-tickets-548004134117?aff=ebdssbcitybrowse",
+    status: "approved",
+    latitude: "40.7069951933569",
+    longitude: "-73.92364291534236",
+  },
+  {
+    title: "Bushwick’s Got Talent: Variety Show!",
+    address: "2 Wyckoff Avenue Brooklyn, NY 11237",
+    description:
+      "Bushwick’s Got Talent is our monthly FREE spectacle of outrageous entertainment, showcasing fresh talent and never-before-seen acts at their boldest, brightest and messiest- all for your pleasure.",
+    image:
+      "https://images.pexels.com/photos/359995/pexels-photo-359995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-11-08 19:00",
+    end: "2023-11-08 21:00",
+    tags: ["multicultural", "arts"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.eventbrite.com/e/bushwicks-got-talent-variety-show-tickets-548004134117?aff=ebdssbcitybrowse",
+    status: "pending",
+    latitude: "40.7069951933569",
+    longitude: "-73.92364291534236",
+  },
+  {
+    title: "Bushwick’s Got Talent: Variety Show!",
+    address: "2 Wyckoff Avenue Brooklyn, NY 11237",
+    description:
+      "Bushwick’s Got Talent is our monthly FREE spectacle of outrageous entertainment, showcasing fresh talent and never-before-seen acts at their boldest, brightest and messiest- all for your pleasure.",
+    image:
+      "https://images.pexels.com/photos/1246437/pexels-photo-1246437.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-11-29 19:00",
+    end: "2023-11-29 21:00",
+    tags: ["multicultural", "arts"],
+    borough: "Brooklyn",
+    eventLink:
+      "https://www.eventbrite.com/e/bushwicks-got-talent-variety-show-tickets-548004134117?aff=ebdssbcitybrowse",
+    status: "approved",
+    latitude: "40.7069951933569",
+    longitude: "-73.92364291534236",
+  },
+  {
+    title: "Halloween Candy Extravaganza",
+    address: "422 Central Ave, Brooklyn, NY 11221",
+    description: "Families can come and enjoy FREE halloween candy and treats!",
+    image:
+      "https://images.pexels.com/photos/3095465/pexels-photo-3095465.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-10-31 17:00",
+    end: "2023-10-31 19:00",
+    tags: ["family-friendly", "holidays"],
+    borough: "Brooklyn",
+    eventLink: "Check back for an event link!",
+    status: "pending",
+    latitude: "40.694203862654305",
+    longitude: "-73.91759812972036",
+  },
+  {
+    title: "Bronx Night Market",
+    address: "1 Fordham Plaza The Bronx, NY 10458",
+    description:
+      "The borough’s most famous cuisine & culture festival is returning for its 6th season. The food event that has become a staple in the Bronx, gathering an average of 4k patrons per event, comes back to Fordham Plaza bigger and better. The market features a curated selection of local Bronx & NYC-based food, beverage, arts & crafts, and packaged goods vendors representing New York’s diversity. The series also features live performances from the Bronx and NYC's favorite local artists and various all-family activities.",
+    image:
+      "https://images.pexels.com/photos/2240361/pexels-photo-2240361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-04-29 17:30",
+    end: "2023-04-29 19:45",
+    tags: ["outdoors", "multicultural"],
+    borough: "Bronx",
+    eventLink:
+      "https://www.eventbrite.com/e/bronx-night-market-tickets-472823877947?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.86086885006952",
+    longitude: "-73.89021608864779",
+  },
+  {
+    title: "Earth Day 2023 Festival",
+    address:
+      "Union Square North Plaza - E. 17th St. and Park Ave. New York, NY 10003",
+    description:
+      "Join us this April in person at the Earth Day 2023 Festival in New York City’s Union Square. Our annual in-person festival is the most high-traffic Earth Day event in the country and features dozens of environmental non-profits and climate campaigns, interactive workshops, and kids’ activities.",
+    image:
+      "https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    end: "2023-04-16 13:00",
+    end: "2023-04-16 15:15",
+    tags: ["holidays", "family-friendly", "outdoors"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/earth-day-2023-festival-tickets-599171697677?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.73673950615003",
+    longitude: "-73.98893384232882",
+  },
+  {
+    title: "Uptown Night Market",
+    address: "701 W 133rd St New York, NY 10027",
+    description:
+      "New York’s largest cuisine, culture, and community festival is back for its 3rd season in West Harlem. Manhattan’s most celebrated food event series, which gathered an average of 7k patrons per event in 2022, comes back Under the Arches bigger and better.",
+    image:
+      "https://images.pexels.com/photos/104884/pexels-photo-104884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-07-11 19:00",
+    end: "2023-07-11 21:00",
+    tags: ["outdoors", "multicultural"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/uptown-night-market-tickets-472845111457?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.82039592690953",
+    longitude: "-73.95895681527398",
+  },
+  {
+    title: "Sunday Jazz Underground Social Club",
+    address: "110 Delancey Street New York, NY 10002",
+    description:
+      "Come by Sour Mouse sunday afternoon to grab a drink and enjoy amazing singers and musicians performances. Great for a relaxing day with friends or even a date! Enjoy a game of billiards with some incredible tunes.",
+    image:
+      "https://images.pexels.com/photos/733767/pexels-photo-733767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-09-17 16:00",
+    end: "2023-09-17 19:00",
+    tags: ["multicultural", "arts"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/sunday-jazz-underground-social-club-tickets-365851209817?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.71910674766768",
+    longitude: "-73.98838698865228",
+  },
+  {
+    title: "Doctors without Borders Recruitment Session",
+    address: " 40 Rector Street 16th Floor New York, NY 10006",
+    description:
+      "On Tuesday, April 11th, medical and non-medical professionals are invited to join us for an evening presentation to learn more about how you can join Doctors Without Borders’ pool of dedicated aid workers. ",
+    image:
+      "https://images.pexels.com/photos/1170979/pexels-photo-1170979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-04-11 18:00",
+    end: "2023-04-11 19:30",
+    tags: ["education", "employment"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/doctors-without-borders-recruitment-session-new-york-ny-registration-576351582097?aff=ebdssbdestsearch",
+    status: "approved",
+    latitude: "40.71910674766768",
+    longitude: "-73.98838698865228",
+  },
+  {
+    title: "New York Tech Career Fair: Exclusive Tech Hiring Event",
+    address: "Virtual",
+    description:
+      "We will be hosting a virtual Tech Career Fair with our hiring partners from fast growing startups and Fortune 500 companies in technology.  There will be a focus on helping companies achieve their diversity and inclusivity initiative with more diverse candidates to their talent pool. ",
+    image:
+      "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    start: "2023-04-21 12:00",
+    end: "2023-04-21 15:30",
+    tags: ["employment"],
+    borough: "Manhattan",
+    eventLink:
+      "https://www.eventbrite.com/e/new-york-tech-career-fair-exclusive-tech-hiring-event-tickets-146584912419?aff=ebdssbdestsearch",
+    latitude: "40.750214659224326",
+    longitude: "-73.99262621378855",
   },
 ];
 

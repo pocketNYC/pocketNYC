@@ -8,8 +8,6 @@ import AddEvent from "../features/events/AddEvent";
 import Admin from "../features/admin/Admin";
 import EditUserProfile from "../features/users/EditUserAccountDetails";
 import Error from "../features/error/Error";
-import Login from "../features/auth/Login";
-import Signup from "../features/auth/Signup";
 import Resources from "../features/resources/Resources";
 import SingleResource from "../features/resources/SingleResource";
 import SingleUserProfile from "../features/users/SingleUserProfile";

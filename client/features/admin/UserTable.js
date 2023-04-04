@@ -5,7 +5,6 @@ import Toggle from "react-toggle";
 import "./toggleButton.css";
 import { editUser } from "../users/userSlice";
 import "./userTable.css";
-import LoadingScreen from "../loading/LoadingScreen";
 
 function UserTable() {
   const users = useSelector((state) => state.user.allUsers);

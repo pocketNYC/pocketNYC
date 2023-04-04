@@ -1,8 +1,6 @@
 .splash {
-  /* background-image: url("../../../public/LoadingImage.JPG"); */
   background-position: center;
   background-size: cover;
-  /* opacity: 0.9; */
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
